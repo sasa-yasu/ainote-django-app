@@ -12,10 +12,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
+from dotenv import load_dotenv
+
 from .log_config import LOGGING
 
 # ログ設定
 LOGGING = LOGGING
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,15 +30,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5w5wxuqy!$tvj&1&e=97(3mu$=2hldjmv@@d93uc@ac$*9--%h'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','ainote-django-app.onrender.com','ainote-django-app.railway.app']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-SITE_DOMAIN = "http://127.0.0.1:8000"  # ローカル環境用
+SITE_DOMAIN = os.getenv('SITE_DOMAIN')
+
 # 本番環境は以下のように変更
 # SITE_DOMAIN = "https://your-production-domain.com"
 # Application definition
@@ -46,7 +52,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',  # humanizeを有効化
-    'django.conf.locale', # 日本語の翻訳ファイルを有効化
 
 #    'maintenance_mode', #メンテナンスモード
 
@@ -101,11 +106,17 @@ WSGI_APPLICATION = 'AinoteProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+## SQLite
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
+# Postgre
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
 }
 
 # Login Redirect
@@ -141,8 +152,7 @@ DATE_FORMAT = 'Y/m/d'             # 日付フォーマット (例: 2025/03/20)
 DATETIME_FORMAT = 'Y/m/d H:i:s'   # 日時フォーマット
 
 USE_I18N = True # 翻訳機能を有効にする
-USE_L10N = True # 日付や数値のローカライズを有効にする
-USE_TZ = False
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)

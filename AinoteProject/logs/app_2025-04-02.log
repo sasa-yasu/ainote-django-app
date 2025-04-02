@@ -1732,3 +1732,98 @@ AttributeError: 'InMemoryUploadedFile' object has no attribute 'path'
 [INFO] 2025-04-02 11:57:03,679 [UID:2] basehttp - "GET /static/assets/dist/js/bootstrap.js HTTP/1.1" 200 145007
 [INFO] 2025-04-02 11:57:03,753 [UID:2] basehttp - "GET /static/assets/dist/js/bootstrap.js.map HTTP/1.1" 304 0
 [INFO] 2025-04-02 13:51:24,467 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 17:59:30,688 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[ERROR] 2025-04-02 17:59:42,619 [UID:Anon] exception - Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+[WARNING] 2025-04-02 17:59:42,697 [UID:Anon] log - Bad Request: /top/
+[WARNING] 2025-04-02 17:59:42,698 [UID:Anon] basehttp - "GET /top/ HTTP/1.1" 400 74577
+[INFO] 2025-04-02 18:00:43,097 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 18:00:46,134 [UID:Anon] basehttp - "GET /top/ HTTP/1.1" 200 20906
+[INFO] 2025-04-02 18:00:46,246 [UID:Anon] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 14410
+[INFO] 2025-04-02 18:00:58,158 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-04-02 18:01:05,508 [UID:1] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-04-02 18:01:05,565 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 20904
+[INFO] 2025-04-02 18:01:05,662 [UID:1] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 14410
+[DEBUG] 2025-04-02 18:01:14,700 [UID:1] views - start Chat list_view
+[DEBUG] 2025-04-02 18:01:14,760 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 18:01:14,760 [UID:1] views - return render chat/list.html
+[INFO] 2025-04-02 18:01:14,765 [UID:1] basehttp - "GET /chat/list/ HTTP/1.1" 200 15957
+[DEBUG] 2025-04-02 18:01:18,293 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-02 18:01:18,344 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 18:01:18,344 [UID:1] views - return render user/list.html
+[INFO] 2025-04-02 18:01:18,346 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 16057
+[INFO] 2025-04-02 18:01:21,687 [UID:1] views - start Profile create_view
+[INFO] 2025-04-02 18:01:21,687 [UID:1] views - GET method
+[DEBUG] 2025-04-02 18:01:21,688 [UID:1] forms - mbti_value=None
+[DEBUG] 2025-04-02 18:01:21,689 [UID:1] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[INFO] 2025-04-02 18:01:21,689 [UID:1] views - return render user/create.html
+[INFO] 2025-04-02 18:01:21,700 [UID:1] basehttp - "GET /user/create/ HTTP/1.1" 200 36105
+[INFO] 2025-04-02 18:01:44,898 [UID:1] basehttp - "GET /admin HTTP/1.1" 301 0
+[INFO] 2025-04-02 18:01:45,014 [UID:1] basehttp - "GET /admin/ HTTP/1.1" 200 13470
+[INFO] 2025-04-02 18:01:45,043 [UID:1] basehttp - "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:45,045 [UID:Anon] basehttp - "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:45,048 [UID:Anon] basehttp - "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:45,049 [UID:Anon] basehttp - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:45,050 [UID:Anon] basehttp - "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:45,055 [UID:Anon] basehttp - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:45,102 [UID:Anon] basehttp - "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[INFO] 2025-04-02 18:01:54,726 [UID:1] basehttp - "GET /admin/ HTTP/1.1" 200 13470
+[INFO] 2025-04-02 18:01:54,743 [UID:1] basehttp - "GET /static/admin/css/base.css HTTP/1.1" 200 22092
+[INFO] 2025-04-02 18:01:54,744 [UID:Anon] basehttp - "GET /static/admin/css/responsive.css HTTP/1.1" 200 17972
+[INFO] 2025-04-02 18:01:54,758 [UID:Anon] basehttp - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:54,758 [UID:1] basehttp - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[INFO] 2025-04-02 18:01:55,673 [UID:1] basehttp - "GET /admin/ HTTP/1.1" 200 13470
+[INFO] 2025-04-02 18:01:56,339 [UID:1] basehttp - "GET /admin/ HTTP/1.1" 200 13470
+[INFO] 2025-04-02 18:01:56,630 [UID:1] basehttp - "GET /admin/ HTTP/1.1" 200 13470
+[INFO] 2025-04-02 18:01:59,372 [UID:1] basehttp - "GET /admin/auth/user/ HTTP/1.1" 200 17549
+[INFO] 2025-04-02 18:01:59,398 [UID:Anon] basehttp - "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:59,399 [UID:Anon] basehttp - "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:59,400 [UID:Anon] basehttp - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:59,400 [UID:1] basehttp - "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+[INFO] 2025-04-02 18:01:59,401 [UID:1] basehttp - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:59,404 [UID:Anon] basehttp - "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:59,406 [UID:Anon] basehttp - "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:59,407 [UID:Anon] basehttp - "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:59,410 [UID:1] basehttp - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:59,412 [UID:Anon] basehttp - "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:59,412 [UID:Anon] basehttp - "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:01:59,418 [UID:Anon] basehttp - "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[INFO] 2025-04-02 18:01:59,458 [UID:1] basehttp - "GET /admin/jsi18n/ HTTP/1.1" 200 10322
+[INFO] 2025-04-02 18:01:59,472 [UID:Anon] basehttp - "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+[INFO] 2025-04-02 18:01:59,472 [UID:1] basehttp - "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[INFO] 2025-04-02 18:01:59,473 [UID:Anon] basehttp - "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[INFO] 2025-04-02 18:02:02,305 [UID:1] basehttp - "GET /admin/auth/user/1/change/ HTTP/1.1" 200 61902
+[INFO] 2025-04-02 18:02:02,335 [UID:1] basehttp - "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:02:02,336 [UID:Anon] basehttp - "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:02:02,337 [UID:1] basehttp - "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:02:02,342 [UID:1] basehttp - "GET /static/admin/js/inlines.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:02:02,342 [UID:Anon] basehttp - "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:02:02,344 [UID:1] basehttp - "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:02:02,346 [UID:1] basehttp - "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:02:02,349 [UID:1] basehttp - "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[INFO] 2025-04-02 18:02:02,351 [UID:1] basehttp - "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[INFO] 2025-04-02 18:02:02,352 [UID:1] basehttp - "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:02:02,359 [UID:1] basehttp - "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:02:02,398 [UID:1] basehttp - "GET /admin/jsi18n/ HTTP/1.1" 200 10322
+[INFO] 2025-04-02 18:02:02,499 [UID:1] basehttp - "GET /static/admin/img/inline-delete.svg HTTP/1.1" 200 560
+[INFO] 2025-04-02 18:02:02,524 [UID:1] basehttp - "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:02:02,526 [UID:1] basehttp - "GET /static/admin/img/selector-icons.svg HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:02:02,526 [UID:1] basehttp - "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 304 0
+[INFO] 2025-04-02 18:02:52,886 [UID:1] basehttp - "POST /admin/auth/user/1/change/ HTTP/1.1" 302 0
+[INFO] 2025-04-02 18:02:52,951 [UID:1] basehttp - "GET /admin/auth/user/ HTTP/1.1" 200 17748
+[INFO] 2025-04-02 18:02:53,158 [UID:1] basehttp - "GET /admin/jsi18n/ HTTP/1.1" 200 10322
+[INFO] 2025-04-02 18:03:21,667 [UID:1] basehttp - "GET / HTTP/1.1" 200 20904
+[INFO] 2025-04-02 18:03:21,800 [UID:1] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 14410
+[DEBUG] 2025-04-02 18:03:25,372 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-02 18:03:25,424 [UID:1] views - object_list exists
+[INFO] 2025-04-02 18:03:25,426 [UID:1] views - return render user/list.html
+[INFO] 2025-04-02 18:03:25,435 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 17990
