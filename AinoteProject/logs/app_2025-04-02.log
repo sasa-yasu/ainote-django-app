@@ -1831,3 +1831,272 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000
 [INFO] 2025-04-02 18:32:30,092 [UID:Anon] autoreload - Watching for file changes with StatReloader
 [INFO] 2025-04-02 18:35:46,672 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\AinoteProject\settings.py changed, reloading.
 [INFO] 2025-04-02 18:35:47,245 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 19:05:07,529 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-04-02 19:07:27,601 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-02 19:07:27,656 [UID:1] views - object_list exists
+[INFO] 2025-04-02 19:07:27,658 [UID:1] views - return render user/list.html
+[INFO] 2025-04-02 19:07:27,693 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 17990
+[INFO] 2025-04-02 19:07:31,519 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 19:07:31,572 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-02 19:07:31,577 [UID:1] views - return render user/detail.html
+[INFO] 2025-04-02 19:07:31,593 [UID:1] basehttp - "GET /user/detail/1/ HTTP/1.1" 200 23763
+[INFO] 2025-04-02 19:07:31,674 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-02 19:07:31,674 [UID:1] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=1
+[DEBUG] 2025-04-02 19:07:31,693 [UID:1] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 19:07:31,789 [UID:1] basehttp - "GET /friend/disp_qr/1/ HTTP/1.1" 200 8320
+[INFO] 2025-04-02 19:07:33,034 [UID:1] views - start Profile update_view
+[DEBUG] 2025-04-02 19:07:33,034 [UID:1] views - get Profile object(pk)
+[INFO] 2025-04-02 19:07:33,039 [UID:1] views - GET method
+[DEBUG] 2025-04-02 19:07:33,040 [UID:1] forms - mbti_value=INFJ
+[DEBUG] 2025-04-02 19:07:33,040 [UID:1] forms - self.fields['mbti_name'].choices=[('INFJ-0', 'INFJ:提唱者'), ('INFJ-1', 'INFJ:理想を追う作家'), ('INFJ-2', 'INFJ:ひそかなユニコーン')]
+[INFO] 2025-04-02 19:07:33,040 [UID:1] views - return render user/update.html
+[INFO] 2025-04-02 19:07:33,060 [UID:1] basehttp - "GET /user/update/1/ HTTP/1.1" 200 36536
+[DEBUG] 2025-04-02 19:07:33,108 [UID:1] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 19:07:33,163 [UID:1] views - mbti_name_choices=[('INFJ-0', 'INFJ:提唱者'), ('INFJ-1', 'INFJ:理想を追う作家'), ('INFJ-2', 'INFJ:ひそかなユニコーン')]
+[INFO] 2025-04-02 19:07:33,163 [UID:1] basehttp - "GET /user/get_mbti_name_choices/?mbti=INFJ HTTP/1.1" 200 200
+[INFO] 2025-04-02 19:08:59,848 [UID:1] views - start Profile update_view
+[DEBUG] 2025-04-02 19:08:59,849 [UID:1] views - get Profile object(pk)
+[INFO] 2025-04-02 19:08:59,851 [UID:1] views - POST method
+[DEBUG] 2025-04-02 19:08:59,852 [UID:1] forms - mbti_value=INFJ
+[DEBUG] 2025-04-02 19:08:59,852 [UID:1] forms - self.fields['mbti_name'].choices=[('INFJ-0', 'INFJ:提唱者'), ('INFJ-1', 'INFJ:理想を追う作家'), ('INFJ-2', 'INFJ:ひそかなユニコーン')]
+[DEBUG] 2025-04-02 19:08:59,854 [UID:1] forms - mbti_name_value=INFJ-0
+[DEBUG] 2025-04-02 19:08:59,854 [UID:1] forms - valid_choices=['INFJ-0', 'INFJ-1', 'INFJ-2']
+[DEBUG] 2025-04-02 19:09:00,102 [UID:1] views - form.is_valid
+[DEBUG] 2025-04-02 19:09:00,102 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 19:09:00,102 [UID:1] views - old images_data exists
+[DEBUG] 2025-04-02 19:09:00,103 [UID:1] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\3_images_2503242121.jpg
+[DEBUG] 2025-04-02 19:09:00,103 [UID:1] views - old images_data file not exists
+[DEBUG] 2025-04-02 19:09:00,103 [UID:1] views - new images_data=1_images_2504021009.jpg
+[DEBUG] 2025-04-02 19:09:00,103 [UID:1] views - save new images_data
+[DEBUG] 2025-04-02 19:09:00,104 [UID:1] views - themes_data exists=3_themes_2503242138.jpg
+[DEBUG] 2025-04-02 19:09:00,104 [UID:1] views - old themes_data exists
+[DEBUG] 2025-04-02 19:09:00,104 [UID:1] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\3_themes_2503242138.jpg
+[DEBUG] 2025-04-02 19:09:00,104 [UID:1] views - old themes_data file not exists
+[DEBUG] 2025-04-02 19:09:00,104 [UID:1] views - new themes_data=1_themes_2504021009.jpg
+[DEBUG] 2025-04-02 19:09:00,105 [UID:1] views - save new themes_data
+[DEBUG] 2025-04-02 19:09:00,105 [UID:1] views - save updated Profile object
+[INFO] 2025-04-02 19:09:00,154 [UID:1] views - return redirect user:list
+[INFO] 2025-04-02 19:09:00,155 [UID:1] basehttp - "POST /user/update/1/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 19:09:00,160 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-02 19:09:00,211 [UID:1] views - object_list exists
+[INFO] 2025-04-02 19:09:00,212 [UID:1] views - return render user/list.html
+[INFO] 2025-04-02 19:09:00,219 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 18027
+[INFO] 2025-04-02 19:09:00,325 [UID:1] basehttp - "GET /media/user/1_images_2504021009.jpg HTTP/1.1" 200 5671
+[INFO] 2025-04-02 19:09:00,335 [UID:1] basehttp - "GET /media/user/1_themes_2504021009.jpg HTTP/1.1" 200 78216
+[DEBUG] 2025-04-02 19:09:06,118 [UID:1] views - start Place list_view
+[DEBUG] 2025-04-02 19:09:06,184 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 19:09:06,185 [UID:1] views - return render place/list.html
+[INFO] 2025-04-02 19:09:06,187 [UID:1] basehttp - "GET /place/list/ HTTP/1.1" 200 15772
+[INFO] 2025-04-02 19:09:07,608 [UID:1] views - start Place create_view
+[INFO] 2025-04-02 19:09:07,608 [UID:1] views - GET method
+[INFO] 2025-04-02 19:09:07,608 [UID:1] views - return render place/create.html
+[INFO] 2025-04-02 19:09:07,614 [UID:1] basehttp - "GET /place/create/ HTTP/1.1" 200 19428
+[INFO] 2025-04-02 19:09:39,223 [UID:1] views - start Place create_view
+[INFO] 2025-04-02 19:09:39,223 [UID:1] views - POST method
+[DEBUG] 2025-04-02 19:09:39,224 [UID:1] views - Place form.is_valid
+[DEBUG] 2025-04-02 19:09:39,227 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 19:09:39,227 [UID:1] views - images_data=1_images_2504021009.jpg
+[DEBUG] 2025-04-02 19:09:39,228 [UID:1] views - themes_data exists
+[DEBUG] 2025-04-02 19:09:39,228 [UID:1] views - themes_data=1_themes_2504021009.jpg
+[INFO] 2025-04-02 19:09:39,270 [UID:1] views - return redirect place:list
+[INFO] 2025-04-02 19:09:39,270 [UID:1] basehttp - "POST /place/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 19:09:39,275 [UID:1] views - start Place list_view
+[DEBUG] 2025-04-02 19:09:39,324 [UID:1] views - object_list exists
+[INFO] 2025-04-02 19:09:39,326 [UID:1] views - return render place/list.html
+[INFO] 2025-04-02 19:09:39,331 [UID:1] basehttp - "GET /place/list/ HTTP/1.1" 200 17923
+[INFO] 2025-04-02 19:09:39,372 [UID:Anon] basehttp - "GET /static/img/good.png HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:09:39,369 [UID:1] basehttp - "GET /media/place/1_images_2504021009.jpg HTTP/1.1" 200 12220
+[INFO] 2025-04-02 19:09:39,374 [UID:1] basehttp - "GET /media/place/1_themes_2504021009.jpg HTTP/1.1" 200 141200
+[INFO] 2025-04-02 19:09:46,343 [UID:1] views - start Place push_likes
+[INFO] 2025-04-02 19:09:46,344 [UID:1] views - POST method
+[DEBUG] 2025-04-02 19:09:46,345 [UID:1] views - get Place object(pk)=<Place:id=1, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-04-02 19:09:46,354 [UID:1] views - return likes:(2)
+[INFO] 2025-04-02 19:09:46,354 [UID:1] basehttp - "POST /place/push-likes/1/ HTTP/1.1" 200 16
+[INFO] 2025-04-02 19:09:47,583 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 19:09:47,632 [UID:1] views - get Place object(pk)
+[DEBUG] 2025-04-02 19:09:47,635 [UID:1] views - return render place/detail.html
+[INFO] 2025-04-02 19:09:47,649 [UID:1] basehttp - "GET /place/detail/1/ HTTP/1.1" 200 22029
+[INFO] 2025-04-02 19:09:47,669 [UID:1] basehttp - "GET /media/place/1_themes_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:09:47,670 [UID:1] basehttp - "GET /media/place/1_images_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:10:12,259 [UID:1] views - start Place checkin_view
+[DEBUG] 2025-04-02 19:10:12,261 [UID:1] views - profile_own=<User:id=m_yasuhiro, sasa.yasu>
+[ERROR] 2025-04-02 19:10:12,262 [UID:1] views - couldnt get target place_with id=2: No Place matches the given query.
+[INFO] 2025-04-02 19:10:12,264 [UID:1] views - couldnt get target checkin_record place=None profile=<User:id=m_yasuhiro, sasa.yasu>: CheckinRecord matching query does not exist.
+[INFO] 2025-04-02 19:10:12,264 [UID:1] views - GET method
+[INFO] 2025-04-02 19:10:12,264 [UID:1] views - return render place/checkin.html
+[ERROR] 2025-04-02 19:10:12,351 [UID:1] log - Internal Server Error: /place/checkin/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 447, in checkin_view
+    return render(request, 'place/checkin.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detail' with arguments '('',)' not found. 1 pattern(s) tried: ['place/detail/(?P<pk>[0-9]+)/\\Z']
+[ERROR] 2025-04-02 19:10:12,357 [UID:1] basehttp - "GET /place/checkin/?place_with_id=2 HTTP/1.1" 500 207742
+[INFO] 2025-04-02 19:10:16,516 [UID:1] views - start Place checkin_view
+[DEBUG] 2025-04-02 19:10:16,518 [UID:1] views - profile_own=<User:id=m_yasuhiro, sasa.yasu>
+[DEBUG] 2025-04-02 19:10:16,519 [UID:1] views - place_with=<Place:id=1, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-04-02 19:10:16,522 [UID:1] views - couldnt get target checkin_record place=<Place:id=1, 個別指導コレクト　本校, JR湖西線 唐崎> profile=<User:id=m_yasuhiro, sasa.yasu>: CheckinRecord matching query does not exist.
+[INFO] 2025-04-02 19:10:16,522 [UID:1] views - GET method
+[INFO] 2025-04-02 19:10:16,522 [UID:1] views - return render place/checkin.html
+[INFO] 2025-04-02 19:10:16,525 [UID:1] basehttp - "GET /place/checkin/?place_with_id=1 HTTP/1.1" 200 19457
+[INFO] 2025-04-02 19:10:16,552 [UID:1] basehttp - "GET /static/img/checkin.png HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:10:16,557 [UID:1] basehttp - "GET /media/place/1_themes_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:10:16,561 [UID:1] basehttp - "GET /media/place/1_images_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:10:18,882 [UID:1] views - start Place checkin_view
+[DEBUG] 2025-04-02 19:10:18,883 [UID:1] views - profile_own=<User:id=m_yasuhiro, sasa.yasu>
+[DEBUG] 2025-04-02 19:10:18,885 [UID:1] views - place_with=<Place:id=1, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-04-02 19:10:18,887 [UID:1] views - couldnt get target checkin_record place=<Place:id=1, 個別指導コレクト　本校, JR湖西線 唐崎> profile=<User:id=m_yasuhiro, sasa.yasu>: CheckinRecord matching query does not exist.
+[INFO] 2025-04-02 19:10:18,888 [UID:1] views - POST method
+[DEBUG] 2025-04-02 19:10:18,889 [UID:1] views - place_with.latitude=None
+[DEBUG] 2025-04-02 19:10:18,890 [UID:1] views - latitude_data=35.0060544
+[DEBUG] 2025-04-02 19:10:18,890 [UID:1] views - place_with.longitude=None
+[DEBUG] 2025-04-02 19:10:18,890 [UID:1] views - longitude_data=135.872512
+[ERROR] 2025-04-02 19:10:18,912 [UID:1] log - Internal Server Error: /place/checkin/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 391, in checkin_view
+    if not haversine(latitude_data, longitude_data, place_with.latitude, place_with.longitude):
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\AinoteProject\utils.py", line 116, in haversine
+    lat2_rad = math.radians(lat2)
+TypeError: must be real number, not NoneType
+[ERROR] 2025-04-02 19:10:18,914 [UID:1] basehttp - "POST /place/checkin/?place_with_id=1 HTTP/1.1" 500 84575
+[DEBUG] 2025-04-02 19:10:53,976 [UID:1] views - start Place list_view
+[DEBUG] 2025-04-02 19:10:54,030 [UID:1] views - object_list exists
+[INFO] 2025-04-02 19:10:54,031 [UID:1] views - return render place/list.html
+[INFO] 2025-04-02 19:10:54,034 [UID:1] basehttp - "GET /place/list/ HTTP/1.1" 200 17920
+[INFO] 2025-04-02 19:10:54,054 [UID:1] basehttp - "GET /media/place/1_images_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:10:54,055 [UID:1] basehttp - "GET /media/place/1_themes_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:10:55,113 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 19:10:55,161 [UID:1] views - get Place object(pk)
+[DEBUG] 2025-04-02 19:10:55,165 [UID:1] views - return render place/detail.html
+[INFO] 2025-04-02 19:10:55,175 [UID:1] basehttp - "GET /place/detail/1/ HTTP/1.1" 200 22029
+[INFO] 2025-04-02 19:10:57,731 [UID:1] views - start Place update_view
+[DEBUG] 2025-04-02 19:10:57,731 [UID:1] views - get Place object(pk)
+[INFO] 2025-04-02 19:10:57,733 [UID:1] views - GET method
+[INFO] 2025-04-02 19:10:57,734 [UID:1] views - return render place/update.html
+[INFO] 2025-04-02 19:10:57,740 [UID:1] basehttp - "GET /place/update/1/ HTTP/1.1" 200 19549
+[INFO] 2025-04-02 19:12:31,940 [UID:1] views - start Place update_view
+[DEBUG] 2025-04-02 19:12:31,940 [UID:1] views - get Place object(pk)
+[INFO] 2025-04-02 19:12:31,943 [UID:1] views - POST method
+[DEBUG] 2025-04-02 19:12:31,943 [UID:1] views - form.is_valid
+[DEBUG] 2025-04-02 19:12:31,944 [UID:1] views - save updated Place object
+[INFO] 2025-04-02 19:12:31,947 [UID:1] views - return redirect place:list
+[INFO] 2025-04-02 19:12:31,947 [UID:1] basehttp - "POST /place/update/1/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 19:12:31,952 [UID:1] views - start Place list_view
+[DEBUG] 2025-04-02 19:12:32,002 [UID:1] views - object_list exists
+[INFO] 2025-04-02 19:12:32,003 [UID:1] views - return render place/list.html
+[INFO] 2025-04-02 19:12:32,007 [UID:1] basehttp - "GET /place/list/ HTTP/1.1" 200 18108
+[INFO] 2025-04-02 19:12:32,036 [UID:1] basehttp - "GET /media/place/1_images_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:12:32,037 [UID:1] basehttp - "GET /media/place/1_themes_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:13:42,054 [UID:1] views - start Place checkin_view
+[DEBUG] 2025-04-02 19:13:42,056 [UID:1] views - profile_own=<User:id=m_yasuhiro, sasa.yasu>
+[DEBUG] 2025-04-02 19:13:42,057 [UID:1] views - place_with=<Place:id=1, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-04-02 19:13:42,059 [UID:1] views - couldnt get target checkin_record place=<Place:id=1, 個別指導コレクト　本校, JR湖西線 唐崎> profile=<User:id=m_yasuhiro, sasa.yasu>: CheckinRecord matching query does not exist.
+[INFO] 2025-04-02 19:13:42,059 [UID:1] views - GET method
+[INFO] 2025-04-02 19:13:42,059 [UID:1] views - return render place/checkin.html
+[INFO] 2025-04-02 19:13:42,061 [UID:1] basehttp - "GET /place/checkin/?place_with_id=1 HTTP/1.1" 200 19645
+[INFO] 2025-04-02 19:13:42,099 [UID:1] basehttp - "GET /media/place/1_images_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:13:42,101 [UID:1] basehttp - "GET /media/place/1_themes_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:13:43,483 [UID:1] views - start Place checkin_view
+[DEBUG] 2025-04-02 19:13:43,485 [UID:1] views - profile_own=<User:id=m_yasuhiro, sasa.yasu>
+[DEBUG] 2025-04-02 19:13:43,488 [UID:1] views - place_with=<Place:id=1, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-04-02 19:13:43,490 [UID:1] views - couldnt get target checkin_record place=<Place:id=1, 個別指導コレクト　本校, JR湖西線 唐崎> profile=<User:id=m_yasuhiro, sasa.yasu>: CheckinRecord matching query does not exist.
+[INFO] 2025-04-02 19:13:43,490 [UID:1] views - POST method
+[DEBUG] 2025-04-02 19:13:43,492 [UID:1] views - place_with.latitude=35.0048743481604
+[DEBUG] 2025-04-02 19:13:43,492 [UID:1] views - latitude_data=35.0060544
+[DEBUG] 2025-04-02 19:13:43,493 [UID:1] views - place_with.longitude=135.870896407864
+[DEBUG] 2025-04-02 19:13:43,493 [UID:1] views - longitude_data=135.872512
+[DEBUG] 2025-04-02 19:13:43,493 [UID:1] utils - distance=0.1971545085566628
+[DEBUG] 2025-04-02 19:13:43,493 [UID:1] utils - tolerance=0.3
+[INFO] 2025-04-02 19:13:43,493 [UID:1] views - First checkin: No previous record found.
+[INFO] 2025-04-02 19:13:43,496 [UID:1] views - return render place/checkin.html
+[INFO] 2025-04-02 19:13:43,498 [UID:1] basehttp - "POST /place/checkin/?place_with_id=1 HTTP/1.1" 200 19731
+[DEBUG] 2025-04-02 19:13:46,078 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-02 19:13:46,130 [UID:1] views - object_list exists
+[INFO] 2025-04-02 19:13:46,131 [UID:1] views - return render user/list.html
+[INFO] 2025-04-02 19:13:46,139 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 18248
+[INFO] 2025-04-02 19:13:46,168 [UID:1] basehttp - "GET /static/img/status_in.png HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:13:46,167 [UID:1] basehttp - "GET /media/user/1_themes_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:13:46,166 [UID:1] basehttp - "GET /media/user/1_images_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 19:24:56,231 [UID:Anon] autoreload - Watching for file changes with StatReloader
