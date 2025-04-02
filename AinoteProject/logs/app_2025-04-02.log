@@ -1827,3 +1827,7 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000
 [DEBUG] 2025-04-02 18:03:25,424 [UID:1] views - object_list exists
 [INFO] 2025-04-02 18:03:25,426 [UID:1] views - return render user/list.html
 [INFO] 2025-04-02 18:03:25,435 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 17990
+[INFO] 2025-04-02 18:32:29,311 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\AinoteProject\settings.py changed, reloading.
+[INFO] 2025-04-02 18:32:30,092 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 18:35:46,672 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\AinoteProject\settings.py changed, reloading.
+[INFO] 2025-04-02 18:35:47,245 [UID:Anon] autoreload - Watching for file changes with StatReloader
