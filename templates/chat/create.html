@@ -1,0 +1,89 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block header %}
+<style type="text/css">
+    .smoke {background-color: whitesmoke;}
+    .preview-image {
+        align-items: center;
+        justify-content: center;
+        max-width: 300px;
+        max-height: 300px;
+        width: auto;
+        height: auto;
+        display: block;
+        margin-top: 10px;
+    }
+</style>
+{% endblock header %}
+
+{% block content %}
+<!--HEADER START-->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="50" height="50" src="{% static 'img/chat.png' %}" alt="Chat Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">New Chat</h3>
+    &nbsp;
+    <img class="bi" width="40" height="40" src="{% static 'img/create.png' %}" alt="Create Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Create</h3>
+</div></div>
+<!--HEADER END-->
+
+<!--page errors-->
+{% if form.errors %}<div class="alert alert-danger">{{ form.errors }}</div>{% endif %}
+
+<!--MAIN START-->
+<main><div class="container">
+    <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
+        <!--login check-->
+        {% if user.is_authenticated %}
+
+            <!--form common errors-->
+            {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
+
+            <form action='' method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!--submit button-->
+                {% include 'includes/submit_button.html' with action="Create" %}
+                <br/><br/>
+
+                <!--Input:title-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=form.title %}</div>
+                <!--Input:context-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=form.context %}</div>
+
+                <!--Input:images-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=form.images %}</div>
+                <!--Display[img]:images_display-->
+                <div class="mb-3">{% include 'includes/image.html' with target=object.image field_name='images' display_name='Images' app_name='chat' %}</div>
+
+                <!--Input:author-->
+                <div class="mb-3">
+                    {% if request.user.is_superuser %}
+                        {% include 'includes/input_field.html' with target=form.author %}
+                        ^ [only for superuser] if you want to post as your id, input "None".
+                    {% else %}
+                        <input type="hidden" id="id_author", name="author", value="None">
+                    {% endif %}
+                </div>
+
+                <!--Display:created_at/updated_at-->
+                {% include 'includes/bottom_dates.html' %}
+                <br/>
+                <!--submit button-->
+                {% include 'includes/submit_button.html' with action="Create" %}
+            </form>
+        {% else %}
+            <label for="require_login" class="form-label">ログインしてください</label>
+            &nbsp;
+            <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+        {% endif %}
+    </div></div>
+</div></main>
+<!--MAIN END-->
+
+{% endblock content %}
+
+{% block footer %}
+<!-- JavaScript for Image Preview -->
+<script src="{% static 'js/images_preview.js' %}"></script> <!-- for Image Preview -->
+{% endblock footer %}

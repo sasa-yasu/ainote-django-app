@@ -1,0 +1,4 @@
+<label for="{{ target.id_for_label }}" class="form-label btn btn-primary-input labeltext"><B>&lt;&lt;[ {{ target.label|safe }} ]&gt;&gt;</B></label><br/>
+{% if target.help_text %} <span class="helptext" style="font-size:10pt">{{ target.help_text|safe }}</span> {% endif %}
+{% if target.errors %} <div class="errortext" style="font-size:10pt"> {% for error in target.errors %} * {{ error }}<br/> {% endfor %} </div> {% endif %}
+{{ target }}

@@ -1,0 +1,158 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block header %}
+<style type="text/css">
+    .smoke {background-color: whitesmoke;}
+
+    .preview-image {
+        max-width: 300px;
+        max-height: 300px;
+        display: block;
+        margin-top: 10px;
+    }
+
+
+    .badge-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;  /* アイコンとニックネームの間隔 */
+        padding: 10px 0;
+    }
+
+    .badge-wrapper img {
+        width: 32px;        /* アイコンサイズ */
+        height: 32px;       /* アイコンサイズ */
+        object-fit: cover;  /* アイコン比率維持 */
+        border-radius: 50%; /* 丸型アイコン */
+    }
+
+    .form-check {
+        display: flex;
+        align-items: center; 
+        gap: 10px;          /* ラジオボタンとアイコン間の間隔 */
+    }
+
+    .form-check-input {
+        transform: scale(1.2); /* ラジオボタンサイズ調整 */
+        margin: 0;
+    }
+
+    .form-check-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+    }
+
+    .profile-icon {
+        display: inline-flex;
+        align-items: center;
+        gap: 0px;
+        padding: 5px 10px;
+        border-radius: 12px;
+        white-space: nowrap;
+    }
+</style>
+{% endblock header %}
+
+{% block content %}
+<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet">
+    <div class="modal-dialog" role="document"><div class="modal-content rounded-4 shadow">
+        <!--HEADER START-->  
+        <div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+            <img class="bi" width="50" height="50" src="{% static 'img/user.png' %}" alt="Profile Icon">
+            <h3 class="text-body-emphasis fst-italic mb-0">Profile</h3>
+            &nbsp;
+            <img class="bi" width="40" height="40" src="{% static 'img/delete.png' %}" alt="Delete Icon">
+            <h3 class="text-body-emphasis fst-italic mb-0">Delete</h3>
+        </div></div>
+        <!--HEADER END-->
+
+        <div class="modal-body py-0">
+            <p>Are you sure that you really want to delete it??</p>
+        </div>
+
+        <!--MAIN START-->
+        <main><div class="container">
+            <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
+                <!--login check-->
+                {% if user.is_authenticated %}
+                
+                    <form action='' method="POST">
+                        {% csrf_token %}
+                        
+                        <!--Display:user_id(auto:key)-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.user1.id disp_name='User ID' %}</div>
+                        <!--Display:user1.username-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.user1.username disp_name='User Name' %}</div>
+                        <!--Display:profile_id(auto:key)-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.id disp_name='Profile ID' %}</div>
+                        <!--Display:memberid-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.memberid disp_name='Member ID' %}</div>
+                        <!--Display:nick_name-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.nick_name disp_name='Nick Name' %}</div>
+
+                        <!--Display[img]:images-->
+                        <div class="mb-3">{% include 'includes/display_image.html' with target=object.images field_name='images' disp_name='Images' app_name='user' %}</div>
+                        <!--Display[img]:themes-->
+                        <div class="mb-3">{% include 'includes/display_image.html' with target=object.themes field_name='themes' disp_name='Themes' app_name='user' %}</div>
+
+                        <!--Display[radiobutton]:badges-->
+                        <div class="mb-2">
+                            <label class="form-label btn btn-primary-input labeltext"><b>&lt;&lt;[ Badges ]&gt;&gt;</b></label><br/>
+                            <div class="form-check-group" style="padding:6px 12px;">
+                                {% for value, label in object.BADGES_CHOICES %}
+                                {% if value == object.badges %}
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="radio_{{ value }}" name="badge_choice" value="{{ value }}" checked>
+                                    <label class="form-check-label" for="radio_{{ value }}">{{ label }}
+                                        <span class="profile-icon badge d-inline-flex align-items-center justify-content-center p-0 pe-1 text-{{value}}-emphasis bg-{{value}}-subtle border border-{{value}}-subtle rounded-pill">
+                                            <img class="rounded-circle me-1" width="24" height="24" src="{% if object.images %} {{ object.images.url }} {% else %} {% static 'img/user.png' %} {% endif %}" alt="Profile icon">
+                                            <span>{{ object.nick_name }}</span>
+                                        </span>
+                                    </label>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <!--Display:birthday-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.birthday disp_name='Birthday' %}</div>
+                        <!--Display[pulldown]:mbti-->
+                        <div class="mb-3">{% include 'includes/display_pulldown.html' with target=object.mbti disp_name='MBTI Type' choices=object.MBTI_CHOICES %}</div>
+                        <!--Display:hobby-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.hobby disp_name='Hobby' %}</div>
+                        <!--Display:sports-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.sports disp_name='Sports' %}</div>
+                        <!--Display:movie-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.movie disp_name='Movie' %}</div>
+                        <!--Display:music-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.music disp_name='Music' %}</div>
+                        <!--Display:book-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.book disp_name='Book' %}</div>
+                        <!--Display:event-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.event disp_name='Event' %}</div>
+                        <!--Display:remarks-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.remarks disp_name='Remarks' %}</div>
+
+                        <!--Display:created_at/updated_at-->
+                        {% include 'includes/bottom_dates.html' %}
+                        <br/>
+                        <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+                            <!--submit button-->
+                            {% include 'includes/submit_button.html' with action="Delete" %}
+                        </div>
+                    </form>
+                {% else %}
+                    <label for="require_login" class="form-label">ログインしてください</label>
+                    &nbsp;
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+                {% endif %}
+            </div></div>
+        </div></main>
+        <!--MAIN END-->
+    </div></div>
+</div>
+{% endblock content %}

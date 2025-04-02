@@ -1,0 +1,13 @@
+# バーチャル環境関連
+venv/
+.env
+__pycache__/
+
+# Django関連
+db.sqlite3
+*.pyc
+*.pyo
+
+# IDE関連（VSCode, PyCharmなど）
+.vscode/
+.idea/

@@ -1,0 +1,166 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="'stylesheet" type="text/css" href="{% static 'list/style.css' %}">
+<style type="text/css">
+    .xy_center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 画像の重ね合わせコンテナ */
+    .image-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;         /* 高さを自動調整 */
+        aspect-ratio: 16 / 9; /* 16:9を維持しつつ高さを可変に */
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* 境界線 */
+    }
+
+    /* 背景の themes 画像 */
+    .bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
+        z-index: 1;          /* 背景に表示 */
+        opacity: 1;         /* 透明度を設定しない */
+        transition: transform 0.3s ease;  /* ホバー時のアニメーション */
+    }
+
+    /* 前面の images 画像 */
+    .front-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;       /* 幅自動調整でアスペクト比維持 */
+        height: 90%;      /* front-imageの高さを80%に */
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        overflow: hidden;         /* はみ出し防止 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 前面の images 画像 */
+    .front-image img {
+        height: 90%;         /* 親要素に対して80%の高さで表示 */
+        width: auto;          /* アスペクト比維持 */
+        object-fit: contain;  /* はみ出し防止 */
+        margin: 2px;
+    }
+
+    /* ホバー時のエフェクト */
+    .image-wrapper:hover .bg-image {
+        transform: scale(1.10);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock header %}
+
+{% block content %}
+<!-- START TITLE -->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+        <img class="bi" width="60" height="60" src="{% static 'img/place.png' %}" alt="Place Icon">
+        <h1 class="text-body-emphasis fst-italic mb-0">Place</h1>
+        &nbsp;
+        <img class="bi" width="50" height="50" src="{% static 'img/list.png' %}" alt="List Icon">
+        <h1 class="text-body-emphasis fst-italic mb-0">List</h1>
+    </div>
+    <p class="col-lg-8 mx-auto lead fst-italic">The List of Places which we have.</p>
+</div>
+<!-- END TITLE -->
+ 
+<main class="container">
+    <a href="{% url 'place:create' %}" class="btn btn-primary">Create Place</a>
+    <hr>
+    <!-- START MAIN LIST BODY -->
+    <div class="album py-5 bg-body-tertiary"><div class="container">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 g-2">
+            {% for item in display_object_list %}
+            <div class="col"><div class="card shadow-sm">
+                <!-- 画像ヘッダ -->
+                <div class="image-wrapper"><a href="{% url 'place:detail' item.pk %}">
+                    <!-- 背景：themes -->
+                    {% if item.themes %}
+                    <img src="{{ item.themes.url }}" class="bg-image" alt="Place Themes"/>
+                    {% else %}
+                    <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+                    {% endif %}
+
+                    <!-- 前面：images -->
+                    <div class="front-image">
+                        {% if item.images %}
+                        <img src="{{ item.images.url }}" style="border-radius: 50%;" alt="Place Images"/>
+                        {% else %}
+                        <img src="{% static 'img/place.png' %}" style="border-radius: 50%;" alt="Default Images"/>
+                        {% endif %}
+                    </div>
+                </a></div>
+
+                <div class="card-body">
+                    <small class="card-text"><B>{{ item.place|safe }}</B></small><br/>
+                    <small class="card-text">{{ item.area|safe }}</small><br/>
+                    <small class="card-text">{{ item.overview|linebreaksbr|safe }}</small>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group d-flex align-items-center">
+                            <a type="button" class="btn btn-sm btn-outline-secondary me-2" href="{% url 'place:detail' item.pk %}">Detail</a>
+                            <small class="text-body-secondary">{{ item.updated_at|date:"'y/m/d H:i" }}</small>
+                        </div>
+    
+                        {% if disp_like != 'none' %}
+                        <!--likes-->
+                        <a class="btn btn-outline-secondary rounded-pill btn-sm like-btn" data-place-id="{{ item.id }}" style="max-height:31px;">
+                            <img width="20px" height="20px" src="{% static 'img/good.png' %}"><span class="like-count" id="like-count-{{ item.id }}">({{ item.likes }})</span>
+                        </a>
+                        {% endif %}
+        
+                    </div>
+                </div>
+            </div></div>
+            {% endfor %}
+        </div>
+    </div></div>
+    <!-- END MAIN LIST BODY -->
+    &nbsp;
+    <!-- START BOTTOM PAGINATION -->
+    {% include 'includes/pagination.html' %}
+    <!-- END BOTTOM PAGINATION -->
+</main>
+{% endblock content %}
+
+{% block footer %}
+<script>
+
+// likes post
+$(document).ready(function() {
+            $('.like-btn').click(function() {
+                const objectId = $(this).data('place-id');
+
+                $.ajax({
+                    url: `/place/push-likes/${objectId}/`,
+                    type: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        // いいね数をリアルタイムで更新
+                        $(`#like-count-${objectId}`).text(response.likes);
+                    },
+                    error: function(xhr) {
+                        alert('エラーが発生しました。');
+                    }
+                });
+            });
+        });
+</script>
+{% endblock footer %}

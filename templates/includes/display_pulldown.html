@@ -1,0 +1,8 @@
+<label class="form-label btn btn-primary-input labeltext"><B>&lt;&lt;[ {{ disp_name|safe }} ]&gt;&gt;</B></label><br/>
+<select class="form-control smoke" disabled>
+    {% for value, label in choices %}
+        <option value="{{ value }}" {% if target == value %}selected{% endif %}>
+            {{ label }}
+        </option>
+    {% endfor %}
+</select>

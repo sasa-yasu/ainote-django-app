@@ -1,0 +1,17 @@
+{% load static %}
+{% load custom_tags %}
+
+{% if target %}
+    <img id="{{ field_name }}_preview" src="{{ target.url }}" alt="Current {{ disp_name }}" class="preview-image">
+{% else %}
+    <!--set defauld image : if chat page, no default image-->
+    {% if app_name == 'chat' %}
+        <img id="{{ field_name }}_preview" src="#" alt="Preview {{ disp_name }}" class="preview-image" style="display: none;">
+    <!--set defauld image : field_name="theme"-->
+    {% elif field_name == 'themes' %}
+        <img id="{{ field_name }}_preview" src="{% static 'img/themes.png' %}" alt="Preview {{ disp_name }}" class="preview-image">
+    <!--set defauld image : field_name="images"-->
+    {% elif field_name == 'images' %}
+        <img id="{{ field_name }}_preview" src="{% static 'img/'|add:app_name|add:'.png' %}" alt="Preview {{ disp_name }}" class="preview-image">
+    {% endif %}
+{% endif %}

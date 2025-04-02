@@ -1,0 +1,1796 @@
+[INFO] 2025-03-31 00:10:19,872 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-31 00:10:23,583 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-31 00:10:24,169 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-31 00:10:27,734 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:10:27,738 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:10:27,741 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-31 00:10:27,782 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 31938
+[INFO] 2025-03-31 00:10:50,630 [UID:Anon] basehttp - "GET /top/logout/ HTTP/1.1" 302 0
+[INFO] 2025-03-31 00:10:50,636 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-03-31 00:10:58,012 [UID:11] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-03-31 00:10:58,026 [UID:11] basehttp - "GET /top/ HTTP/1.1" 200 42582
+[INFO] 2025-03-31 00:10:58,090 [UID:11] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 15802
+[INFO] 2025-03-31 00:11:05,996 [UID:11] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:11:05,997 [UID:11] views - profile_own=<User:id=No_hideo, hideo>
+[DEBUG] 2025-03-31 00:11:05,998 [UID:11] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:11:06,002 [UID:11] views - checkin_record=個別指導コレクト　本校 - hideo -2025/3/30 23:3:51 - 00:18
+[INFO] 2025-03-31 00:11:06,003 [UID:11] views - GET method
+[INFO] 2025-03-31 00:11:06,003 [UID:11] views - return render place/checkin.html
+[INFO] 2025-03-31 00:11:06,007 [UID:11] basehttp - "GET /place/checkin/?place_with_id=2 HTTP/1.1" 200 19633
+[INFO] 2025-03-31 00:11:07,620 [UID:11] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:11:07,622 [UID:11] views - profile_own=<User:id=No_hideo, hideo>
+[DEBUG] 2025-03-31 00:11:07,624 [UID:11] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:11:07,629 [UID:11] views - checkin_record=個別指導コレクト　本校 - hideo -2025/3/30 23:3:51 - 00:18
+[INFO] 2025-03-31 00:11:07,629 [UID:11] views - POST method
+[DEBUG] 2025-03-31 00:11:07,630 [UID:11] views - place_with.latitude=35.004874348160406
+[DEBUG] 2025-03-31 00:11:07,630 [UID:11] views - latitude_data=35.0060544
+[DEBUG] 2025-03-31 00:11:07,631 [UID:11] views - place_with.longitude=135.87089640786397
+[DEBUG] 2025-03-31 00:11:07,631 [UID:11] views - longitude_data=135.872512
+[DEBUG] 2025-03-31 00:11:07,631 [UID:11] utils - distance=0.1971545085579217
+[DEBUG] 2025-03-31 00:11:07,631 [UID:11] utils - tolerance=0.3
+[INFO] 2025-03-31 00:11:07,635 [UID:11] views - return render place/checkin.html
+[INFO] 2025-03-31 00:11:07,638 [UID:11] basehttp - "POST /place/checkin/?place_with_id=2 HTTP/1.1" 200 19718
+[DEBUG] 2025-03-31 00:11:11,262 [UID:11] views - start Place list_view
+[DEBUG] 2025-03-31 00:11:11,267 [UID:11] views - object_list exists
+[INFO] 2025-03-31 00:11:11,268 [UID:11] views - return render place/list.html
+[INFO] 2025-03-31 00:11:11,276 [UID:11] basehttp - "GET /place/list/ HTTP/1.1" 200 20197
+[INFO] 2025-03-31 00:11:12,323 [UID:11] views - start detail_view
+[DEBUG] 2025-03-31 00:11:12,328 [UID:11] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:11:12,330 [UID:11] views - return render place/detail.html
+[INFO] 2025-03-31 00:11:12,339 [UID:11] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32435
+[INFO] 2025-03-31 00:11:29,230 [UID:11] views - start Place checkout_view
+[DEBUG] 2025-03-31 00:11:29,232 [UID:11] views - profile_own=<User:id=No_hideo, hideo>
+[DEBUG] 2025-03-31 00:11:29,234 [UID:11] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:11:29,239 [UID:11] views - checkin_record=個別指導コレクト　本校 - hideo -2025/3/31 0:11:7 - In
+[INFO] 2025-03-31 00:11:29,239 [UID:11] views - GET method
+[INFO] 2025-03-31 00:11:29,240 [UID:11] views - return render place/checkout.html
+[INFO] 2025-03-31 00:11:29,245 [UID:11] basehttp - "GET /place/checkout/?place_with_id=2 HTTP/1.1" 200 18660
+[INFO] 2025-03-31 00:11:29,301 [UID:11] basehttp - "GET /static/img/checkout.png HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:11:34,717 [UID:Anon] basehttp - "GET /top/logout/ HTTP/1.1" 302 0
+[INFO] 2025-03-31 00:11:34,724 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-03-31 00:11:39,748 [UID:2] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-03-31 00:11:39,759 [UID:2] basehttp - "GET /top/ HTTP/1.1" 200 42585
+[INFO] 2025-03-31 00:11:39,806 [UID:2] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 15802
+[INFO] 2025-03-31 00:11:50,233 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:11:50,235 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:11:50,237 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:11:50,242 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:9:10 - In
+[INFO] 2025-03-31 00:11:50,243 [UID:2] views - GET method
+[INFO] 2025-03-31 00:11:50,243 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-31 00:11:50,246 [UID:2] basehttp - "GET /place/checkin/?place_with_id=2 HTTP/1.1" 200 19714
+[INFO] 2025-03-31 00:11:52,949 [UID:2] views - start Place checkout_view
+[DEBUG] 2025-03-31 00:11:52,951 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:11:52,953 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:11:52,958 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:9:10 - In
+[INFO] 2025-03-31 00:11:52,959 [UID:2] views - GET method
+[INFO] 2025-03-31 00:11:52,959 [UID:2] views - return render place/checkout.html
+[INFO] 2025-03-31 00:11:52,962 [UID:2] basehttp - "GET /place/checkout/?place_with_id=2 HTTP/1.1" 200 18662
+[INFO] 2025-03-31 00:11:58,883 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:11:58,886 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:11:58,887 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-31 00:11:58,894 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32812
+[INFO] 2025-03-31 00:12:04,198 [UID:2] views - start Place checkout_view
+[DEBUG] 2025-03-31 00:12:04,200 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:12:04,202 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:12:04,208 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:9:10 - In
+[INFO] 2025-03-31 00:12:04,208 [UID:2] views - POST method
+[INFO] 2025-03-31 00:12:04,217 [UID:2] views - return render place/checkout.html
+[INFO] 2025-03-31 00:12:04,221 [UID:2] basehttp - "POST /place/checkout/?place_with_id=2 HTTP/1.1" 200 18657
+[INFO] 2025-03-31 00:12:07,996 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:12:07,999 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:12:08,001 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-31 00:12:08,009 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32477
+[INFO] 2025-03-31 00:12:15,170 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:12:15,174 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:12:15,177 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-31 00:12:15,186 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32477
+[INFO] 2025-03-31 00:15:10,257 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:15:10,260 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:15:10,263 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-31 00:15:10,271 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32477
+[INFO] 2025-03-31 00:15:19,579 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:15:19,582 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:15:19,584 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-31 00:15:19,593 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 31891
+[INFO] 2025-03-31 00:15:22,770 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:15:22,773 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:15:22,774 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-31 00:15:22,781 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 31891
+[INFO] 2025-03-31 00:15:32,020 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:15:32,021 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:15:32,024 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:15:32,030 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:9:10 - 00:02
+[INFO] 2025-03-31 00:15:32,031 [UID:2] views - GET method
+[INFO] 2025-03-31 00:15:32,031 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-31 00:15:32,034 [UID:2] basehttp - "GET /place/checkin/?place_with_id=2 HTTP/1.1" 200 19635
+[INFO] 2025-03-31 00:15:34,819 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:15:34,821 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:15:34,823 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:15:34,826 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:9:10 - 00:02
+[INFO] 2025-03-31 00:15:34,827 [UID:2] views - POST method
+[DEBUG] 2025-03-31 00:15:34,828 [UID:2] views - place_with.latitude=35.004874348160406
+[DEBUG] 2025-03-31 00:15:34,828 [UID:2] views - latitude_data=35.0046021
+[DEBUG] 2025-03-31 00:15:34,829 [UID:2] views - place_with.longitude=135.87089640786397
+[DEBUG] 2025-03-31 00:15:34,829 [UID:2] views - longitude_data=135.8708592
+[DEBUG] 2025-03-31 00:15:34,829 [UID:2] utils - distance=0.03046171092608519
+[DEBUG] 2025-03-31 00:15:34,829 [UID:2] utils - tolerance=0.3
+[INFO] 2025-03-31 00:15:34,836 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-31 00:15:34,839 [UID:2] basehttp - "POST /place/checkin/?place_with_id=2 HTTP/1.1" 200 19720
+[INFO] 2025-03-31 00:15:35,990 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:15:35,992 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:15:35,994 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:15:35,998 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:15:34 - In
+[INFO] 2025-03-31 00:15:35,999 [UID:2] views - POST method
+[DEBUG] 2025-03-31 00:15:36,002 [UID:2] views - place_with.latitude=35.004874348160406
+[DEBUG] 2025-03-31 00:15:36,002 [UID:2] views - latitude_data=35.0046021
+[DEBUG] 2025-03-31 00:15:36,002 [UID:2] views - place_with.longitude=135.87089640786397
+[DEBUG] 2025-03-31 00:15:36,003 [UID:2] views - longitude_data=135.8708592
+[DEBUG] 2025-03-31 00:15:36,003 [UID:2] utils - distance=0.03046171092608519
+[DEBUG] 2025-03-31 00:15:36,004 [UID:2] utils - tolerance=0.3
+[WARNING] 2025-03-31 00:15:36,004 [UID:2] views - Already checked in. Last Checked-In: 2025-03-31 00:15:34.830127
+[INFO] 2025-03-31 00:15:36,004 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-31 00:15:36,008 [UID:2] basehttp - "POST /place/checkin/?place_with_id=2 HTTP/1.1" 200 19714
+[INFO] 2025-03-31 00:15:40,579 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:15:40,582 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:15:40,583 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-31 00:15:40,592 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32142
+[INFO] 2025-03-31 00:15:43,572 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:15:43,575 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:15:43,578 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-31 00:15:43,584 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32142
+[INFO] 2025-03-31 00:15:46,391 [UID:Anon] basehttp - "GET /top/logout/ HTTP/1.1" 302 0
+[INFO] 2025-03-31 00:15:46,396 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-03-31 00:15:53,049 [UID:11] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-03-31 00:15:53,060 [UID:11] basehttp - "GET /top/ HTTP/1.1" 200 42582
+[INFO] 2025-03-31 00:15:53,106 [UID:11] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 15802
+[INFO] 2025-03-31 00:16:00,063 [UID:11] views - start Place checkout_view
+[DEBUG] 2025-03-31 00:16:00,065 [UID:11] views - profile_own=<User:id=No_hideo, hideo>
+[DEBUG] 2025-03-31 00:16:00,067 [UID:11] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:16:00,072 [UID:11] views - checkin_record=個別指導コレクト　本校 - hideo -2025/3/31 0:11:7 - 15:03
+[INFO] 2025-03-31 00:16:00,073 [UID:11] views - GET method
+[INFO] 2025-03-31 00:16:00,073 [UID:11] views - return render place/checkout.html
+[INFO] 2025-03-31 00:16:00,076 [UID:11] basehttp - "GET /place/checkout/?place_with_id=2 HTTP/1.1" 200 18649
+[INFO] 2025-03-31 00:16:02,234 [UID:11] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:16:02,235 [UID:11] views - profile_own=<User:id=No_hideo, hideo>
+[DEBUG] 2025-03-31 00:16:02,237 [UID:11] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:16:02,241 [UID:11] views - checkin_record=個別指導コレクト　本校 - hideo -2025/3/31 0:11:7 - 15:03
+[INFO] 2025-03-31 00:16:02,242 [UID:11] views - GET method
+[INFO] 2025-03-31 00:16:02,242 [UID:11] views - return render place/checkin.html
+[INFO] 2025-03-31 00:16:02,245 [UID:11] basehttp - "GET /place/checkin/?place_with_id=2 HTTP/1.1" 200 19633
+[INFO] 2025-03-31 00:16:05,241 [UID:11] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:16:05,242 [UID:11] views - profile_own=<User:id=No_hideo, hideo>
+[DEBUG] 2025-03-31 00:16:05,243 [UID:11] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:16:05,247 [UID:11] views - checkin_record=個別指導コレクト　本校 - hideo -2025/3/31 0:11:7 - 15:03
+[INFO] 2025-03-31 00:16:05,248 [UID:11] views - POST method
+[DEBUG] 2025-03-31 00:16:05,249 [UID:11] views - place_with.latitude=35.004874348160406
+[DEBUG] 2025-03-31 00:16:05,250 [UID:11] views - latitude_data=35.0060544
+[DEBUG] 2025-03-31 00:16:05,250 [UID:11] views - place_with.longitude=135.87089640786397
+[DEBUG] 2025-03-31 00:16:05,250 [UID:11] views - longitude_data=135.872512
+[DEBUG] 2025-03-31 00:16:05,250 [UID:11] utils - distance=0.1971545085579217
+[DEBUG] 2025-03-31 00:16:05,251 [UID:11] utils - tolerance=0.3
+[INFO] 2025-03-31 00:16:05,255 [UID:11] views - return render place/checkin.html
+[INFO] 2025-03-31 00:16:05,258 [UID:11] basehttp - "POST /place/checkin/?place_with_id=2 HTTP/1.1" 200 19718
+[DEBUG] 2025-03-31 00:16:16,653 [UID:11] views - start Place list_view
+[DEBUG] 2025-03-31 00:16:16,657 [UID:11] views - object_list exists
+[INFO] 2025-03-31 00:16:16,658 [UID:11] views - return render place/list.html
+[INFO] 2025-03-31 00:16:16,662 [UID:11] basehttp - "GET /place/list/ HTTP/1.1" 200 20197
+[INFO] 2025-03-31 00:16:17,392 [UID:11] views - start detail_view
+[DEBUG] 2025-03-31 00:16:17,395 [UID:11] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:16:17,397 [UID:11] views - return render place/detail.html
+[INFO] 2025-03-31 00:16:17,407 [UID:11] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32092
+[INFO] 2025-03-31 00:18:24,513 [UID:11] views - start detail_view
+[DEBUG] 2025-03-31 00:18:24,517 [UID:11] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:18:24,521 [UID:11] views - return render place/detail.html
+[INFO] 2025-03-31 00:18:24,531 [UID:11] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32092
+[INFO] 2025-03-31 00:18:31,996 [UID:Anon] basehttp - "GET /top/logout/ HTTP/1.1" 302 0
+[INFO] 2025-03-31 00:18:32,002 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-03-31 00:18:37,688 [UID:2] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-03-31 00:18:37,699 [UID:2] basehttp - "GET /top/ HTTP/1.1" 200 42585
+[INFO] 2025-03-31 00:18:37,755 [UID:2] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 15802
+[DEBUG] 2025-03-31 00:18:43,803 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-31 00:18:43,808 [UID:2] views - object_list exists
+[INFO] 2025-03-31 00:18:43,810 [UID:2] views - return render place/list.html
+[INFO] 2025-03-31 00:18:43,814 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 20200
+[INFO] 2025-03-31 00:18:45,162 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:18:45,166 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:18:45,169 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-31 00:18:45,176 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32469
+[INFO] 2025-03-31 00:18:46,367 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-31 00:18:46,367 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-31 00:18:46,369 [UID:2] views - GET method
+[INFO] 2025-03-31 00:18:46,370 [UID:2] views - return render place/update.html
+[INFO] 2025-03-31 00:18:46,381 [UID:2] basehttp - "GET /place/update/2/ HTTP/1.1" 200 22896
+[INFO] 2025-03-31 00:18:53,203 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-31 00:18:53,204 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-31 00:18:53,205 [UID:2] views - POST method
+[DEBUG] 2025-03-31 00:18:53,240 [UID:2] views - form.is_valid
+[DEBUG] 2025-03-31 00:18:53,241 [UID:2] views - save updated Place object
+[INFO] 2025-03-31 00:18:53,247 [UID:2] views - return redirect place:list
+[INFO] 2025-03-31 00:18:53,247 [UID:2] basehttp - "POST /place/update/2/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-31 00:18:53,253 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-31 00:18:53,256 [UID:2] views - object_list exists
+[INFO] 2025-03-31 00:18:53,257 [UID:2] views - return render place/list.html
+[INFO] 2025-03-31 00:18:53,262 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 20200
+[INFO] 2025-03-31 00:18:54,511 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:18:54,515 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:18:54,517 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-31 00:18:54,530 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32469
+[DEBUG] 2025-03-31 00:19:37,785 [UID:2] views - start Group list_view
+[DEBUG] 2025-03-31 00:19:37,789 [UID:2] views - object_list exists
+[INFO] 2025-03-31 00:19:37,790 [UID:2] views - return render group/list.html
+[INFO] 2025-03-31 00:19:37,801 [UID:2] basehttp - "GET /group/list/ HTTP/1.1" 200 23867
+[INFO] 2025-03-31 00:19:37,880 [UID:2] basehttp - "GET /media/group/6_themes_2503282337.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:19:37,890 [UID:2] basehttp - "GET /media/group/6_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:19:37,900 [UID:2] basehttp - "GET /media/group/5_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:19:37,902 [UID:2] basehttp - "GET /media/group/4_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:19:37,899 [UID:2] basehttp - "GET /media/group/4_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:19:37,906 [UID:2] basehttp - "GET /media/group/3_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:19:37,898 [UID:2] basehttp - "GET /media/group/5_themes_2503282338.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:19:37,922 [UID:2] basehttp - "GET /media/group/2_images_2503282343.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:19:37,921 [UID:2] basehttp - "GET /media/group/2_themes_2503282340.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:19:37,927 [UID:2] basehttp - "GET /media/group/3_images_2503282343.png HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:19:39,757 [UID:2] views - start Group detail_view
+[DEBUG] 2025-03-31 00:19:39,760 [UID:2] views - get Group object(pk)
+[DEBUG] 2025-03-31 00:19:39,762 [UID:2] views - return render group/detail.html
+[INFO] 2025-03-31 00:19:39,771 [UID:2] basehttp - "GET /group/detail/6/ HTTP/1.1" 200 24300
+[INFO] 2025-03-31 00:19:39,806 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-31 00:19:39,806 [UID:2] views - group_url=http://127.0.0.1:8000/group/join/?group_id=6
+[DEBUG] 2025-03-31 00:19:39,834 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 00:19:39,974 [UID:2] basehttp - "GET /group/disp_qr/6/ HTTP/1.1" 200 7848
+[INFO] 2025-03-31 00:27:28,413 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py changed, reloading.
+[INFO] 2025-03-31 00:27:29,010 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-31 00:27:31,566 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\AinoteProject\settings.py changed, reloading.
+[INFO] 2025-03-31 00:27:32,106 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-31 00:29:18,198 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\group\views.py changed, reloading.
+[INFO] 2025-03-31 00:29:18,769 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-31 00:30:20,628 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:30:20,632 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-03-31 00:30:20,643 [UID:2] views - return render user/detail.html
+[INFO] 2025-03-31 00:30:20,701 [UID:2] basehttp - "GET /user/detail/11/ HTTP/1.1" 200 52740
+[INFO] 2025-03-31 00:30:20,762 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-31 00:30:20,763 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=11
+[DEBUG] 2025-03-31 00:30:20,792 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 00:30:20,786 [UID:2] basehttp - "GET /media/user/3_themes_2503242138.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:30:20,799 [UID:2] basehttp - "GET /media/user/5_themes_2503242136.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:30:20,795 [UID:2] basehttp - "GET /media/user/4_themes_2503242137.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:30:20,809 [UID:2] basehttp - "GET /media/user/8_themes_2503242134.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:30:20,807 [UID:2] basehttp - "GET /media/user/7_themes_2503242130.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:30:20,802 [UID:2] basehttp - "GET /media/user/6_themes_2503242135.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:30:20,824 [UID:2] basehttp - "GET /media/user/10_themes_2503242133.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:30:20,847 [UID:2] basehttp - "GET /friend/disp_qr/11/ HTTP/1.1" 200 8345
+[INFO] 2025-03-31 00:31:53,948 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:31:53,952 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-03-31 00:31:53,957 [UID:2] views - return render user/detail.html
+[INFO] 2025-03-31 00:31:53,974 [UID:2] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 33069
+[INFO] 2025-03-31 00:31:54,054 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-31 00:31:54,054 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-03-31 00:31:54,074 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 00:31:54,086 [UID:2] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[INFO] 2025-03-31 00:32:07,930 [UID:2] views - start Group detail_view
+[DEBUG] 2025-03-31 00:32:07,933 [UID:2] views - get Group object(pk)
+[DEBUG] 2025-03-31 00:32:07,934 [UID:2] views - return render group/detail.html
+[INFO] 2025-03-31 00:32:07,942 [UID:2] basehttp - "GET /group/detail/6/ HTTP/1.1" 200 24300
+[INFO] 2025-03-31 00:32:07,981 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-31 00:32:07,981 [UID:2] views - group_url=http://127.0.0.1:8000/group/join/?group_id=6
+[DEBUG] 2025-03-31 00:32:07,996 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 00:32:08,006 [UID:2] basehttp - "GET /group/disp_qr/6/ HTTP/1.1" 200 7848
+[INFO] 2025-03-31 00:32:13,099 [UID:2] views - start Group detail_view
+[DEBUG] 2025-03-31 00:32:13,102 [UID:2] views - get Group object(pk)
+[DEBUG] 2025-03-31 00:32:13,104 [UID:2] views - return render group/detail.html
+[INFO] 2025-03-31 00:32:13,110 [UID:2] basehttp - "GET /group/detail/6/ HTTP/1.1" 200 24300
+[INFO] 2025-03-31 00:32:13,140 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-31 00:32:13,141 [UID:2] views - group_url=http://127.0.0.1:8000/group/join/?group_id=6
+[DEBUG] 2025-03-31 00:32:13,158 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 00:32:13,168 [UID:2] basehttp - "GET /group/disp_qr/6/ HTTP/1.1" 200 7848
+[INFO] 2025-03-31 00:32:14,417 [UID:2] views - start Group push_likes
+[INFO] 2025-03-31 00:32:14,417 [UID:2] views - POST method
+[DEBUG] 2025-03-31 00:32:14,418 [UID:2] views - get Group object(pk)=<Group:id=6, バンド>
+[INFO] 2025-03-31 00:32:14,428 [UID:2] views - return likes:(5)
+[INFO] 2025-03-31 00:32:14,429 [UID:2] basehttp - "POST /group/push-likes/6/ HTTP/1.1" 200 16
+[INFO] 2025-03-31 00:32:14,773 [UID:2] views - start Group push_likes
+[INFO] 2025-03-31 00:32:14,774 [UID:2] views - POST method
+[DEBUG] 2025-03-31 00:32:14,775 [UID:2] views - get Group object(pk)=<Group:id=6, バンド>
+[INFO] 2025-03-31 00:32:14,788 [UID:2] views - return likes:(6)
+[INFO] 2025-03-31 00:32:14,789 [UID:2] basehttp - "POST /group/push-likes/6/ HTTP/1.1" 200 16
+[INFO] 2025-03-31 00:32:15,038 [UID:2] views - start Group push_likes
+[INFO] 2025-03-31 00:32:15,039 [UID:2] views - POST method
+[DEBUG] 2025-03-31 00:32:15,039 [UID:2] views - get Group object(pk)=<Group:id=6, バンド>
+[INFO] 2025-03-31 00:32:15,052 [UID:2] views - return likes:(7)
+[INFO] 2025-03-31 00:32:15,053 [UID:2] basehttp - "POST /group/push-likes/6/ HTTP/1.1" 200 16
+[DEBUG] 2025-03-31 00:32:29,449 [UID:2] views - start Group list_view
+[DEBUG] 2025-03-31 00:32:29,454 [UID:2] views - object_list exists
+[INFO] 2025-03-31 00:32:29,456 [UID:2] views - return render group/list.html
+[INFO] 2025-03-31 00:32:29,464 [UID:2] basehttp - "GET /group/list/ HTTP/1.1" 200 23867
+[DEBUG] 2025-03-31 00:32:46,751 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-31 00:32:46,753 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:32:46,760 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-31 00:32:46,761 [UID:2] views - object_list exists
+[INFO] 2025-03-31 00:32:46,763 [UID:2] views - return render friend/list.html
+[INFO] 2025-03-31 00:32:46,778 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 200 19298
+[INFO] 2025-03-31 00:33:03,719 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:33:03,722 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-03-31 00:33:03,727 [UID:2] views - return render user/detail.html
+[INFO] 2025-03-31 00:33:03,742 [UID:2] basehttp - "GET /user/detail/1/ HTTP/1.1" 200 45253
+[INFO] 2025-03-31 00:33:03,813 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-31 00:33:03,813 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=1
+[DEBUG] 2025-03-31 00:33:03,828 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 00:33:03,837 [UID:2] basehttp - "GET /friend/disp_qr/1/ HTTP/1.1" 200 8320
+[DEBUG] 2025-03-31 00:33:11,742 [UID:2] views - start Profile list_view
+[DEBUG] 2025-03-31 00:33:11,745 [UID:2] views - object_list exists
+[INFO] 2025-03-31 00:33:11,747 [UID:2] views - return render user/list.html
+[INFO] 2025-03-31 00:33:11,770 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 39939
+[INFO] 2025-03-31 00:33:11,817 [UID:2] basehttp - "GET /media/user/26_themes_2503250053.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,820 [UID:2] basehttp - "GET /media/user/images_3.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,819 [UID:2] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_11.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,822 [UID:2] basehttp - "GET /media/user/25_themes_2503250049.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,826 [UID:2] basehttp - "GET /media/user/24_themes_2503250044.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,823 [UID:2] basehttp - "GET /media/user/images_2.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,853 [UID:2] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_1.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,848 [UID:2] basehttp - "GET /media/user/images_1.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,855 [UID:2] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_18.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,851 [UID:2] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_19.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,856 [UID:2] basehttp - "GET /media/user/images.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,859 [UID:2] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_3.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,873 [UID:2] basehttp - "GET /media/user/18_themes_2503250019.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,875 [UID:2] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_5.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,879 [UID:2] basehttp - "GET /media/user/17_themes_2503250016.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,883 [UID:2] basehttp - "GET /media/user/22_themes_2503250034.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,880 [UID:2] basehttp - "GET /media/user/20_themes_2503250027.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,886 [UID:2] basehttp - "GET /media/user/23_themes_2503250039.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,897 [UID:2] basehttp - "GET /media/user/21_themes_2503250031.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,901 [UID:2] basehttp - "GET /media/user/19_themes_2503250023.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,905 [UID:2] basehttp - "GET /media/user/12_themes_2503242131.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,909 [UID:2] basehttp - "GET /media/user/13_themes_2503242131.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,912 [UID:2] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_14.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,905 [UID:2] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_16.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,929 [UID:2] basehttp - "GET /media/user/16_themes_2503250013.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,930 [UID:2] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_15.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,933 [UID:2] basehttp - "GET /media/user/15_themes_2503250008.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:33:11,931 [UID:2] basehttp - "GET /media/user/14_themes_2503250005.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-03-31 00:33:14,055 [UID:2] views - start Profile list_view
+[DEBUG] 2025-03-31 00:33:14,060 [UID:2] views - object_list exists
+[INFO] 2025-03-31 00:33:14,061 [UID:2] views - return render user/list.html
+[INFO] 2025-03-31 00:33:14,074 [UID:2] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 30270
+[INFO] 2025-03-31 00:33:16,301 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:33:16,305 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-03-31 00:33:16,310 [UID:2] views - return render user/detail.html
+[INFO] 2025-03-31 00:33:16,320 [UID:2] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 33070
+[INFO] 2025-03-31 00:33:16,358 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-31 00:33:16,359 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-03-31 00:33:16,376 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 00:33:16,386 [UID:2] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[INFO] 2025-03-31 00:34:13,683 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:34:13,686 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-03-31 00:34:13,690 [UID:2] views - return render user/detail.html
+[INFO] 2025-03-31 00:34:13,706 [UID:2] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 33054
+[INFO] 2025-03-31 00:34:13,743 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-31 00:34:13,744 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-03-31 00:34:13,761 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 00:34:13,772 [UID:2] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[INFO] 2025-03-31 00:34:27,209 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:34:27,212 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-03-31 00:34:27,215 [UID:2] views - return render user/detail.html
+[INFO] 2025-03-31 00:34:27,229 [UID:2] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 33042
+[INFO] 2025-03-31 00:34:27,249 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-31 00:34:27,250 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-03-31 00:34:27,267 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 00:34:27,276 [UID:2] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[INFO] 2025-03-31 00:34:49,264 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-31 00:34:49,264 [UID:2] views - get Profile object(pk)
+[INFO] 2025-03-31 00:34:49,268 [UID:2] views - GET method
+[INFO] 2025-03-31 00:34:49,269 [UID:2] views - return render user/update.html
+[INFO] 2025-03-31 00:34:49,286 [UID:2] basehttp - "GET /user/update/3/ HTTP/1.1" 200 30305
+[DEBUG] 2025-03-31 00:35:21,245 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-31 00:35:21,251 [UID:2] views - object_list exists
+[INFO] 2025-03-31 00:35:21,253 [UID:2] views - return render place/list.html
+[INFO] 2025-03-31 00:35:21,269 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 20200
+[INFO] 2025-03-31 00:35:21,345 [UID:2] basehttp - "GET /media/place/3_images_2503292141.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-31 00:35:23,086 [UID:2] views - start detail_view
+[DEBUG] 2025-03-31 00:35:23,089 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-31 00:35:23,091 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-31 00:35:23,102 [UID:2] basehttp - "GET /place/detail/3/ HTTP/1.1" 200 28802
+[INFO] 2025-03-31 00:35:41,430 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:35:41,432 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:35:41,434 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:35:41,439 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:15:34 - In
+[INFO] 2025-03-31 00:35:41,440 [UID:2] views - GET method
+[INFO] 2025-03-31 00:35:41,440 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-31 00:35:41,446 [UID:2] basehttp - "GET /place/checkin/?place_with_id=2 HTTP/1.1" 200 19714
+[INFO] 2025-03-31 00:35:42,743 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:35:42,745 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-31 00:35:42,747 [UID:2] views - couldnt get target place_with id=1: No Place matches the given query.
+[INFO] 2025-03-31 00:35:42,749 [UID:2] views - couldnt get target checkin_record place=None profile=<User:id=No1, sasayasu>: CheckinRecord matching query does not exist.
+[INFO] 2025-03-31 00:35:42,750 [UID:2] views - GET method
+[INFO] 2025-03-31 00:35:42,750 [UID:2] views - return render place/checkin.html
+[ERROR] 2025-03-31 00:35:42,826 [UID:2] log - Internal Server Error: /place/checkin/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 446, in checkin_view
+    return render(request, 'place/checkin.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detail' with arguments '('',)' not found. 1 pattern(s) tried: ['place/detail/(?P<pk>[0-9]+)/\\Z']
+[ERROR] 2025-03-31 00:35:42,834 [UID:2] basehttp - "GET /place/checkin/?place_with_id=1 HTTP/1.1" 500 206674
+[INFO] 2025-03-31 00:35:54,380 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:35:54,382 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:35:54,384 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-03-31 00:35:54,388 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:15:34 - In
+[INFO] 2025-03-31 00:35:54,388 [UID:2] views - GET method
+[INFO] 2025-03-31 00:35:54,389 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-31 00:35:54,392 [UID:2] basehttp - "GET /place/checkin/?place_with_id=2 HTTP/1.1" 200 19714
+[INFO] 2025-03-31 00:35:59,008 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:35:59,010 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:35:59,011 [UID:2] views - place_with=<Place:id=3, 昴塾　膳所校, 石場駅 120m (徒歩2分)>
+[INFO] 2025-03-31 00:35:59,013 [UID:2] views - couldnt get target checkin_record place=<Place:id=3, 昴塾　膳所校, 石場駅 120m (徒歩2分)> profile=<User:id=No1, sasayasu>: CheckinRecord matching query does not exist.
+[INFO] 2025-03-31 00:35:59,013 [UID:2] views - GET method
+[INFO] 2025-03-31 00:35:59,013 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-31 00:35:59,016 [UID:2] basehttp - "GET /place/checkin/?place_with_id=3 HTTP/1.1" 200 19708
+[INFO] 2025-03-31 00:36:02,924 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-31 00:36:02,925 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:36:02,927 [UID:2] views - place_with=<Place:id=3, 昴塾　膳所校, 石場駅 120m (徒歩2分)>
+[INFO] 2025-03-31 00:36:02,929 [UID:2] views - couldnt get target checkin_record place=<Place:id=3, 昴塾　膳所校, 石場駅 120m (徒歩2分)> profile=<User:id=No1, sasayasu>: CheckinRecord matching query does not exist.
+[INFO] 2025-03-31 00:36:02,929 [UID:2] views - POST method
+[DEBUG] 2025-03-31 00:36:02,932 [UID:2] views - place_with.latitude=35.00522403681513
+[DEBUG] 2025-03-31 00:36:02,932 [UID:2] views - latitude_data=35.0060544
+[DEBUG] 2025-03-31 00:36:02,932 [UID:2] views - place_with.longitude=135.87693981263072
+[DEBUG] 2025-03-31 00:36:02,933 [UID:2] views - longitude_data=135.872512
+[DEBUG] 2025-03-31 00:36:02,933 [UID:2] utils - distance=0.4137167731631361
+[DEBUG] 2025-03-31 00:36:02,933 [UID:2] utils - tolerance=0.3
+[INFO] 2025-03-31 00:36:02,933 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-31 00:36:02,937 [UID:2] basehttp - "POST /place/checkin/?place_with_id=3 HTTP/1.1" 200 19804
+[DEBUG] 2025-03-31 00:40:52,242 [UID:2] views - start Chat list_view
+[DEBUG] 2025-03-31 00:40:52,247 [UID:2] views - object_list exists
+[INFO] 2025-03-31 00:40:52,248 [UID:2] views - return render chat/list.html
+[INFO] 2025-03-31 00:40:52,299 [UID:2] basehttp - "GET /chat/list/ HTTP/1.1" 200 102351
+[DEBUG] 2025-03-31 00:40:55,186 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-31 00:40:55,188 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:40:55,193 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-31 00:40:55,195 [UID:2] views - object_list exists
+[INFO] 2025-03-31 00:40:55,197 [UID:2] views - return render friend/list.html
+[INFO] 2025-03-31 00:40:55,206 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 200 19298
+[DEBUG] 2025-03-31 00:59:02,557 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-31 00:59:02,558 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 00:59:02,563 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-31 00:59:02,564 [UID:2] views - object_list exists
+[INFO] 2025-03-31 00:59:02,566 [UID:2] views - return render friend/list.html
+[ERROR] 2025-03-31 00:59:02,656 [UID:2] log - Internal Server Error: /friend/list/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py", line 64, in list_view
+    return render(request, 'friend/list.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 1531, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1119, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(latest_pk=Max('pk')).values_list('latest_pk',' from 'item.checkinrecord_set.annotate(latest_pk=Max('pk')).values_list('latest_pk','
+[ERROR] 2025-03-31 00:59:02,663 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 500 290158
+[DEBUG] 2025-03-31 01:03:37,654 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-31 01:03:37,655 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 01:03:37,660 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-31 01:03:37,661 [UID:2] views - object_list exists
+[INFO] 2025-03-31 01:03:37,662 [UID:2] views - return render friend/list.html
+[ERROR] 2025-03-31 01:03:37,710 [UID:2] log - Internal Server Error: /friend/list/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py", line 64, in list_view
+    return render(request, 'friend/list.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 1531, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1119, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(checkin_time__date=today,' from 'item.checkinrecord_set.filter(checkin_time__date=today,'
+[ERROR] 2025-03-31 01:03:37,715 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 500 291301
+[DEBUG] 2025-03-31 01:04:30,965 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-31 01:04:30,967 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 01:04:30,971 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-31 01:04:30,972 [UID:2] views - object_list exists
+[INFO] 2025-03-31 01:04:30,973 [UID:2] views - return render friend/list.html
+[ERROR] 2025-03-31 01:04:31,021 [UID:2] log - Internal Server Error: /friend/list/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py", line 64, in list_view
+    return render(request, 'friend/list.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 1531, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1119, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(checkin_time__date=today,' from 'item.checkinrecord_set.filter(checkin_time__date=today,'
+[ERROR] 2025-03-31 01:04:31,026 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 500 292419
+[DEBUG] 2025-03-31 01:04:32,414 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-31 01:04:32,415 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 01:04:32,419 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-31 01:04:32,420 [UID:2] views - object_list exists
+[INFO] 2025-03-31 01:04:32,421 [UID:2] views - return render friend/list.html
+[ERROR] 2025-03-31 01:04:32,474 [UID:2] log - Internal Server Error: /friend/list/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py", line 64, in list_view
+    return render(request, 'friend/list.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 1531, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1119, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(checkin_time__date=today,' from 'item.checkinrecord_set.filter(checkin_time__date=today,'
+[ERROR] 2025-03-31 01:04:32,480 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 500 292419
+[INFO] 2025-03-31 01:04:47,255 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-03-31 01:04:52,939 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-31 01:04:52,941 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 01:04:52,945 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-31 01:04:52,947 [UID:2] views - object_list exists
+[INFO] 2025-03-31 01:04:52,948 [UID:2] views - return render friend/list.html
+[ERROR] 2025-03-31 01:04:53,020 [UID:2] log - Internal Server Error: /friend/list/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py", line 64, in list_view
+    return render(request, 'friend/list.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 1531, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1119, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(checkin_time__date=today,' from 'item.checkinrecord_set.filter(checkin_time__date=today,'
+[ERROR] 2025-03-31 01:04:53,027 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 500 292280
+[INFO] 2025-03-31 01:11:51,368 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-31 01:11:51,960 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-31 01:12:24,510 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-31 01:12:25,096 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-31 01:15:38,194 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-31 01:15:38,782 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-31 01:16:15,451 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-31 01:16:16,079 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-03-31 01:17:31,568 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-31 01:17:31,570 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 01:17:31,573 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-31 01:17:31,574 [UID:2] views - object_list exists
+[INFO] 2025-03-31 01:17:31,575 [UID:2] views - return render friend/list.html
+[ERROR] 2025-03-31 01:17:31,644 [UID:2] log - Internal Server Error: /friend/list/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py", line 64, in list_view
+    return render(request, 'friend/list.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 1531, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1119, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(item)' from 'item.checkinrecord_set.is_status_in(item)'
+[ERROR] 2025-03-31 01:17:31,651 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 500 291149
+[INFO] 2025-03-31 01:22:26,113 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-31 01:22:26,701 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-31 01:23:35,592 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-03-31 01:23:36,152 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-31 01:23:52,120 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-03-31 01:23:52,695 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-03-31 01:24:16,827 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-31 01:24:16,829 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 01:24:16,833 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-31 01:24:16,834 [UID:2] views - object_list exists
+[INFO] 2025-03-31 01:24:16,835 [UID:2] views - return render friend/list.html
+[ERROR] 2025-03-31 01:24:16,904 [UID:2] log - Internal Server Error: /friend/list/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py", line 64, in list_view
+    return render(request, 'friend/list.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 320, in render
+    match = condition.eval(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 886, in eval
+    return self.value.resolve(context, ignore_failures=True)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 718, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 850, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 917, in _resolve_lookup
+    current = current()
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py", line 169, in is_status_in
+    from .models import CheckinRecord
+ImportError: cannot import name 'CheckinRecord' from 'user.models' (C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py)
+[ERROR] 2025-03-31 01:24:16,911 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 500 241660
+[INFO] 2025-03-31 01:24:33,416 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-03-31 01:24:36,262 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-31 01:24:36,264 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 01:24:36,268 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-31 01:24:36,269 [UID:2] views - object_list exists
+[INFO] 2025-03-31 01:24:36,270 [UID:2] views - return render friend/list.html
+[ERROR] 2025-03-31 01:24:36,340 [UID:2] log - Internal Server Error: /friend/list/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py", line 64, in list_view
+    return render(request, 'friend/list.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 320, in render
+    match = condition.eval(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 886, in eval
+    return self.value.resolve(context, ignore_failures=True)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 718, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 850, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 917, in _resolve_lookup
+    current = current()
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py", line 169, in is_status_in
+    from .models import CheckinRecord
+ImportError: cannot import name 'CheckinRecord' from 'user.models' (C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py)
+[ERROR] 2025-03-31 01:24:36,347 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 500 241660
+[INFO] 2025-03-31 01:25:20,600 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-03-31 01:25:21,143 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-03-31 01:26:18,060 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-31 01:26:18,062 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 01:26:18,069 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-31 01:26:18,071 [UID:2] views - object_list exists
+[INFO] 2025-03-31 01:26:18,073 [UID:2] views - return render friend/list.html
+[ERROR] 2025-03-31 01:26:18,167 [UID:2] log - Internal Server Error: /friend/list/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py", line 64, in list_view
+    return render(request, 'friend/list.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 320, in render
+    match = condition.eval(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 886, in eval
+    return self.value.resolve(context, ignore_failures=True)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 718, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 850, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 917, in _resolve_lookup
+    current = current()
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py", line 170, in is_status_in
+    today = timezone.localdate()  # 今日の日付
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\timezone.py", line 197, in localdate
+    return localtime(value, timezone).date()
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\timezone.py", line 183, in localtime
+    raise ValueError("localtime() cannot be applied to a naive datetime")
+ValueError: localtime() cannot be applied to a naive datetime
+[ERROR] 2025-03-31 01:26:18,177 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 500 249240
+[INFO] 2025-03-31 01:34:22,611 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-03-31 01:34:23,305 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-03-31 01:34:26,829 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-31 01:34:26,831 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-31 01:34:26,835 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-31 01:34:26,836 [UID:2] views - object_list exists
+[INFO] 2025-03-31 01:34:26,837 [UID:2] views - return render friend/list.html
+[INFO] 2025-03-31 01:34:26,881 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 200 19528
+[INFO] 2025-03-31 01:34:37,954 [UID:Anon] basehttp - "GET /top/logout/ HTTP/1.1" 302 0
+[INFO] 2025-03-31 01:34:37,962 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-03-31 01:34:45,605 [UID:10] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-03-31 01:34:45,619 [UID:10] basehttp - "GET /top/ HTTP/1.1" 200 42582
+[INFO] 2025-03-31 01:34:45,685 [UID:10] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 15802
+[DEBUG] 2025-03-31 01:34:47,790 [UID:10] views - start Friend list_view
+[DEBUG] 2025-03-31 01:34:47,791 [UID:10] views - login_profile=<User:id=No4, shibusawa>
+[DEBUG] 2025-03-31 01:34:47,800 [UID:10] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=12, <User:id=No_teresa, teresa> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=11, <User:id=No3, ieyasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=10, <User:id=No6, nobunaga> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=9, <User:id=No_hokusai, hokusai> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=8, <User:id=No36, saru> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=7, <User:id=No_taishi, taishi> - <User:id=No4, shibusawa>>]>
+[DEBUG] 2025-03-31 01:34:47,801 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:34:47,802 [UID:10] views - return render friend/list.html
+[INFO] 2025-03-31 01:34:47,821 [UID:10] basehttp - "GET /friend/list/ HTTP/1.1" 200 28244
+[INFO] 2025-03-31 01:34:47,934 [UID:10] basehttp - "GET /static/img/status_in.png HTTP/1.1" 200 36956
+[DEBUG] 2025-03-31 01:35:05,148 [UID:10] views - start Place list_view
+[DEBUG] 2025-03-31 01:35:05,151 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:35:05,152 [UID:10] views - return render place/list.html
+[INFO] 2025-03-31 01:35:05,158 [UID:10] basehttp - "GET /place/list/ HTTP/1.1" 200 20197
+[INFO] 2025-03-31 01:35:06,267 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:35:06,272 [UID:10] views - get Place object(pk)
+[DEBUG] 2025-03-31 01:35:06,276 [UID:10] views - return render place/detail.html
+[INFO] 2025-03-31 01:35:06,290 [UID:10] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32092
+[DEBUG] 2025-03-31 01:35:11,838 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:35:11,842 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:35:11,843 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:35:11,877 [UID:10] basehttp - "GET /user/list/ HTTP/1.1" 200 41754
+[DEBUG] 2025-03-31 01:35:17,636 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:35:17,640 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:35:17,642 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:35:17,662 [UID:10] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31395
+[DEBUG] 2025-03-31 01:35:21,421 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:35:21,425 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:35:21,426 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:35:21,453 [UID:10] basehttp - "GET /user/list/?page_cnt=1 HTTP/1.1" 200 41754
+[INFO] 2025-03-31 01:35:27,286 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:35:27,289 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:35:27,294 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:35:27,307 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40338
+[INFO] 2025-03-31 01:35:27,387 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:35:27,387 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:35:27,405 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:35:27,431 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[INFO] 2025-03-31 01:37:07,028 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:37:07,030 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:37:07,033 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:37:07,050 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40330
+[INFO] 2025-03-31 01:37:07,099 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:37:07,099 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:37:07,117 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:37:07,129 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[INFO] 2025-03-31 01:38:19,959 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:38:19,962 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:38:19,969 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:38:19,988 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40372
+[INFO] 2025-03-31 01:38:20,016 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:38:20,016 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:38:20,036 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:38:20,048 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[INFO] 2025-03-31 01:39:02,930 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:39:02,933 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:39:02,937 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:39:02,957 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40563
+[INFO] 2025-03-31 01:39:03,009 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:39:03,009 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:39:03,031 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:39:03,043 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[INFO] 2025-03-31 01:39:36,091 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:39:36,095 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:39:36,101 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:39:36,118 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40563
+[INFO] 2025-03-31 01:39:36,171 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:39:36,172 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:39:36,194 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:39:36,217 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[INFO] 2025-03-31 01:40:16,540 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:40:16,543 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:40:16,547 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:40:16,565 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40497
+[INFO] 2025-03-31 01:40:16,619 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:40:16,620 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:40:16,641 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:40:16,642 [UID:Anon] basehttp - "GET /static/img/status_in.png HTTP/1.1" 304 0
+[INFO] 2025-03-31 01:40:16,654 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[INFO] 2025-03-31 01:40:35,679 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:40:35,682 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:40:35,686 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:40:35,700 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40484
+[INFO] 2025-03-31 01:40:35,747 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:40:35,747 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:40:35,765 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:40:35,779 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[INFO] 2025-03-31 01:40:51,686 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:40:51,689 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:40:51,693 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:40:51,706 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40479
+[INFO] 2025-03-31 01:40:51,729 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:40:51,730 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:40:51,748 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:40:51,761 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[INFO] 2025-03-31 01:41:02,252 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:41:02,255 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:41:02,259 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:41:02,273 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40470
+[INFO] 2025-03-31 01:41:02,300 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:41:02,301 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:41:02,321 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:41:02,333 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[INFO] 2025-03-31 01:41:51,726 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:41:51,730 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:41:51,737 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:41:51,757 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40464
+[INFO] 2025-03-31 01:41:51,789 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:41:51,790 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:41:51,811 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:41:51,824 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[INFO] 2025-03-31 01:46:55,479 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:46:55,483 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:46:55,488 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:46:55,501 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40466
+[INFO] 2025-03-31 01:46:55,552 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:46:55,552 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:46:55,571 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:46:55,572 [UID:Anon] basehttp - "GET /static/img/status_in.png HTTP/1.1" 304 0
+[INFO] 2025-03-31 01:46:55,583 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[INFO] 2025-03-31 01:47:26,840 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:47:26,843 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:47:26,849 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:47:26,879 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40466
+[INFO] 2025-03-31 01:47:26,903 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:47:26,903 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:47:26,920 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:47:26,935 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[INFO] 2025-03-31 01:47:29,142 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:47:29,145 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:47:29,148 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:47:29,155 [UID:10] basehttp - "GET /user/detail/12/ HTTP/1.1" 200 40466
+[INFO] 2025-03-31 01:47:29,184 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:47:29,185 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=12
+[DEBUG] 2025-03-31 01:47:29,201 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:47:29,213 [UID:10] basehttp - "GET /friend/disp_qr/12/ HTTP/1.1" 200 8386
+[DEBUG] 2025-03-31 01:48:14,978 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:48:14,983 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:48:14,984 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:48:15,018 [UID:10] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31801
+[INFO] 2025-03-31 01:48:32,126 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:48:32,129 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-03-31 01:48:32,133 [UID:10] views - return render user/detail.html
+[INFO] 2025-03-31 01:48:32,149 [UID:10] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 33233
+[INFO] 2025-03-31 01:48:32,227 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-03-31 01:48:32,227 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-03-31 01:48:32,244 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-31 01:48:32,255 [UID:10] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[DEBUG] 2025-03-31 01:48:58,217 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:48:58,220 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:48:58,221 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:48:58,244 [UID:10] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31801
+[DEBUG] 2025-03-31 01:49:17,386 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:49:17,388 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:49:17,389 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:49:17,412 [UID:10] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31801
+[DEBUG] 2025-03-31 01:49:22,194 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:49:22,197 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:49:22,198 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:49:22,219 [UID:10] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31801
+[DEBUG] 2025-03-31 01:49:28,059 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:49:28,062 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:49:28,063 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:49:28,086 [UID:10] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31801
+[DEBUG] 2025-03-31 01:49:34,882 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:49:34,887 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:49:34,888 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:49:34,924 [UID:10] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31801
+[DEBUG] 2025-03-31 01:51:09,160 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:51:09,164 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:51:09,166 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:51:09,195 [UID:10] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31801
+[DEBUG] 2025-03-31 01:51:33,107 [UID:10] views - start Friend list_view
+[DEBUG] 2025-03-31 01:51:33,108 [UID:10] views - login_profile=<User:id=No4, shibusawa>
+[DEBUG] 2025-03-31 01:51:33,123 [UID:10] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=12, <User:id=No_teresa, teresa> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=11, <User:id=No3, ieyasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=10, <User:id=No6, nobunaga> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=9, <User:id=No_hokusai, hokusai> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=8, <User:id=No36, saru> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=7, <User:id=No_taishi, taishi> - <User:id=No4, shibusawa>>]>
+[DEBUG] 2025-03-31 01:51:33,124 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:51:33,125 [UID:10] views - return render friend/list.html
+[INFO] 2025-03-31 01:51:33,152 [UID:10] basehttp - "GET /friend/list/ HTTP/1.1" 200 28650
+[DEBUG] 2025-03-31 01:52:05,294 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:52:05,298 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:52:05,300 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:52:05,339 [UID:10] basehttp - "GET /user/list/ HTTP/1.1" 200 42160
+[DEBUG] 2025-03-31 01:52:09,642 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:52:09,645 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:52:09,645 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:52:09,668 [UID:10] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31801
+[DEBUG] 2025-03-31 01:52:14,679 [UID:10] views - start Profile list_view
+[DEBUG] 2025-03-31 01:52:14,683 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:52:14,684 [UID:10] views - return render user/list.html
+[INFO] 2025-03-31 01:52:14,713 [UID:10] basehttp - "GET /user/list/?page_cnt=1 HTTP/1.1" 200 42160
+[DEBUG] 2025-03-31 01:52:27,839 [UID:10] views - start Place list_view
+[DEBUG] 2025-03-31 01:52:27,843 [UID:10] views - object_list exists
+[INFO] 2025-03-31 01:52:27,844 [UID:10] views - return render place/list.html
+[INFO] 2025-03-31 01:52:27,850 [UID:10] basehttp - "GET /place/list/ HTTP/1.1" 200 20197
+[INFO] 2025-03-31 01:52:29,102 [UID:10] views - start detail_view
+[DEBUG] 2025-03-31 01:52:29,105 [UID:10] views - get Place object(pk)
+[DEBUG] 2025-03-31 01:52:29,108 [UID:10] views - return render place/detail.html
+[INFO] 2025-03-31 01:52:29,121 [UID:10] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32092

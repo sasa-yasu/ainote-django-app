@@ -1,0 +1,132 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" type="text/css" href="{% static 'list/style.css' %}">
+<style type="text/css">
+    .xy_center {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .img-container {
+        width: 100%; /* 親要素に対して100%の幅を持つ */
+        height: 100%; /* 必要に応じて高さを調整 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* 画像のはみ出しを防ぐ */
+    }
+    .preview-image {
+        max-width: 128px; /* カード内で画像がはみ出さないようにする */
+        max-height: 128px; /* 親要素を超えないように制限 */
+        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
+        border-radius: 5px; /* 角丸のデザイン */
+        display: block;
+        margin-top: 10px; 
+    }
+
+    /* 画像の重ね合わせコンテナ */
+    .image-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;         /* 高さを自動調整 */
+        aspect-ratio: 16 / 9; /* 16:9を維持しつつ高さを可変に */
+        overflow: hidden;
+    }
+
+    /* 背景の themes 画像 */
+    .bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
+        z-index: 1;          /* 背景に表示 */
+        opacity: 1;         /* 透明度を設定しない */
+    }
+
+    /* 前面の images 画像 */
+    .front-image {
+        margin-top:0px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 40%;
+        min-width: 96px;  /* 最小サイズを設定 */
+        min-height: 96px; /* 縦横比を維持 */
+        aspect-ratio: 1 / 1;  /* 正方形を維持 */
+        transform: translate(-50%, -50%);
+        z-index: 2;          /* 前面に表示 */
+        border-radius: 50%;   /* 完全な円形に */
+        background-color: white;  /* 背景を白色に */
+    }
+
+    .front-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Profile Icon を右下に配置 */
+    .profile-icon {
+        position: absolute;
+        bottom: 10px;    /* 下から10pxの位置 */
+        right: 10px;     /* 右から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+    /* ホバー時のエフェクト */
+    .image-wrapper:hover .bg-image {
+        transform: scale(1.10);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
+    /* Status-In 画像を左上に配置 */
+    .status-in-icon {
+        position: absolute;
+        top: 10px;      /* 上から10pxの位置 */
+        left: 10px;     /* 左から10pxの位置 */
+        z-index: 2;     /* 前面に表示されるように設定 */
+    }
+
+</style>
+{% endblock header %}
+
+{% block content %}
+<!-- START TITLE -->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="60" height="60" src="{% static 'img/user.png' %}" alt="Profile Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Profiles</h1>
+    &nbsp;
+    <img class="bi" width="50" height="50" src="{% static 'img/list.png' %}" alt="List Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">List</h1>
+    </div>
+    <p class="col-lg-8 mx-auto lead fst-italic">The List of Profiles which we have.</p>
+</div>
+<!-- END TITLE -->
+
+<!--MAIN START-->
+<main class="container">
+    <a href="{% url 'user:create' %}" class="btn btn-primary">Create Profile</a>
+    <hr>
+    <!-- START MAIN LIST BODY -->
+    <div class="container bg-body-tertiary"><div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
+        {% for item in display_object_list %}
+            {% include 'includes/profile_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" %}
+        {% endfor %}
+    </div></div>
+    <!-- END MAIN LIST BODY -->
+    <br/>
+    <!-- START BOTTOM PAGINATION -->
+    {% include 'includes/pagination.html' %}
+    <!-- END BOTTOM PAGINATION -->
+</main>
+<!--MAIN END-->
+{% endblock content %}

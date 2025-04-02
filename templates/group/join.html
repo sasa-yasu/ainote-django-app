@@ -1,0 +1,206 @@
+{% extends "../base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block header %}
+<link rel="stylesheet" type="text/css" href="{% static 'list/style.css' %}">
+<style type="text/css">
+    .xy_center {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .img-container {
+        width: 100%; /* 親要素に対して100%の幅を持つ */
+        height: 100%; /* 必要に応じて高さを調整 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* 画像のはみ出しを防ぐ */
+    }
+    .preview-image {
+        max-width: 128px; /* カード内で画像がはみ出さないようにする */
+        max-height: 128px; /* 親要素を超えないように制限 */
+        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
+        border-radius: 5px; /* 角丸のデザイン */
+        display: block;
+        margin-top: 10px; 
+    }
+
+    /* 画像の重ね合わせコンテナ */
+    .image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;  /* 16:9のアスペクト比 */
+        overflow: hidden;
+        border-radius: 12px;  /* カードの角を丸める */
+    }
+
+    /* 背景の themes 画像 */
+    .bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
+        z-index: 1;          /* 背景に表示 */
+        opacity: 1;         /* 透明度を設定しない */
+    }
+
+    /* 前面の images 画像 */
+    .front-image {
+        margin-top:0px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30%;
+        aspect-ratio: 1 / 1;  /* 正方形を維持 */
+        transform: translate(-50%, -50%);
+        z-index: 2;          /* 前面に表示 */
+        border-radius: 50%;   /* 完全な円形に */
+        background-color: white;  /* 背景を白色に */
+    }
+
+    .front-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 2px solid #444040; /* 縁取り */
+    }
+
+    /* Profile Icon を右下に配置 */
+    .profile-icon {
+        position: absolute;
+        bottom: 10px;    /* 下から10pxの位置 */
+        right: 10px;     /* 右から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+</style>
+{% endblock header %}
+
+{% block content %}
+<!-- START TITLE -->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="60" height="60" src="{% static 'img/friend.png' %}" alt="Friend Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">New Group</h1>
+    &nbsp;
+    <img class="bi" width="50" height="50" src="{% static 'img/create.png' %}" alt="List Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Join</h1>
+    </div>
+    <p class="col-lg-8 mx-auto lead fst-italic">Join new Profile to Group</p>
+</div>
+<!-- END TITLE -->
+
+<!--MAIN START-->
+<main class="container">
+    <!-- START MAIN LIST BODY -->
+    <div class="album py-5 bg-body-tertiary"><div class="container">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3 justify-content-center">
+                <!--login check-->
+                {% if user.is_authenticated %}
+
+                    <!-- profile_own START -->
+                    <div class="col"><div class="card shadow-sm">
+                        <!-- 画像コンテナ -->
+                        <div class="image-wrapper">
+                            {% if profile_own.themes %}
+                            <img src="{{ profile_own.themes.url }}" class="bg-image" alt="User Themes"/>
+                            {% else %}
+                            <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+                            {% endif %}
+
+                            <!-- 前面に images を表示 -->
+                            <div class="front-image">
+                                {% if profile_own.images %}
+                                <img src="{{ profile_own.images.url }}" class="rounded-circle" alt="User Images"/>
+                                {% else %}
+                                <img src="{% static 'img/user.png' %}" class="rounded-circle" alt="Default Images"/>
+                                {% endif %}
+                            </div>
+
+                            <span class="profile-icon badge d-flex align-items-center p-0 pe-1 text-{{ profile_own.badges }}-emphasis bg-{{ profile_own.badges }}-subtle border border-{{ profile_own.badges }}-subtle rounded-pill">
+                                {% if profile_own.images %}
+                                    <img class="rounded-circle me-1" width="24" height="24" src="{{ profile_own.images.url }}" alt="Profile icon">{{ profile_own.nick_name }}
+                                {% else %}
+                                    <img class="rounded-circle me-1" width="24" height="24" src="{% static 'img/user.png' %}" alt="Profile icon">{{ profile_own.nick_name }}
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <input type="hidden" class="card-text" id="id_profile_own_id" name="profile_own_id" value="{{ profile_own.id }}">
+                            <small class="card-text"><B>{{ profile_own.user1.username }}</B></small><br/>
+                            <small class="card-text">{{ profile_own.memberid }}</small><br/>
+                            <small class="card-text">{{ profile_own.nick_name }}</small>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" href="?{% url_replace request 'profile_id' profile_own.id %}">Detail</a>
+                                </div>
+                                <small class="text-body-secondary">{{ profile_own.updated_at|date:"'y/m/d" }}</small>
+                            </div>
+                        </div>
+                    </div></div>
+                    <!-- profile_own END -->
+                    <div class="col-md-4 d-flex justify-content-center align-items-center" style="min-height: 300px;">
+                        <img src="{% static 'img/handshake.png' %}" alt="Handshake" class="img-fluid" style="max-width: 100%; height: auto;">
+                    </div>
+
+                    <!-- group_join START -->
+                    <div class="col"><div class="card shadow-sm">
+                        <!-- 画像コンテナ -->
+                        <div class="image-wrapper">
+                            {% if group_join.themes %}
+                            <img src="{{ group_join.themes.url }}" class="bg-image" alt="Group Themes"/>
+                            {% else %}
+                            <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+                            {% endif %}
+
+                            <!-- 前面に images を表示 -->
+                            <div class="front-image">
+                                {% if group_join.images %}
+                                <img src="{{ group_join.images.url }}" class="rounded-circle" alt="Group Images"/>
+                                {% else %}
+                                <img src="{% static 'img/group.png' %}" class="rounded-circle" alt="Default Images"/>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <input type="hidden" class="card-text" id="id_group_join_id" name="group_join_id" value="{{ group_join.id }}">
+                            <small class="card-text"><B>{{ group_join.name }}</B></small><br/>
+                            <small class="card-text">{{ group_join.context }}</small>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'group:detail' group_join.pk %}">Detail</a>
+                                </div>
+                                <small class="text-body-secondary">{{ group_join.updated_at|date:"Y/m/d" }}</small>
+                            </div>
+                        </div>
+                    </div></div>
+                    <!-- group_join END -->
+
+                    <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+                        <!--submit button-->
+                        {% include 'includes/submit_button.html' with action="Accept" %}
+                    </div>
+                {% else %}
+                    <label for="require_login" class="form-label">ログインしてください</label>
+                    &nbsp;
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+                {% endif %}
+            </div>
+        </form>
+    </div></div>
+    <!-- END MAIN LIST BODY -->
+</main>
+<!--MAIN END-->
+{% endblock content %}

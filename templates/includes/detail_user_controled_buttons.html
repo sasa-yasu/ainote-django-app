@@ -1,0 +1,11 @@
+<a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+{% if user.is_authenticated %}
+    {% if user.is_superuser or user.id == object.user1.id %}
+        <a>&nbsp;</a>
+        <a href="{% url app_name|add:':update' object.pk %}" class="btn btn-primary">Edit</a>
+    {% endif %}
+    {% if user.is_superuser %}
+        <a>&nbsp;</a>
+        <a href="{% url app_name|add:':delete' object.pk %}" class="btn btn-primary">Delete</a>
+    {% endif %}
+{% endif %}

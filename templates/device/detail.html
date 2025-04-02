@@ -1,0 +1,271 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block header %}
+<style type="text/css">
+    .smoke {background-color: whitesmoke;}
+    .preview-image {
+        max-width: 300px;
+        max-height: 300px;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .xy_center {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    .img-container {
+        width: 128px; /* 親要素に対して100%の幅を持つ */
+        height: 128px; /* 必要に応じて高さを調整 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* 画像のはみ出しを防ぐ */
+    }
+    .preview-image {
+        max-width: 100%; /* カード内で画像がはみ出さないようにする */
+        max-height: 100%; /* 親要素を超えないように制限 */
+        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
+        border-radius: 5px; /* 角丸のデザイン */
+        display: block;
+        margin-top: 10px; 
+    }
+
+    /* 画像とリストを横並びにするコンテナ */
+    .header-container {
+        display: flex;                /* 横並びに表示 */
+        flex-wrap: wrap;              /* 画面幅が狭くなったら折り返す */
+        align-items: center;          /* 垂直方向で中央揃え */
+        gap: 10px;                    /* 画像とリストの間隔 */
+        justify-content: space-between;
+    }
+
+    /* 画像の重ね合わせコンテナ */
+    .image-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;         /* 高さを自動調整 */
+        aspect-ratio: 16 / 9; /* 16:9を維持しつつ高さを可変に */
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* 境界線 */
+    }
+
+    /* 背景の themes 画像 */
+    .bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
+        z-index: 1;          /* 背景に表示 */
+        opacity: 1;         /* 透明度を設定しない */
+        transition: transform 0.3s ease;  /* ホバー時のアニメーション */
+    }
+
+    /* 前面の images 画像 */
+    .front-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;       /* 幅自動調整でアスペクト比維持 */
+        height: 90%;      /* front-imageの高さを80%に */
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        overflow: hidden;         /* はみ出し防止 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 前面の images 画像 */
+    .front-image img {
+        height: 95%;         /* 親要素に対して80%の高さで表示 */
+        width: auto;          /* アスペクト比維持 */
+        object-fit: contain;  /* はみ出し防止 */
+        margin: 2px;
+    }
+
+    /* ホバー時のエフェクト */
+    .image-wrapper:hover .bg-image {
+        transform: scale(1.10);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
+</style>
+<link href="{% static 'user/blog.css' %}" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock header %}
+
+{% block content %}
+<!--HEADER START-->  
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="50" height="50" src="{% static 'img/device.png' %}" alt="Device Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Device</h3>
+    &nbsp;
+    <img class="bi" width="40" height="40" src="{% static 'img/list.png' %}" alt="Detail Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Detail</h3>
+</div></div>
+<!--HEADER END-->
+
+<!--MAIN START-->
+<main><div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <br/>
+        <!--submit button-->
+        {% include 'includes/detail_staff_controled_buttons.html' with app_name='device' %}
+        <br/><br/>
+
+        <div class="row g-5">
+            <div class="col-md-8"><div class="header-container align-items-start">
+
+                <!-- 画像ブロック -->
+                <div class="align-self-start" style="min-width: 300px;">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                    <div class="col p-4 flex-column position-static" style="width:900px;">
+
+                        <!-- name -->
+                        <div class="d-flex align-items-center"><h2 class="display-7">{{ object.name }}</h2></div>
+
+                        <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
+                            <div class="image-wrapper" style="max-width:900px; ">
+                                <!-- 背景：themes -->
+                                {% if object.themes %}
+                                <img src="{{ object.themes.url }}" class="bg-image" alt="Device Themes"/>
+                                {% else %}
+                                <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+                                {% endif %}
+                                <!-- 前面：images(circle切り取り) -->
+                                <div class="front-image">
+                                    {% if object.images %}
+                                    <img src="{{ object.images.url }}" style="border-radius: 50%;" alt="Device Images"/>
+                                    {% else %}
+                                    <img src="{% static 'img/device.png' %}" style="border-radius: 50%;" alt="Default Images"/>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- maker -->
+                {% if object.maker %}
+                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                    <div class="col p-4 d-flex flex-column position-static">
+                    <article class="blog-post" style="margin:0px;">
+                        <h2>Maker</h2>{{ object.maker|safe|linebreaksbr }}
+                    </article>
+                    </div>
+                </div>
+                </div>
+                {% endif %}
+
+                <!-- productno -->
+                {% if object.productno %}
+                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                    <div class="col p-4 d-flex flex-column position-static">
+                    <article class="blog-post" style="margin:0px;">
+                        <h2>Product NO</h2>{{ object.productno|safe|linebreaksbr }}
+                    </article>
+                    </div>
+                </div>
+                </div>
+                {% endif %}
+
+                <!-- context -->
+                {% if object.context %}
+                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                    <div class="col p-4 d-flex flex-column position-static">
+                    <article class="blog-post" style="margin:0px;">
+                        <h2>Context</h2>{{ object.context|safe|linebreaksbr }}
+                    </article>
+                    </div>
+                </div>
+                </div>
+                {% endif %}
+
+                <!-- remarks -->
+                {% if object.remarks %}
+                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                    <div class="col p-4 d-flex flex-column position-static">
+                    <article class="blog-post" style="margin:0px;">
+                        <h2>Remarks</h2>{{ object.remarks|safe|linebreaksbr }}
+                    </article>
+                    </div>
+                </div>
+                </div>
+                {% endif %}
+
+                <br/>
+            </div></div>
+
+            <div class="col-md-4"><div class="position-sticky" style="top:5rem; min-width:340px;">
+                  <div class="p-4 mb-3 bg-body-tertiary rounded">
+                    <div> Profile Card (public) </div>
+                    {% include 'includes/device_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
+                  </div>
+        
+                  <div style="margin-top:16px;">
+                    <h4 class="fst-italic">Recent logins</h4>
+                    {% for login_record in recent_login_records %}
+                      <div class="card" style="margin-bottom:2px;"><div class="card-body" style="padding:2px; padding-left:4px;">
+                        <small class="text-muted">{{ login_record.login_time|date:"'y/m/d h:m" }} - </small>
+                        <small class="text-muted">
+                          {% if login_record.logout_time and login_record.login_time|date:"Y/m/d" != login_record.logout_time|date:"Y/m/d" %}<br/>{{ login_record.logout_time|date:"'y/m/d" }}{% endif %}
+                          {{ login_record.logout_time|date:"h:m" }}
+                        </small>
+                        <small class="text-muted">[{{ login_record.get_diff_time }}]</small>
+                      </div></div>
+                    {% empty %}
+                        <div>No recent logins.</div>
+                    {% endfor %}
+                  </div>
+        
+            </div></div>
+        </div>
+        <br/>
+        <!--submit button-->
+        {% include 'includes/detail_staff_controled_buttons.html' with app_name='device' %}
+    </form>
+</div></main>
+<!--MAIN END-->
+{% endblock %}
+
+{% block footer %}
+<script>
+
+// likes post
+$(document).ready(function() {
+            $('.like-btn').click(function() {
+                const objectId = $(this).data('device-id');
+
+                $.ajax({
+                    url: `/device/push-likes/${objectId}/`,
+                    type: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        // いいね数をリアルタイムで更新
+                        $(`#like-count-${objectId}`).text(response.likes);
+                    },
+                    error: function(xhr) {
+                        alert('エラーが発生しました。');
+                    }
+                });
+            });
+        });
+</script>
+{% endblock footer %}

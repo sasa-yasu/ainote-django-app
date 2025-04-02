@@ -1,0 +1,83 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="'stylesheet" type="text/css" href="{% static 'list/style.css' %}">
+<style type="text/css">
+    .xy_center {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .img-container {
+        width: 100%; /* 親要素に対して100%の幅を持つ */
+        height: 100%; /* 必要に応じて高さを調整 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* 画像のはみ出しを防ぐ */
+    }
+    .preview-image {
+        max-width: 100%; /* カード内で画像がはみ出さないようにする */
+        max-height: 100%; /* 親要素を超えないように制限 */
+        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
+        border-radius: 5px; /* 角丸のデザイン */
+        display: block;
+        margin-top: 10px;
+    }
+</style>
+{% endblock header %}
+
+{% block content %}
+<!-- START TITLE -->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="60" height="60" src="{% static 'img/member.png' %}" alt="Member Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Member</h1>
+    &nbsp;
+    <img class="bi" width="50" height="50" src="{% static 'img/list.png' %}" alt="List Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">List</h1>
+    </div>
+    <p class="col-lg-8 mx-auto lead fst-italic">The List of Members which we have.</p>
+</div>
+<!-- END TITLE -->
+
+<main class="container">
+    <a href="{% url 'member:create' %}" class="btn btn-primary">Create Member</a>
+    <hr>
+    <!-- START MAIN LIST BODY -->
+    <div class="album py-5 bg-body-tertiary"><div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for item in display_object_list %}
+            <div class="col"><div class="card shadow-sm">
+                <div class="mt-2 xy_center">
+                    {% if item.images %}
+                    <div class="img-container"><img src="{{ item.images.url }}" class="preview-image"/></div>
+                    {% else %}
+                    <div class="img-container"><img src="{% static 'img/member.png' %}" class="preview-image"/></div>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <small class="card-text"><B>{{ item.userid }}</B></small><br/>
+                    <small class="card-text">{{ item.memberid }}</small><br/>
+                    <small class="card-text">{{ item.nick_name }}</small>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'member:detail' item.pk %}">Detail</a>
+                        </div>
+                        <small class="text-body-secondary">{{ item.updated_at|date:"Y/m/d" }}</small>
+                    </div>
+                </div>
+            </div></div>
+            {% endfor %}
+        </div>
+    </div></div>
+    <!-- END MAIN LIST BODY -->
+    &nbsp;
+    <!-- START BOTTOM PAGINATION -->
+    {% include 'includes/pagination.html' %}
+    <!-- END BOTTOM PAGINATION -->
+</main>
+{% endblock content %}

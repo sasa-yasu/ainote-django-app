@@ -1,0 +1,795 @@
+[INFO] 2025-04-01 21:12:57,688 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 21:36:42,119 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-04-01 21:36:42,771 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 21:38:45,071 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-01 21:38:45,609 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 21:52:12,510 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 21:53:16,884 [UID:10] views - start Friend create_view
+[DEBUG] 2025-04-01 21:53:16,887 [UID:10] views - profile_own=<User:id=No4, shibusawa>
+[DEBUG] 2025-04-01 21:53:16,888 [UID:10] views - profile_with=<User:id=No_taishi, taishi>
+[INFO] 2025-04-01 21:53:16,890 [UID:10] views - GET method
+[INFO] 2025-04-01 21:53:16,891 [UID:10] views - return render friend/create.html
+[INFO] 2025-04-01 21:53:17,016 [UID:10] basehttp - "GET /friend/create/?profile_id=10 HTTP/1.1" 200 19243
+[INFO] 2025-04-01 21:53:17,059 [UID:Anon] basehttp - "GET /static/list/style.css HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:17,060 [UID:10] basehttp - "GET /media/user/Portrait_of_Shibusawa_Eiichi.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:17,062 [UID:10] basehttp - "GET /media/user/11_themes_2503242132.webp HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:17,076 [UID:10] basehttp - "GET /static/img/handshake.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:17,080 [UID:Anon] basehttp - "GET /static/img/create.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:17,074 [UID:10] basehttp - "GET /media/user/10_themes_2503242133.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:17,084 [UID:Anon] basehttp - "GET /static/img/friend.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:17,083 [UID:10] basehttp - "GET /media/user/10_images_2503242133.jpg HTTP/1.1" 304 0
+[WARNING] 2025-04-01 21:53:17,228 [UID:10] log - Not Found: /favicon.ico
+[WARNING] 2025-04-01 21:53:17,231 [UID:10] basehttp - "GET /favicon.ico HTTP/1.1" 404 4344
+[INFO] 2025-04-01 21:53:20,099 [UID:10] basehttp - "GET /top/ HTTP/1.1" 200 42582
+[INFO] 2025-04-01 21:53:20,130 [UID:10] basehttp - "GET /static/top/carousel.css HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,144 [UID:Anon] basehttp - "GET /static/img/chat.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,138 [UID:10] basehttp - "GET /media/headline/3_2503242257.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,156 [UID:Anon] basehttp - "GET /static/img/room.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,142 [UID:10] basehttp - "GET /media/headline/6_2503242304.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,162 [UID:Anon] basehttp - "GET /static/img/device_reservation.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,164 [UID:10] basehttp - "GET /static/img/user.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,166 [UID:Anon] basehttp - "GET /static/img/headline.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,166 [UID:10] basehttp - "GET /static/img/group.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,168 [UID:10] basehttp - "GET /static/img/notice.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,171 [UID:10] basehttp - "GET /static/img/place.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,146 [UID:10] basehttp - "GET /media/headline/5_2503242302.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,173 [UID:10] basehttp - "GET /media/notice/4_2503242311.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,145 [UID:10] basehttp - "GET /media/headline/4_2503242300.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,172 [UID:10] basehttp - "GET /media/notice/3_2503242309.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,178 [UID:10] basehttp - "GET /media/notice/5_2503242313.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,187 [UID:10] basehttp - "GET /static/img/device.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,189 [UID:10] basehttp - "GET /static/img/room_reservation.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,189 [UID:10] basehttp - "GET /media/notice/2_2503242307.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,201 [UID:10] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 14410
+[INFO] 2025-04-01 21:53:20,190 [UID:10] basehttp - "GET /media/notice/6_2503242315.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:20,293 [UID:10] basehttp - "GET /static/assets/dist/js/bootstrap.js HTTP/1.1" 304 0
+[DEBUG] 2025-04-01 21:53:40,656 [UID:10] views - start Profile list_view
+[DEBUG] 2025-04-01 21:53:40,659 [UID:10] views - object_list exists
+[INFO] 2025-04-01 21:53:40,661 [UID:10] views - return render user/list.html
+[INFO] 2025-04-01 21:53:40,693 [UID:10] basehttp - "GET /user/list/ HTTP/1.1" 200 41939
+[INFO] 2025-04-01 21:53:40,717 [UID:10] basehttp - "GET /static/img/list.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,731 [UID:10] basehttp - "GET /media/user/26_themes_2503250053.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,731 [UID:10] basehttp - "GET /media/user/images_3.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,734 [UID:10] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_11.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,735 [UID:10] basehttp - "GET /media/user/images_2.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,733 [UID:10] basehttp - "GET /media/user/24_themes_2503250044.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,732 [UID:10] basehttp - "GET /media/user/25_themes_2503250049.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,751 [UID:10] basehttp - "GET /media/user/22_themes_2503250034.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,755 [UID:10] basehttp - "GET /media/user/23_themes_2503250039.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,761 [UID:10] basehttp - "GET /media/user/images.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,756 [UID:10] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_18.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,770 [UID:10] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_19.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,758 [UID:10] basehttp - "GET /media/user/images_1.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,775 [UID:10] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_15.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,781 [UID:10] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_14.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,780 [UID:10] basehttp - "GET /media/user/12_themes_2503242131.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,792 [UID:10] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_3.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,793 [UID:10] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_16.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,790 [UID:10] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_5.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,800 [UID:10] basehttp - "GET /media/user/20_themes_2503250027.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,800 [UID:10] basehttp - "GET /media/user/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_1.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,783 [UID:10] basehttp - "GET /media/user/13_themes_2503242131.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,807 [UID:10] basehttp - "GET /media/user/18_themes_2503250019.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,811 [UID:10] basehttp - "GET /media/user/17_themes_2503250016.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,818 [UID:10] basehttp - "GET /media/user/19_themes_2503250023.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,818 [UID:10] basehttp - "GET /media/user/15_themes_2503250008.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,820 [UID:10] basehttp - "GET /media/user/16_themes_2503250013.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,827 [UID:10] basehttp - "GET /media/user/21_themes_2503250031.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,831 [UID:10] basehttp - "GET /media/user/14_themes_2503250005.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,834 [UID:10] basehttp - "GET /media/user/Fukuzawa_Yukichi_1891.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:40,839 [UID:10] basehttp - "GET /media/user/Noguchi_Hideyo.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-04-01 21:53:43,510 [UID:10] views - start Profile list_view
+[DEBUG] 2025-04-01 21:53:43,515 [UID:10] views - object_list exists
+[INFO] 2025-04-01 21:53:43,516 [UID:10] views - return render user/list.html
+[INFO] 2025-04-01 21:53:43,530 [UID:10] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31580
+[INFO] 2025-04-01 21:53:43,571 [UID:10] basehttp - "GET /media/user/7_themes_2503242130.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,570 [UID:10] basehttp - "GET /media/user/8_themes_2503242134.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,573 [UID:10] basehttp - "GET /media/user/Oda-Nobunaga.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,575 [UID:10] basehttp - "GET /media/user/Hokusai_portrait.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,572 [UID:10] basehttp - "GET /media/user/Toyotomi_Hideyoshi_c1598_Kodai-ji_Temple.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,574 [UID:10] basehttp - "GET /media/user/6_themes_2503242135.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,589 [UID:10] basehttp - "GET /media/user/3_images_2503242121.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,594 [UID:10] basehttp - "GET /media/user/MotherTeresa_090.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,596 [UID:10] basehttp - "GET /media/user/5_themes_2503242136.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,600 [UID:10] basehttp - "GET /media/user/3_themes_2503242138.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,608 [UID:10] basehttp - "GET /media/user/1_images_2503242120.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,603 [UID:10] basehttp - "GET /media/user/330px-Tokugawa_Ieyasu2_full.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,606 [UID:10] basehttp - "GET /media/user/4_themes_2503242137.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:43,616 [UID:10] basehttp - "GET /media/user/1_themes_2503242137.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:44,983 [UID:10] views - start detail_view
+[DEBUG] 2025-04-01 21:53:44,986 [UID:10] views - get Profile object(pk)
+[DEBUG] 2025-04-01 21:53:44,990 [UID:10] views - return render user/detail.html
+[INFO] 2025-04-01 21:53:45,005 [UID:10] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 34110
+[INFO] 2025-04-01 21:53:45,031 [UID:10] basehttp - "GET /static/user/blog.css HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:53:45,033 [UID:10] views - start Friend disp_qr_view
+[INFO] 2025-04-01 21:53:45,034 [UID:10] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-04-01 21:53:45,054 [UID:10] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 21:53:45,172 [UID:10] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[INFO] 2025-04-01 21:53:52,664 [UID:10] basehttp - "GET /top/login/ HTTP/1.1" 200 12509
+[INFO] 2025-04-01 21:53:57,292 [UID:2] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-04-01 21:53:57,302 [UID:2] basehttp - "GET /top/ HTTP/1.1" 200 42585
+[INFO] 2025-04-01 21:53:57,339 [UID:2] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 14410
+[DEBUG] 2025-04-01 21:54:01,824 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 21:54:01,827 [UID:2] views - object_list exists
+[INFO] 2025-04-01 21:54:01,828 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 21:54:01,852 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[DEBUG] 2025-04-01 21:54:03,745 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 21:54:03,748 [UID:2] views - object_list exists
+[INFO] 2025-04-01 21:54:03,749 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 21:54:03,764 [UID:2] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31583
+[INFO] 2025-04-01 21:54:05,136 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 21:54:05,139 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 21:54:05,143 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 21:54:05,154 [UID:2] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 34485
+[INFO] 2025-04-01 21:54:05,182 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 21:54:05,183 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-04-01 21:54:05,198 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 21:54:05,208 [UID:2] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[INFO] 2025-04-01 21:54:06,530 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 21:54:06,530 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 21:54:06,532 [UID:2] views - GET method
+[INFO] 2025-04-01 21:54:06,532 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 21:54:06,549 [UID:2] basehttp - "GET /user/update/3/ HTTP/1.1" 200 31910
+[INFO] 2025-04-01 21:54:06,572 [UID:2] basehttp - "GET /static/img/update.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:54:06,577 [UID:2] basehttp - "GET /static/js/images_preview.js HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:54:06,577 [UID:10] basehttp - "GET /static/js/themes_preview.js HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:54:42,485 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-01 21:54:43,045 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 21:55:21,895 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 21:55:21,896 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 21:55:21,898 [UID:2] views - GET method
+[INFO] 2025-04-01 21:55:21,899 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 21:55:21,950 [UID:2] basehttp - "GET /user/update/3/ HTTP/1.1" 200 33183
+[INFO] 2025-04-01 21:55:32,419 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 21:55:32,419 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 21:55:32,421 [UID:2] views - POST method
+[DEBUG] 2025-04-01 21:55:32,435 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-01 21:55:32,436 [UID:2] views - save updated Profile object
+[INFO] 2025-04-01 21:55:32,441 [UID:2] views - return redirect user:list
+[INFO] 2025-04-01 21:55:32,442 [UID:2] basehttp - "POST /user/update/3/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-01 21:55:32,446 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 21:55:32,449 [UID:2] views - object_list exists
+[INFO] 2025-04-01 21:55:32,450 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 21:55:32,477 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[DEBUG] 2025-04-01 21:55:34,989 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 21:55:34,992 [UID:2] views - object_list exists
+[INFO] 2025-04-01 21:55:34,993 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 21:55:35,010 [UID:2] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31583
+[INFO] 2025-04-01 21:55:36,388 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 21:55:36,391 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 21:55:36,395 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 21:55:36,409 [UID:2] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 34485
+[INFO] 2025-04-01 21:55:36,439 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 21:55:36,440 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-04-01 21:55:36,454 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 21:55:36,476 [UID:2] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[INFO] 2025-04-01 21:57:19,461 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-01 21:57:20,113 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 21:57:20,869 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 21:57:20,869 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 21:57:20,872 [UID:2] views - GET method
+[INFO] 2025-04-01 21:57:20,873 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 21:57:20,948 [UID:2] basehttp - "GET /user/update/3/ HTTP/1.1" 200 33183
+[INFO] 2025-04-01 21:57:30,836 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 21:57:30,836 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 21:57:30,839 [UID:2] views - POST method
+[DEBUG] 2025-04-01 21:57:30,842 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-01 21:57:30,843 [UID:2] views - save updated Profile object
+[INFO] 2025-04-01 21:57:30,848 [UID:2] views - return redirect user:list
+[INFO] 2025-04-01 21:57:30,849 [UID:2] basehttp - "POST /user/update/3/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-01 21:57:30,853 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 21:57:30,857 [UID:2] views - object_list exists
+[INFO] 2025-04-01 21:57:30,858 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 21:57:30,889 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[DEBUG] 2025-04-01 21:57:33,366 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 21:57:33,370 [UID:2] views - object_list exists
+[INFO] 2025-04-01 21:57:33,371 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 21:57:33,387 [UID:2] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31583
+[INFO] 2025-04-01 21:57:34,634 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 21:57:34,636 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 21:57:34,640 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 21:57:34,653 [UID:2] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 34538
+[INFO] 2025-04-01 21:57:34,681 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 21:57:34,681 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-04-01 21:57:34,695 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 21:57:34,717 [UID:2] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[INFO] 2025-04-01 21:57:40,110 [UID:2] views - start Profile delete_view
+[DEBUG] 2025-04-01 21:57:40,111 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 21:57:40,112 [UID:2] views - GET method
+[INFO] 2025-04-01 21:57:40,113 [UID:2] views - return render user/delete.html
+[INFO] 2025-04-01 21:57:40,120 [UID:2] basehttp - "GET /user/delete/3/ HTTP/1.1" 200 22162
+[INFO] 2025-04-01 21:57:40,147 [UID:2] basehttp - "GET /static/img/delete.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 21:57:52,880 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 21:57:52,881 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 21:57:52,884 [UID:2] views - GET method
+[INFO] 2025-04-01 21:57:52,885 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 21:57:52,898 [UID:2] basehttp - "GET /user/update/3/ HTTP/1.1" 200 33191
+[INFO] 2025-04-01 22:01:56,394 [UID:2] views - start Profile delete_view
+[DEBUG] 2025-04-01 22:01:56,394 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 22:01:56,397 [UID:2] views - GET method
+[INFO] 2025-04-01 22:01:56,397 [UID:2] views - return render user/delete.html
+[INFO] 2025-04-01 22:01:56,409 [UID:2] basehttp - "GET /user/delete/3/ HTTP/1.1" 200 23395
+[INFO] 2025-04-01 22:08:58,513 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-04-01 22:08:59,100 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 22:15:02,529 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 22:15:02,530 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 22:15:02,532 [UID:2] views - GET method
+[INFO] 2025-04-01 22:15:02,533 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 22:15:02,576 [UID:2] basehttp - "GET /user/update/3/ HTTP/1.1" 200 33895
+[INFO] 2025-04-01 22:16:17,536 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-01 22:16:18,132 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 22:16:34,108 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-04-01 22:16:34,645 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 22:16:48,238 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 22:16:51,921 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 22:16:51,922 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 22:16:51,924 [UID:2] views - GET method
+[INFO] 2025-04-01 22:16:51,925 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 22:16:51,964 [UID:2] basehttp - "GET /user/update/3/ HTTP/1.1" 200 34056
+[INFO] 2025-04-01 22:17:15,669 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-01 22:17:16,212 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 22:17:22,517 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 22:17:22,518 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 22:17:22,520 [UID:2] views - GET method
+[INFO] 2025-04-01 22:17:22,521 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 22:17:22,569 [UID:2] basehttp - "GET /user/update/3/ HTTP/1.1" 200 34056
+[INFO] 2025-04-01 22:17:37,841 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 22:17:39,949 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 22:17:39,950 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 22:17:39,951 [UID:2] views - GET method
+[INFO] 2025-04-01 22:17:39,952 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 22:17:39,990 [UID:2] basehttp - "GET /user/update/3/ HTTP/1.1" 200 34056
+[INFO] 2025-04-01 22:17:44,785 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 22:17:44,785 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 22:17:44,787 [UID:2] views - GET method
+[INFO] 2025-04-01 22:17:44,788 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 22:17:44,796 [UID:2] basehttp - "GET /user/update/3/ HTTP/1.1" 200 34056
+[INFO] 2025-04-01 22:17:53,987 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 22:17:53,988 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 22:17:53,992 [UID:2] views - POST method
+[DEBUG] 2025-04-01 22:17:53,995 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-01 22:17:53,996 [UID:2] views - save updated Profile object
+[INFO] 2025-04-01 22:17:54,002 [UID:2] views - return redirect user:list
+[INFO] 2025-04-01 22:17:54,003 [UID:2] basehttp - "POST /user/update/3/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-01 22:17:54,007 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 22:17:54,010 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:17:54,011 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 22:17:54,039 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-01 22:18:02,349 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-01 22:18:02,885 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-04-01 22:18:10,609 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 22:18:10,613 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:18:10,614 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 22:18:10,656 [UID:2] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31583
+[INFO] 2025-04-01 22:18:12,043 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 22:18:12,045 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 22:18:12,049 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 22:18:12,063 [UID:2] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 34572
+[INFO] 2025-04-01 22:18:12,092 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 22:18:12,093 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-04-01 22:18:12,109 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 22:18:12,128 [UID:2] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[INFO] 2025-04-01 22:18:18,886 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 22:18:18,886 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 22:18:18,888 [UID:2] views - GET method
+[INFO] 2025-04-01 22:18:18,889 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 22:18:18,905 [UID:2] basehttp - "GET /user/update/3/ HTTP/1.1" 200 34003
+[INFO] 2025-04-01 22:18:30,971 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 22:18:30,972 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 22:18:30,974 [UID:2] views - POST method
+[DEBUG] 2025-04-01 22:18:30,977 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-01 22:18:30,978 [UID:2] views - save updated Profile object
+[INFO] 2025-04-01 22:18:30,984 [UID:2] views - return redirect user:list
+[INFO] 2025-04-01 22:18:30,985 [UID:2] basehttp - "POST /user/update/3/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-01 22:18:30,989 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 22:18:30,993 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:18:30,994 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 22:18:31,017 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[DEBUG] 2025-04-01 22:18:44,073 [UID:2] views - start Friend list_view
+[DEBUG] 2025-04-01 22:18:44,074 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-04-01 22:18:44,078 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-04-01 22:18:44,079 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:18:44,079 [UID:2] views - return render friend/list.html
+[INFO] 2025-04-01 22:18:44,091 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 200 19806
+[DEBUG] 2025-04-01 22:18:48,590 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 22:18:48,594 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:18:48,595 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 22:18:48,619 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[DEBUG] 2025-04-01 22:18:51,277 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 22:18:51,280 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:18:51,281 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 22:18:51,298 [UID:2] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31583
+[INFO] 2025-04-01 22:18:56,421 [UID:2] basehttp - "GET /top/login/ HTTP/1.1" 200 12512
+[INFO] 2025-04-01 22:19:02,943 [UID:2] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-04-01 22:19:02,959 [UID:2] basehttp - "GET /top/ HTTP/1.1" 200 42585
+[INFO] 2025-04-01 22:19:03,013 [UID:2] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 14410
+[INFO] 2025-04-01 22:19:07,978 [UID:2] basehttp - "GET /top/login/ HTTP/1.1" 200 12512
+[DEBUG] 2025-04-01 22:19:11,531 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 22:19:11,535 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:19:11,536 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 22:19:11,560 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-01 22:19:13,086 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 22:19:13,089 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 22:19:13,092 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 22:19:13,099 [UID:2] basehttp - "GET /user/detail/23/ HTTP/1.1" 200 47538
+[INFO] 2025-04-01 22:19:13,127 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 22:19:13,127 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=23
+[DEBUG] 2025-04-01 22:19:13,139 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 22:19:13,147 [UID:2] basehttp - "GET /friend/disp_qr/23/ HTTP/1.1" 200 8311
+[DEBUG] 2025-04-01 22:19:50,344 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 22:19:50,350 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:19:50,351 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 22:19:50,372 [UID:2] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31583
+[INFO] 2025-04-01 22:19:53,613 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 22:19:53,616 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 22:19:53,619 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 22:19:53,629 [UID:2] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 34585
+[INFO] 2025-04-01 22:19:53,660 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 22:19:53,660 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-04-01 22:19:53,674 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 22:19:53,682 [UID:2] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[DEBUG] 2025-04-01 22:20:14,996 [UID:2] views - start Group list_view
+[DEBUG] 2025-04-01 22:20:14,999 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:20:15,001 [UID:2] views - return render group/list.html
+[INFO] 2025-04-01 22:20:15,009 [UID:2] basehttp - "GET /group/list/ HTTP/1.1" 200 23867
+[INFO] 2025-04-01 22:20:15,038 [UID:2] basehttp - "GET /media/group/6_themes_2503282337.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:20:15,039 [UID:2] basehttp - "GET /media/group/6_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:20:15,059 [UID:Anon] basehttp - "GET /static/img/good.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:20:15,052 [UID:2] basehttp - "GET /media/group/4_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:20:15,054 [UID:2] basehttp - "GET /media/group/5_themes_2503282338.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:20:15,050 [UID:2] basehttp - "GET /media/group/4_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:20:15,056 [UID:2] basehttp - "GET /media/group/5_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:20:15,058 [UID:2] basehttp - "GET /media/group/3_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:20:15,071 [UID:2] basehttp - "GET /media/group/3_images_2503282343.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:20:15,072 [UID:2] basehttp - "GET /media/group/2_themes_2503282340.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:20:15,075 [UID:2] basehttp - "GET /media/group/2_images_2503282343.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:20:20,577 [UID:2] views - start Group detail_view
+[DEBUG] 2025-04-01 22:20:20,580 [UID:2] views - get Group object(pk)
+[DEBUG] 2025-04-01 22:20:20,582 [UID:2] views - return render group/detail.html
+[INFO] 2025-04-01 22:20:20,594 [UID:2] basehttp - "GET /group/detail/5/ HTTP/1.1" 200 24406
+[INFO] 2025-04-01 22:20:20,624 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 22:20:20,624 [UID:2] views - group_url=http://127.0.0.1:8000/group/join/?group_id=5
+[DEBUG] 2025-04-01 22:20:20,637 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 22:20:20,646 [UID:2] basehttp - "GET /group/disp_qr/5/ HTTP/1.1" 200 7851
+[DEBUG] 2025-04-01 22:20:42,440 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 22:20:42,444 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:20:42,446 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 22:20:42,469 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-01 22:20:43,966 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 22:20:43,969 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 22:20:43,972 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 22:20:43,979 [UID:2] basehttp - "GET /user/detail/22/ HTTP/1.1" 200 46949
+[INFO] 2025-04-01 22:20:44,019 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 22:20:44,020 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=22
+[DEBUG] 2025-04-01 22:20:44,033 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 22:20:44,041 [UID:2] basehttp - "GET /friend/disp_qr/22/ HTTP/1.1" 200 8337
+[DEBUG] 2025-04-01 22:20:52,104 [UID:2] views - start Friend list_view
+[DEBUG] 2025-04-01 22:20:52,106 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-04-01 22:20:52,113 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-04-01 22:20:52,114 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:20:52,114 [UID:2] views - return render friend/list.html
+[INFO] 2025-04-01 22:20:52,125 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 200 19806
+[INFO] 2025-04-01 22:21:01,330 [UID:2] basehttp - "GET /top/login/ HTTP/1.1" 200 12512
+[INFO] 2025-04-01 22:21:08,658 [UID:10] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-04-01 22:21:08,668 [UID:10] basehttp - "GET /top/ HTTP/1.1" 200 42582
+[INFO] 2025-04-01 22:21:08,711 [UID:10] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 14410
+[INFO] 2025-04-01 22:21:15,573 [UID:Anon] basehttp - "GET /top/logout/ HTTP/1.1" 302 0
+[INFO] 2025-04-01 22:21:15,578 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-04-01 22:21:16,790 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-04-01 22:21:21,133 [UID:2] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-04-01 22:21:21,144 [UID:2] basehttp - "GET /top/ HTTP/1.1" 200 42585
+[INFO] 2025-04-01 22:21:21,186 [UID:2] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 14410
+[INFO] 2025-04-01 22:21:38,086 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-04-01 22:21:38,088 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-04-01 22:21:38,090 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-04-01 22:21:38,096 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:15:34 - In
+[INFO] 2025-04-01 22:21:38,096 [UID:2] views - GET method
+[INFO] 2025-04-01 22:21:38,097 [UID:2] views - return render place/checkin.html
+[INFO] 2025-04-01 22:21:38,103 [UID:2] basehttp - "GET /place/checkin/?place_with_id=2 HTTP/1.1" 200 19714
+[INFO] 2025-04-01 22:21:38,130 [UID:2] basehttp - "GET /static/img/checkin.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:21:38,138 [UID:2] basehttp - "GET /media/place/images_2.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:21:38,138 [UID:2] basehttp - "GET /media/place/2_themes2503242323.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:21:54,389 [UID:2] views - start Place checkout_view
+[DEBUG] 2025-04-01 22:21:54,390 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-04-01 22:21:54,393 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-04-01 22:21:54,396 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:15:34 - In
+[INFO] 2025-04-01 22:21:54,397 [UID:2] views - GET method
+[INFO] 2025-04-01 22:21:54,397 [UID:2] views - return render place/checkout.html
+[INFO] 2025-04-01 22:21:54,402 [UID:2] basehttp - "GET /place/checkout/?place_with_id=2 HTTP/1.1" 200 18662
+[INFO] 2025-04-01 22:21:54,446 [UID:2] basehttp - "GET /static/img/checkout.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:22:11,675 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-04-01 22:22:11,677 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-04-01 22:22:11,678 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-04-01 22:22:11,682 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:15:34 - In
+[INFO] 2025-04-01 22:22:11,682 [UID:2] views - GET method
+[INFO] 2025-04-01 22:22:11,682 [UID:2] views - return render place/checkin.html
+[INFO] 2025-04-01 22:22:11,685 [UID:2] basehttp - "GET /place/checkin/?place_with_id=2 HTTP/1.1" 200 19714
+[INFO] 2025-04-01 22:22:15,090 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-04-01 22:22:15,091 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-04-01 22:22:15,092 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-04-01 22:22:15,095 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:15:34 - In
+[INFO] 2025-04-01 22:22:15,095 [UID:2] views - POST method
+[DEBUG] 2025-04-01 22:22:15,096 [UID:2] views - place_with.latitude=35.004874348160406
+[DEBUG] 2025-04-01 22:22:15,097 [UID:2] views - latitude_data=35.0060544
+[DEBUG] 2025-04-01 22:22:15,097 [UID:2] views - place_with.longitude=135.87089640786397
+[DEBUG] 2025-04-01 22:22:15,097 [UID:2] views - longitude_data=135.872512
+[DEBUG] 2025-04-01 22:22:15,097 [UID:2] utils - distance=0.1971545085579217
+[DEBUG] 2025-04-01 22:22:15,098 [UID:2] utils - tolerance=0.3
+[WARNING] 2025-04-01 22:22:15,098 [UID:2] views - Already checked in. Last Checked-In: 2025-03-31 00:15:34.830127
+[INFO] 2025-04-01 22:22:15,098 [UID:2] views - return render place/checkin.html
+[INFO] 2025-04-01 22:22:15,100 [UID:2] basehttp - "POST /place/checkin/?place_with_id=2 HTTP/1.1" 200 19714
+[INFO] 2025-04-01 22:22:22,500 [UID:2] basehttp - "GET /top/ HTTP/1.1" 200 42585
+[INFO] 2025-04-01 22:22:22,580 [UID:2] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 14410
+[DEBUG] 2025-04-01 22:22:24,919 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 22:22:24,922 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:22:24,923 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 22:22:24,946 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[DEBUG] 2025-04-01 22:22:27,423 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 22:22:27,426 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:22:27,428 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 22:22:27,445 [UID:2] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 31583
+[INFO] 2025-04-01 22:22:33,988 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 22:22:33,991 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 22:22:33,995 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 22:22:34,006 [UID:2] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 34585
+[INFO] 2025-04-01 22:22:34,035 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 22:22:34,035 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-04-01 22:22:34,048 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 22:22:34,056 [UID:2] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[DEBUG] 2025-04-01 22:23:09,047 [UID:2] views - start Friend list_view
+[DEBUG] 2025-04-01 22:23:09,049 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-04-01 22:23:09,055 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-04-01 22:23:09,056 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:23:09,057 [UID:2] views - return render friend/list.html
+[INFO] 2025-04-01 22:23:09,065 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 200 19806
+[INFO] 2025-04-01 22:23:14,155 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 22:23:14,159 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 22:23:14,165 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 22:23:14,186 [UID:2] basehttp - "GET /user/detail/1/ HTTP/1.1" 200 46136
+[INFO] 2025-04-01 22:23:14,220 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 22:23:14,221 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=1
+[DEBUG] 2025-04-01 22:23:14,235 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 22:23:14,243 [UID:2] basehttp - "GET /friend/disp_qr/1/ HTTP/1.1" 200 8320
+[INFO] 2025-04-01 22:23:32,977 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 22:23:32,980 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 22:23:32,983 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 22:23:32,994 [UID:2] basehttp - "GET /user/detail/3/ HTTP/1.1" 200 34585
+[INFO] 2025-04-01 22:23:33,021 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 22:23:33,021 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=3
+[DEBUG] 2025-04-01 22:23:33,035 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 22:23:33,043 [UID:2] basehttp - "GET /friend/disp_qr/3/ HTTP/1.1" 200 8361
+[DEBUG] 2025-04-01 22:23:39,784 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 22:23:39,787 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:23:39,788 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 22:23:39,813 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-01 22:23:41,019 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 22:23:41,019 [UID:2] views - GET method
+[INFO] 2025-04-01 22:23:41,021 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 22:23:41,035 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 36269
+[INFO] 2025-04-01 22:23:41,062 [UID:2] basehttp - "GET /static/img/themes.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:24:08,402 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 22:24:08,402 [UID:2] views - GET method
+[INFO] 2025-04-01 22:24:08,403 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 22:24:08,417 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 33407
+[DEBUG] 2025-04-01 22:25:53,218 [UID:2] views - start Chat list_view
+[DEBUG] 2025-04-01 22:25:53,222 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:25:53,223 [UID:2] views - return render chat/list.html
+[INFO] 2025-04-01 22:25:53,280 [UID:2] basehttp - "GET /chat/list/ HTTP/1.1" 200 102351
+[INFO] 2025-04-01 22:25:53,311 [UID:2] basehttp - "GET /static/img/up.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:25:53,335 [UID:2] basehttp - "GET /media/chat/1.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:25:53,342 [UID:2] basehttp - "GET /media/chat/19.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:25:53,339 [UID:2] basehttp - "GET /media/chat/18.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:25:53,341 [UID:2] basehttp - "GET /media/chat/17.png HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:25:53,345 [UID:2] basehttp - "GET /media/chat/8.png HTTP/1.1" 304 0
+[DEBUG] 2025-04-01 22:26:01,139 [UID:2] views - start Chat list_view
+[DEBUG] 2025-04-01 22:26:01,144 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:26:01,145 [UID:2] views - return render chat/list.html
+[INFO] 2025-04-01 22:26:01,180 [UID:2] basehttp - "GET /chat/list/ HTTP/1.1" 200 102351
+[DEBUG] 2025-04-01 22:26:01,719 [UID:2] views - start Friend list_view
+[DEBUG] 2025-04-01 22:26:01,721 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-04-01 22:26:01,726 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-04-01 22:26:01,727 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:26:01,728 [UID:2] views - return render friend/list.html
+[INFO] 2025-04-01 22:26:01,737 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 200 19806
+[DEBUG] 2025-04-01 22:26:02,792 [UID:2] views - start Group list_view
+[DEBUG] 2025-04-01 22:26:02,796 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:26:02,797 [UID:2] views - return render group/list.html
+[INFO] 2025-04-01 22:26:02,803 [UID:2] basehttp - "GET /group/list/ HTTP/1.1" 200 23867
+[INFO] 2025-04-01 22:26:04,644 [UID:2] views - start Group detail_view
+[DEBUG] 2025-04-01 22:26:04,646 [UID:2] views - get Group object(pk)
+[DEBUG] 2025-04-01 22:26:04,647 [UID:2] views - return render group/detail.html
+[INFO] 2025-04-01 22:26:04,656 [UID:2] basehttp - "GET /group/detail/4/ HTTP/1.1" 200 26138
+[INFO] 2025-04-01 22:26:04,681 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 22:26:04,682 [UID:2] views - group_url=http://127.0.0.1:8000/group/join/?group_id=4
+[DEBUG] 2025-04-01 22:26:04,692 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 22:26:04,700 [UID:2] basehttp - "GET /group/disp_qr/4/ HTTP/1.1" 200 7897
+[DEBUG] 2025-04-01 22:26:23,044 [UID:2] views - start Place list_view
+[DEBUG] 2025-04-01 22:26:23,047 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:26:23,048 [UID:2] views - return render place/list.html
+[INFO] 2025-04-01 22:26:23,056 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 20200
+[INFO] 2025-04-01 22:26:23,082 [UID:2] basehttp - "GET /media/place/3_images_2503292141.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:26:23,083 [UID:2] basehttp - "GET /media/place/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_13.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:26:23,891 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 22:26:23,894 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-04-01 22:26:23,896 [UID:2] views - return render place/detail.html
+[INFO] 2025-04-01 22:26:23,909 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 32469
+[INFO] 2025-04-01 22:26:41,268 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-04-01 22:26:41,269 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-04-01 22:26:41,271 [UID:2] views - place_with=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[DEBUG] 2025-04-01 22:26:41,274 [UID:2] views - checkin_record=個別指導コレクト　本校 - yasuhiro -2025/3/31 0:15:34 - In
+[INFO] 2025-04-01 22:26:41,275 [UID:2] views - GET method
+[INFO] 2025-04-01 22:26:41,276 [UID:2] views - return render place/checkin.html
+[INFO] 2025-04-01 22:26:41,281 [UID:2] basehttp - "GET /place/checkin/?place_with_id=2 HTTP/1.1" 200 19714
+[INFO] 2025-04-01 22:26:45,013 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-04-01 22:26:45,014 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-04-01 22:26:45,016 [UID:2] views - place_with=<Place:id=3, 昴塾　膳所校, 石場駅 120m (徒歩2分)>
+[INFO] 2025-04-01 22:26:45,018 [UID:2] views - couldnt get target checkin_record place=<Place:id=3, 昴塾　膳所校, 石場駅 120m (徒歩2分)> profile=<User:id=No1, sasayasu>: CheckinRecord matching query does not exist.
+[INFO] 2025-04-01 22:26:45,018 [UID:2] views - GET method
+[INFO] 2025-04-01 22:26:45,019 [UID:2] views - return render place/checkin.html
+[INFO] 2025-04-01 22:26:45,021 [UID:2] basehttp - "GET /place/checkin/?place_with_id=3 HTTP/1.1" 200 19708
+[INFO] 2025-04-01 22:26:47,233 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-04-01 22:26:47,235 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-04-01 22:26:47,236 [UID:2] views - place_with=<Place:id=3, 昴塾　膳所校, 石場駅 120m (徒歩2分)>
+[INFO] 2025-04-01 22:26:47,238 [UID:2] views - couldnt get target checkin_record place=<Place:id=3, 昴塾　膳所校, 石場駅 120m (徒歩2分)> profile=<User:id=No1, sasayasu>: CheckinRecord matching query does not exist.
+[INFO] 2025-04-01 22:26:47,238 [UID:2] views - POST method
+[DEBUG] 2025-04-01 22:26:47,240 [UID:2] views - place_with.latitude=35.00522403681513
+[DEBUG] 2025-04-01 22:26:47,240 [UID:2] views - latitude_data=35.0060544
+[DEBUG] 2025-04-01 22:26:47,240 [UID:2] views - place_with.longitude=135.87693981263072
+[DEBUG] 2025-04-01 22:26:47,240 [UID:2] views - longitude_data=135.872512
+[DEBUG] 2025-04-01 22:26:47,241 [UID:2] utils - distance=0.4137167731631361
+[DEBUG] 2025-04-01 22:26:47,241 [UID:2] utils - tolerance=0.3
+[INFO] 2025-04-01 22:26:47,241 [UID:2] views - return render place/checkin.html
+[INFO] 2025-04-01 22:26:47,243 [UID:2] basehttp - "POST /place/checkin/?place_with_id=3 HTTP/1.1" 200 19804
+[INFO] 2025-04-01 22:27:24,388 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 22:27:24,391 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-04-01 22:27:24,394 [UID:2] views - return render place/detail.html
+[INFO] 2025-04-01 22:27:24,405 [UID:2] basehttp - "GET /place/detail/3/ HTTP/1.1" 200 28802
+[DEBUG] 2025-04-01 22:27:42,245 [UID:2] views - start Room list_view
+[DEBUG] 2025-04-01 22:27:42,249 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:27:42,250 [UID:2] views - return render room/list.html
+[INFO] 2025-04-01 22:27:42,258 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26741
+[INFO] 2025-04-01 22:27:42,283 [UID:2] basehttp - "GET /media/room/8_themes_2503282347.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,284 [UID:2] basehttp - "GET /media/room/8_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,301 [UID:2] basehttp - "GET /media/room/7_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,299 [UID:2] basehttp - "GET /media/room/6_themes_2503282349.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,295 [UID:2] basehttp - "GET /media/room/7_themes_2503282348.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,303 [UID:2] basehttp - "GET /media/room/6_images_2503290018.webp HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,305 [UID:2] basehttp - "GET /media/room/5_images_2503290018.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,315 [UID:2] basehttp - "GET /media/room/3_images_2503290018.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,323 [UID:2] basehttp - "GET /media/room/4_themes_2503282351.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,324 [UID:2] basehttp - "GET /media/room/5_themes_2503282350.webp HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,328 [UID:2] basehttp - "GET /media/room/4_images_2503290018.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,326 [UID:2] basehttp - "GET /media/room/3_themes_2503282352.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,319 [UID:2] basehttp - "GET /media/room/2_themes_2503282353.webp HTTP/1.1" 304 0
+[INFO] 2025-04-01 22:27:42,400 [UID:2] basehttp - "GET /media/room/2_images_2503290019.jpg HTTP/1.1" 200 9293
+[DEBUG] 2025-04-01 22:27:49,985 [UID:2] views - start Group list_view
+[DEBUG] 2025-04-01 22:27:49,990 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:27:49,990 [UID:2] views - return render group/list.html
+[INFO] 2025-04-01 22:27:49,996 [UID:2] basehttp - "GET /group/list/ HTTP/1.1" 200 23867
+[DEBUG] 2025-04-01 22:31:27,059 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 22:31:27,064 [UID:2] views - object_list exists
+[INFO] 2025-04-01 22:31:27,065 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 22:31:27,105 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-01 22:31:29,194 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 22:31:29,198 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 22:31:29,202 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 22:31:29,210 [UID:2] basehttp - "GET /user/detail/23/ HTTP/1.1" 200 47538
+[INFO] 2025-04-01 22:31:29,246 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 22:31:29,246 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=23
+[DEBUG] 2025-04-01 22:31:29,259 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 22:31:29,267 [UID:2] basehttp - "GET /friend/disp_qr/23/ HTTP/1.1" 200 8311
+[INFO] 2025-04-01 22:31:51,556 [UID:2] views - start Profile delete_view
+[DEBUG] 2025-04-01 22:31:51,556 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 22:31:51,557 [UID:2] views - GET method
+[INFO] 2025-04-01 22:31:51,558 [UID:2] views - return render user/delete.html
+[INFO] 2025-04-01 22:31:51,566 [UID:2] basehttp - "GET /user/delete/23/ HTTP/1.1" 200 43187
+[INFO] 2025-04-01 22:49:51,904 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-01 22:49:52,563 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 22:50:02,372 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 22:50:12,614 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 22:50:12,614 [UID:2] views - GET method
+[INFO] 2025-04-01 22:50:12,615 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 22:50:12,656 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 34604
+[INFO] 2025-04-01 22:58:03,948 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-01 22:58:04,501 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 22:58:11,939 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 22:58:11,939 [UID:2] views - GET method
+[INFO] 2025-04-01 22:58:11,940 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 22:58:11,978 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 34604
+[INFO] 2025-04-01 22:58:37,377 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 22:58:41,023 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 22:58:41,024 [UID:2] views - GET method
+[INFO] 2025-04-01 22:58:41,025 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 22:58:41,060 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 34604
+[INFO] 2025-04-01 22:59:53,329 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 22:59:53,329 [UID:2] views - GET method
+[INFO] 2025-04-01 22:59:53,331 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 22:59:53,352 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 34611
+[WARNING] 2025-04-01 23:00:01,170 [UID:2] log - Not Found: /get_mbti_name_choices/
+[WARNING] 2025-04-01 23:00:01,173 [UID:2] basehttp - "GET /get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 404 4387
+[INFO] 2025-04-01 23:07:49,722 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\urls.py changed, reloading.
+[INFO] 2025-04-01 23:07:50,273 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 23:07:55,833 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\urls.py changed, reloading.
+[INFO] 2025-04-01 23:07:56,409 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 23:07:58,746 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 23:07:58,746 [UID:2] views - GET method
+[INFO] 2025-04-01 23:07:58,747 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 23:07:58,782 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 34616
+[INFO] 2025-04-01 23:08:03,723 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 25
+[INFO] 2025-04-01 23:09:20,971 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-01 23:09:21,511 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 23:09:24,526 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 23:09:24,527 [UID:2] views - GET method
+[INFO] 2025-04-01 23:09:24,528 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 23:09:24,571 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 34616
+[DEBUG] 2025-04-01 23:09:31,198 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:09:31,201 [UID:2] views - mbti_name_choices=[]
+[INFO] 2025-04-01 23:09:31,202 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 25
+[DEBUG] 2025-04-01 23:10:29,535 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:10:29,538 [UID:2] views - mbti_name_choices=[('ISTP:職人肌のエンジニア', '職人肌のエンジニア'), ('ISTP:クールなワシ', 'クールなワシ')]
+[INFO] 2025-04-01 23:10:29,539 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISTP HTTP/1.1" 200 233
+[INFO] 2025-04-01 23:23:03,061 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-04-01 23:23:03,686 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 23:23:13,033 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 23:23:17,294 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 23:23:17,295 [UID:2] views - GET method
+[INFO] 2025-04-01 23:23:17,297 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 23:23:17,343 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 34616
+[DEBUG] 2025-04-01 23:23:26,720 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:23:26,723 [UID:2] views - mbti_name_choices=[('INTJ-0', '建築家'), ('INTJ-1', '冷静な戦略家'), ('INTJ-2', '賢いフクロウ')]
+[INFO] 2025-04-01 23:23:26,724 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 161
+[INFO] 2025-04-01 23:24:49,594 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 23:24:49,594 [UID:2] views - GET method
+[INFO] 2025-04-01 23:24:49,595 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 23:24:49,621 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 34649
+[DEBUG] 2025-04-01 23:24:53,827 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:24:53,830 [UID:2] views - mbti_name_choices=[('INTJ-0', '建築家'), ('INTJ-1', '冷静な戦略家'), ('INTJ-2', '賢いフクロウ')]
+[INFO] 2025-04-01 23:24:53,831 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 161
+[INFO] 2025-04-01 23:25:50,108 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 23:25:50,108 [UID:2] views - GET method
+[INFO] 2025-04-01 23:25:50,109 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 23:25:50,130 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 34649
+[DEBUG] 2025-04-01 23:25:55,279 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:25:55,282 [UID:2] views - mbti_name_choices=[('INTJ-0', '建築家'), ('INTJ-1', '冷静な戦略家'), ('INTJ-2', '賢いフクロウ')]
+[INFO] 2025-04-01 23:25:55,283 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 161
+[INFO] 2025-04-01 23:26:46,816 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 23:26:46,817 [UID:2] views - GET method
+[INFO] 2025-04-01 23:26:46,818 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 23:26:46,833 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 34626
+[DEBUG] 2025-04-01 23:26:51,504 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:26:51,507 [UID:2] views - mbti_name_choices=[('INTJ-0', '建築家'), ('INTJ-1', '冷静な戦略家'), ('INTJ-2', '賢いフクロウ')]
+[INFO] 2025-04-01 23:26:51,508 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 161
+[INFO] 2025-04-01 23:32:52,442 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-04-01 23:32:53,019 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 23:35:49,241 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-04-01 23:35:49,989 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 23:35:53,578 [UID:2] views - start Profile create_view
+[INFO] 2025-04-01 23:35:53,579 [UID:2] views - GET method
+[INFO] 2025-04-01 23:35:53,580 [UID:2] views - return render user/create.html
+[INFO] 2025-04-01 23:35:53,613 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 36105
+[DEBUG] 2025-04-01 23:35:58,931 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:35:58,935 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-01 23:35:58,936 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[DEBUG] 2025-04-01 23:36:07,790 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:36:07,793 [UID:2] views - mbti_name_choices=[('ENTJ-0', 'ENTJ:指揮官'), ('ENTJ-1', 'ENTJ:カリスマ社長'), ('ENTJ-2', 'ENTJ:リーダーライオン')]
+[INFO] 2025-04-01 23:36:07,793 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ENTJ HTTP/1.1" 200 188
+[DEBUG] 2025-04-01 23:36:13,483 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:36:13,486 [UID:2] views - mbti_name_choices=[]
+[INFO] 2025-04-01 23:36:13,487 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=- HTTP/1.1" 200 25
+[DEBUG] 2025-04-01 23:36:17,428 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:36:17,431 [UID:2] views - mbti_name_choices=[('ENFP-0', 'ENFP:運動家'), ('ENFP-1', 'ENFP:自由なクリエイター'), ('ENFP-2', 'ENFP:わくわくリス')]
+[INFO] 2025-04-01 23:36:17,432 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ENFP HTTP/1.1" 200 194
+[INFO] 2025-04-01 23:40:33,475 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-01 23:40:34,035 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 23:41:46,424 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 23:41:58,029 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 23:41:58,034 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 23:41:58,042 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 23:41:58,081 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56835
+[INFO] 2025-04-01 23:41:58,107 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 23:41:58,108 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-01 23:41:58,121 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 23:41:58,141 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-01 23:42:01,387 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 23:42:01,388 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 23:42:01,392 [UID:2] views - GET method
+[INFO] 2025-04-01 23:42:01,393 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 23:42:01,409 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 65400
+[DEBUG] 2025-04-01 23:42:07,418 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:42:07,421 [UID:2] views - mbti_name_choices=[('ENTJ-0', 'ENTJ:指揮官'), ('ENTJ-1', 'ENTJ:カリスマ社長'), ('ENTJ-2', 'ENTJ:リーダーライオン')]
+[INFO] 2025-04-01 23:42:07,422 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ENTJ HTTP/1.1" 200 188
+[INFO] 2025-04-01 23:42:12,948 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 23:42:12,949 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 23:42:12,952 [UID:2] views - POST method
+[ERROR] 2025-04-01 23:42:12,989 [UID:2] log - Internal Server Error: /user/update/26/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py", line 205, in update_view
+    profile_form = ProfileForm(request.POST, request.FILES)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py", line 114, in __init__
+    self.fields['mbti_name'].choices = Profile.MBTI_NAME_CHOICES.get(mbti, [])
+    ~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'mbti_name'
+[ERROR] 2025-04-01 23:42:12,991 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 500 125479
+[INFO] 2025-04-01 23:46:33,656 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-01 23:46:34,218 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-04-01 23:47:18,391 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:47:18,394 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-01 23:47:18,395 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-01 23:47:22,616 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 23:47:22,616 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 23:47:22,620 [UID:2] views - POST method
+[DEBUG] 2025-04-01 23:47:22,623 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-01 23:47:22,623 [UID:2] views - save updated Profile object
+[INFO] 2025-04-01 23:47:22,631 [UID:2] views - return redirect user:list
+[INFO] 2025-04-01 23:47:22,641 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-01 23:47:22,645 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-01 23:47:22,648 [UID:2] views - object_list exists
+[INFO] 2025-04-01 23:47:22,650 [UID:2] views - return render user/list.html
+[INFO] 2025-04-01 23:47:22,692 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-01 23:47:25,067 [UID:2] views - start detail_view
+[DEBUG] 2025-04-01 23:47:25,070 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-01 23:47:25,074 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-01 23:47:25,083 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-01 23:47:25,113 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-01 23:47:25,113 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-01 23:47:25,128 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-01 23:47:25,151 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-01 23:47:41,552 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 23:47:41,552 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 23:47:41,554 [UID:2] views - GET method
+[INFO] 2025-04-01 23:47:41,555 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 23:47:41,571 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 65408
+[INFO] 2025-04-01 23:58:00,311 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-01 23:58:00,975 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 23:59:42,973 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-01 23:59:43,533 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-01 23:59:52,717 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-01 23:59:52,717 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-01 23:59:52,719 [UID:2] views - GET method
+[INFO] 2025-04-01 23:59:52,720 [UID:2] views - return render user/update.html
+[INFO] 2025-04-01 23:59:52,762 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66566
+[DEBUG] 2025-04-01 23:59:52,813 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-01 23:59:52,818 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-01 23:59:52,819 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 00:00:02,826 [UID:2] views - start Profile create_view
+[INFO] 2025-04-02 00:00:02,827 [UID:2] views - GET method
+[INFO] 2025-04-02 00:00:02,828 [UID:2] views - return render user/create.html
+[INFO] 2025-04-02 00:00:02,839 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 36105
+[DEBUG] 2025-04-02 00:00:07,837 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:00:07,840 [UID:2] views - mbti_name_choices=[('ESFP-0', 'ESFP:エンターテイナー'), ('ESFP-1', 'ESFP:ムードメーカー俳優'), ('ESFP-2', 'ESFP:パーティーペンギン')]
+[INFO] 2025-04-02 00:00:07,842 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ESFP HTTP/1.1" 200 242
+[INFO] 2025-04-02 00:00:18,408 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 00:00:18,411 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 00:00:18,416 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 00:00:18,428 [UID:2] basehttp - "GET /user/detail/25/ HTTP/1.1" 200 69838
+[INFO] 2025-04-02 00:00:18,458 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 00:00:18,458 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=25
+[DEBUG] 2025-04-02 00:00:18,473 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 00:00:18,492 [UID:2] basehttp - "GET /friend/disp_qr/25/ HTTP/1.1" 200 8351
+[INFO] 2025-04-02 00:00:23,881 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:00:23,881 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:00:23,885 [UID:2] views - GET method
+[INFO] 2025-04-02 00:00:23,886 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:00:23,893 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 78975
+[DEBUG] 2025-04-02 00:00:23,920 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:00:23,924 [UID:2] views - mbti_name_choices=[]
+[INFO] 2025-04-02 00:00:23,925 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=- HTTP/1.1" 200 25
+[DEBUG] 2025-04-02 00:00:31,846 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:00:31,849 [UID:2] views - mbti_name_choices=[('ESTP-0', 'ESTP:起業家'), ('ESTP-1', 'ESTP:行動派アスリート'), ('ESTP-2', 'ESTP:チャレンジザル')]
+[INFO] 2025-04-02 00:00:31,850 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ESTP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:00:37,397 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:00:37,397 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:00:37,401 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:00:37,404 [UID:2] views - form not is_valid
+[INFO] 2025-04-02 00:00:37,407 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:00:37,415 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 200 79178
+[DEBUG] 2025-04-02 00:00:37,466 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:00:37,469 [UID:2] views - mbti_name_choices=[('ESTP-0', 'ESTP:起業家'), ('ESTP-1', 'ESTP:行動派アスリート'), ('ESTP-2', 'ESTP:チャレンジザル')]
+[INFO] 2025-04-02 00:00:37,471 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ESTP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:03:51,348 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.

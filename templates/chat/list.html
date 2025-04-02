@@ -1,0 +1,180 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" type="text/css" href="{% static 'list/style.css' %}">
+<link href="{% static 'chat/jumbotrons.css' %}" rel="stylesheet">
+<style type="text/css">
+    .xy_center {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .img-container {
+        width: 100%; /* 親要素に対して100%の幅を持つ */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* 画像のはみ出しを防ぐ */
+    }
+    .preview-image {
+        max-width: 100%; /* カード内で画像がはみ出さないようにする */
+        max-height: 128px;
+        object-fit: contain; /* 画像のアスペクト比を維持しながら、親要素にフィット */
+        border-radius: 5px; /* 角丸のデザイン */
+        display: block;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock header %}
+
+{% block content %}
+<!-- START TITLE -->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="60" height="60" src="{% static 'img/chat.png' %}" alt="Chat Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Chats</h1>
+    &nbsp;
+    <img class="bi" width="50" height="50" src="{% static 'img/list.png' %}" alt="List Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">List</h1>
+    </div>
+    <p class="col-lg-8 mx-auto lead fst-italic">The List of Chats which we have.</p>
+</div>
+<!-- END TITLE -->
+
+<main class="container">
+    <a href="{% url 'chat:create' %}" class="btn btn-primary">Create Chat</a>
+    <hr>
+
+    <!-- START MAIN LIST BODY -->
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-2" data-masonry='{"percentPosition": true }'>
+        {% for item in display_object_list %}
+        <div class="col mb-0 g-2">
+            <div class="card" style="margin-bottom:0px;">
+                <div class="card-body" style="padding:8px;">
+                    <p class="card-title" style="margin-bottom:0px;"><B>{{ item.title }}</B></p>
+                    <small class="card-text">{{ item.context|safe|linebreaksbr }}</small>
+                    <div class="card-text d-flex align-items-center" style="margin-bottom:0px;">
+                        {% if item.author and item.author != "None" %}
+                            <small class="text-body-secondary">
+                                {{ item.created_at|date:"'y/m/d H:i" }} by {{ item.author }}
+                            </small>
+                        {% else %}
+                            <small class="text-body-secondary">
+                                {{ item.created_at|date:"'y/m/d H:i" }}
+                            </small>
+                            &nbsp;
+                            <span class="profile-icon badge d-flex align-items-center p-0 pe-1 text-{{ item.profile.badges }}-emphasis bg-{{ item.profile.badges }}-subtle border border-{{ item.profile.badges }}-subtle rounded-pill">
+                                {% if item.profile.images %}
+                                    <img class="rounded-circle me-1" width="24" height="24" src="{{ item.profile.images.url }}" alt="Profile icon">{{ item.profile.nick_name }}
+                                {% else %}
+                                    <img class="rounded-circle me-1" width="24" height="24" src="{% static 'img/user.png' %}" alt="Profile icon">{{ item.profile.nick_name }}
+                                {% endif %}
+                            </span>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-1">
+
+                        <!--login check-->
+                        {% if user.is_authenticated %}
+                            <!--superuser or its author-->
+                            {% if user.is_superuser or user.id == item.profile.user1.id %}
+                                <a class="btn btn-outline-primary rounded-pill btn-sm" style="max-height:31px;" href="{% url 'chat:detail' item.id %}">Detail</a>
+                            {% else %}
+                                <div></div> <!-- 左側に空の要素を維持 -->
+                            {% endif %}
+                        {% else %}
+                            <div></div> <!-- 左側に空の要素を維持 -->
+                        {% endif %}
+
+                        <!--age-->
+                        <a class="btn btn-outline-secondary rounded-pill btn-sm age-btn" data-chat-id="{{ item.id }}" style="max-height:31px;">
+                            <img witdh=20px height=20px src="{% static 'img/up.png' %}">
+                        </a>
+
+                        <!--likes-->
+                        <a class="btn btn-outline-secondary rounded-pill btn-sm like-btn" data-chat-id="{{ item.id }}" style="max-height:31px;">
+                            <img witdh=20px height=20px src="{% static 'img/good.png' %}"><span class="like-count" id="like-count-{{ item.id }}">({{ item.likes }})</span>
+                        </a>
+
+                    </div>
+
+                    {% if item.images and item.images.url %}
+                        <div class="mt-0 xy_center mt-1">
+                            <div class="img-container"><img src="{{ item.images.url }}" class="preview-image" alt="Images"/></div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- END MAIN LIST BODY -->
+    <br/>
+    <!-- START BOTTOM PAGINATION -->
+    {% include 'includes/pagination.html' %}
+    <!-- END BOTTOM PAGINATION -->
+
+</main>
+{% endblock content %}
+
+{% block footer %}
+    <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
+    <script>
+        window.onload = function() {
+            var grid = document.querySelector('.row');
+            var msnry = new Masonry(grid, {
+                percentPosition: true
+            });
+        };
+
+        // likes post
+        $(document).ready(function() {
+            $('.like-btn').click(function() {
+                const objectId = $(this).data('chat-id');
+
+                $.ajax({
+                    url: `/chat/push-likes/${objectId}/`,
+                    type: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        // いいね数をリアルタイムで更新
+                        $(`#like-count-${objectId}`).text(response.likes);
+                    },
+                    error: function(xhr) {
+                        alert('エラーが発生しました。');
+                    }
+                });
+            });
+        });
+
+        // age post
+        $(document).ready(function() {
+            $('.age-btn').click(function() {
+                const objectId = $(this).data('chat-id');
+
+                $.ajax({
+                    url: `/chat/age-order-by-at/${objectId}/`,
+                    type: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        // 成功後に画面をリロード
+                        location.reload();
+                    },
+                    error: function(xhr) {
+                        alert('エラーが発生しました。');
+                    }
+                });
+            });
+        });
+
+</script>
+{% endblock footer %}

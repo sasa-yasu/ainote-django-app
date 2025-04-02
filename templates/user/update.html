@@ -1,0 +1,248 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block header %}
+<style type="text/css">
+    .smoke {background-color: whitesmoke;}
+
+    .preview-image {
+        max-width: 300px;
+        max-height: 300px;
+        display: block;
+        margin-top: 10px;
+    }
+
+
+    .badge-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;  /* アイコンとニックネームの間隔 */
+        padding: 10px 0;
+    }
+
+    .badge-wrapper img {
+        width: 32px;        /* アイコンサイズ */
+        height: 32px;       /* アイコンサイズ */
+        object-fit: cover;  /* アイコン比率維持 */
+        border-radius: 50%; /* 丸型アイコン */
+    }
+
+    .form-check {
+        display: flex;
+        align-items: center; 
+        gap: 10px;          /* ラジオボタンとアイコン間の間隔 */
+    }
+
+    .form-check-group {
+        display: flex;                /* 横並び */
+        flex-wrap: wrap;            /* 折り返さない */
+        gap: 5px;                    /* ラジオボタン間の間隔 */
+        justify-content: flex-start;  /* 左寄せ */
+        align-items: center;          /* 中央揃え */
+        padding: 5px 0;
+    }
+
+    .form-check-inline {
+        display: inline-flex;         /* 横並び */
+        align-items: center;
+        gap: 8px;                     /* ラジオボタンとラベルの間隔 */
+        white-space: nowrap;
+        transition: all 0.3s ease;     /* スムーズな遷移 */
+    }
+
+    .form-check-input {
+        transform: scale(1.2); /* ラジオボタンサイズ調整 */
+        margin: 0;
+    }
+
+    .form-check-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+    }
+
+    .profile-icon {
+        display: inline-flex;
+        align-items: center;
+        gap: 0px;
+        padding: 5px 10px;
+        border-radius: 12px;
+        white-space: nowrap;
+    }
+</style>
+{% endblock header %}
+
+{% block content %}
+<!--HEADER START-->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="50" height="50" src="{% static 'img/user.png' %}" alt="Profile Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Profile</h3>
+    &nbsp;
+    <img class="bi" width="40" height="40" src="{% static 'img/update.png' %}" alt="Update Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Update</h3>
+</div></div>
+<!--HEADER END-->
+
+<!--page errors-->
+{% if profile_form.errors %}<div class="alert alert-danger">{{ profile_form.errors }}</div>{% endif %}
+
+<!--MAIN START-->
+<main><div class="container">
+    <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
+        <!--login check-->
+        {% if user.is_authenticated %}
+
+            <!--form common errors-->
+            {% if profile_form.non_field_errors %}<div class="alert alert-danger"> {% for error in profile_form.non_field_errors %} * {{ error }}<br/> {% endfor %} </div>{% endif %}
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!--submit button-->
+                {% include 'includes/submit_button.html' with action="Update" %}
+                <br/><br/>
+
+                <!--Display:user1.id(auto:key)-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.user1.id disp_name='User ID' %}</div>
+                <!--Display:user1.username-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.user1.username disp_name='User Name' %}</div>
+                <!--Display:profile.id(auto:key)-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.id disp_name='Profile ID' %}</div>
+
+                <!--Input:memberid-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.memberid %}</div>
+                <!--Input:nick_name-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.nick_name %}</div>
+
+                <!--Input:images-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.images %}</div>
+                <!--Display[img]:images_display-->
+                <div class="mb-3">{% include 'includes/image.html' with target=object.images field_name='images' display_name='Images' app_name='user' %}</div>
+                <!--Input:themes-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.themes %}</div>
+                <!--Display[img]:themes_display-->
+                <div class="mb-3">{% include 'includes/image.html' with target=object.themes field_name='themes' display_name='Themes' app_name='user' %}</div>
+                
+                <!--Input:badges-->
+                <div class="mb-2">
+                    <label for="{{ target.id_for_label }}" class="form-label btn btn-primary-input labeltext"><B>&lt;&lt;[ {{ profile_form.badges.label|safe }} ]&gt;&gt;</B></label><br/>
+                    {% if profile_form.badges.help_text %} <span class="helptext" style="font-size:10pt">{{ profile_form.badges.help_text|safe }}</span> {% endif %}
+                    {% if profile_form.badges.errors %} <div class="errortext" style="font-size:10pt"> {% for error in profile_form.badges.errors %} * {{ error }}<br/> {% endfor %} </div> {% endif %}
+                    <div class="form-check-group" style="padding:6px 12px;">
+                        {% for radio in profile_form.badges %}
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="radio_{{ radio.data.value }}" name="{{ profile_form.badges.name }}" value="{{ radio.data.value }}" {% if radio.data.value == profile_form.badges.value %}checked{% endif %}>
+                                <label class="form-check-label" for="radio_{{ radio.data.value }}">{{ radio.choice_label }}
+                                    <span class="profile-icon badge d-inline-flex align-items-center justify-content-center p-0 pe-1 text-{{ radio.data.value }}-emphasis bg-{{ radio.data.value }}-subtle border border-{{ radio.data.value }}-subtle rounded-pill">
+                                        <img class="rounded-circle me-1" width="24" height="24" src="{% if object.images %} {{ object.images.url }} {% else %} {% static 'img/user.png' %} {% endif %}" alt="Profile icon">
+                                        <span>{{ profile_form.nick_name.value }}</span>
+                                    </span>
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!--Input:birthday-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.birthday %}</div>
+
+                <!--Input[pulldown]:mbti-->
+                <div class="mb-2">
+                    <label for="{{ profile_form.mbti.id_for_label }}" class="form-label btn btn-primary-input labeltext">
+                        <b>&lt;&lt;[ {{ profile_form.mbti.label|safe }} ]&gt;&gt;</b>
+                    </label>
+                    <br/>
+                    {% if profile_form.mbti.help_text %} <span class="helptext" style="font-size:10pt">{{ profile_form.mbti.help_text|safe }}</span> {% endif %}
+                    {% if profile_form.mbti.errors %} <div class="errortext" style="font-size:10pt"> {% for error in profile_form.mbti.errors %} * {{ error }}<br/> {% endfor %} </div> {% endif %}                    
+                    <div class="form-group" style="padding:6px 12px;">
+                        <select class="form-select" id="id_mbti" name="{{ profile_form.mbti.name }}">
+                            {% for choice in profile_form.mbti %}
+                                <option value="{{ choice.data.value }}" {% if choice.data.value == profile_form.mbti.value %}selected{% endif %}>
+                                    {{ choice.choice_label }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group" style="padding:6px 12px;">
+                        <select id="id_mbti_name" name="{{ profile_form.mbti_name.name }}" class="form-select" data-selected="{{ profile_form.mbti_name.value }}">
+                            <option value="">Select MBTI Type first</option>
+                            {% for choice in profile_form.mbti_name %}
+                                <option value="{{ choice.0 }}" {% if choice.0 == profile_form.mbti_name.value %}selected{% endif %}>
+                                    {{ choice.1 }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <!--Input:hobby-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.hobby %}</div>
+                <!--Input:sports-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.sports %}</div>
+                <!--Input:movie-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.movie %}</div>
+                <!--Input:music-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.music %}</div>
+                <!--Input:book-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.book %}</div>
+                <!--Input:event-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.event %}</div>
+                <!--Input:remarks-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.remarks %}</div>
+
+                <!--Display:created_at/updated_at-->
+                {% include 'includes/bottom_dates.html' %}
+                <br/>
+                <!--submit button-->
+                {% include 'includes/submit_button.html' with action="Update" %}
+            </form>
+        {% else %}
+            <label for="require_login" class="form-label">ログインしてください</label>
+            &nbsp;
+            <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+        {% endif %}
+    </div></div>
+</div></main>
+<!--MAIN END-->
+{% endblock content %}
+
+{% block footer %}
+<script src="{% static 'js/images_preview.js' %}"></script> <!-- for Image Preview -->
+<script src="{% static 'js/themes_preview.js' %}"></script> <!-- for Themes Preview --> 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var mbtiSelect = document.getElementById("id_mbti");
+        var mbtiNameSelect = document.getElementById("id_mbti_name");
+
+        function updateMbtiNameChoices(mbti, selectedValue) {
+            if (mbti) {
+                fetch(`/user/get_mbti_name_choices/?mbti=${mbti}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        mbtiNameSelect.innerHTML = "<option value=''>Select MBTI Name</option>";
+                        data.mbti_name_choices.forEach(choice => {
+                            var option = document.createElement("option");
+                            option.value = choice[0];
+                            option.textContent = choice[1];
+                            if (choice[0] === selectedValue) {
+                                option.selected = true;
+                            }
+                            mbtiNameSelect.appendChild(option);
+                        });
+                    });
+            } else {
+                mbtiNameSelect.innerHTML = "<option value=''>Select MBTI Type first</option>";
+            }
+        }
+
+        // ページロード時に選択肢を更新
+        updateMbtiNameChoices(mbtiSelect.value, mbtiNameSelect.dataset.selected);
+
+        // `mbti` が変更されたときに `mbti_name` を更新
+        mbtiSelect.addEventListener("change", function() {
+            updateMbtiNameChoices(this.value, null);
+        });
+    });
+</script>
+{% endblock footer %}

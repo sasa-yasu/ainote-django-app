@@ -1,0 +1,219 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block header %}
+<!-- Custom styles for this template -->
+<link href="{% static 'top/carousel.css' %}" rel="stylesheet">
+
+<style type="text/css">
+    .text-overlay {
+        background-color: rgba(64, 64, 64, .75); /* 透過度25%のグレー */
+        padding: 2px 4px;  /* テキスト周りの余白 */
+        border-radius: 4px; /* 角を少し丸める（オプション） */
+        display: inline-block; /* 背景をテキストの長さに合わせる */
+    }
+    .featurette-divider {
+        margin: 1rem 0; /* Space out the Bootstrap <hr> more */
+    }
+    .equal-width-btn {
+        min-width: 75px; /* ボタンの幅を統一 */
+        text-align: center; /* 文字を中央配置 */
+    }
+
+    /* ホバー時のエフェクト */
+    .carousel-caption:hover {
+        transform: scale(1.02);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
+    .card-cover:hover {
+        transform: scale(1.02);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
+</style>
+{% endblock header %}
+
+{% block content %}
+    <div class="my-3 p-5 py-2 text-center bg-body-tertiary">
+        <h1 class="text-body-emphasis fst-italic">Welcome to Correct Ainote Project Homepage</h1>
+        <p class="col-lg-8 mx-auto lead fst-italic">Let's enjoy our Life through every single experience.</p>
+    </div>
+
+<main class="container">
+
+    <!-- Headline -->
+    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light">
+        <div class="carousel-indicators">
+            {% for i in headline_object_list %}
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{ forloop.counter0 }}" aria-label="Slide {{ forloop.counter }}" {% if forloop.first %} class="active" aria-current="true" {% endif %}></button>
+            {% endfor %}
+        </div>
+        <div class="carousel-inner">
+            {% for item in headline_object_list %}
+            <div class="carousel-item {% if forloop.first %} active {% endif %} ">
+                <img class="bd-placeholder-img" style="width:100%; height:100%; object-fit: contain; background-color: #27292b;" src="{{ item.images.url }}" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></img>
+                <div class="carousel-caption text-start text-overlay "><a href="{% url 'headline:detail' item.pk %}" class="text-decoration-none" style="display: block; text-decoration: none; color: inherit;">
+                    <h4>{{item.title|safe}}</h4>
+                    <small><B>{{item.period|safe}}</B></small><br/>
+                    <small><B>{{item.overview|safe|linebreaksbr}}</B></small><br/>
+                </a></div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+      <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Menu -->
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
+
+        <!-- Chat -->
+         <div class="col"><a href="{% url 'chat:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/chat.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Chat</B></h4>
+                <small class="text-muted">The List of Chats which we have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- Friend -->
+        <div class="col"><a href="{% url 'friend:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/friend.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Friend</B></h4>
+                <small class="text-muted">The List of Friends which you have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- [for superuser] User -->
+        <div class="col"><a href="{% url 'user:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/user.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>User</B></h4>
+                <small class="text-muted">The List of Users which we have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- [for superuser] Group -->
+        <div class="col"><a href="{% url 'group:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/group.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Group</B></h4>
+                <small class="text-muted">The List of Groups which we have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- [for superuser] Room -->
+        <div class="col"><a href="{% url 'room:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/room.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Room</B></h4>
+                <small class="text-muted">The List of Rooms which we have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- Room Reservation -->
+        <div class="col"><a href="#" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/room_reservation.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Room<br/>Reservation</B></h4>
+                <small class="text-muted">The List of Room Reservations which we have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- [for superuser] Device -->
+        <div class="col"><a href="{% url 'device:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/device.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Device</B></h4>
+                <small class="text-muted">The List of Devices which we have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- Device Reservation -->
+        <div class="col"><a href="#" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/device_reservation.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Device<br/>Reservation</B></h4>
+                <small class="text-muted">The List of Device Reservations which we have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- [for superuser] Headline -->
+        <div class="col"><a href="{% url 'headline:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/headline.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Headline</B></h4>
+                <small class="text-muted">The List of Headlines which we have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- [for superuser] Notice -->
+        <div class="col"><a href="{% url 'notice:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/notice.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Notice</B></h4>
+                <small class="text-muted">The List of Notices which we have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- [for superuser] Place -->
+        <div class="col"><a href="{% url 'place:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/place.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Place</B></h4>
+                <small class="text-muted">The Place which we are.</small>
+            </div></div>
+        </a></div>
+
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- Calendar -->
+    <iframe src="{% url 'mycalendar:mycalendar' %}" style="width: 100%; height:90vh; border: none;"></iframe>
+
+    <hr class="featurette-divider">
+
+    <!-- Notice -->
+    {% for item in notice_object_list %}
+    <div class="row featurette">
+        <div class="col-md-7 {% if forloop.counter|divisibleby:2 %} order-md-2 {% endif %}"><a href="{% url 'notice:detail' item.pk %}" class="text-decoration-none" style="display: block; text-decoration: none; color: inherit;">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column gap-1 p-3">
+                <h5 class="fw-normal lh-1">{{item.title|safe}}</h5>
+                <small><B>{{item.period|safe}}</B></small>
+                <small>{{item.overview|safe|linebreaksbr}}</small>
+                <small>{{item.context|safe|linebreaksbr}}</small>
+            </div></div>
+        </a></div>
+
+        <div class="col-md-5 {% if forloop.counter|divisibleby:2 %} order-md-1 {% endif %}">
+        <div class="img-container"><img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="{{item.images.url}}" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/></img>
+        </div>
+    </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    {% endfor %}
+
+    <!-- /END THE FEATURETTES -->
+</main>
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}

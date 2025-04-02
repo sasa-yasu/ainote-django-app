@@ -1,0 +1,145 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block header %}
+<style type="text/css">
+    .smoke {background-color: whitesmoke;}
+    .preview-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 300px;
+        max-height: 300px;
+        display: block;
+        margin-top: 10px;
+    }
+</style>
+{% endblock header %}
+
+{% block content %}
+<!--HEADER START-->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="50" height="50" src="{% static 'img/member.png' %}" alt="Member Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Member</h3>
+    &nbsp;
+    <img class="bi" width="40" height="40" src="{% static 'img/update.png' %}" alt="Update Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Upate</h3>
+</div></div>
+<!--HEADER END-->
+
+{% if member_form.errors %}
+    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-danger{% endif %}">
+        {{ member_form.errors }}
+    </div>
+{% endif %}
+
+<!--MAIN START-->
+<main><div class="container">
+    <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
+        <!--login check-->
+        {% if user.is_authenticated %}
+
+            <!--form common errors-->
+            {% if member_form.non_field_errors %}<div class="alert alert-danger"> {% for error in member_form.non_field_errors %} * {{ error }}<br/> {% endfor %} </div>{% endif %}
+
+            <form action='' method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                
+                <!--submit button-->
+                {% include 'includes/submit_button.html' with action="Update" %}
+                <br/><br/>
+
+                <!--id(auto:key)-->
+                <div class="mb-3">
+                    <label for="id" class="form-label btn btn-primary-input labeltext"><B>&lt;&lt;[ Id ]&gt;&gt;</B></label>
+                    <label type="text" class="form-control smoke" id="id_id" name="id">{{ object.id }}</label>
+                </div>
+                <!--userid-->
+                {% with target_column=member_form.memberid target_type=text %} <div class="mb-3">
+                    <label for="id" class="form-label btn btn-primary-input labeltext"><B>&lt;&lt;[ {{ target_column.id_for_label }} ]&gt;&gt;</B></label>
+                    <label type="text" class="form-control smoke" id="id_id" name="id">{{ object.id }}</label>
+                </div> {% endwith %}
+
+
+                <!--memberid-->
+                {% with target_column=member_form.memberid %} <div class="mb-3">
+                    <label for="{{ target_column.id_for_label }}" class="form-label btn btn-primary-input labeltext" ><B> &lt;&lt;[ {{ target_column.label|safe }} ]&gt;&gt; </B></label><br/>
+                    {% if target_column.help_text %} <span class="helptext" style="font-size:10pt">{{ target_column.help_text|safe }}</span> {% endif %}
+                    {% if target_column.errors %} <div class="errortext" style="font-size:10pt">{{ target_column.errors.as_text }}</div> {% endif %}
+                    {{ target_column }}
+                </div> {% endwith %}
+                <!--nick_name-->
+                {% with target_column=member_form.nick_name %} <div class="mb-3">
+                    <label for="{{ target_column.id_for_label }}" class="form-label btn btn-primary-input labeltext" ><B> &lt;&lt;[ {{ target_column.label|safe }} ]&gt;&gt; </B></label><br/>
+                    {% if target_column.help_text %} <span class="helptext" style="font-size:10pt">{{ target_column.help_text|safe }}</span> {% endif %}
+                    {% if target_column.errors %} <div class="errortext" style="font-size:10pt">{{ target_column.errors.as_text }}</div> {% endif %}
+                    {{ target_column }}
+                </div> {% endwith %}
+                <!--birthday-->
+                {% with target_column=member_form.birthday %} <div class="mb-3">
+                    <label for="{{ target_column.id_for_label }}" class="form-label btn btn-primary-input labeltext" ><B> &lt;&lt;[ {{ target_column.label|safe }} ]&gt;&gt; </B></label><br/>
+                    {% if target_column.help_text %} <span class="helptext" style="font-size:10pt">{{ target_column.help_text|safe }}</span> {% endif %}
+                    {% if target_column.errors %} <div class="errortext" style="font-size:10pt">{{ target_column.errors.as_text }}</div> {% endif %}
+                    {{ target_column|date:'Y-m-d' }}
+                </div> {% endwith %}
+                <!--remarks-->
+                {% with target_column=member_form.remarks %} <div class="mb-3">
+                    <label for="{{ target_column.id_for_label }}" class="form-label btn btn-primary-input labeltext" ><B> &lt;&lt;[ {{ target_column.label|safe }} ]&gt;&gt; </B></label><br/>
+                    {% if target_column.help_text %} <span class="helptext" style="font-size:10pt">{{ target_column.help_text|safe }}</span> {% endif %}
+                    {% if target_column.errors %} <div class="errortext" style="font-size:10pt">{{ target_column.errors.as_text }}</div> {% endif %}
+                    {{ target_column }}
+                </div> {% endwith %}
+
+                <!--bedges-->
+                <label for="badges" class="form-label">Badges</label>
+                <select class="form-control" id="badges" name="badges">
+                    {% for value, label in member_form.BADGES_CHOICES %}
+                        <option value="{{ value }}" {% if object.badges == value %}selected{% endif %}>
+                            {{ label }}
+                        </option>
+                    {% endfor %}
+                </select>
+                <!--images-->
+                {% with target_column=member_form.images %} <div class="mb-3">
+                    <label for="{{ target_column.id_for_label }}" class="form-label btn btn-primary-input labeltext" ><B> &lt;&lt;[ {{ target_column.label|safe }} ]&gt;&gt; </B></label><br/>
+                    {% if target_column.help_text %} <span class="helptext" style="font-size:10pt">{{ target_column.help_text|safe }}</span> {% endif %}
+                    {% if target_column.errors %} <div class="errortext" style="font-size:10pt">{{ target_column.errors.as_text }}</div> {% endif %}
+                    {{ target_column }}
+                </div> {% endwith %}
+                <!--images_display-->
+                <div class="mb-3">
+                    {% include 'includes/image.html' with app_name="member" object=object field_name="images" display_name="Images" %}
+                </div>
+
+                <!--themes-->
+                {% with target_column=member_form.themes %} <div class="mb-3">
+                    <label for="{{ target_column.id_for_label }}" class="form-label btn btn-primary-input labeltext" ><B> &lt;&lt;[ {{ target_column.label|safe }} ]&gt;&gt; </B></label><br/>
+                    {% if target_column.help_text %} <span class="helptext" style="font-size:10pt">{{ target_column.help_text|safe }}</span> {% endif %}
+                    {% if target_column.errors %} <div class="errortext" style="font-size:10pt">{{ target_column.errors.as_text }}</div> {% endif %}
+                    {{ target_column }}
+                </div> {% endwith %}
+                <!--themes_display-->
+                <div class="mb-3">
+                    {% include 'includes/image.html' with app_name="member" object=object field_name="themes" display_name="Themes" %}
+                </div>
+                
+                <!--created_at/updated_at-->
+                {% include 'includes/bottom_dates.html' %}
+                <br/>
+                <!--submit button-->
+                {% include 'includes/submit_button.html' with action="Update" %}
+            </form>
+            {% else %}
+            <label for="require_login" class="form-label">ログインしてください</label>
+            &nbsp;
+            <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+            {% endif %}
+        </div></div>
+    </div>
+</main>
+{% endblock content %}
+
+{% block footer %}
+<script src="{% static 'js/images_preview.js' %}"></script> <!-- for Image Preview -->
+<script src="{% static 'js/themes_preview.js' %}"></script> <!-- for Themes Preview --> 
+{% endblock footer %}

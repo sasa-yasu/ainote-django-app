@@ -1,0 +1,16 @@
+<div class="mb-3">
+    <label class="form-label btn btn-primary-input labeltext"><b>&lt;&lt;[ {{ disp_name|safe }} ]&gt;&gt;</b></label><br/>
+
+    <div class="form-check-group">
+        {% for value, label in choices %}
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" 
+                   id="radio_{{ value }}" name="{{ object.name }}_choice" 
+                   value="{{ value }}" 
+                   {% if target == value %}checked{% endif %} 
+                   disabled>
+            <label class="form-check-label" for="radio_{{ value }}">{{ label }}</label>
+        </div>
+        {% endfor %}
+    </div>
+</div>

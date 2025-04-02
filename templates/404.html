@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .error-container {
+            text-align: center;
+        }
+        .error-container h1 {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #dc3545;  /* 赤系のエラー色 */
+        }
+        .error-container p {
+            font-size: 1.5rem;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            transition: 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+        .home-icon {
+            font-size: 4rem;
+            color: #ffc107;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container error-container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <span class="home-icon">🏠</span>
+            <h1>404</h1>
+            <p>お探しのページが見つかりませんでした。</p>
+            <a href="/" class="btn btn-custom mt-4">ホームに戻る</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1473 @@
+[INFO] 2025-03-29 00:05:52,943 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 00:09:41,237 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\group\views.py changed, reloading.
+[INFO] 2025-03-29 00:09:41,793 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 00:10:55,073 [UID:2] views - start Group detail_view
+[DEBUG] 2025-03-29 00:10:55,078 [UID:2] views - get Group object(pk)
+[DEBUG] 2025-03-29 00:10:55,080 [UID:2] views - return render group/detail.html
+[INFO] 2025-03-29 00:10:55,130 [UID:2] basehttp - "GET /group/detail/4/ HTTP/1.1" 200 25907
+[INFO] 2025-03-29 00:10:55,156 [UID:2] basehttp - "GET /media/group/4_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:10:55,158 [UID:2] basehttp - "GET /media/group/4_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:10:55,184 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-29 00:10:55,185 [UID:2] views - group_url=http://127.0.0.1:8000/group/join/?group_id=4
+[DEBUG] 2025-03-29 00:10:55,205 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-29 00:10:55,245 [UID:2] basehttp - "GET /group/disp_qr/4/ HTTP/1.1" 200 7897
+[INFO] 2025-03-29 00:11:52,887 [UID:Anon] basehttp - "GET /top/logout/ HTTP/1.1" 302 0
+[INFO] 2025-03-29 00:11:52,897 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[DEBUG] 2025-03-29 00:11:53,835 [UID:Anon] views - start Group list_view
+[DEBUG] 2025-03-29 00:11:53,837 [UID:Anon] views - object_list exists
+[INFO] 2025-03-29 00:11:53,839 [UID:Anon] views - return render group/list.html
+[INFO] 2025-03-29 00:11:53,845 [UID:Anon] basehttp - "GET /group/list/ HTTP/1.1" 200 23868
+[INFO] 2025-03-29 00:11:53,878 [UID:Anon] basehttp - "GET /media/group/6_themes_2503282337.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:11:53,879 [UID:Anon] basehttp - "GET /media/group/6_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:11:53,897 [UID:Anon] basehttp - "GET /media/group/5_themes_2503282338.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:11:53,897 [UID:Anon] basehttp - "GET /media/group/5_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:11:53,914 [UID:Anon] basehttp - "GET /media/group/3_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:11:53,924 [UID:Anon] basehttp - "GET /media/group/3_images_2503282343.png HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:11:53,925 [UID:Anon] basehttp - "GET /media/group/2_themes_2503282340.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:11:53,925 [UID:Anon] basehttp - "GET /media/group/2_images_2503282343.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:11:56,386 [UID:Anon] views - start Group detail_view
+[DEBUG] 2025-03-29 00:11:56,387 [UID:Anon] views - get Group object(pk)
+[DEBUG] 2025-03-29 00:11:56,389 [UID:Anon] views - return render group/detail.html
+[INFO] 2025-03-29 00:11:56,395 [UID:Anon] basehttp - "GET /group/detail/6/ HTTP/1.1" 200 23916
+[INFO] 2025-03-29 00:11:56,422 [UID:Anon] basehttp - "GET /group/disp_qr/6/ HTTP/1.1" 302 0
+[INFO] 2025-03-29 00:11:56,449 [UID:Anon] basehttp - "GET /top/login/?next=/group/disp_qr/6/ HTTP/1.1" 200 12531
+[INFO] 2025-03-29 00:12:12,013 [UID:Anon] basehttp - "POST /group/push-likes/6/ HTTP/1.1" 302 0
+[INFO] 2025-03-29 00:12:12,018 [UID:Anon] basehttp - "GET /top/login/?next=/group/push-likes/6/ HTTP/1.1" 200 12534
+[INFO] 2025-03-29 00:12:12,531 [UID:Anon] basehttp - "POST /group/push-likes/6/ HTTP/1.1" 302 0
+[INFO] 2025-03-29 00:12:12,543 [UID:Anon] basehttp - "GET /top/login/?next=/group/push-likes/6/ HTTP/1.1" 200 12534
+[INFO] 2025-03-29 00:12:15,646 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-03-29 00:12:23,463 [UID:2] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-03-29 00:12:23,478 [UID:2] basehttp - "GET /top/ HTTP/1.1" 200 42585
+[INFO] 2025-03-29 00:12:23,575 [UID:2] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 16617
+[DEBUG] 2025-03-29 00:12:29,615 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:12:29,619 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:12:29,621 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:12:29,633 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26503
+[INFO] 2025-03-29 00:12:29,667 [UID:2] basehttp - "GET /media/room/8_themes_2503282347.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:12:29,670 [UID:2] basehttp - "GET /media/room/8_images_2503282347.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:12:29,696 [UID:2] basehttp - "GET /media/room/7_themes_2503282348.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:12:29,698 [UID:2] basehttp - "GET /media/room/5_themes_2503282350.webp HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:12:29,707 [UID:2] basehttp - "GET /media/room/4_themes_2503282351.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:12:29,697 [UID:2] basehttp - "GET /media/room/6_themes_2503282349.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:12:29,713 [UID:2] basehttp - "GET /media/room/2_themes_2503282353.webp HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:12:29,716 [UID:2] basehttp - "GET /media/room/3_themes_2503282352.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-03-29 00:13:25,430 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:13:25,434 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:13:25,435 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:13:25,446 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26503
+[DEBUG] 2025-03-29 00:13:40,232 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:13:40,235 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:13:40,235 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:13:40,242 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26503
+[DEBUG] 2025-03-29 00:14:06,014 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:14:06,017 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:14:06,018 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:14:06,026 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26503
+[DEBUG] 2025-03-29 00:14:07,303 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:14:07,305 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:14:07,306 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:14:07,313 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26503
+[INFO] 2025-03-29 00:14:10,990 [UID:2] views - start Room detail_view
+[DEBUG] 2025-03-29 00:14:10,994 [UID:2] views - get Room object(pk)
+[DEBUG] 2025-03-29 00:14:10,996 [UID:2] views - return render room/detail.html
+[INFO] 2025-03-29 00:14:11,001 [UID:2] basehttp - "GET /room/detail/7/ HTTP/1.1" 200 22242
+[DEBUG] 2025-03-29 00:14:37,934 [UID:2] views - start Group list_view
+[DEBUG] 2025-03-29 00:14:37,943 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:14:37,945 [UID:2] views - return render group/list.html
+[INFO] 2025-03-29 00:14:37,955 [UID:2] basehttp - "GET /group/list/ HTTP/1.1" 200 23866
+[INFO] 2025-03-29 00:14:38,018 [UID:2] basehttp - "GET /media/group/4_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:14:38,019 [UID:2] basehttp - "GET /media/group/4_themes_2503282339.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-03-29 00:14:51,319 [UID:2] views - start Group list_view
+[DEBUG] 2025-03-29 00:14:51,322 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:14:51,323 [UID:2] views - return render group/list.html
+[INFO] 2025-03-29 00:14:51,332 [UID:2] basehttp - "GET /group/list/ HTTP/1.1" 200 23866
+[INFO] 2025-03-29 00:14:51,356 [UID:2] basehttp - "GET /media/group/6_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:14:51,357 [UID:2] basehttp - "GET /media/group/5_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:14:51,385 [UID:2] basehttp - "GET /media/group/3_images_2503282343.png HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:14:51,385 [UID:2] basehttp - "GET /media/group/2_images_2503282343.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-03-29 00:14:52,686 [UID:2] views - start Group list_view
+[DEBUG] 2025-03-29 00:14:52,688 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:14:52,689 [UID:2] views - return render group/list.html
+[INFO] 2025-03-29 00:14:52,695 [UID:2] basehttp - "GET /group/list/ HTTP/1.1" 200 23866
+[DEBUG] 2025-03-29 00:15:06,389 [UID:2] views - start Group list_view
+[DEBUG] 2025-03-29 00:15:06,392 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:15:06,393 [UID:2] views - return render group/list.html
+[INFO] 2025-03-29 00:15:06,403 [UID:2] basehttp - "GET /group/list/ HTTP/1.1" 200 23866
+[INFO] 2025-03-29 00:15:06,422 [UID:2] basehttp - "GET /media/group/2_themes_2503282340.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-03-29 00:15:12,136 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:15:12,140 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:15:12,141 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:15:12,150 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26503
+[INFO] 2025-03-29 00:15:12,184 [UID:2] basehttp - "GET /media/room/8_images_2503282347.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:15:12,183 [UID:2] basehttp - "GET /media/room/8_themes_2503282347.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:15:12,213 [UID:2] basehttp - "GET /media/room/6_themes_2503282349.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:15:12,232 [UID:2] basehttp - "GET /media/room/2_themes_2503282353.webp HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:15:12,215 [UID:2] basehttp - "GET /media/room/5_themes_2503282350.webp HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:15:12,216 [UID:2] basehttp - "GET /media/room/7_themes_2503282348.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:15:12,245 [UID:2] basehttp - "GET /media/room/4_themes_2503282351.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:15:12,248 [UID:2] basehttp - "GET /media/room/3_themes_2503282352.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-03-29 00:15:14,032 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:15:14,035 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:15:14,036 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:15:14,041 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26503
+[DEBUG] 2025-03-29 00:15:50,988 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:15:50,992 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:15:50,993 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:15:51,007 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26503
+[DEBUG] 2025-03-29 00:16:12,205 [UID:2] views - start Group list_view
+[DEBUG] 2025-03-29 00:16:12,210 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:16:12,211 [UID:2] views - return render group/list.html
+[INFO] 2025-03-29 00:16:12,221 [UID:2] basehttp - "GET /group/list/ HTTP/1.1" 200 23866
+[INFO] 2025-03-29 00:16:12,257 [UID:2] basehttp - "GET /media/group/6_themes_2503282337.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:16:12,275 [UID:2] basehttp - "GET /media/group/5_themes_2503282338.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:16:12,315 [UID:2] basehttp - "GET /media/group/3_themes_2503282339.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-03-29 00:16:14,852 [UID:2] views - start Device list_view
+[DEBUG] 2025-03-29 00:16:14,856 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:16:14,857 [UID:2] views - return render device/list.html
+[INFO] 2025-03-29 00:16:14,869 [UID:2] basehttp - "GET /device/list/ HTTP/1.1" 200 22326
+[INFO] 2025-03-29 00:16:14,895 [UID:2] basehttp - "GET /media/device/3_images_2503282357.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:16:14,936 [UID:2] basehttp - "GET /media/device/2_images_2503282356.webp HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:16:14,936 [UID:2] basehttp - "GET /media/device/1_images_2503282356.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-03-29 00:16:16,995 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:16:16,998 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:16:16,999 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:16:17,003 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26503
+[DEBUG] 2025-03-29 00:16:17,893 [UID:2] views - start Device list_view
+[DEBUG] 2025-03-29 00:16:17,899 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:16:17,900 [UID:2] views - return render device/list.html
+[INFO] 2025-03-29 00:16:17,904 [UID:2] basehttp - "GET /device/list/ HTTP/1.1" 200 22326
+[DEBUG] 2025-03-29 00:16:20,588 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:16:20,591 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:16:20,592 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:16:20,598 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26503
+[DEBUG] 2025-03-29 00:17:23,859 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:17:23,863 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:17:23,865 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:17:23,877 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26699
+[INFO] 2025-03-29 00:17:23,901 [UID:2] basehttp - "GET /media/room/2_themes_2503282353.webp HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:17:30,933 [UID:2] views - start Room detail_view
+[DEBUG] 2025-03-29 00:17:30,936 [UID:2] views - get Room object(pk)
+[DEBUG] 2025-03-29 00:17:30,938 [UID:2] views - return render room/detail.html
+[INFO] 2025-03-29 00:17:30,944 [UID:2] basehttp - "GET /room/detail/8/ HTTP/1.1" 200 22303
+[INFO] 2025-03-29 00:17:32,744 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:17:32,745 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:17:32,747 [UID:2] views - GET method
+[INFO] 2025-03-29 00:17:32,748 [UID:2] views - return render room/update.html
+[INFO] 2025-03-29 00:17:32,763 [UID:2] basehttp - "GET /room/update/8/ HTTP/1.1" 200 16682
+[INFO] 2025-03-29 00:17:42,751 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:17:42,752 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:17:42,753 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:17:42,789 [UID:2] views - form.is_valid
+[DEBUG] 2025-03-29 00:17:42,789 [UID:2] views - images_data exists
+[DEBUG] 2025-03-29 00:17:42,790 [UID:2] views - old images_data exists
+[DEBUG] 2025-03-29 00:17:42,790 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\room\8_images_2503282347.jpg
+[DEBUG] 2025-03-29 00:17:42,790 [UID:2] views - old images_data file exists
+[DEBUG] 2025-03-29 00:17:42,790 [UID:2] views - delete old images_data
+[DEBUG] 2025-03-29 00:17:42,791 [UID:2] views - save new images_data
+[DEBUG] 2025-03-29 00:17:42,791 [UID:2] views - save updated Room object
+[INFO] 2025-03-29 00:17:42,802 [UID:2] views - return redirect room:list
+[INFO] 2025-03-29 00:17:42,803 [UID:2] basehttp - "POST /room/update/8/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 00:17:42,808 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:17:42,812 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:17:42,813 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:17:42,820 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26699
+[INFO] 2025-03-29 00:17:42,875 [UID:2] basehttp - "GET /media/room/5_themes_2503282350.webp HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:17:42,882 [UID:2] basehttp - "GET /media/room/4_themes_2503282351.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:17:42,885 [UID:2] basehttp - "GET /media/room/3_themes_2503282352.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:17:42,950 [UID:2] basehttp - "GET /media/room/8_images_2503290017.jpg HTTP/1.1" 200 6018
+[INFO] 2025-03-29 00:17:44,071 [UID:2] views - start Room detail_view
+[DEBUG] 2025-03-29 00:17:44,074 [UID:2] views - get Room object(pk)
+[DEBUG] 2025-03-29 00:17:44,076 [UID:2] views - return render room/detail.html
+[INFO] 2025-03-29 00:17:44,078 [UID:2] basehttp - "GET /room/detail/7/ HTTP/1.1" 200 22298
+[INFO] 2025-03-29 00:17:45,720 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:17:45,720 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:17:45,721 [UID:2] views - GET method
+[INFO] 2025-03-29 00:17:45,722 [UID:2] views - return render room/update.html
+[INFO] 2025-03-29 00:17:45,725 [UID:2] basehttp - "GET /room/update/7/ HTTP/1.1" 200 16678
+[INFO] 2025-03-29 00:17:55,816 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:17:55,817 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:17:55,818 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:17:55,819 [UID:2] views - form.is_valid
+[DEBUG] 2025-03-29 00:17:55,819 [UID:2] views - images_data exists
+[DEBUG] 2025-03-29 00:17:55,820 [UID:2] views - old images_data exists
+[DEBUG] 2025-03-29 00:17:55,820 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\room\7_2503242242.jpg
+[DEBUG] 2025-03-29 00:17:55,821 [UID:2] views - old images_data file exists
+[DEBUG] 2025-03-29 00:17:55,821 [UID:2] views - delete old images_data
+[DEBUG] 2025-03-29 00:17:55,822 [UID:2] views - save new images_data
+[DEBUG] 2025-03-29 00:17:55,822 [UID:2] views - save updated Room object
+[INFO] 2025-03-29 00:17:55,832 [UID:2] views - return redirect room:list
+[INFO] 2025-03-29 00:17:55,833 [UID:2] basehttp - "POST /room/update/7/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 00:17:55,838 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:17:55,841 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:17:55,842 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:17:55,847 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26706
+[INFO] 2025-03-29 00:17:55,881 [UID:2] basehttp - "GET /media/room/8_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:17:55,879 [UID:2] basehttp - "GET /media/room/8_themes_2503282347.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:17:55,913 [UID:2] basehttp - "GET /media/room/6_themes_2503282349.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:17:55,914 [UID:2] basehttp - "GET /media/room/7_images_2503290017.jpg HTTP/1.1" 200 6751
+[INFO] 2025-03-29 00:17:55,912 [UID:2] basehttp - "GET /media/room/7_themes_2503282348.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:17:58,950 [UID:2] views - start Room detail_view
+[DEBUG] 2025-03-29 00:17:58,953 [UID:2] views - get Room object(pk)
+[DEBUG] 2025-03-29 00:17:58,954 [UID:2] views - return render room/detail.html
+[INFO] 2025-03-29 00:17:58,958 [UID:2] basehttp - "GET /room/detail/6/ HTTP/1.1" 200 22303
+[INFO] 2025-03-29 00:18:00,178 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:18:00,178 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:18:00,180 [UID:2] views - GET method
+[INFO] 2025-03-29 00:18:00,180 [UID:2] views - return render room/update.html
+[INFO] 2025-03-29 00:18:00,186 [UID:2] basehttp - "GET /room/update/6/ HTTP/1.1" 200 16685
+[INFO] 2025-03-29 00:18:11,186 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:18:11,186 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:18:11,187 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:18:11,189 [UID:2] views - form.is_valid
+[DEBUG] 2025-03-29 00:18:11,189 [UID:2] views - images_data exists
+[DEBUG] 2025-03-29 00:18:11,189 [UID:2] views - old images_data exists
+[DEBUG] 2025-03-29 00:18:11,190 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\room\6_2503242241.webp
+[DEBUG] 2025-03-29 00:18:11,190 [UID:2] views - old images_data file exists
+[DEBUG] 2025-03-29 00:18:11,190 [UID:2] views - delete old images_data
+[DEBUG] 2025-03-29 00:18:11,191 [UID:2] views - save new images_data
+[DEBUG] 2025-03-29 00:18:11,191 [UID:2] views - save updated Room object
+[INFO] 2025-03-29 00:18:11,217 [UID:2] views - return redirect room:list
+[INFO] 2025-03-29 00:18:11,218 [UID:2] basehttp - "POST /room/update/6/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 00:18:11,222 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:18:11,225 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:18:11,226 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:18:11,230 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26713
+[INFO] 2025-03-29 00:18:11,258 [UID:2] basehttp - "GET /media/room/8_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:11,259 [UID:2] basehttp - "GET /media/room/7_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:11,283 [UID:2] basehttp - "GET /media/room/6_images_2503290018.webp HTTP/1.1" 200 5660
+[INFO] 2025-03-29 00:18:14,343 [UID:2] views - start Room detail_view
+[DEBUG] 2025-03-29 00:18:14,345 [UID:2] views - get Room object(pk)
+[DEBUG] 2025-03-29 00:18:14,347 [UID:2] views - return render room/detail.html
+[INFO] 2025-03-29 00:18:14,351 [UID:2] basehttp - "GET /room/detail/5/ HTTP/1.1" 200 22370
+[INFO] 2025-03-29 00:18:15,684 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:18:15,685 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:18:15,686 [UID:2] views - GET method
+[INFO] 2025-03-29 00:18:15,686 [UID:2] views - return render room/update.html
+[INFO] 2025-03-29 00:18:15,690 [UID:2] basehttp - "GET /room/update/5/ HTTP/1.1" 200 16726
+[INFO] 2025-03-29 00:18:25,770 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:18:25,771 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:18:25,772 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:18:25,773 [UID:2] views - form.is_valid
+[DEBUG] 2025-03-29 00:18:25,773 [UID:2] views - images_data exists
+[DEBUG] 2025-03-29 00:18:25,774 [UID:2] views - old images_data exists
+[DEBUG] 2025-03-29 00:18:25,774 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\room\5_2503242240.jpg
+[DEBUG] 2025-03-29 00:18:25,774 [UID:2] views - old images_data file exists
+[DEBUG] 2025-03-29 00:18:25,775 [UID:2] views - delete old images_data
+[DEBUG] 2025-03-29 00:18:25,776 [UID:2] views - save new images_data
+[DEBUG] 2025-03-29 00:18:25,776 [UID:2] views - save updated Room object
+[INFO] 2025-03-29 00:18:25,788 [UID:2] views - return redirect room:list
+[INFO] 2025-03-29 00:18:25,788 [UID:2] basehttp - "POST /room/update/5/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 00:18:25,792 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:18:25,796 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:18:25,796 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:18:25,803 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26720
+[INFO] 2025-03-29 00:18:25,835 [UID:2] basehttp - "GET /media/room/7_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:25,836 [UID:2] basehttp - "GET /media/room/8_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:25,861 [UID:2] basehttp - "GET /media/room/5_images_2503290018.jpg HTTP/1.1" 200 6292
+[INFO] 2025-03-29 00:18:25,864 [UID:2] basehttp - "GET /media/room/6_images_2503290018.webp HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:28,496 [UID:2] views - start Room detail_view
+[DEBUG] 2025-03-29 00:18:28,499 [UID:2] views - get Room object(pk)
+[DEBUG] 2025-03-29 00:18:28,500 [UID:2] views - return render room/detail.html
+[INFO] 2025-03-29 00:18:28,503 [UID:2] basehttp - "GET /room/detail/4/ HTTP/1.1" 200 22366
+[INFO] 2025-03-29 00:18:29,802 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:18:29,802 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:18:29,803 [UID:2] views - GET method
+[INFO] 2025-03-29 00:18:29,804 [UID:2] views - return render room/update.html
+[INFO] 2025-03-29 00:18:29,807 [UID:2] basehttp - "GET /room/update/4/ HTTP/1.1" 200 16722
+[INFO] 2025-03-29 00:18:43,369 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:18:43,369 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:18:43,370 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:18:43,371 [UID:2] views - form.is_valid
+[DEBUG] 2025-03-29 00:18:43,371 [UID:2] views - images_data exists
+[DEBUG] 2025-03-29 00:18:43,371 [UID:2] views - old images_data exists
+[DEBUG] 2025-03-29 00:18:43,372 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\room\4_2503242237.jpg
+[DEBUG] 2025-03-29 00:18:43,372 [UID:2] views - old images_data file exists
+[DEBUG] 2025-03-29 00:18:43,372 [UID:2] views - delete old images_data
+[DEBUG] 2025-03-29 00:18:43,373 [UID:2] views - save new images_data
+[DEBUG] 2025-03-29 00:18:43,373 [UID:2] views - save updated Room object
+[INFO] 2025-03-29 00:18:43,381 [UID:2] views - return redirect room:list
+[INFO] 2025-03-29 00:18:43,383 [UID:2] basehttp - "POST /room/update/4/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 00:18:43,388 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:18:43,391 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:18:43,391 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:18:43,396 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26727
+[INFO] 2025-03-29 00:18:43,424 [UID:2] basehttp - "GET /media/room/8_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:43,425 [UID:2] basehttp - "GET /media/room/7_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:43,455 [UID:2] basehttp - "GET /media/room/5_images_2503290018.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:43,456 [UID:2] basehttp - "GET /media/room/4_images_2503290018.jpg HTTP/1.1" 200 6899
+[INFO] 2025-03-29 00:18:43,453 [UID:2] basehttp - "GET /media/room/6_images_2503290018.webp HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:47,842 [UID:2] views - start Room detail_view
+[DEBUG] 2025-03-29 00:18:47,845 [UID:2] views - get Room object(pk)
+[DEBUG] 2025-03-29 00:18:47,847 [UID:2] views - return render room/detail.html
+[INFO] 2025-03-29 00:18:47,850 [UID:2] basehttp - "GET /room/detail/3/ HTTP/1.1" 200 22410
+[INFO] 2025-03-29 00:18:49,290 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:18:49,290 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:18:49,291 [UID:2] views - GET method
+[INFO] 2025-03-29 00:18:49,292 [UID:2] views - return render room/update.html
+[INFO] 2025-03-29 00:18:49,295 [UID:2] basehttp - "GET /room/update/3/ HTTP/1.1" 200 16740
+[INFO] 2025-03-29 00:18:59,369 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:18:59,369 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:18:59,370 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:18:59,371 [UID:2] views - form.is_valid
+[DEBUG] 2025-03-29 00:18:59,372 [UID:2] views - images_data exists
+[DEBUG] 2025-03-29 00:18:59,372 [UID:2] views - old images_data exists
+[DEBUG] 2025-03-29 00:18:59,372 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\room\3_2503242238.jpg
+[DEBUG] 2025-03-29 00:18:59,373 [UID:2] views - old images_data file exists
+[DEBUG] 2025-03-29 00:18:59,373 [UID:2] views - delete old images_data
+[DEBUG] 2025-03-29 00:18:59,374 [UID:2] views - save new images_data
+[DEBUG] 2025-03-29 00:18:59,374 [UID:2] views - save updated Room object
+[INFO] 2025-03-29 00:18:59,383 [UID:2] views - return redirect room:list
+[INFO] 2025-03-29 00:18:59,385 [UID:2] basehttp - "POST /room/update/3/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 00:18:59,390 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:18:59,393 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:18:59,394 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:18:59,398 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26734
+[INFO] 2025-03-29 00:18:59,428 [UID:2] basehttp - "GET /media/room/8_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:59,456 [UID:2] basehttp - "GET /media/room/7_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:59,458 [UID:2] basehttp - "GET /media/room/6_images_2503290018.webp HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:59,469 [UID:2] basehttp - "GET /media/room/3_images_2503290018.jpg HTTP/1.1" 200 8863
+[INFO] 2025-03-29 00:18:59,470 [UID:2] basehttp - "GET /media/room/4_images_2503290018.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:18:59,473 [UID:2] basehttp - "GET /media/room/5_images_2503290018.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:19:10,637 [UID:2] views - start Room detail_view
+[DEBUG] 2025-03-29 00:19:10,640 [UID:2] views - get Room object(pk)
+[DEBUG] 2025-03-29 00:19:10,642 [UID:2] views - return render room/detail.html
+[INFO] 2025-03-29 00:19:10,646 [UID:2] basehttp - "GET /room/detail/2/ HTTP/1.1" 200 22355
+[INFO] 2025-03-29 00:19:12,506 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:19:12,506 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:19:12,507 [UID:2] views - GET method
+[INFO] 2025-03-29 00:19:12,508 [UID:2] views - return render room/update.html
+[INFO] 2025-03-29 00:19:12,511 [UID:2] basehttp - "GET /room/update/2/ HTTP/1.1" 200 16711
+[INFO] 2025-03-29 00:19:22,587 [UID:2] views - start Room update_view
+[DEBUG] 2025-03-29 00:19:22,587 [UID:2] views - get Room object(pk)
+[INFO] 2025-03-29 00:19:22,588 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:19:22,589 [UID:2] views - form.is_valid
+[DEBUG] 2025-03-29 00:19:22,589 [UID:2] views - images_data exists
+[DEBUG] 2025-03-29 00:19:22,589 [UID:2] views - old images_data exists
+[DEBUG] 2025-03-29 00:19:22,589 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\room\2_2503242239.jpg
+[DEBUG] 2025-03-29 00:19:22,590 [UID:2] views - old images_data file exists
+[DEBUG] 2025-03-29 00:19:22,590 [UID:2] views - delete old images_data
+[DEBUG] 2025-03-29 00:19:22,591 [UID:2] views - save new images_data
+[DEBUG] 2025-03-29 00:19:22,591 [UID:2] views - save updated Room object
+[INFO] 2025-03-29 00:19:22,600 [UID:2] views - return redirect room:list
+[INFO] 2025-03-29 00:19:22,601 [UID:2] basehttp - "POST /room/update/2/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 00:19:22,606 [UID:2] views - start Room list_view
+[DEBUG] 2025-03-29 00:19:22,610 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:19:22,611 [UID:2] views - return render room/list.html
+[INFO] 2025-03-29 00:19:22,617 [UID:2] basehttp - "GET /room/list/ HTTP/1.1" 200 26741
+[INFO] 2025-03-29 00:19:22,645 [UID:2] basehttp - "GET /media/room/8_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:19:22,646 [UID:2] basehttp - "GET /media/room/7_images_2503290017.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:19:22,680 [UID:2] basehttp - "GET /media/room/6_images_2503290018.webp HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:19:22,683 [UID:2] basehttp - "GET /media/room/5_images_2503290018.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:19:22,688 [UID:2] basehttp - "GET /media/room/2_images_2503290019.jpg HTTP/1.1" 200 9293
+[INFO] 2025-03-29 00:19:22,686 [UID:2] basehttp - "GET /media/room/4_images_2503290018.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:19:22,691 [UID:2] basehttp - "GET /media/room/3_images_2503290018.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-03-29 00:19:35,145 [UID:2] views - start Profile list_view
+[DEBUG] 2025-03-29 00:19:35,149 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:19:35,151 [UID:2] views - return render user/list.html
+[INFO] 2025-03-29 00:19:35,174 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 39990
+[DEBUG] 2025-03-29 00:20:26,272 [UID:2] views - start Profile list_view
+[DEBUG] 2025-03-29 00:20:26,276 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:20:26,277 [UID:2] views - return render user/list.html
+[INFO] 2025-03-29 00:20:26,311 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 39990
+[INFO] 2025-03-29 00:20:29,941 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 00:20:29,944 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-03-29 00:20:29,948 [UID:2] views - return render user/detail.html
+[INFO] 2025-03-29 00:20:29,960 [UID:2] basehttp - "GET /user/detail/21/ HTTP/1.1" 200 43649
+[INFO] 2025-03-29 00:20:30,007 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-29 00:20:30,007 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=21
+[DEBUG] 2025-03-29 00:20:30,025 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-29 00:20:30,038 [UID:2] basehttp - "GET /friend/disp_qr/21/ HTTP/1.1" 200 8299
+[DEBUG] 2025-03-29 00:20:55,813 [UID:2] views - start Profile list_view
+[DEBUG] 2025-03-29 00:20:55,816 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:20:55,817 [UID:2] views - return render user/list.html
+[INFO] 2025-03-29 00:20:55,840 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 39939
+[DEBUG] 2025-03-29 00:21:07,665 [UID:2] views - start Profile list_view
+[DEBUG] 2025-03-29 00:21:07,669 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:21:07,671 [UID:2] views - return render user/list.html
+[INFO] 2025-03-29 00:21:07,684 [UID:2] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 30270
+[INFO] 2025-03-29 00:21:20,282 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 00:21:20,287 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-03-29 00:21:20,295 [UID:2] views - return render user/detail.html
+[INFO] 2025-03-29 00:21:20,319 [UID:2] basehttp - "GET /user/detail/1/ HTTP/1.1" 200 45658
+[INFO] 2025-03-29 00:21:20,356 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-29 00:21:20,357 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=1
+[INFO] 2025-03-29 00:21:20,352 [UID:2] basehttp - "GET /media/group/3_themes_2503282339.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-03-29 00:21:20,376 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-29 00:21:20,378 [UID:2] basehttp - "GET /media/group/4_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:21:20,377 [UID:2] basehttp - "GET /media/group/4_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:21:20,381 [UID:2] basehttp - "GET /media/group/3_images_2503282343.png HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:21:20,393 [UID:2] basehttp - "GET /friend/disp_qr/1/ HTTP/1.1" 200 8320
+[DEBUG] 2025-03-29 00:21:33,803 [UID:2] views - start Headline list_view
+[DEBUG] 2025-03-29 00:21:33,808 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:21:33,809 [UID:2] views - return render headline/list.html
+[INFO] 2025-03-29 00:21:33,814 [UID:2] basehttp - "GET /headline/list/ HTTP/1.1" 200 19997
+[DEBUG] 2025-03-29 00:21:47,661 [UID:2] views - start Notice list_view
+[DEBUG] 2025-03-29 00:21:47,666 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:21:47,667 [UID:2] views - return render notice/list.html
+[INFO] 2025-03-29 00:21:47,674 [UID:2] basehttp - "GET /notice/list/ HTTP/1.1" 200 21495
+[DEBUG] 2025-03-29 00:22:36,981 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 00:22:36,985 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:22:36,986 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 00:22:36,994 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 20409
+[INFO] 2025-03-29 00:30:03,566 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-29 00:30:04,170 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 00:30:07,666 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-29 00:30:08,224 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 00:32:24,189 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 00:32:24,756 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 00:33:23,094 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\urls.py changed, reloading.
+[INFO] 2025-03-29 00:33:23,741 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 00:33:29,336 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\group\urls.py changed, reloading.
+[INFO] 2025-03-29 00:33:29,897 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-03-29 00:34:15,950 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 00:34:15,956 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:34:15,957 [UID:2] views - return render place/list.html
+[ERROR] 2025-03-29 00:34:16,128 [UID:2] log - Internal Server Error: /place/list/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: place_place.likes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 53, in list_view
+    return render(request, 'place/list.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\paginator.py", line 191, in __len__
+    return len(self.object_list)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: place_place.likes
+[ERROR] 2025-03-29 00:34:16,137 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 500 220946
+[INFO] 2025-03-29 00:34:32,183 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-03-29 00:34:33,403 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 00:34:33,406 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:34:33,407 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 00:34:33,447 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 23726
+[INFO] 2025-03-29 00:34:40,720 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 00:34:40,724 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 00:34:40,726 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 00:34:40,736 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 18381
+[DEBUG] 2025-03-29 00:34:53,538 [UID:2] views - start Group list_view
+[DEBUG] 2025-03-29 00:34:53,545 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:34:53,546 [UID:2] views - return render group/list.html
+[INFO] 2025-03-29 00:34:53,558 [UID:2] basehttp - "GET /group/list/ HTTP/1.1" 200 23866
+[INFO] 2025-03-29 00:34:53,669 [UID:2] basehttp - "GET /media/group/6_themes_2503282337.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:34:53,670 [UID:2] basehttp - "GET /media/group/6_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:34:53,681 [UID:2] basehttp - "GET /media/group/5_themes_2503282338.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:34:53,682 [UID:2] basehttp - "GET /media/group/5_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:34:53,695 [UID:2] basehttp - "GET /media/group/4_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:34:53,696 [UID:2] basehttp - "GET /media/group/4_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:34:53,711 [UID:2] basehttp - "GET /media/group/3_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:34:53,712 [UID:2] basehttp - "GET /media/group/3_images_2503282343.png HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:34:53,724 [UID:2] basehttp - "GET /media/group/2_images_2503282343.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:34:53,721 [UID:2] basehttp - "GET /media/group/2_themes_2503282340.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-03-29 00:36:33,283 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 00:36:33,287 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:36:33,288 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 00:36:33,300 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 23778
+[DEBUG] 2025-03-29 00:38:22,720 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 00:38:22,724 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:38:22,725 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 00:38:22,731 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 23846
+[INFO] 2025-03-29 00:38:24,775 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:38:24,776 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:38:24,777 [UID:2] views - get Place object(pk)=<Place:id=3, 昴塾　膳所校, 京阪石山坂本線 石場>
+[INFO] 2025-03-29 00:38:24,790 [UID:2] views - return likes:(2)
+[INFO] 2025-03-29 00:38:24,791 [UID:2] basehttp - "POST /place/push-likes/3/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:38:25,929 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:38:25,929 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:38:25,930 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 00:38:25,941 [UID:2] views - return likes:(3)
+[INFO] 2025-03-29 00:38:25,941 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:38:26,504 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:38:26,504 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:38:26,505 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 00:38:26,517 [UID:2] views - return likes:(4)
+[INFO] 2025-03-29 00:38:26,518 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:38:26,841 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:38:26,841 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:38:26,842 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 00:38:26,855 [UID:2] views - return likes:(5)
+[INFO] 2025-03-29 00:38:26,855 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:38:26,993 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:38:26,994 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:38:26,994 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 00:38:27,005 [UID:2] views - return likes:(6)
+[INFO] 2025-03-29 00:38:27,006 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:38:27,128 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:38:27,129 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:38:27,129 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 00:38:27,141 [UID:2] views - return likes:(7)
+[INFO] 2025-03-29 00:38:27,142 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:38:27,271 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:38:27,272 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:38:27,273 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 00:38:27,284 [UID:2] views - return likes:(8)
+[INFO] 2025-03-29 00:38:27,285 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:38:28,273 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:38:28,273 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:38:28,274 [UID:2] views - get Place object(pk)=<Place:id=3, 昴塾　膳所校, 京阪石山坂本線 石場>
+[INFO] 2025-03-29 00:38:28,288 [UID:2] views - return likes:(3)
+[INFO] 2025-03-29 00:38:28,289 [UID:2] basehttp - "POST /place/push-likes/3/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:38:28,417 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:38:28,418 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:38:28,419 [UID:2] views - get Place object(pk)=<Place:id=3, 昴塾　膳所校, 京阪石山坂本線 石場>
+[INFO] 2025-03-29 00:38:28,429 [UID:2] views - return likes:(4)
+[INFO] 2025-03-29 00:38:28,429 [UID:2] basehttp - "POST /place/push-likes/3/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:38:28,561 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:38:28,561 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:38:28,562 [UID:2] views - get Place object(pk)=<Place:id=3, 昴塾　膳所校, 京阪石山坂本線 石場>
+[INFO] 2025-03-29 00:38:28,572 [UID:2] views - return likes:(5)
+[INFO] 2025-03-29 00:38:28,573 [UID:2] basehttp - "POST /place/push-likes/3/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:38:28,712 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:38:28,712 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:38:28,713 [UID:2] views - get Place object(pk)=<Place:id=3, 昴塾　膳所校, 京阪石山坂本線 石場>
+[INFO] 2025-03-29 00:38:28,725 [UID:2] views - return likes:(6)
+[INFO] 2025-03-29 00:38:28,725 [UID:2] basehttp - "POST /place/push-likes/3/ HTTP/1.1" 200 16
+[DEBUG] 2025-03-29 00:40:31,883 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 00:40:31,889 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:40:31,891 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 00:40:31,896 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 23840
+[DEBUG] 2025-03-29 00:40:50,447 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 00:40:50,450 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:40:50,451 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 00:40:50,458 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 23860
+[DEBUG] 2025-03-29 00:41:41,384 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 00:41:41,388 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:41:41,389 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 00:41:41,399 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 23878
+[DEBUG] 2025-03-29 00:42:14,003 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 00:42:14,008 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:42:14,009 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 00:42:14,019 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 23950
+[INFO] 2025-03-29 00:42:17,094 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:42:17,095 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:42:17,096 [UID:2] views - get Place object(pk)=<Place:id=3, 昴塾　膳所校, 京阪石山坂本線 石場>
+[INFO] 2025-03-29 00:42:17,107 [UID:2] views - return likes:(7)
+[INFO] 2025-03-29 00:42:17,108 [UID:2] basehttp - "POST /place/push-likes/3/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:42:17,432 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:42:17,432 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:42:17,433 [UID:2] views - get Place object(pk)=<Place:id=3, 昴塾　膳所校, 京阪石山坂本線 石場>
+[INFO] 2025-03-29 00:42:17,446 [UID:2] views - return likes:(8)
+[INFO] 2025-03-29 00:42:17,447 [UID:2] basehttp - "POST /place/push-likes/3/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:42:17,600 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:42:17,600 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:42:17,601 [UID:2] views - get Place object(pk)=<Place:id=3, 昴塾　膳所校, 京阪石山坂本線 石場>
+[INFO] 2025-03-29 00:42:17,611 [UID:2] views - return likes:(9)
+[INFO] 2025-03-29 00:42:17,612 [UID:2] basehttp - "POST /place/push-likes/3/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:42:17,750 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:42:17,751 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:42:17,752 [UID:2] views - get Place object(pk)=<Place:id=3, 昴塾　膳所校, 京阪石山坂本線 石場>
+[INFO] 2025-03-29 00:42:17,762 [UID:2] views - return likes:(10)
+[INFO] 2025-03-29 00:42:17,763 [UID:2] basehttp - "POST /place/push-likes/3/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 00:42:17,895 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:42:17,895 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:42:17,896 [UID:2] views - get Place object(pk)=<Place:id=3, 昴塾　膳所校, 京阪石山坂本線 石場>
+[INFO] 2025-03-29 00:42:17,906 [UID:2] views - return likes:(11)
+[INFO] 2025-03-29 00:42:17,907 [UID:2] basehttp - "POST /place/push-likes/3/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 00:42:18,696 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 00:42:18,697 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:42:18,697 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 00:42:18,710 [UID:2] views - return likes:(9)
+[INFO] 2025-03-29 00:42:18,711 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 00:42:29,304 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 00:42:29,307 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 00:42:29,309 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 00:42:29,315 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 18381
+[DEBUG] 2025-03-29 00:43:28,811 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-29 00:43:28,813 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-29 00:43:28,821 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-29 00:43:28,824 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:43:28,826 [UID:2] views - return render friend/list.html
+[INFO] 2025-03-29 00:43:28,841 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 200 19349
+[DEBUG] 2025-03-29 00:45:52,695 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-29 00:45:52,696 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-29 00:45:52,702 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-29 00:45:52,704 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:45:52,706 [UID:2] views - return render friend/list.html
+[INFO] 2025-03-29 00:45:52,719 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 200 19349
+[DEBUG] 2025-03-29 00:46:24,211 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-29 00:46:24,214 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-29 00:46:24,219 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-29 00:46:24,220 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:46:24,221 [UID:2] views - return render friend/list.html
+[INFO] 2025-03-29 00:46:24,236 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 200 19298
+[DEBUG] 2025-03-29 00:46:34,559 [UID:2] views - start Friend list_view
+[DEBUG] 2025-03-29 00:46:34,561 [UID:2] views - login_profile=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-29 00:46:34,567 [UID:2] views - object_list=<QuerySet [<Friend: <Friend:id=13, <User:id=No1, sasayasu> - <User:id=No4, shibusawa>>, <Friend: <Friend:id=1, <User:id=No2, s.ryoma> - <User:id=No1, sasayasu>>]>
+[DEBUG] 2025-03-29 00:46:34,568 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:46:34,569 [UID:2] views - return render friend/list.html
+[INFO] 2025-03-29 00:46:34,579 [UID:2] basehttp - "GET /friend/list/ HTTP/1.1" 200 19298
+[DEBUG] 2025-03-29 00:46:36,999 [UID:2] views - start Profile list_view
+[DEBUG] 2025-03-29 00:46:37,002 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:46:37,003 [UID:2] views - return render user/list.html
+[INFO] 2025-03-29 00:46:37,022 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 39939
+[DEBUG] 2025-03-29 00:46:42,547 [UID:2] views - start Profile list_view
+[DEBUG] 2025-03-29 00:46:42,552 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:46:42,552 [UID:2] views - return render user/list.html
+[INFO] 2025-03-29 00:46:42,562 [UID:2] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 30270
+[INFO] 2025-03-29 00:46:44,939 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 00:46:44,942 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-03-29 00:46:44,946 [UID:2] views - return render user/detail.html
+[INFO] 2025-03-29 00:46:44,964 [UID:2] basehttp - "GET /user/detail/1/ HTTP/1.1" 200 45658
+[INFO] 2025-03-29 00:46:45,010 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-29 00:46:45,011 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=1
+[INFO] 2025-03-29 00:46:45,008 [UID:2] basehttp - "GET /media/group/3_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:46:45,008 [UID:2] basehttp - "GET /media/group/3_images_2503282343.png HTTP/1.1" 304 0
+[DEBUG] 2025-03-29 00:46:45,034 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-29 00:46:45,026 [UID:2] basehttp - "GET /media/group/4_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:46:45,025 [UID:2] basehttp - "GET /media/group/4_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:46:45,058 [UID:2] basehttp - "GET /friend/disp_qr/1/ HTTP/1.1" 200 8320
+[DEBUG] 2025-03-29 00:47:15,205 [UID:2] views - start Chat list_view
+[DEBUG] 2025-03-29 00:47:15,211 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:47:15,213 [UID:2] views - return render chat/list.html
+[INFO] 2025-03-29 00:47:15,252 [UID:2] basehttp - "GET /chat/list/ HTTP/1.1" 200 93034
+[INFO] 2025-03-29 00:47:15,285 [UID:2] basehttp - "GET /static/img/up.png HTTP/1.1" 304 0
+[INFO] 2025-03-29 00:47:43,536 [UID:Anon] basehttp - "GET /top/logout/ HTTP/1.1" 302 0
+[INFO] 2025-03-29 00:47:43,543 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[DEBUG] 2025-03-29 00:47:46,664 [UID:Anon] views - start Chat list_view
+[DEBUG] 2025-03-29 00:47:46,666 [UID:Anon] views - object_list exists
+[INFO] 2025-03-29 00:47:46,668 [UID:Anon] views - return render chat/list.html
+[INFO] 2025-03-29 00:47:46,693 [UID:Anon] basehttp - "GET /chat/list/ HTTP/1.1" 200 86419
+[INFO] 2025-03-29 00:48:13,915 [UID:Anon] basehttp - "POST /chat/age-order-by-at/5/ HTTP/1.1" 302 0
+[INFO] 2025-03-29 00:48:13,919 [UID:Anon] basehttp - "GET /top/login/?next=/chat/age-order-by-at/5/ HTTP/1.1" 200 12538
+[DEBUG] 2025-03-29 00:48:13,936 [UID:Anon] views - start Chat list_view
+[DEBUG] 2025-03-29 00:48:13,938 [UID:Anon] views - object_list exists
+[INFO] 2025-03-29 00:48:13,939 [UID:Anon] views - return render chat/list.html
+[INFO] 2025-03-29 00:48:13,972 [UID:Anon] basehttp - "GET /chat/list/ HTTP/1.1" 200 86419
+[INFO] 2025-03-29 00:48:39,345 [UID:Anon] basehttp - "POST /chat/age-order-by-at/36/ HTTP/1.1" 302 0
+[INFO] 2025-03-29 00:48:39,352 [UID:Anon] basehttp - "GET /top/login/?next=/chat/age-order-by-at/36/ HTTP/1.1" 200 12539
+[DEBUG] 2025-03-29 00:48:39,370 [UID:Anon] views - start Chat list_view
+[DEBUG] 2025-03-29 00:48:39,373 [UID:Anon] views - object_list exists
+[INFO] 2025-03-29 00:48:39,374 [UID:Anon] views - return render chat/list.html
+[INFO] 2025-03-29 00:48:39,409 [UID:Anon] basehttp - "GET /chat/list/ HTTP/1.1" 200 86419
+[DEBUG] 2025-03-29 00:50:44,201 [UID:Anon] views - start Chat list_view
+[DEBUG] 2025-03-29 00:50:44,204 [UID:Anon] views - object_list exists
+[INFO] 2025-03-29 00:50:44,205 [UID:Anon] views - return render chat/list.html
+[INFO] 2025-03-29 00:50:44,234 [UID:Anon] basehttp - "GET /chat/list/ HTTP/1.1" 200 86419
+[DEBUG] 2025-03-29 00:50:45,169 [UID:Anon] views - start Chat list_view
+[DEBUG] 2025-03-29 00:50:45,171 [UID:Anon] views - object_list exists
+[INFO] 2025-03-29 00:50:45,172 [UID:Anon] views - return render chat/list.html
+[INFO] 2025-03-29 00:50:45,200 [UID:Anon] basehttp - "GET /chat/list/ HTTP/1.1" 200 86419
+[DEBUG] 2025-03-29 00:50:46,212 [UID:Anon] views - start Chat list_view
+[DEBUG] 2025-03-29 00:50:46,213 [UID:Anon] views - object_list exists
+[INFO] 2025-03-29 00:50:46,214 [UID:Anon] views - return render chat/list.html
+[INFO] 2025-03-29 00:50:46,241 [UID:Anon] basehttp - "GET /chat/list/ HTTP/1.1" 200 86419
+[INFO] 2025-03-29 00:51:44,531 [UID:Anon] basehttp - "POST /chat/age-order-by-at/12/ HTTP/1.1" 302 0
+[INFO] 2025-03-29 00:51:44,536 [UID:Anon] basehttp - "GET /top/login/?next=/chat/age-order-by-at/12/ HTTP/1.1" 200 12539
+[DEBUG] 2025-03-29 00:51:44,558 [UID:Anon] views - start Chat list_view
+[DEBUG] 2025-03-29 00:51:44,560 [UID:Anon] views - object_list exists
+[INFO] 2025-03-29 00:51:44,562 [UID:Anon] views - return render chat/list.html
+[INFO] 2025-03-29 00:51:44,613 [UID:Anon] basehttp - "GET /chat/list/ HTTP/1.1" 200 86419
+[INFO] 2025-03-29 00:51:49,375 [UID:Anon] basehttp - "POST /chat/push-likes/12/ HTTP/1.1" 302 0
+[INFO] 2025-03-29 00:51:49,381 [UID:Anon] basehttp - "GET /top/login/?next=/chat/push-likes/12/ HTTP/1.1" 200 12534
+[INFO] 2025-03-29 00:51:51,040 [UID:Anon] basehttp - "POST /chat/push-likes/12/ HTTP/1.1" 302 0
+[INFO] 2025-03-29 00:51:51,043 [UID:Anon] basehttp - "GET /top/login/?next=/chat/push-likes/12/ HTTP/1.1" 200 12534
+[INFO] 2025-03-29 00:51:53,891 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-03-29 00:51:59,117 [UID:2] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-03-29 00:51:59,131 [UID:2] basehttp - "GET /top/ HTTP/1.1" 200 42585
+[INFO] 2025-03-29 00:51:59,238 [UID:2] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 16617
+[DEBUG] 2025-03-29 00:52:02,247 [UID:2] views - start Chat list_view
+[DEBUG] 2025-03-29 00:52:02,251 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:52:02,252 [UID:2] views - return render chat/list.html
+[INFO] 2025-03-29 00:52:02,279 [UID:2] basehttp - "GET /chat/list/ HTTP/1.1" 200 93034
+[INFO] 2025-03-29 00:52:06,891 [UID:2] views - start Chat age_order_by_at
+[INFO] 2025-03-29 00:52:06,891 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:52:06,892 [UID:2] views - get Chat object(pk)=龍馬の映画があったのね。 <by None>
+[INFO] 2025-03-29 00:52:06,901 [UID:2] views - return True
+[INFO] 2025-03-29 00:52:06,901 [UID:2] basehttp - "POST /chat/age-order-by-at/36/ HTTP/1.1" 200 18
+[DEBUG] 2025-03-29 00:52:06,916 [UID:2] views - start Chat list_view
+[DEBUG] 2025-03-29 00:52:06,920 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:52:06,921 [UID:2] views - return render chat/list.html
+[INFO] 2025-03-29 00:52:06,951 [UID:2] basehttp - "GET /chat/list/ HTTP/1.1" 200 93034
+[INFO] 2025-03-29 00:53:41,847 [UID:2] views - start Chat create_view
+[INFO] 2025-03-29 00:53:41,847 [UID:2] views - GET method
+[INFO] 2025-03-29 00:53:41,848 [UID:2] views - return render chat/create.html
+[INFO] 2025-03-29 00:53:41,862 [UID:2] basehttp - "GET /chat/create/ HTTP/1.1" 200 15681
+[INFO] 2025-03-29 00:53:41,934 [UID:2] views - start Chat create_view
+[INFO] 2025-03-29 00:53:41,934 [UID:2] views - GET method
+[INFO] 2025-03-29 00:53:41,935 [UID:2] views - return render chat/create.html
+[INFO] 2025-03-29 00:53:41,939 [UID:2] basehttp - "GET /chat/create/ HTTP/1.1" 200 15681
+[INFO] 2025-03-29 00:54:00,143 [UID:2] views - start Chat create_view
+[INFO] 2025-03-29 00:54:00,143 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:54:00,144 [UID:2] views - Chat form.is_valid
+[INFO] 2025-03-29 00:54:00,151 [UID:2] views - return redirect chat:list
+[INFO] 2025-03-29 00:54:00,152 [UID:2] basehttp - "POST /chat/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 00:54:00,157 [UID:2] views - start Chat list_view
+[DEBUG] 2025-03-29 00:54:00,161 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:54:00,162 [UID:2] views - return render chat/list.html
+[INFO] 2025-03-29 00:54:00,191 [UID:2] basehttp - "GET /chat/list/ HTTP/1.1" 200 95404
+[INFO] 2025-03-29 00:54:39,246 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\chat\models.py changed, reloading.
+[INFO] 2025-03-29 00:54:39,808 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 00:54:51,595 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 00:54:55,130 [UID:2] views - start Chat create_view
+[INFO] 2025-03-29 00:54:55,130 [UID:2] views - GET method
+[INFO] 2025-03-29 00:54:55,131 [UID:2] views - return render chat/create.html
+[INFO] 2025-03-29 00:54:55,172 [UID:2] basehttp - "GET /chat/create/ HTTP/1.1" 200 15681
+[INFO] 2025-03-29 00:54:55,248 [UID:2] views - start Chat create_view
+[INFO] 2025-03-29 00:54:55,249 [UID:2] views - GET method
+[INFO] 2025-03-29 00:54:55,250 [UID:2] views - return render chat/create.html
+[INFO] 2025-03-29 00:54:55,255 [UID:2] basehttp - "GET /chat/create/ HTTP/1.1" 200 15681
+[INFO] 2025-03-29 00:55:09,761 [UID:2] views - start Chat create_view
+[INFO] 2025-03-29 00:55:09,761 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:55:09,762 [UID:2] views - Chat form.is_valid
+[INFO] 2025-03-29 00:55:09,769 [UID:2] views - return redirect chat:list
+[INFO] 2025-03-29 00:55:09,770 [UID:2] basehttp - "POST /chat/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 00:55:09,775 [UID:2] views - start Chat list_view
+[DEBUG] 2025-03-29 00:55:09,779 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:55:09,780 [UID:2] views - return render chat/list.html
+[INFO] 2025-03-29 00:55:09,819 [UID:2] basehttp - "GET /chat/list/ HTTP/1.1" 200 97713
+[INFO] 2025-03-29 00:56:18,786 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\chat\models.py changed, reloading.
+[INFO] 2025-03-29 00:56:19,395 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 00:56:22,178 [UID:2] views - start Chat create_view
+[INFO] 2025-03-29 00:56:22,179 [UID:2] views - GET method
+[INFO] 2025-03-29 00:56:22,180 [UID:2] views - return render chat/create.html
+[INFO] 2025-03-29 00:56:22,228 [UID:2] basehttp - "GET /chat/create/ HTTP/1.1" 200 15681
+[INFO] 2025-03-29 00:56:22,282 [UID:2] views - start Chat create_view
+[INFO] 2025-03-29 00:56:22,283 [UID:2] views - GET method
+[INFO] 2025-03-29 00:56:22,284 [UID:2] views - return render chat/create.html
+[INFO] 2025-03-29 00:56:22,288 [UID:2] basehttp - "GET /chat/create/ HTTP/1.1" 200 15681
+[INFO] 2025-03-29 00:56:41,983 [UID:2] views - start Chat create_view
+[INFO] 2025-03-29 00:56:41,983 [UID:2] views - POST method
+[DEBUG] 2025-03-29 00:56:41,984 [UID:2] views - Chat form.is_valid
+[INFO] 2025-03-29 00:56:41,992 [UID:2] views - return redirect chat:list
+[INFO] 2025-03-29 00:56:41,993 [UID:2] basehttp - "POST /chat/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 00:56:41,999 [UID:2] views - start Chat list_view
+[DEBUG] 2025-03-29 00:56:42,002 [UID:2] views - object_list exists
+[INFO] 2025-03-29 00:56:42,003 [UID:2] views - return render chat/list.html
+[INFO] 2025-03-29 00:56:42,043 [UID:2] basehttp - "GET /chat/list/ HTTP/1.1" 200 100049
+[INFO] 2025-03-29 01:01:51,856 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\chat\models.py changed, reloading.
+[INFO] 2025-03-29 01:01:52,412 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 01:03:05,294 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\chat\models.py changed, reloading.
+[INFO] 2025-03-29 01:03:05,832 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 01:03:12,330 [UID:2] views - start Chat create_view
+[INFO] 2025-03-29 01:03:12,331 [UID:2] views - GET method
+[INFO] 2025-03-29 01:03:12,333 [UID:2] views - return render chat/create.html
+[INFO] 2025-03-29 01:03:12,375 [UID:2] basehttp - "GET /chat/create/ HTTP/1.1" 200 15681
+[INFO] 2025-03-29 01:03:12,436 [UID:2] views - start Chat create_view
+[INFO] 2025-03-29 01:03:12,437 [UID:2] views - GET method
+[INFO] 2025-03-29 01:03:12,438 [UID:2] views - return render chat/create.html
+[INFO] 2025-03-29 01:03:12,445 [UID:2] basehttp - "GET /chat/create/ HTTP/1.1" 200 15681
+[INFO] 2025-03-29 01:03:23,906 [UID:2] views - start Chat create_view
+[INFO] 2025-03-29 01:03:23,906 [UID:2] views - POST method
+[DEBUG] 2025-03-29 01:03:23,908 [UID:2] views - Chat form.is_valid
+[INFO] 2025-03-29 01:03:23,914 [UID:2] views - return redirect chat:list
+[INFO] 2025-03-29 01:03:23,915 [UID:2] basehttp - "POST /chat/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 01:03:23,920 [UID:2] views - start Chat list_view
+[DEBUG] 2025-03-29 01:03:23,923 [UID:2] views - object_list exists
+[INFO] 2025-03-29 01:03:23,924 [UID:2] views - return render chat/list.html
+[INFO] 2025-03-29 01:03:23,966 [UID:2] basehttp - "GET /chat/list/ HTTP/1.1" 200 102351
+[INFO] 2025-03-29 01:03:29,501 [UID:2] views - start Chat age_order_by_at
+[INFO] 2025-03-29 01:03:29,501 [UID:2] views - POST method
+[DEBUG] 2025-03-29 01:03:29,503 [UID:2] views - get Chat object(pk)=どすこい <by None>
+[INFO] 2025-03-29 01:03:29,513 [UID:2] views - return True
+[INFO] 2025-03-29 01:03:29,514 [UID:2] basehttp - "POST /chat/age-order-by-at/41/ HTTP/1.1" 200 18
+[DEBUG] 2025-03-29 01:03:29,528 [UID:2] views - start Chat list_view
+[DEBUG] 2025-03-29 01:03:29,532 [UID:2] views - object_list exists
+[INFO] 2025-03-29 01:03:29,533 [UID:2] views - return render chat/list.html
+[INFO] 2025-03-29 01:03:29,563 [UID:2] basehttp - "GET /chat/list/ HTTP/1.1" 200 102351
+[INFO] 2025-03-29 01:03:32,549 [UID:2] views - start Chat age_order_by_at
+[INFO] 2025-03-29 01:03:32,550 [UID:2] views - POST method
+[DEBUG] 2025-03-29 01:03:32,550 [UID:2] views - get Chat object(pk)=タイトル <by オーサ>
+[INFO] 2025-03-29 01:03:32,563 [UID:2] views - return True
+[INFO] 2025-03-29 01:03:32,564 [UID:2] basehttp - "POST /chat/age-order-by-at/1/ HTTP/1.1" 200 18
+[DEBUG] 2025-03-29 01:03:32,579 [UID:2] views - start Chat list_view
+[DEBUG] 2025-03-29 01:03:32,582 [UID:2] views - object_list exists
+[INFO] 2025-03-29 01:03:32,583 [UID:2] views - return render chat/list.html
+[INFO] 2025-03-29 01:03:32,618 [UID:2] basehttp - "GET /chat/list/ HTTP/1.1" 200 102351
+[DEBUG] 2025-03-29 21:03:03,360 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 21:03:03,367 [UID:2] views - object_list exists
+[INFO] 2025-03-29 21:03:03,368 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 21:03:03,376 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 23951
+[INFO] 2025-03-29 21:03:03,408 [UID:2] basehttp - "GET /media/place/3_themes_2503242325.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:03,411 [UID:2] basehttp - "GET /media/place/%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89_13.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:03,422 [UID:2] basehttp - "GET /media/place/images_2.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:03,423 [UID:2] basehttp - "GET /media/place/2_themes2503242323.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:03,431 [UID:2] basehttp - "GET /static/img/good.png HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:03,431 [UID:2] basehttp - "GET /static/img/list.png HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:06,358 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:03:06,360 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:03:06,361 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:03:06,368 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 18381
+[DEBUG] 2025-03-29 21:03:10,519 [UID:2] views - start Group list_view
+[DEBUG] 2025-03-29 21:03:10,522 [UID:2] views - object_list exists
+[INFO] 2025-03-29 21:03:10,523 [UID:2] views - return render group/list.html
+[INFO] 2025-03-29 21:03:10,530 [UID:2] basehttp - "GET /group/list/ HTTP/1.1" 200 23866
+[INFO] 2025-03-29 21:03:10,552 [UID:2] basehttp - "GET /media/group/6_themes_2503282337.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:10,553 [UID:2] basehttp - "GET /media/group/6_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:10,563 [UID:2] basehttp - "GET /media/group/5_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:10,576 [UID:2] basehttp - "GET /media/group/5_themes_2503282338.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:10,573 [UID:2] basehttp - "GET /media/group/4_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:10,575 [UID:2] basehttp - "GET /media/group/3_themes_2503282339.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:10,580 [UID:2] basehttp - "GET /media/group/3_images_2503282343.png HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:10,581 [UID:2] basehttp - "GET /media/group/4_images_2503282342.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:10,591 [UID:2] basehttp - "GET /media/group/2_themes_2503282340.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:10,595 [UID:2] basehttp - "GET /media/group/2_images_2503282343.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:11,254 [UID:2] views - start Group detail_view
+[DEBUG] 2025-03-29 21:03:11,256 [UID:2] views - get Group object(pk)
+[DEBUG] 2025-03-29 21:03:11,257 [UID:2] views - return render group/detail.html
+[INFO] 2025-03-29 21:03:11,266 [UID:2] basehttp - "GET /group/detail/4/ HTTP/1.1" 200 25907
+[INFO] 2025-03-29 21:03:11,289 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-03-29 21:03:11,285 [UID:2] basehttp - "GET /media/user/1_themes_2503242137.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:11,289 [UID:2] views - group_url=http://127.0.0.1:8000/group/join/?group_id=4
+[INFO] 2025-03-29 21:03:11,304 [UID:2] basehttp - "GET /media/user/1_images_2503242120.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:11,305 [UID:2] basehttp - "GET /media/user/11_themes_2503242132.webp HTTP/1.1" 304 0
+[DEBUG] 2025-03-29 21:03:11,315 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-03-29 21:03:11,305 [UID:2] basehttp - "GET /media/user/Portrait_of_Shibusawa_Eiichi.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:03:11,431 [UID:2] basehttp - "GET /group/disp_qr/4/ HTTP/1.1" 200 7897
+[INFO] 2025-03-29 21:03:23,250 [UID:2] views - start Group push_likes
+[INFO] 2025-03-29 21:03:23,250 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:03:23,251 [UID:2] views - get Group object(pk)=<Group:id=4, テニス>
+[INFO] 2025-03-29 21:03:23,261 [UID:2] views - return likes:(8)
+[INFO] 2025-03-29 21:03:23,262 [UID:2] basehttp - "POST /group/push-likes/4/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 21:03:23,697 [UID:2] views - start Group push_likes
+[INFO] 2025-03-29 21:03:23,698 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:03:23,699 [UID:2] views - get Group object(pk)=<Group:id=4, テニス>
+[INFO] 2025-03-29 21:03:23,708 [UID:2] views - return likes:(9)
+[INFO] 2025-03-29 21:03:23,709 [UID:2] basehttp - "POST /group/push-likes/4/ HTTP/1.1" 200 16
+[INFO] 2025-03-29 21:03:24,010 [UID:2] views - start Group push_likes
+[INFO] 2025-03-29 21:03:24,010 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:03:24,011 [UID:2] views - get Group object(pk)=<Group:id=4, テニス>
+[INFO] 2025-03-29 21:03:24,023 [UID:2] views - return likes:(10)
+[INFO] 2025-03-29 21:03:24,024 [UID:2] basehttp - "POST /group/push-likes/4/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 21:03:24,267 [UID:2] views - start Group push_likes
+[INFO] 2025-03-29 21:03:24,267 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:03:24,268 [UID:2] views - get Group object(pk)=<Group:id=4, テニス>
+[INFO] 2025-03-29 21:03:24,277 [UID:2] views - return likes:(11)
+[INFO] 2025-03-29 21:03:24,278 [UID:2] basehttp - "POST /group/push-likes/4/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 21:03:24,408 [UID:2] views - start Group push_likes
+[INFO] 2025-03-29 21:03:24,409 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:03:24,409 [UID:2] views - get Group object(pk)=<Group:id=4, テニス>
+[INFO] 2025-03-29 21:03:24,420 [UID:2] views - return likes:(12)
+[INFO] 2025-03-29 21:03:24,421 [UID:2] basehttp - "POST /group/push-likes/4/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 21:09:09,535 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:10:23,282 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\chat\models.py changed, reloading.
+[INFO] 2025-03-29 21:10:23,855 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:10:36,531 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-03-29 21:10:44,616 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 21:10:44,620 [UID:2] views - object_list exists
+[INFO] 2025-03-29 21:10:44,622 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 21:10:44,738 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 23951
+[INFO] 2025-03-29 21:10:45,699 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:10:45,702 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:10:45,703 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:10:45,710 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 26222
+[INFO] 2025-03-29 21:13:16,379 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-29 21:13:16,966 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:14:55,750 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\forms.py changed, reloading.
+[INFO] 2025-03-29 21:14:56,315 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:15:28,846 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\forms.py changed, reloading.
+[INFO] 2025-03-29 21:15:29,418 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:16:51,750 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 21:16:52,311 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:23:38,738 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-03-29 21:23:44,691 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 21:23:44,695 [UID:2] views - object_list exists
+[INFO] 2025-03-29 21:23:44,696 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 21:23:44,726 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 19801
+[INFO] 2025-03-29 21:23:48,355 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:23:48,359 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:23:48,362 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:23:48,371 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 26683
+[INFO] 2025-03-29 21:24:09,697 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:24:09,701 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:24:09,702 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:24:09,705 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 26683
+[INFO] 2025-03-29 21:24:10,851 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-29 21:24:10,851 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-29 21:24:10,852 [UID:2] views - GET method
+[INFO] 2025-03-29 21:24:10,853 [UID:2] views - return render place/update.html
+[INFO] 2025-03-29 21:24:10,870 [UID:2] basehttp - "GET /place/update/2/ HTTP/1.1" 200 20831
+[INFO] 2025-03-29 21:24:10,891 [UID:2] basehttp - "GET /static/img/update.png HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:24:10,892 [UID:Anon] basehttp - "GET /static/js/images_preview.js HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:24:10,895 [UID:Anon] basehttp - "GET /static/js/themes_preview.js HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:25:14,136 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:25:14,139 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:25:14,140 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:25:14,148 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 26716
+[INFO] 2025-03-29 21:26:17,985 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-29 21:26:17,985 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-29 21:26:17,986 [UID:2] views - GET method
+[INFO] 2025-03-29 21:26:17,987 [UID:2] views - return render place/update.html
+[INFO] 2025-03-29 21:26:18,000 [UID:2] basehttp - "GET /place/update/2/ HTTP/1.1" 200 20831
+[INFO] 2025-03-29 21:26:23,870 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-29 21:26:23,870 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-29 21:26:23,872 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:26:23,906 [UID:2] views - form.is_valid
+[DEBUG] 2025-03-29 21:26:23,907 [UID:2] views - save updated Place object
+[INFO] 2025-03-29 21:26:23,912 [UID:2] views - return redirect place:list
+[INFO] 2025-03-29 21:26:23,912 [UID:2] basehttp - "POST /place/update/2/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 21:26:23,916 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 21:26:23,919 [UID:2] views - object_list exists
+[INFO] 2025-03-29 21:26:23,920 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 21:26:23,927 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 19985
+[INFO] 2025-03-29 21:26:30,631 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:26:30,634 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:26:30,635 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:26:30,640 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 27607
+[DEBUG] 2025-03-29 21:27:51,364 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 21:27:51,368 [UID:2] views - object_list exists
+[INFO] 2025-03-29 21:27:51,369 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 21:27:51,378 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 19985
+[INFO] 2025-03-29 21:27:54,348 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:27:54,350 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:27:54,351 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:27:54,358 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 27658
+[INFO] 2025-03-29 21:29:01,816 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 21:29:01,816 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:29:01,817 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 21:29:01,828 [UID:2] views - return likes:(10)
+[INFO] 2025-03-29 21:29:01,829 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 21:29:02,412 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 21:29:02,412 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:29:02,413 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 21:29:02,424 [UID:2] views - return likes:(11)
+[INFO] 2025-03-29 21:29:02,425 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 21:29:02,684 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 21:29:02,684 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:29:02,685 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 21:29:02,696 [UID:2] views - return likes:(12)
+[INFO] 2025-03-29 21:29:02,697 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 21:29:02,842 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 21:29:02,843 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:29:02,844 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 21:29:02,855 [UID:2] views - return likes:(13)
+[INFO] 2025-03-29 21:29:02,856 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 21:29:02,996 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 21:29:02,996 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:29:02,997 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 21:29:03,006 [UID:2] views - return likes:(14)
+[INFO] 2025-03-29 21:29:03,007 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 21:29:03,138 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 21:29:03,139 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:29:03,140 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 21:29:03,151 [UID:2] views - return likes:(15)
+[INFO] 2025-03-29 21:29:03,152 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 21:29:03,267 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 21:29:03,267 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:29:03,268 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 21:29:03,278 [UID:2] views - return likes:(16)
+[INFO] 2025-03-29 21:29:03,278 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 21:29:03,396 [UID:2] views - start Place push_likes
+[INFO] 2025-03-29 21:29:03,396 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:29:03,398 [UID:2] views - get Place object(pk)=<Place:id=2, 個別指導コレクト　本校, JR湖西線 唐崎>
+[INFO] 2025-03-29 21:29:03,411 [UID:2] views - return likes:(17)
+[INFO] 2025-03-29 21:29:03,411 [UID:2] basehttp - "POST /place/push-likes/2/ HTTP/1.1" 200 17
+[INFO] 2025-03-29 21:29:04,623 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:29:04,626 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:29:04,627 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:29:04,632 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 27659
+[INFO] 2025-03-29 21:29:08,275 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-29 21:29:08,276 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-29 21:29:08,277 [UID:2] views - GET method
+[INFO] 2025-03-29 21:29:08,278 [UID:2] views - return render place/update.html
+[INFO] 2025-03-29 21:29:08,288 [UID:2] basehttp - "GET /place/update/2/ HTTP/1.1" 200 21015
+[INFO] 2025-03-29 21:30:04,707 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-29 21:30:05,282 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:31:01,536 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-29 21:31:02,109 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:31:17,602 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:31:22,867 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-29 21:31:22,867 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-29 21:31:22,869 [UID:2] views - GET method
+[INFO] 2025-03-29 21:31:22,870 [UID:2] views - return render place/update.html
+[INFO] 2025-03-29 21:31:22,905 [UID:2] basehttp - "GET /place/update/2/ HTTP/1.1" 200 20988
+[INFO] 2025-03-29 21:32:10,917 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\forms.py changed, reloading.
+[INFO] 2025-03-29 21:32:11,474 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:36:59,937 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-03-29 21:37:06,346 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 21:37:06,351 [UID:2] views - object_list exists
+[INFO] 2025-03-29 21:37:06,352 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 21:37:06,383 [UID:2] basehttp - "GET /place/ HTTP/1.1" 200 19948
+[INFO] 2025-03-29 21:37:08,894 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:37:08,898 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:37:08,899 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:37:08,906 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 27106
+[INFO] 2025-03-29 21:37:10,228 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-29 21:37:10,229 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-29 21:37:10,232 [UID:2] views - GET method
+[INFO] 2025-03-29 21:37:10,233 [UID:2] views - return render place/update.html
+[INFO] 2025-03-29 21:37:10,250 [UID:2] basehttp - "GET /place/update/2/ HTTP/1.1" 200 20970
+[INFO] 2025-03-29 21:38:00,448 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\forms.py changed, reloading.
+[INFO] 2025-03-29 21:38:01,007 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:38:06,555 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-29 21:38:06,555 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-29 21:38:06,557 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:38:06,590 [UID:2] views - form.is_valid
+[DEBUG] 2025-03-29 21:38:06,590 [UID:2] views - save updated Place object
+[INFO] 2025-03-29 21:38:06,595 [UID:2] views - return redirect place:list
+[INFO] 2025-03-29 21:38:06,608 [UID:2] basehttp - "POST /place/update/2/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 21:38:06,614 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 21:38:06,618 [UID:2] views - object_list exists
+[INFO] 2025-03-29 21:38:06,619 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 21:38:06,646 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 19962
+[INFO] 2025-03-29 21:38:08,959 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:38:08,962 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:38:08,963 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:38:08,971 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 27653
+[INFO] 2025-03-29 21:38:51,839 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:38:51,842 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:38:51,844 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:38:51,848 [UID:2] basehttp - "GET /place/detail/3/ HTTP/1.1" 200 25707
+[INFO] 2025-03-29 21:39:11,218 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-29 21:39:11,218 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-29 21:39:11,219 [UID:2] views - GET method
+[INFO] 2025-03-29 21:39:11,220 [UID:2] views - return render place/update.html
+[INFO] 2025-03-29 21:39:11,233 [UID:2] basehttp - "GET /place/update/3/ HTTP/1.1" 200 21197
+[INFO] 2025-03-29 21:39:57,034 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-29 21:39:57,034 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-29 21:39:57,036 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:39:57,037 [UID:2] views - form.is_valid
+[DEBUG] 2025-03-29 21:39:57,038 [UID:2] views - save updated Place object
+[INFO] 2025-03-29 21:39:57,446 [UID:2] views - return redirect place:list
+[INFO] 2025-03-29 21:39:57,447 [UID:2] basehttp - "POST /place/update/3/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 21:39:57,453 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 21:39:57,456 [UID:2] views - object_list exists
+[INFO] 2025-03-29 21:39:57,457 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 21:39:57,460 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 20200
+[INFO] 2025-03-29 21:40:08,486 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:40:08,488 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:40:08,489 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:40:08,492 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 27653
+[INFO] 2025-03-29 21:40:12,586 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:40:12,589 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:40:12,591 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:40:12,594 [UID:2] basehttp - "GET /place/detail/3/ HTTP/1.1" 200 27225
+[INFO] 2025-03-29 21:40:48,791 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:40:48,794 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:40:48,795 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:40:48,798 [UID:2] basehttp - "GET /place/detail/3/ HTTP/1.1" 200 27225
+[INFO] 2025-03-29 21:40:58,510 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-29 21:40:58,510 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-29 21:40:58,512 [UID:2] views - GET method
+[INFO] 2025-03-29 21:40:58,513 [UID:2] views - return render place/update.html
+[INFO] 2025-03-29 21:40:58,518 [UID:2] basehttp - "GET /place/update/3/ HTTP/1.1" 200 21448
+[INFO] 2025-03-29 21:41:10,470 [UID:2] views - start Profile update_view
+[DEBUG] 2025-03-29 21:41:10,470 [UID:2] views - get Place object(pk)
+[INFO] 2025-03-29 21:41:10,472 [UID:2] views - POST method
+[DEBUG] 2025-03-29 21:41:10,793 [UID:2] views - form.is_valid
+[DEBUG] 2025-03-29 21:41:10,793 [UID:2] views - images_data exists
+[DEBUG] 2025-03-29 21:41:10,793 [UID:2] views - old images_data exists
+[DEBUG] 2025-03-29 21:41:10,793 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\place\3_themes_2503242325.jpg
+[DEBUG] 2025-03-29 21:41:10,794 [UID:2] views - old images_data file exists
+[DEBUG] 2025-03-29 21:41:10,794 [UID:2] views - delete old images_data
+[DEBUG] 2025-03-29 21:41:10,795 [UID:2] views - save new images_data
+[DEBUG] 2025-03-29 21:41:10,795 [UID:2] views - save updated Place object
+[INFO] 2025-03-29 21:41:10,811 [UID:2] views - return redirect place:list
+[INFO] 2025-03-29 21:41:10,812 [UID:2] basehttp - "POST /place/update/3/ HTTP/1.1" 302 0
+[DEBUG] 2025-03-29 21:41:10,816 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 21:41:10,821 [UID:2] views - object_list exists
+[INFO] 2025-03-29 21:41:10,822 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 21:41:10,825 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 20200
+[INFO] 2025-03-29 21:41:10,912 [UID:2] basehttp - "GET /media/place/3_images_2503292141.jpg HTTP/1.1" 200 88970
+[INFO] 2025-03-29 21:41:20,345 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 21:41:20,347 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 21:41:20,348 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 21:41:20,352 [UID:2] basehttp - "GET /place/detail/3/ HTTP/1.1" 200 27225
+[INFO] 2025-03-29 21:41:20,371 [UID:2] basehttp - "GET /media/place/3_images_2503292141.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 21:52:54,786 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-29 21:52:55,429 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:52:56,846 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-03-29 21:52:57,406 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 21:56:32,095 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\urls.py changed, reloading.
+[INFO] 2025-03-29 21:56:32,654 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 22:05:59,457 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-29 22:06:00,033 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 22:06:04,544 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\urls.py changed, reloading.
+[INFO] 2025-03-29 22:06:05,100 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 22:08:11,290 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\urls.py changed, reloading.
+[INFO] 2025-03-29 22:08:11,818 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 22:33:33,248 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 22:33:33,818 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 22:33:54,831 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-03-29 22:33:55,377 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 22:37:15,886 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\urls.py changed, reloading.
+[INFO] 2025-03-29 22:37:16,451 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 22:37:20,415 [UID:2] views - start Friend create_view
+[DEBUG] 2025-03-29 22:37:20,417 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-29 22:37:20,418 [UID:2] views - profile_with=<User:id=No_taishi, taishi>
+[INFO] 2025-03-29 22:37:20,419 [UID:2] views - GET method
+[INFO] 2025-03-29 22:37:20,419 [UID:2] views - return render friend/create.html
+[INFO] 2025-03-29 22:37:20,452 [UID:2] basehttp - "GET /friend/create/?profile_id=10 HTTP/1.1" 200 21378
+[INFO] 2025-03-29 22:37:20,485 [UID:2] basehttp - "GET /media/user/3_themes_2503242138.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 22:37:20,486 [UID:2] basehttp - "GET /media/user/3_images_2503242121.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 22:37:20,496 [UID:2] basehttp - "GET /static/img/handshake.png HTTP/1.1" 304 0
+[INFO] 2025-03-29 22:37:20,503 [UID:2] basehttp - "GET /static/img/friend.png HTTP/1.1" 304 0
+[INFO] 2025-03-29 22:37:20,502 [UID:2] basehttp - "GET /media/user/10_themes_2503242133.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 22:37:20,503 [UID:2] basehttp - "GET /media/user/10_images_2503242133.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 22:38:24,387 [UID:2] views - start Friend create_view
+[DEBUG] 2025-03-29 22:38:24,388 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-29 22:38:24,389 [UID:2] views - profile_with=<User:id=No_taishi, taishi>
+[INFO] 2025-03-29 22:38:24,389 [UID:2] views - GET method
+[INFO] 2025-03-29 22:38:24,390 [UID:2] views - return render friend/create.html
+[INFO] 2025-03-29 22:38:24,397 [UID:2] basehttp - "GET /friend/create/?profile_id=10 HTTP/1.1" 200 20816
+[INFO] 2025-03-29 22:39:51,556 [UID:2] views - start Friend create_view
+[DEBUG] 2025-03-29 22:39:51,557 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[DEBUG] 2025-03-29 22:39:51,559 [UID:2] views - profile_with=<User:id=No_taishi, taishi>
+[INFO] 2025-03-29 22:39:51,559 [UID:2] views - GET method
+[INFO] 2025-03-29 22:39:51,560 [UID:2] views - return render friend/create.html
+[INFO] 2025-03-29 22:39:51,568 [UID:2] basehttp - "GET /friend/create/?profile_id=10 HTTP/1.1" 200 18742
+[INFO] 2025-03-29 22:48:45,944 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 22:48:46,498 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 22:48:57,992 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 22:49:27,400 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 22:49:27,403 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 22:49:27,407 [UID:2] views - couldnt get target place_in id=1: No Group matches the given query.
+[ERROR] 2025-03-29 22:49:27,457 [UID:2] log - Internal Server Error: /place/checkin/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 349, in checkin_view
+    context = {'profile_own': profile_own, 'place_in': place_in}
+                                                       ^^^^^^^^
+UnboundLocalError: cannot access local variable 'place_in' where it is not associated with a value
+[ERROR] 2025-03-29 22:49:27,460 [UID:2] basehttp - "GET /place/checkin/?place_id=1 HTTP/1.1" 500 75615
+[INFO] 2025-03-29 22:51:19,701 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 22:51:20,242 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 22:51:27,210 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 22:51:27,212 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 22:51:27,214 [UID:2] views - couldnt get target place_in id=1: No Place matches the given query.
+[ERROR] 2025-03-29 22:51:27,241 [UID:2] log - Internal Server Error: /place/checkin/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 349, in checkin_view
+    context = {'profile_own': profile_own, 'place_in': place_in}
+                                                       ^^^^^^^^
+UnboundLocalError: cannot access local variable 'place_in' where it is not associated with a value
+[ERROR] 2025-03-29 22:51:27,243 [UID:2] basehttp - "GET /place/checkin/?place_id=1 HTTP/1.1" 500 75752
+[INFO] 2025-03-29 22:52:03,806 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 22:52:03,808 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 22:52:03,809 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 22:52:03,810 [UID:2] views - GET method
+[INFO] 2025-03-29 22:52:03,810 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 22:52:03,839 [UID:2] basehttp - "GET /place/checkin/?place_id=2 HTTP/1.1" 200 19031
+[INFO] 2025-03-29 22:52:20,515 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 22:52:20,517 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 22:52:20,518 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 22:52:20,519 [UID:2] views - POST method
+[ERROR] 2025-03-29 22:52:20,537 [UID:2] log - Internal Server Error: /place/checkin/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 357, in checkin_view
+    profile_id_data = form.cleaned_data["profile_id"]
+                      ^^^^^^^^^^^^^^^^^
+AttributeError: 'PlaceForm' object has no attribute 'cleaned_data'. Did you mean: 'changed_data'?
+[ERROR] 2025-03-29 22:52:20,540 [UID:2] basehttp - "POST /place/checkin/?place_id=2 HTTP/1.1" 500 77074
+[INFO] 2025-03-29 22:58:28,120 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 22:58:28,672 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 23:03:07,579 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 23:03:08,166 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 23:03:12,291 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:03:12,293 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:03:12,295 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:03:12,295 [UID:2] views - GET method
+[INFO] 2025-03-29 23:03:12,295 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:03:12,329 [UID:2] basehttp - "GET /place/checkin/?place_id=2 HTTP/1.1" 200 19251
+[INFO] 2025-03-29 23:03:24,896 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:03:24,897 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:03:24,899 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:03:24,899 [UID:2] views - POST method
+[ERROR] 2025-03-29 23:03:24,906 [UID:2] views - couldnt create the Place CheckinRecord Object: unsupported operand type(s) for +=: 'dict' and 'dict'
+[ERROR] 2025-03-29 23:03:24,927 [UID:2] log - Internal Server Error: /place/checkin/
+Traceback (most recent call last):
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 367, in checkin_view
+    context += {'messages': f'Successfully Checked-In { record.checkin_time }'}
+TypeError: unsupported operand type(s) for +=: 'dict' and 'dict'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 370, in checkin_view
+    context += {'errors': f'Couldnt Checked-In.'}
+TypeError: unsupported operand type(s) for +=: 'dict' and 'dict'
+[ERROR] 2025-03-29 23:03:24,930 [UID:2] basehttp - "POST /place/checkin/?place_id=2 HTTP/1.1" 500 83445
+[INFO] 2025-03-29 23:05:30,770 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 23:05:31,438 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 23:05:35,359 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:05:35,361 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:05:35,363 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:05:35,363 [UID:2] views - POST method
+[INFO] 2025-03-29 23:05:35,369 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:05:35,402 [UID:2] basehttp - "POST /place/checkin/?place_id=2 HTTP/1.1" 200 19340
+[INFO] 2025-03-29 23:06:32,089 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:06:32,090 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:06:32,092 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:06:32,092 [UID:2] views - GET method
+[INFO] 2025-03-29 23:06:32,092 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:06:32,102 [UID:2] basehttp - "GET /place/checkin/?place_id=2 HTTP/1.1" 200 19188
+[INFO] 2025-03-29 23:06:33,285 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:06:33,287 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:06:33,288 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:06:33,288 [UID:2] views - POST method
+[INFO] 2025-03-29 23:06:33,296 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:06:33,299 [UID:2] basehttp - "POST /place/checkin/?place_id=2 HTTP/1.1" 200 19277
+[INFO] 2025-03-29 23:07:20,926 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 23:07:21,487 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 23:08:39,992 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 23:08:40,521 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 23:09:50,913 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 23:09:51,572 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 23:09:58,460 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:09:58,462 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:09:58,463 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:09:58,463 [UID:2] views - GET method
+[INFO] 2025-03-29 23:09:58,463 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:09:58,496 [UID:2] basehttp - "GET /place/checkin/?place_id=2 HTTP/1.1" 200 19188
+[INFO] 2025-03-29 23:10:01,041 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:10:01,043 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:10:01,045 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:10:01,045 [UID:2] views - POST method
+[INFO] 2025-03-29 23:10:01,052 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:10:01,056 [UID:2] basehttp - "POST /place/checkin/?place_id=2 HTTP/1.1" 200 19270
+[INFO] 2025-03-29 23:11:25,059 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:11:25,060 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:11:25,061 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:11:25,062 [UID:2] views - POST method
+[INFO] 2025-03-29 23:11:25,069 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:11:25,074 [UID:2] basehttp - "POST /place/checkin/?place_id=2 HTTP/1.1" 200 17397
+[INFO] 2025-03-29 23:17:22,403 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:17:22,405 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:17:22,406 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:17:22,406 [UID:2] views - POST method
+[INFO] 2025-03-29 23:17:22,412 [UID:2] views - return render place/checkin.html
+[ERROR] 2025-03-29 23:17:22,499 [UID:2] log - Internal Server Error: /place/checkin/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 377, in checkin_view
+    return render(request, 'place/checkin.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 343, in do_include
+    raise TemplateSyntaxError(
+        "Unknown argument for %r tag: %r." % (bits[0], option)
+    )
+django.template.exceptions.TemplateSyntaxError: Unknown argument for 'include' tag: 'disp_like='.
+[ERROR] 2025-03-29 23:17:22,506 [UID:2] basehttp - "POST /place/checkin/?place_id=2 HTTP/1.1" 500 217752
+[INFO] 2025-03-29 23:17:59,629 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:17:59,631 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:17:59,632 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:17:59,632 [UID:2] views - POST method
+[INFO] 2025-03-29 23:17:59,640 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:17:59,645 [UID:2] basehttp - "POST /place/checkin/?place_id=2 HTTP/1.1" 200 17074
+[INFO] 2025-03-29 23:21:08,177 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:21:08,178 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:21:08,180 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:21:08,181 [UID:2] views - POST method
+[INFO] 2025-03-29 23:21:08,187 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:21:08,193 [UID:2] basehttp - "POST /place/checkin/?place_id=2 HTTP/1.1" 200 17018
+[INFO] 2025-03-29 23:21:14,422 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:21:14,423 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:21:14,424 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:21:14,425 [UID:2] views - GET method
+[INFO] 2025-03-29 23:21:14,425 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:21:14,428 [UID:2] basehttp - "GET /place/checkin/?place_id=2 HTTP/1.1" 200 16936
+[INFO] 2025-03-29 23:24:37,994 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:24:37,996 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:24:37,998 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:24:37,998 [UID:2] views - GET method
+[INFO] 2025-03-29 23:24:37,998 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:24:38,005 [UID:2] basehttp - "GET /place/checkin/?place_id=2 HTTP/1.1" 200 16826
+[INFO] 2025-03-29 23:29:48,897 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:29:48,898 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:29:48,900 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:29:48,900 [UID:2] views - GET method
+[INFO] 2025-03-29 23:29:48,901 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:29:48,906 [UID:2] basehttp - "GET /place/checkin/?place_id=2 HTTP/1.1" 200 16854
+[DEBUG] 2025-03-29 23:30:10,221 [UID:2] views - start Place list_view
+[DEBUG] 2025-03-29 23:30:10,225 [UID:2] views - object_list exists
+[INFO] 2025-03-29 23:30:10,226 [UID:2] views - return render place/list.html
+[INFO] 2025-03-29 23:30:10,233 [UID:2] basehttp - "GET /place/list/ HTTP/1.1" 200 20200
+[INFO] 2025-03-29 23:30:10,256 [UID:2] basehttp - "GET /media/place/3_images_2503292141.jpg HTTP/1.1" 304 0
+[INFO] 2025-03-29 23:30:25,182 [UID:2] views - start detail_view
+[DEBUG] 2025-03-29 23:30:25,185 [UID:2] views - get Place object(pk)
+[DEBUG] 2025-03-29 23:30:25,186 [UID:2] views - return render place/detail.html
+[INFO] 2025-03-29 23:30:25,191 [UID:2] basehttp - "GET /place/detail/2/ HTTP/1.1" 200 27653
+[INFO] 2025-03-29 23:31:35,251 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:31:35,252 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:31:35,253 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:31:35,253 [UID:2] views - GET method
+[INFO] 2025-03-29 23:31:35,254 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:31:35,258 [UID:2] basehttp - "GET /place/checkin/?place_id=2 HTTP/1.1" 200 17670
+[INFO] 2025-03-29 23:32:34,283 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:32:34,284 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:32:34,285 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:32:34,285 [UID:2] views - GET method
+[INFO] 2025-03-29 23:32:34,286 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:32:34,291 [UID:2] basehttp - "GET /place/checkin/?place_id=2 HTTP/1.1" 200 17669
+[INFO] 2025-03-29 23:56:19,695 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:56:19,697 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:56:19,698 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:56:19,698 [UID:2] views - GET method
+[INFO] 2025-03-29 23:56:19,698 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:56:19,704 [UID:2] basehttp - "GET /place/checkin/?place_id=2 HTTP/1.1" 200 17673
+[WARNING] 2025-03-29 23:56:19,739 [UID:2] basehttp - "GET /static/img/checkin.png HTTP/1.1" 404 1859
+[INFO] 2025-03-29 23:57:30,970 [UID:2] views - start Place checkin_view
+[DEBUG] 2025-03-29 23:57:30,972 [UID:2] views - profile_own=<User:id=No1, sasayasu>
+[ERROR] 2025-03-29 23:57:30,973 [UID:2] views - couldnt get target place_in id=2: 'Place' object has no attribute 'company'
+[INFO] 2025-03-29 23:57:30,974 [UID:2] views - GET method
+[INFO] 2025-03-29 23:57:30,974 [UID:2] views - return render place/checkin.html
+[INFO] 2025-03-29 23:57:30,981 [UID:2] basehttp - "GET /place/checkin/?place_id=2 HTTP/1.1" 200 17674
+[INFO] 2025-03-29 23:57:31,068 [UID:2] basehttp - "GET /static/img/checkin.png HTTP/1.1" 200 1390
+[INFO] 2025-03-29 23:58:47,207 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 23:58:47,786 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-29 23:59:27,558 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-03-29 23:59:28,085 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-03-30 00:05:24,705 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.

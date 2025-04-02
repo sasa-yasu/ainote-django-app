@@ -1,0 +1,182 @@
+{% extends "../base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block header %}
+<link rel="stylesheet" type="text/css" href="{% static 'list/style.css' %}">
+<style type="text/css">
+
+.preview-image {
+        max-width: 300px;
+        max-height: 300px;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .xy_center {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    .img-container {
+        width: 128px; /* 親要素に対して100%の幅を持つ */
+        height: 128px; /* 必要に応じて高さを調整 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* 画像のはみ出しを防ぐ */
+    }
+    .preview-image {
+        max-width: 100%; /* カード内で画像がはみ出さないようにする */
+        max-height: 100%; /* 親要素を超えないように制限 */
+        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
+        border-radius: 5px; /* 角丸のデザイン */
+        display: block;
+        margin-top: 10px; 
+    }
+
+    /* 画像とリストを横並びにするコンテナ */
+    .header-container {
+        display: flex;                /* 横並びに表示 */
+        flex-wrap: wrap;              /* 画面幅が狭くなったら折り返す */
+        align-items: center;          /* 垂直方向で中央揃え */
+        gap: 10px;                    /* 画像とリストの間隔 */
+        justify-content: space-between;
+    }
+
+    /* 画像の重ね合わせコンテナ */
+    .image-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;         /* 高さを自動調整 */
+        aspect-ratio: 16 / 9; /* 16:9を維持しつつ高さを可変に */
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* 境界線 */
+    }
+
+    /* 背景の themes 画像 */
+    .bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
+        z-index: 1;          /* 背景に表示 */
+        opacity: 1;         /* 透明度を設定しない */
+        transition: transform 0.3s ease;  /* ホバー時のアニメーション */
+    }
+
+    /* 前面の images 画像 */
+    .front-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;       /* 幅自動調整でアスペクト比維持 */
+        height: 90%;      /* front-imageの高さを90%に */
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        overflow: hidden;         /* はみ出し防止 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 前面の images 画像 */
+    .front-image img {
+        height: 90%;         /* 親要素に対して80%の高さで表示 */
+        width: auto;          /* アスペクト比維持 */
+        object-fit: contain;  /* はみ出し防止 */
+        margin: 2px;
+    }
+
+    /* ホバー時のエフェクト */
+    .image-wrapper:hover .bg-image {
+        transform: scale(1.10);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
+</style>
+{% endblock header %}
+
+{% block content %}
+<!-- START TITLE -->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="60" height="60" src="{% static 'img/checkout.png' %}" alt="Checkin Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Check-Out</h1>
+    &nbsp;
+    <img class="bi" width="50" height="50" src="{% static 'img/place.png' %}" alt="List Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Place</h1>
+    </div>
+    <p class="col-lg-8 mx-auto lead fst-italic">Check-Out from Place</p>
+</div>
+<!-- END TITLE -->
+
+<!--MAIN START-->
+<main class="container">
+
+    <!--infos-->
+    {% if infos %}<div class="alert alert-default">{{ infos }}</div>{% endif %}
+    <!--messages-->
+    {% if messages %}<div class="alert alert-primary">{{ messages }}</div>{% endif %}
+    <!--errors-->
+    {% if errors %}<div class="alert alert-danger">{{ errors }}</div>{% endif %}
+
+    <!-- START MAIN LIST BODY -->
+    <div class="album py-5 bg-body-tertiary"><div class="container">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3 justify-content-center">
+                <!--login check-->
+                {% if user.is_authenticated %}
+
+                    <!-- profile_own -->
+                    <input type="hidden" class="card-text" id="id_profile_own_id" name="profile_own_id" value="{{ profile_own.id }}">
+
+                    <!-- place_in -->
+                    <input type="hidden" class="card-text" id="id_place_with_id" name="place_with_id" value="{{ place_with.id }}">
+                    {% include 'includes/place_item.html' with item=place_with disp_date=place_with.updated_at|date:"'y/m/d H:i:s" disp_like='none' %}
+
+                    <!-- checkin_record_id -->
+                    <input type="hidden" class="card-text" id="id_checkin_record_id" name="checkin_record_id" value="{{ checkin_record.id }}">
+
+                    <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+                        <!--submit button-->
+                        {% include 'includes/submit_button.html' with action="Check-Out" %}
+                    </div>
+                {% else %}
+                    <label for="require_login" class="form-label">ログインしてください</label>
+                    &nbsp;
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+                {% endif %}
+            </div>
+        </form>
+    </div></div>
+    <!-- END MAIN LIST BODY -->
+</main>
+<!--MAIN END-->
+{% endblock content %}
+
+{% block footer %}
+<script>
+    function setLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                // 座標を取得
+                document.getElementById("latitude").value = position.coords.latitude;
+                document.getElementById("longitude").value = position.coords.longitude;
+            }, function(error) {
+                console.error("Error getting location:", error);
+                alert("位置情報を取得できませんでした。");
+            });
+        } else {
+            alert("このブラウザでは位置情報を取得できません。");
+        }
+    }
+</script>
+{% endblock footer %}

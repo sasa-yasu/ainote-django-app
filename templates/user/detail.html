@@ -1,0 +1,374 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load humanize %}  <!-- humanize を読み込む -->
+
+{% block header %}
+<style type="text/css">
+    .xy_center {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    .img-container {
+        width: 128px; /* 親要素に対して100%の幅を持つ */
+        height: 128px; /* 必要に応じて高さを調整 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* 画像のはみ出しを防ぐ */
+    }
+    .preview-image {
+        max-width: 100%; /* カード内で画像がはみ出さないようにする */
+        max-height: 100%; /* 親要素を超えないように制限 */
+        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
+        border-radius: 5px; /* 角丸のデザイン */
+        display: block;
+        margin-top: 10px; 
+    }
+
+    /* 画像とリストを横並びにするコンテナ */
+    .header-container {
+        display: flex;                /* 横並びに表示 */
+        flex-wrap: wrap;              /* 画面幅が狭くなったら折り返す */
+        align-items: center;          /* 垂直方向で中央揃え */
+        gap: 10px;                    /* 画像とリストの間隔 */
+        justify-content: space-between;
+    }
+
+    /* 画像の重ね合わせコンテナ */
+    .image-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9; /* 16:9を維持しつつ高さを可変に */
+        overflow: hidden;  /* 画像が途中で切れないように変更 */
+    }
+
+    /* 背景の themes 画像 */
+    .bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
+        z-index: 1;          /* 背景に表示 */
+        opacity: 1;         /* 透明度を設定しない */
+    }
+
+    /* 前面の images 画像 */
+    .front-image {
+        margin-top:0px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 40%;
+        min-width: 64px;  /* 最小サイズを設定 */
+        min-height: 64; /* 縦横比を維持 */
+        aspect-ratio: 1 / 1;  /* 正方形を維持 */
+        transform: translate(-50%, -50%);
+        z-index: 2;          /* 前面に表示 */
+        border-radius: 50%;   /* 完全な円形に */
+        background-color: white;  /* 背景を白色に */
+    }
+
+    .front-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .profile-container {
+        width: 100%;           /* 横幅を100%に広げる */
+        max-width: 1200px;     /* 最大幅を制限して大きくなりすぎないように */
+        margin: 0 auto;        /* 中央寄せ */
+    }
+
+    /* Profile Icon を右下に配置 */
+    .profile-icon {
+        position: absolute;
+        bottom: 10px;    /* 下から10pxの位置 */
+        right: 10px;     /* 右から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+    .table {
+        width: 100%;
+        table-layout: fixed;  /* 固定レイアウトで表示崩れ防止 */
+    }
+
+    .table th, .table td {
+        word-wrap: break-word; /* 長い単語を折り返す */
+    }
+
+    .col-md-6 {
+        flex: 0 0 100%;        /* 横幅を100%に広げる */
+        max-width: 100%;
+    }
+
+    /* ホバー時のエフェクト */
+    .image-wrapper:hover .bg-image {
+        transform: scale(1.10);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
+    /* Status-In 画像を左上に配置 */
+    .status-in-icon {
+        position: absolute;
+        top: 10px;      /* 上から10pxの位置 */
+        left: 10px;     /* 左から10pxの位置 */
+        z-index: 2;     /* 前面に表示されるように設定 */
+    }
+
+</style>
+<link href="{% static 'user/blog.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<!--HEADER START-->  
+<!--HEADER END-->
+
+<!--MAIN START-->
+<main><div class="container">
+  <form method="POST">
+    {% csrf_token %}
+    <br/>
+    <!--submit button-->
+    {% include 'includes/detail_user_controled_buttons.html' with app_name='user' %}
+    <br/><br/>
+
+    <div class="row g-5">
+      <div class="col-md-8"><div class="header-container align-items-start">
+
+        <!-- 画像ブロック -->
+        <div class="align-self-start" style="min-width: 300px;">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 flex-column position-static" style="width:900px;">
+              <div class="d-flex align-items-center"><h1 class="display-6">{{ object.nick_name }}</h1><p style="margin-top:auto; align-self:flex-end; margin-bottom:8px;">( {{ object.user1.username }} )</p></div>
+              <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
+                <div class="image-wrapper" style="max-width:900px; ">
+                    <!-- 背景：themes -->
+                    {% if object.themes %}
+                    <img src="{{ object.themes.url }}" class="bg-image" alt="User Themes"/>
+                    {% else %}
+                    <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+                    {% endif %}
+                    <!-- 前面：images(circle切り取り) -->
+                    <div class="front-image">
+                        {% if object.images %}
+                        <img src="{{ object.images.url }}" class="rounded-circle" alt="User Images"/>
+                        {% else %}
+                        <img src="{% static 'img/user.png' %}" class="rounded-circle" alt="Default Images"/>
+                        {% endif %}
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- プロパティブロック -->
+        <div class="align-self-start" style="min-width: 100px; max-width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <table class="table">
+                <tr><th style="width:150px;">User Name</th><td>{{ object.user1.username }}</td></tr>
+                <tr><th>Member ID</th><td>{{ object.memberid }}</td></tr>
+                <tr><th>Nick Name</th><td>{{ object.nick_name }}</td></tr>
+                <tr>
+                  <th>Badges</th>
+                  <td>
+                    {% for value, label in object.BADGES_CHOICES %}
+                    {% if object.badges == value %}
+                      {{ label }}
+                    {% endif %}
+                    {% endfor %}
+                  </td>
+                </tr>
+                <tr><th>Birthday</th><td>{{ object.birthday|date:"m/d" }}</td></tr>
+                <tr>
+                  <th>MBTI Type</th>
+                  <td>
+                    {% for value, label in object.MBTI_CHOICES %}
+                    {% if object.mbti == value %}
+                      {{ label }}
+                    {% endif %}
+                    {% endfor %}
+                  </td>
+                </tr>
+                <tr><th>Given Likes</th><td>{{ object.given_likes|intcomma }}</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- Hobby -->
+        {% if object.hobby %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Hobby</h2>{{ object.hobby|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Sports -->
+        {% if object.sports %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Sports</h2>{{ object.sports|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Movie -->
+        {% if object.movie %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Movie</h2>{{ object.movie|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Music -->
+        {% if object.music %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Music</h2>{{ object.music|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Book -->
+        {% if object.book %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Book</h2>{{ object.book|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Event -->
+        {% if object.event %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Event</h2>{{ object.event|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Remarks -->
+        {% if object.remarks %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Remarks</h2>{{ object.remarks|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <br/>
+        <!--Display:QR for Friendship-->
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <h5><B>&lt;&lt;[ Build-up Friendship QR Code ]&gt;&gt;</B></h5>
+          <div class="row g-0 flex-md-row mb-0 position-relative">
+            <div style="width:auto;"><img src="{% url 'friend:disp_qr' profile_id=object.id %}" alt="Profile QR Code" width="300" height="300"></div>
+          </div>
+        </div>
+        <br/>
+        <!--joined Group-->
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <h5><B>&lt;&lt;[ Joined Group List ]&gt;&gt;</B></h5>
+          <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 g-3">
+            {% for item in joined_groups %}
+              {% include 'includes/group_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" disp_like='none' %}
+            {% empty %}
+              <div>No joined groups yet.</div>
+            {% endfor %}
+          </div>
+        </div>
+        <br/>
+        <!--Friends-->
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <h5><B>&lt;&lt;[ Friend List ]&gt;&gt;</B></h5>
+          <div class="container bg-body-tertiary"><div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3">
+            {% for item in friends %}
+              {% include 'includes/profile_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" %}
+            {% empty %}
+              <div>No friends yet.</div>
+            {% endfor %}
+          </div></div>
+        </div>
+
+      </div></div>
+
+      <div class="col-md-4">
+        <div class="position-sticky" style="top: 5rem;">
+          <div class="p-4 mb-3 bg-body-tertiary rounded">
+            <div> Profile Card (public) </div>
+            {% include 'includes/profile_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
+          </div>
+
+          <div>
+            <h4 class="fst-italic">Recent chat</h4>
+            {% for chat in recent_chats %}
+              <div class="card" style="margin-bottom:4px;"><div class="card-body" style="padding:8px;">
+                <small class="card-text"><B>{{ chat.title }}</B></small><br/>
+                <small class="text-muted">{{ chat.context }}</small><br/>
+                <small class="text-muted">{{ chat.created_at|date:"Y/m/d H:i" }}</small>
+              </div></div>
+            {% empty %}
+              <div>No recent chats.</div>
+            {% endfor %}
+          </div>
+
+          <div style="margin-top:16px;">
+            <h4 class="fst-italic">Recent logins</h4>
+            {% for login_record in recent_login_records %}
+              <div class="card" style="margin-bottom:2px;"><div class="card-body" style="padding:2px; padding-left:4px;">
+                <small class="text-muted">{{ login_record.login_time|date:"'y/m/d H:i" }} - </small>
+                <small class="text-muted">
+                  {% if login_record.logout_time and login_record.login_time|date:"Y/m/d" != login_record.logout_time|date:"Y/m/d" %}{{ login_record.logout_time|date:"m/d" }}{% endif %}
+                  {{ login_record.logout_time|date:"H:i" }}
+                </small>
+                <small class="text-muted">[{{ login_record.get_diff_time }}]</small>
+              </div></div>
+            {% empty %}
+                <div>No recent logins.</div>
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <br/>
+    <!--submit button-->
+    {% include 'includes/detail_user_controled_buttons.html' with app_name='user' %}
+    <br/>
+  </form>
+</div></main>
+<!--MAIN END-->
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block header %}
+<style type="text/css">
+    .smoke {background-color: whitesmoke;}
+    .preview-image {
+        max-width: 300px;
+        max-height: 300px;
+        display: block;
+        margin-top: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="50" height="50" src="{% static 'img/member.png' %}" alt="Member Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Member</h3>
+    &nbsp;
+    <img class="bi" width="40" height="40" src="{% static 'img/list.png' %}" alt="Detail Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Detail</h3>
+</div></div>
+
+<main>
+    <div class="container">
+        <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
+            <form action='' method="POST"> {% csrf_token %}
+                {% include 'includes/detail_buttons.html' with app_name='member' %}
+                <br/><br/>
+
+                <div class="mb-3">
+                    <label for="id" class="form-label">Id</label>
+                    <label type="text" class="form-control smoke" id="id" name="id">{{ object.id }}</label>
+                </div>
+                <div class="mb-3">
+                    <label for="userid" class="form-label">User Id</label>
+                    <label type="text" class="form-control smoke" id="userid" name="userid">{{ object.userid }}</label>
+                </div>
+                <div class="mb-3">
+                    <label for="memberid" class="form-label">Member Id</label>
+                    <label type="text" class="form-control smoke" id="memberid" name="memberid">{{ object.memberid }}</label>
+                </div>
+                <div class="mb-3">
+                    <label for="nick_name" class="form-label">Nick Name</label>
+                    <label type="text" class="form-control smoke" id="nick_name" name="nick_name">{{ object.nick_name }}</label>
+                </div>
+                <div class="mb-3">
+                    <label for="birthday" class="form-label">Birthday</label>
+                    <label type="date" class="form-control smoke" id="birthday" name="birthday">{{ object.birthday|date:"m/d" }}</label>
+                </div>
+                <div class="mb-3">
+                    <label for="remarks" class="form-label">Remarks</label>
+                    <label type="text" class="form-control smoke" id="remarks" name="remarks">{{ object.remarks }}</label>
+                </div>
+                <label for="badges" class="form-label">Badges</label>
+                <select class="form-control smoke" id="badges" name="badges">
+                    {% for value, label in object.BADGES_CHOICES %}
+                        <option value="{{ value }}" {% if object.badges == value %}selected{% endif %}>
+                            {{ label }}
+                        </option>
+                    {% endfor %}
+                </select>
+                <div class="mb-3">
+                    <label for="images" class="form-label">Images</label>
+                    <label type="text" class="form-control smoke" id="images" name="images">{{ object.images }}</label>
+                </div>
+                <div class="mb-3">
+                    {% include 'includes/image.html' with app_name="member" object=object field_name="images" display_name="Images" %}
+                </div>
+                <div class="mb-3">
+                    <label for="themes" class="form-label">Themes</label>
+                    <label type="text" class="form-control smoke" id="themes" name="themes">{{ object.themes }}</label>
+                </div>
+                <div class="mb-3">
+                    {% include 'includes/image.html' with app_name="member" object=object field_name="themes" display_name="Themes" %}
+                </div>
+
+                {% include 'includes/bottom_dates.html' %}
+                <br/>
+                {% include 'includes/detail_buttons.html' with app_name='member' %}
+                <br/>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% load static %}
+
+<div class="col"><div class="card shadow-sm">
+    <!-- 画像ヘッダ -->
+    <div class="image-wrapper"><a href="{% url 'place:detail' item.pk %}">
+        <!-- 背景：themes -->
+        {% if item.themes %}
+        <img src="{{ item.themes.url }}" class="bg-image" alt="Place Themes"/>
+        {% else %}
+        <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+        {% endif %}
+
+        <!-- 前面：images -->
+        <div class="front-image">
+            {% if item.images %}
+            <img src="{{ item.images.url }}" style="border-radius: 50%;" alt="Place Images"/>
+            {% else %}
+            <img src="{% static 'img/place.png' %}" style="border-radius: 50%;" alt="Default Images"/>
+            {% endif %}
+        </div>
+    </a></div>
+
+    <div class="card-body">
+        <small class="card-text"><B>{{ item.place|safe }}</B></small><br/>
+        <small class="card-text">{{ item.area|safe }}</small><br/>
+        <small class="card-text">{{ item.overview|safe|linebreaksbr }}</small>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group d-flex align-items-center">
+                <!-- Detailボタン -->
+                <a type="button" class="btn btn-sm btn-outline-secondary me-2" href="{% url 'place:detail' item.pk %}">Detail</a>
+                <!-- 日付表示 -->
+                <small class="text-body-secondary">{{ disp_date }}</small>
+            </div>
+
+            {% if disp_like != 'none' %}
+                <!--likes-->
+                <a class="btn btn-outline-secondary rounded-pill btn-sm like-btn" data-place-id="{{ item.id }}" style="max-height:31px;">
+                    <img width="20px" height="20px" src="{% static 'img/good.png' %}"><span class="like-count" id="like-count-{{ item.id }}">({{ item.likes }})</span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div></div>

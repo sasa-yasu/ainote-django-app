@@ -1,0 +1,87 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block header %}
+<style type="text/css">
+    .smoke {background-color: whitesmoke;}
+    .preview-image {
+        max-width: 300px;
+        max-height: 300px;
+        display: block;
+        margin-top: 10px;
+    }
+</style>
+{% endblock header %}
+
+{% block content %}
+<!--HEADER START-->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="50" height="50" src="{% static 'img/room.png' %}" alt="Room Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Room</h3>
+    &nbsp;
+    <img class="bi" width="40" height="40" src="{% static 'img/update.png' %}" alt="Update Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Update</h3>
+</div></div>
+<!--HEADER END-->
+
+<!--page errors-->
+{% if form.errors %}<div class="alert alert-danger">{{ form.errors }}</div>{% endif %}
+
+<!--MAIN START-->
+<main><div class="container">
+    <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
+        <!--login check-->
+        {% if user.is_authenticated %}
+
+            <!--form common errors-->
+            {% if form.non_field_errors %}<div class="alert alert-danger"> {% for error in form.non_field_errors %} * {{ error }}<br/> {% endfor %} </div>{% endif %}
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!--submit button-->
+                {% include 'includes/submit_button.html' with action="Update" %}
+                <br/><br/>
+
+                <!--Display:id(auto:key)-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.id disp_name='ID' %}</div>
+
+                <!--Input:name-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=form.name %}</div>
+
+                <!--Input:images-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=form.images %}</div>
+                <!--Display[img]:images_display-->
+                <div class="mb-3">{% include 'includes/image.html' with target=object.images field_name='images' display_name='Images' app_name='room' %}</div>
+                <!--Input:themes-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=form.themes %}</div>
+                <!--Display[img]:themes_display-->
+                <div class="mb-3">{% include 'includes/image.html' with target=object.themes field_name='themes' display_name='Themes' app_name='room' %}</div>
+                
+                <!--Input:capacity-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=form.capacity %}</div>
+                <!--Input:context-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=form.context %}</div>
+                <!--Input:remarks-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=form.remarks %}</div>
+
+                <!--Display:created_at/updated_at-->
+                {% include 'includes/bottom_dates.html' %}
+                <br/>
+                <!--submit button-->
+                {% include 'includes/submit_button.html' with action="Update" %}
+            </form>
+        {% else %}
+            <label for="require_login" class="form-label">ログインしてください</label>
+            &nbsp;
+            <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+        {% endif %}
+    </div></div>
+</div></main>
+<!--MAIN END-->
+{% endblock content %}
+
+{% block footer %}
+<script src="{% static 'js/images_preview.js' %}"></script> <!-- for Image Preview -->
+<script src="{% static 'js/themes_preview.js' %}"></script> <!-- for Themes Preview -->
+{% endblock footer %}

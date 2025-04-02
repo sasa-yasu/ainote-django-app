@@ -1,0 +1,64 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block header %}
+<style type="text/css">
+    .smoke {background-color: whitesmoke;}
+    .preview-image {
+        max-width: 300px;
+        max-height: 300px;
+        display: block;
+        margin-top: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!--HEADER START-->  
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="50" height="50" src="{% static 'img/group.png' %}" alt="Group Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Group</h3>
+    &nbsp;
+    <img class="bi" width="40" height="40" src="{% static 'img/list.png' %}" alt="Detail Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Detail</h3>
+</div></div>
+<!--HEADER END-->
+
+<!--MAIN START-->
+<main>
+    <div class="container">
+        <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
+            
+            <form method="POST">
+                {% csrf_token %}
+                <!--submit button-->
+                {% include 'includes/detail_buttons.html' with app_name='group' %}
+                <br/><br/>
+
+                <!--Display:id(auto:key)-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.id disp_name='ID' %}</div>
+                <!--Display:name-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.name disp_name='Name' %}</div>
+
+                <!--Display[img]:images-->
+                <div class="mb-3">{% include 'includes/display_image.html' with target=object.images field_name='images' disp_name='Images' app_name='group' %}</div>
+                <!--Display[img]:themes-->
+                <div class="mb-3">{% include 'includes/display_image.html' with target=object.themes field_name='themes' disp_name='Themes' app_name='group' %}</div>
+
+                <!--Display:context-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.context disp_name='Context' %}</div>
+                <!--Display:remarks-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.remarks disp_name='Remarks' %}</div>
+
+                <!--Display:created_at/updated_at-->
+                {% include 'includes/bottom_dates.html' %}
+                <br/>
+                <!--submit button-->
+                {% include 'includes/detail_buttons.html' with app_name='group' %}
+                <br/>
+            </form>
+        </div>
+    </div>
+</main>
+<!--MAIN END-->
+{% endblock %}

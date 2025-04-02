@@ -1,0 +1,1733 @@
+[INFO] 2025-04-02 00:03:51,942 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:04:50,440 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-04-02 00:04:51,031 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:05:10,223 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:05:10,224 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:05:10,226 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:05:10,229 [UID:2] views - form not is_valid
+[INFO] 2025-04-02 00:05:10,236 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:05:10,272 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 200 79178
+[DEBUG] 2025-04-02 00:05:10,315 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:05:10,317 [UID:2] views - mbti_name_choices=[('ESTP-0', 'ESTP:起業家'), ('ESTP-1', 'ESTP:行動派アスリート'), ('ESTP-2', 'ESTP:チャレンジザル')]
+[INFO] 2025-04-02 00:05:10,318 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ESTP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:05:11,467 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:05:11,467 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:05:11,470 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:05:11,471 [UID:2] views - form not is_valid
+[INFO] 2025-04-02 00:05:11,471 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:05:11,477 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 200 79178
+[DEBUG] 2025-04-02 00:05:11,523 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:05:11,526 [UID:2] views - mbti_name_choices=[('ESTP-0', 'ESTP:起業家'), ('ESTP-1', 'ESTP:行動派アスリート'), ('ESTP-2', 'ESTP:チャレンジザル')]
+[INFO] 2025-04-02 00:05:11,527 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ESTP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:05:18,966 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:05:18,966 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:05:18,968 [UID:2] views - GET method
+[INFO] 2025-04-02 00:05:18,969 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:05:18,975 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 78975
+[DEBUG] 2025-04-02 00:05:26,128 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:05:26,132 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:05:26,133 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:05:28,754 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:05:28,754 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:05:28,757 [UID:2] views - GET method
+[INFO] 2025-04-02 00:05:28,758 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:05:28,767 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 78975
+[DEBUG] 2025-04-02 00:05:28,794 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:05:28,797 [UID:2] views - mbti_name_choices=[]
+[INFO] 2025-04-02 00:05:28,798 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=- HTTP/1.1" 200 25
+[DEBUG] 2025-04-02 00:05:32,985 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:05:32,989 [UID:2] views - mbti_name_choices=[('INTP-0', 'INTP:論理学者'), ('INTP-1', 'INTP:ひらめき科学者'), ('INTP-2', 'INTP:ひらめきネコ')]
+[INFO] 2025-04-02 00:05:32,990 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTP HTTP/1.1" 200 188
+[INFO] 2025-04-02 00:05:36,691 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:05:36,691 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:05:36,694 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:05:36,695 [UID:2] views - form not is_valid
+[INFO] 2025-04-02 00:05:36,695 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:05:36,702 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 200 79178
+[DEBUG] 2025-04-02 00:05:36,749 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:05:36,753 [UID:2] views - mbti_name_choices=[('INTP-0', 'INTP:論理学者'), ('INTP-1', 'INTP:ひらめき科学者'), ('INTP-2', 'INTP:ひらめきネコ')]
+[INFO] 2025-04-02 00:05:36,755 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTP HTTP/1.1" 200 188
+[INFO] 2025-04-02 00:08:05,189 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:08:14,028 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:08:14,028 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:08:14,030 [UID:2] views - GET method
+[INFO] 2025-04-02 00:08:14,032 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:08:14,073 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 78975
+[INFO] 2025-04-02 00:08:17,182 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:08:17,182 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:08:17,184 [UID:2] views - GET method
+[INFO] 2025-04-02 00:08:17,185 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:08:17,194 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 78975
+[DEBUG] 2025-04-02 00:08:17,238 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:08:17,241 [UID:2] views - mbti_name_choices=[]
+[INFO] 2025-04-02 00:08:17,242 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=- HTTP/1.1" 200 25
+[DEBUG] 2025-04-02 00:08:22,863 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:08:22,867 [UID:2] views - mbti_name_choices=[('ISTP-0', 'ISTP:巨匠'), ('ISTP-1', 'ISTP:職人肌のエンジニア'), ('ISTP-2', 'ISTP:クールなワシ')]
+[INFO] 2025-04-02 00:08:22,868 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISTP HTTP/1.1" 200 188
+[INFO] 2025-04-02 00:08:27,805 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:08:27,805 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:08:27,808 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:08:27,811 [UID:2] views - form not is_valid
+[INFO] 2025-04-02 00:08:27,812 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:08:27,819 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 200 79178
+[DEBUG] 2025-04-02 00:08:27,865 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:08:27,869 [UID:2] views - mbti_name_choices=[('ISTP-0', 'ISTP:巨匠'), ('ISTP-1', 'ISTP:職人肌のエンジニア'), ('ISTP-2', 'ISTP:クールなワシ')]
+[INFO] 2025-04-02 00:08:27,870 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISTP HTTP/1.1" 200 188
+[INFO] 2025-04-02 00:10:01,858 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-02 00:10:02,447 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:10:06,455 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:10:06,455 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:10:06,459 [UID:2] views - GET method
+[INFO] 2025-04-02 00:10:06,459 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:10:06,500 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 78975
+[DEBUG] 2025-04-02 00:10:12,378 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:10:12,381 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:10:12,382 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:10:17,113 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:10:17,113 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:10:17,115 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:10:17,118 [UID:2] views - form not is_valid
+[INFO] 2025-04-02 00:10:17,121 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:10:17,126 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 200 79178
+[DEBUG] 2025-04-02 00:10:17,175 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:10:17,179 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:10:17,180 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:12:18,122 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-02 00:12:18,670 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:13:35,776 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:13:35,777 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:13:35,781 [UID:2] views - POST method
+[DEBUG] 2025-04-02 00:13:35,794 [UID:2] forms - mbti_name_value=
+[DEBUG] 2025-04-02 00:13:35,794 [UID:2] forms - valid_choices={'ISFP-0': 'ISFP:冒険家', 'ISFP-1': 'ISFP:アートなデザイナー', 'ISFP-2': 'ISFP:アートなネコ'}
+[DEBUG] 2025-04-02 00:13:35,795 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 00:13:35,795 [UID:2] views - save updated Profile object
+[INFO] 2025-04-02 00:13:35,804 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 00:13:35,814 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 00:13:35,819 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 00:13:35,822 [UID:2] views - object_list exists
+[INFO] 2025-04-02 00:13:35,824 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 00:13:35,945 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 00:13:37,520 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 00:13:37,523 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 00:13:37,526 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 00:13:37,536 [UID:2] basehttp - "GET /user/detail/25/ HTTP/1.1" 200 69986
+[INFO] 2025-04-02 00:13:37,563 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 00:13:37,563 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=25
+[DEBUG] 2025-04-02 00:13:37,585 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 00:13:37,690 [UID:2] basehttp - "GET /friend/disp_qr/25/ HTTP/1.1" 200 8351
+[INFO] 2025-04-02 00:13:46,692 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:13:46,692 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:13:46,695 [UID:2] views - GET method
+[INFO] 2025-04-02 00:13:46,696 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:13:46,715 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79484
+[DEBUG] 2025-04-02 00:13:46,768 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:13:46,772 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:13:46,773 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:13:54,596 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:13:54,596 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:13:54,599 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:13:54,600 [UID:2] views - form not is_valid
+[INFO] 2025-04-02 00:13:54,602 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:13:54,609 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 200 79178
+[DEBUG] 2025-04-02 00:13:54,638 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:13:54,640 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:13:54,641 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:26:14,843 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-02 00:26:18,861 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:26:26,559 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:26:26,559 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:26:26,562 [UID:2] views - GET method
+[INFO] 2025-04-02 00:26:26,563 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:26:26,603 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79494
+[INFO] 2025-04-02 00:26:35,231 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:26:35,231 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:26:35,234 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:26:35,239 [UID:2] views - form not is_valid
+[INFO] 2025-04-02 00:26:35,241 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:26:35,247 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 200 79188
+[DEBUG] 2025-04-02 00:26:35,295 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:26:35,298 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:26:35,299 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:28:33,695 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 00:28:34,348 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:28:36,366 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:28:36,367 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:28:36,370 [UID:2] views - GET method
+[INFO] 2025-04-02 00:28:36,371 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:28:36,411 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79494
+[INFO] 2025-04-02 00:28:41,390 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:28:41,391 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:28:41,393 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:28:41,430 [UID:2] log - Internal Server Error: /user/update/25/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py", line 207, in update_view
+    logger.debug(f'profile_form.mbti={profile_form.mbti}')
+                                      ^^^^^^^^^^^^^^^^^
+AttributeError: 'ProfileForm' object has no attribute 'mbti'
+[ERROR] 2025-04-02 00:28:41,433 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 500 125987
+[INFO] 2025-04-02 00:29:22,586 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-02 00:29:23,126 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:29:31,789 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:29:31,789 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:29:31,793 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:29:31,821 [UID:2] log - Internal Server Error: /user/update/25/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py", line 207, in update_view
+    logger.debug(f'profile_form.mbti={profile_form.mbti}')
+                                      ^^^^^^^^^^^^^^^^^
+AttributeError: 'ProfileForm' object has no attribute 'mbti'
+[ERROR] 2025-04-02 00:29:31,824 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 500 125987
+[INFO] 2025-04-02 00:30:17,581 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:30:25,847 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:30:25,848 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:30:25,850 [UID:2] views - GET method
+[INFO] 2025-04-02 00:30:25,851 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:30:25,893 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79494
+[DEBUG] 2025-04-02 00:30:25,955 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:30:25,958 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:30:25,960 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:30:32,151 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:30:32,152 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:30:32,156 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:30:32,176 [UID:2] log - Internal Server Error: /user/update/25/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py", line 207, in update_view
+    logger.debug(f'profile_form.mbti={profile_form.mbti}')
+                                      ^^^^^^^^^^^^^^^^^
+AttributeError: 'ProfileForm' object has no attribute 'mbti'
+[ERROR] 2025-04-02 00:30:32,178 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 500 125987
+[INFO] 2025-04-02 00:31:58,609 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-02 00:31:59,243 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:34:42,389 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-02 00:34:42,926 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:34:51,517 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:34:59,518 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:34:59,519 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:34:59,521 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:34:59,547 [UID:2] log - Internal Server Error: /user/update/25/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py", line 207, in update_view
+    logger.debug(f'profile_form.mbti={profile_form.mbti}')
+                                      ^^^^^^^^^^^^^^^^^
+AttributeError: 'ProfileForm' object has no attribute 'mbti'
+[ERROR] 2025-04-02 00:34:59,551 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 500 125987
+[INFO] 2025-04-02 00:35:05,436 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:35:05,437 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:35:05,440 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:35:05,457 [UID:2] log - Internal Server Error: /user/update/25/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py", line 207, in update_view
+    logger.debug(f'profile_form.mbti={profile_form.mbti}')
+                                      ^^^^^^^^^^^^^^^^^
+AttributeError: 'ProfileForm' object has no attribute 'mbti'
+[ERROR] 2025-04-02 00:35:05,460 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 500 125987
+[INFO] 2025-04-02 00:35:08,561 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:35:08,561 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:35:08,563 [UID:2] views - GET method
+[INFO] 2025-04-02 00:35:08,565 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:35:08,601 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79466
+[DEBUG] 2025-04-02 00:35:08,651 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:35:08,656 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:35:08,657 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:35:15,133 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:35:15,133 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:35:15,135 [UID:2] views - POST method
+[ERROR] 2025-04-02 00:35:15,152 [UID:2] log - Internal Server Error: /user/update/25/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py", line 207, in update_view
+    logger.debug(f'profile_form.mbti={profile_form.mbti}')
+                                      ^^^^^^^^^^^^^^^^^
+AttributeError: 'ProfileForm' object has no attribute 'mbti'
+[ERROR] 2025-04-02 00:35:15,154 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 500 125987
+[INFO] 2025-04-02 00:37:27,795 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-04-02 00:37:28,353 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:37:35,995 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-02 00:37:36,536 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:40:32,029 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-02 00:40:32,604 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:40:43,446 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:40:48,880 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:40:48,880 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:40:48,883 [UID:2] views - GET method
+[DEBUG] 2025-04-02 00:40:48,884 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 00:40:48,884 [UID:2] forms - mbti_name_value=
+[DEBUG] 2025-04-02 00:40:48,884 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:40:48,884 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:40:48,925 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79466
+[DEBUG] 2025-04-02 00:40:48,984 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:40:48,987 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:40:48,988 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:40:55,317 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:40:55,318 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:40:55,321 [UID:2] views - POST method
+[DEBUG] 2025-04-02 00:40:55,321 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 00:40:55,322 [UID:2] forms - mbti_name_value=None
+[DEBUG] 2025-04-02 00:40:55,322 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[ERROR] 2025-04-02 00:40:55,341 [UID:2] log - Internal Server Error: /user/update/25/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py", line 207, in update_view
+    logger.debug(f'profile_form.mbti={profile_form.mbti}')
+                                      ^^^^^^^^^^^^^^^^^
+AttributeError: 'ProfileForm' object has no attribute 'mbti'
+[ERROR] 2025-04-02 00:40:55,345 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 500 125987
+[INFO] 2025-04-02 00:41:27,515 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 00:41:28,049 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:41:37,504 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:41:37,504 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:41:37,507 [UID:2] views - GET method
+[DEBUG] 2025-04-02 00:41:37,508 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 00:41:37,508 [UID:2] forms - mbti_name_value=
+[DEBUG] 2025-04-02 00:41:37,509 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:41:37,509 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:41:37,547 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79466
+[DEBUG] 2025-04-02 00:41:37,593 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:41:37,596 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:41:37,597 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:41:43,876 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:41:43,877 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:41:43,880 [UID:2] views - POST method
+[DEBUG] 2025-04-02 00:41:43,881 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 00:41:43,881 [UID:2] forms - mbti_name_value=None
+[DEBUG] 2025-04-02 00:41:43,881 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[ERROR] 2025-04-02 00:41:43,961 [UID:2] views - form not is_valid
+[INFO] 2025-04-02 00:41:43,962 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:41:43,969 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 200 79347
+[DEBUG] 2025-04-02 00:41:44,013 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:41:44,017 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:41:44,018 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:43:28,700 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:43:28,700 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:43:28,702 [UID:2] views - GET method
+[DEBUG] 2025-04-02 00:43:28,703 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 00:43:28,703 [UID:2] forms - mbti_name_value=
+[DEBUG] 2025-04-02 00:43:28,703 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:43:28,704 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:43:28,711 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79466
+[DEBUG] 2025-04-02 00:44:32,852 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:44:32,855 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 00:44:32,856 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 00:49:05,267 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 00:49:05,816 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:49:09,068 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:49:09,068 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:49:09,071 [UID:2] views - GET method
+[DEBUG] 2025-04-02 00:49:09,073 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 00:49:09,073 [UID:2] forms - mbti_name_value=
+[DEBUG] 2025-04-02 00:49:09,074 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:49:09,074 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:49:09,124 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79466
+[DEBUG] 2025-04-02 00:49:09,201 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:49:09,205 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:49:09,206 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:49:14,929 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:49:14,929 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:49:14,931 [UID:2] views - POST method
+[DEBUG] 2025-04-02 00:49:14,932 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 00:49:14,932 [UID:2] forms - mbti_name_value=None
+[DEBUG] 2025-04-02 00:49:14,933 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[DEBUG] 2025-04-02 00:49:14,933 [UID:2] views - tmp_mbti=ISFP
+[ERROR] 2025-04-02 00:49:14,936 [UID:2] views - form not is_valid
+[INFO] 2025-04-02 00:49:14,937 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:49:14,944 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 200 79347
+[DEBUG] 2025-04-02 00:49:15,064 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:49:15,068 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:49:15,069 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:50:06,674 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 00:50:07,211 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:50:14,484 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:50:14,484 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:50:14,488 [UID:2] views - GET method
+[DEBUG] 2025-04-02 00:50:14,489 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 00:50:14,490 [UID:2] forms - mbti_name_value=
+[DEBUG] 2025-04-02 00:50:14,490 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:50:14,490 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:50:14,534 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79466
+[INFO] 2025-04-02 00:50:21,203 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:50:21,203 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:50:21,205 [UID:2] views - POST method
+[DEBUG] 2025-04-02 00:50:21,206 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 00:50:21,206 [UID:2] forms - mbti_name_value=None
+[DEBUG] 2025-04-02 00:50:21,207 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[DEBUG] 2025-04-02 00:50:21,207 [UID:2] views - tmp_mbti=ISFP
+[DEBUG] 2025-04-02 00:50:21,207 [UID:2] views - tmp_mbti_name=ISFP-2
+[ERROR] 2025-04-02 00:50:21,209 [UID:2] views - form not is_valid
+[INFO] 2025-04-02 00:50:21,211 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:50:21,219 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 200 79347
+[DEBUG] 2025-04-02 00:50:21,294 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:50:21,299 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:50:21,299 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 00:54:40,694 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 00:54:41,316 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 00:54:44,282 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:54:44,282 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:54:44,285 [UID:2] views - GET method
+[DEBUG] 2025-04-02 00:54:44,286 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 00:54:44,287 [UID:2] forms - mbti_name_value=
+[DEBUG] 2025-04-02 00:54:44,287 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:54:44,287 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:54:44,328 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79466
+[INFO] 2025-04-02 00:54:50,516 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 00:54:50,517 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 00:54:50,520 [UID:2] views - POST method
+[DEBUG] 2025-04-02 00:54:50,520 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 00:54:50,521 [UID:2] forms - mbti_name_value=None
+[DEBUG] 2025-04-02 00:54:50,521 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[DEBUG] 2025-04-02 00:54:50,521 [UID:2] views - tmp_mbti=ISFP
+[DEBUG] 2025-04-02 00:54:50,521 [UID:2] views - tmp_mbti_name=ISFP-0
+[DEBUG] 2025-04-02 00:54:50,521 [UID:2] views - profile_form.fields['mbti_name'].choices=[('', '---------')]
+[ERROR] 2025-04-02 00:54:50,524 [UID:2] views - form not is_valid
+[INFO] 2025-04-02 00:54:50,526 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 00:54:50,532 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 200 79347
+[DEBUG] 2025-04-02 00:54:50,604 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 00:54:50,606 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 00:54:50,607 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 01:09:57,311 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 01:09:57,913 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 01:12:16,219 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-02 01:12:16,761 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 01:12:45,146 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\forms.py changed, reloading.
+[INFO] 2025-04-02 01:12:45,670 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 01:13:00,469 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 01:13:04,133 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:13:04,133 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:13:04,136 [UID:2] views - GET method
+[DEBUG] 2025-04-02 01:13:04,137 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 01:13:04,138 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 01:13:04,138 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 01:13:04,177 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79466
+[INFO] 2025-04-02 01:13:11,570 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:13:11,570 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:13:11,573 [UID:2] views - POST method
+[DEBUG] 2025-04-02 01:13:11,574 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 01:13:11,574 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[DEBUG] 2025-04-02 01:13:11,574 [UID:2] views - tmp_mbti=ISFP
+[DEBUG] 2025-04-02 01:13:11,575 [UID:2] views - tmp_mbti_name=ISFP-2
+[DEBUG] 2025-04-02 01:13:11,575 [UID:2] views - profile_form.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[DEBUG] 2025-04-02 01:13:11,577 [UID:2] forms - mbti_name_value=ISFP-2
+[DEBUG] 2025-04-02 01:13:11,577 [UID:2] forms - valid_choices=['ISFP-0', 'ISFP-1', 'ISFP-2']
+[DEBUG] 2025-04-02 01:13:11,578 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 01:13:11,578 [UID:2] views - object.mbti_name=ISFP-2
+[DEBUG] 2025-04-02 01:13:11,578 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 01:13:11,579 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 01:13:11,579 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\25_themes_2503250049.jpg
+[DEBUG] 2025-04-02 01:13:11,579 [UID:2] views - old images_data file exists
+[DEBUG] 2025-04-02 01:13:11,580 [UID:2] views - delete old images_data
+[DEBUG] 2025-04-02 01:13:11,580 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 01:13:11,581 [UID:2] views - themes_data exists=user/images_3.jpg
+[DEBUG] 2025-04-02 01:13:11,581 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 01:13:11,581 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\images_3.jpg
+[DEBUG] 2025-04-02 01:13:11,581 [UID:2] views - old themes_data file exists
+[DEBUG] 2025-04-02 01:13:11,582 [UID:2] views - delete old themes_data
+[DEBUG] 2025-04-02 01:13:11,582 [UID:2] views - new themes_data=25_themes_2504020113.jpg
+[DEBUG] 2025-04-02 01:13:11,582 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 01:13:11,582 [UID:2] views - save updated Profile object
+[ERROR] 2025-04-02 01:13:11,584 [UID:2] views - couldnt save the Profile object: [Errno 2] No such file or directory: 'C:\\Users\\sasay\\Desktop\\Python\\AinoteProject\\media\\25_images_2504020113.jpg'
+[INFO] 2025-04-02 01:13:11,584 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 01:13:11,584 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 01:13:11,590 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 01:13:11,593 [UID:2] views - object_list exists
+[INFO] 2025-04-02 01:13:11,594 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 01:13:11,621 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 01:13:13,751 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 01:13:13,754 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 01:13:13,760 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 01:13:13,769 [UID:2] basehttp - "GET /user/detail/25/ HTTP/1.1" 200 69986
+[INFO] 2025-04-02 01:13:13,805 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 01:13:13,806 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=25
+[DEBUG] 2025-04-02 01:13:13,821 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 01:13:13,846 [UID:2] basehttp - "GET /friend/disp_qr/25/ HTTP/1.1" 200 8351
+[INFO] 2025-04-02 01:13:17,173 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:13:17,173 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:13:17,176 [UID:2] views - GET method
+[DEBUG] 2025-04-02 01:13:17,177 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 01:13:17,177 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 01:13:17,178 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 01:13:17,184 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79466
+[DEBUG] 2025-04-02 01:13:17,253 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 01:13:17,256 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 01:13:17,257 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 01:14:42,368 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:14:42,368 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:14:42,372 [UID:2] views - POST method
+[DEBUG] 2025-04-02 01:14:42,373 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 01:14:42,373 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[DEBUG] 2025-04-02 01:14:42,373 [UID:2] views - tmp_mbti=ISFP
+[DEBUG] 2025-04-02 01:14:42,373 [UID:2] views - tmp_mbti_name=ISFP-0
+[DEBUG] 2025-04-02 01:14:42,373 [UID:2] views - profile_form.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[DEBUG] 2025-04-02 01:14:42,374 [UID:2] forms - mbti_name_value=ISFP-0
+[DEBUG] 2025-04-02 01:14:42,374 [UID:2] forms - valid_choices=['ISFP-0', 'ISFP-1', 'ISFP-2']
+[DEBUG] 2025-04-02 01:14:42,374 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 01:14:42,374 [UID:2] views - object.mbti_name=ISFP-0
+[DEBUG] 2025-04-02 01:14:42,375 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 01:14:42,375 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 01:14:42,375 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\25_themes_2503250049.jpg
+[DEBUG] 2025-04-02 01:14:42,375 [UID:2] views - old images_data file not exists
+[DEBUG] 2025-04-02 01:14:42,375 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 01:14:42,375 [UID:2] views - themes_data exists=user/images_3.jpg
+[DEBUG] 2025-04-02 01:14:42,376 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 01:14:42,376 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\images_3.jpg
+[DEBUG] 2025-04-02 01:14:42,376 [UID:2] views - old themes_data file not exists
+[DEBUG] 2025-04-02 01:14:42,376 [UID:2] views - new themes_data=25_themes_2504020114.jpg
+[DEBUG] 2025-04-02 01:14:42,376 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 01:14:42,376 [UID:2] views - save updated Profile object
+[ERROR] 2025-04-02 01:14:42,377 [UID:2] views - couldnt save the Profile object: [Errno 2] No such file or directory: 'C:\\Users\\sasay\\Desktop\\Python\\AinoteProject\\media\\25_images_2504020114.jpg'
+[INFO] 2025-04-02 01:14:42,377 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 01:14:42,378 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 01:14:42,383 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 01:14:42,386 [UID:2] views - object_list exists
+[INFO] 2025-04-02 01:14:42,387 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 01:14:42,410 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 01:20:46,366 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 01:20:46,369 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 01:20:46,376 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 01:20:46,387 [UID:2] basehttp - "GET /user/detail/25/ HTTP/1.1" 200 69986
+[INFO] 2025-04-02 01:20:46,442 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 01:20:46,442 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=25
+[DEBUG] 2025-04-02 01:20:46,458 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 01:20:46,468 [UID:2] basehttp - "GET /friend/disp_qr/25/ HTTP/1.1" 200 8351
+[INFO] 2025-04-02 01:20:51,289 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:20:51,289 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:20:51,292 [UID:2] views - GET method
+[DEBUG] 2025-04-02 01:20:51,293 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 01:20:51,294 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 01:20:51,294 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 01:20:51,311 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79466
+[DEBUG] 2025-04-02 01:20:51,439 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 01:20:51,443 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 01:20:51,444 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 01:21:01,176 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:21:01,176 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:21:01,179 [UID:2] views - POST method
+[DEBUG] 2025-04-02 01:21:01,180 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 01:21:01,180 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[DEBUG] 2025-04-02 01:21:01,181 [UID:2] views - tmp_mbti=ISFP
+[DEBUG] 2025-04-02 01:21:01,181 [UID:2] views - tmp_mbti_name=ISFP-0
+[DEBUG] 2025-04-02 01:21:01,181 [UID:2] views - profile_form.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[DEBUG] 2025-04-02 01:21:01,181 [UID:2] forms - mbti_name_value=ISFP-0
+[DEBUG] 2025-04-02 01:21:01,181 [UID:2] forms - valid_choices=['ISFP-0', 'ISFP-1', 'ISFP-2']
+[DEBUG] 2025-04-02 01:21:01,182 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 01:21:01,182 [UID:2] views - object.mbti_name=ISFP-0
+[DEBUG] 2025-04-02 01:21:01,182 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 01:21:01,182 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 01:21:01,182 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\25_themes_2503250049.jpg
+[DEBUG] 2025-04-02 01:21:01,182 [UID:2] views - old images_data file not exists
+[DEBUG] 2025-04-02 01:21:01,183 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 01:21:01,183 [UID:2] views - themes_data exists=user/images_3.jpg
+[DEBUG] 2025-04-02 01:21:01,183 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 01:21:01,183 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\images_3.jpg
+[DEBUG] 2025-04-02 01:21:01,183 [UID:2] views - old themes_data file not exists
+[DEBUG] 2025-04-02 01:21:01,183 [UID:2] views - new themes_data=25_themes_2504020121.jpg
+[DEBUG] 2025-04-02 01:21:01,184 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 01:21:01,184 [UID:2] views - save updated Profile object
+[ERROR] 2025-04-02 01:21:01,185 [UID:2] views - couldnt save the Profile object: [Errno 2] No such file or directory: 'C:\\Users\\sasay\\Desktop\\Python\\AinoteProject\\media\\25_images_2504020121.jpg'
+[INFO] 2025-04-02 01:21:01,185 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 01:21:01,186 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 01:21:01,193 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 01:21:01,196 [UID:2] views - object_list exists
+[INFO] 2025-04-02 01:21:01,197 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 01:21:01,222 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 01:21:20,231 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 01:21:20,233 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 01:21:20,237 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 01:21:20,244 [UID:2] basehttp - "GET /user/detail/25/ HTTP/1.1" 200 69986
+[INFO] 2025-04-02 01:21:20,274 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 01:21:20,274 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=25
+[DEBUG] 2025-04-02 01:21:20,289 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 01:21:20,297 [UID:2] basehttp - "GET /friend/disp_qr/25/ HTTP/1.1" 200 8351
+[INFO] 2025-04-02 01:21:23,586 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:21:23,587 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:21:23,589 [UID:2] views - GET method
+[DEBUG] 2025-04-02 01:21:23,590 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 01:21:23,591 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 01:21:23,591 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 01:21:23,600 [UID:2] basehttp - "GET /user/update/25/ HTTP/1.1" 200 79466
+[DEBUG] 2025-04-02 01:21:23,681 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 01:21:23,684 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 01:21:23,684 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 01:21:39,607 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:21:39,607 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:21:39,610 [UID:2] views - POST method
+[DEBUG] 2025-04-02 01:21:39,611 [UID:2] forms - mbti_value=ISFP
+[DEBUG] 2025-04-02 01:21:39,611 [UID:2] forms - self.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[DEBUG] 2025-04-02 01:21:39,611 [UID:2] views - tmp_mbti=ISFP
+[DEBUG] 2025-04-02 01:21:39,611 [UID:2] views - tmp_mbti_name=ISFP-0
+[DEBUG] 2025-04-02 01:21:39,611 [UID:2] views - profile_form.fields['mbti_name'].choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[DEBUG] 2025-04-02 01:21:39,612 [UID:2] forms - mbti_name_value=ISFP-0
+[DEBUG] 2025-04-02 01:21:39,612 [UID:2] forms - valid_choices=['ISFP-0', 'ISFP-1', 'ISFP-2']
+[DEBUG] 2025-04-02 01:21:39,928 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 01:21:39,928 [UID:2] views - object.mbti_name=ISFP-0
+[DEBUG] 2025-04-02 01:21:39,928 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 01:21:39,928 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 01:21:39,929 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\25_themes_2503250049.jpg
+[DEBUG] 2025-04-02 01:21:39,929 [UID:2] views - old images_data file not exists
+[DEBUG] 2025-04-02 01:21:39,929 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 01:21:39,929 [UID:2] views - themes_data exists=user/images_3.jpg
+[DEBUG] 2025-04-02 01:21:39,929 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 01:21:39,929 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\images_3.jpg
+[DEBUG] 2025-04-02 01:21:39,930 [UID:2] views - old themes_data file not exists
+[DEBUG] 2025-04-02 01:21:39,930 [UID:2] views - new themes_data=25_themes_2504020121.jpg
+[DEBUG] 2025-04-02 01:21:39,930 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 01:21:39,930 [UID:2] views - save updated Profile object
+[ERROR] 2025-04-02 01:21:39,937 [UID:2] views - couldnt save the Profile object: [Errno 2] No such file or directory: 'C:\\Users\\sasay\\Desktop\\Python\\AinoteProject\\media\\25_themes_2504020121.jpg'
+[INFO] 2025-04-02 01:21:39,937 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 01:21:39,938 [UID:2] basehttp - "POST /user/update/25/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 01:21:39,942 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 01:21:39,945 [UID:2] views - object_list exists
+[INFO] 2025-04-02 01:21:39,946 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 01:21:39,968 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 01:21:57,643 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 01:21:57,646 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 01:21:57,651 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 01:21:57,662 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 01:21:57,692 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 01:21:57,692 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 01:21:57,705 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 01:21:57,712 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 01:22:00,544 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:22:00,545 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:22:00,547 [UID:2] views - GET method
+[DEBUG] 2025-04-02 01:22:00,549 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 01:22:00,549 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 01:22:00,549 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 01:22:00,557 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 01:22:00,626 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 01:22:00,628 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 01:22:00,629 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 01:22:08,963 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:22:08,964 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:22:08,967 [UID:2] views - POST method
+[DEBUG] 2025-04-02 01:22:08,968 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 01:22:08,968 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 01:22:08,968 [UID:2] views - tmp_mbti=INTJ
+[DEBUG] 2025-04-02 01:22:08,968 [UID:2] views - tmp_mbti_name=INTJ-0
+[DEBUG] 2025-04-02 01:22:08,969 [UID:2] views - profile_form.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 01:22:08,969 [UID:2] forms - mbti_name_value=INTJ-0
+[DEBUG] 2025-04-02 01:22:08,969 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 01:22:08,969 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 01:22:08,969 [UID:2] views - object.mbti_name=INTJ-0
+[DEBUG] 2025-04-02 01:22:08,970 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 01:22:08,970 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 01:22:08,970 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\26_themes_2503250053.jpg
+[DEBUG] 2025-04-02 01:22:08,970 [UID:2] views - old images_data file exists
+[DEBUG] 2025-04-02 01:22:08,971 [UID:2] views - delete old images_data
+[DEBUG] 2025-04-02 01:22:08,971 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 01:22:08,971 [UID:2] views - themes_data exists=user/ダウンロード_11.jpg
+[DEBUG] 2025-04-02 01:22:08,972 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 01:22:08,972 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\ダウンロード_11.jpg
+[DEBUG] 2025-04-02 01:22:08,972 [UID:2] views - old themes_data file exists
+[DEBUG] 2025-04-02 01:22:08,972 [UID:2] views - delete old themes_data
+[DEBUG] 2025-04-02 01:22:08,972 [UID:2] views - new themes_data=26_themes_2504020122.jpg
+[DEBUG] 2025-04-02 01:22:08,973 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 01:22:08,973 [UID:2] views - save updated Profile object
+[ERROR] 2025-04-02 01:22:08,974 [UID:2] views - couldnt save the Profile object: [Errno 2] No such file or directory: 'C:\\Users\\sasay\\Desktop\\Python\\AinoteProject\\media\\26_images_2504020122.jpg'
+[INFO] 2025-04-02 01:22:08,974 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 01:22:08,974 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 01:22:08,979 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 01:22:08,983 [UID:2] views - object_list exists
+[INFO] 2025-04-02 01:22:08,984 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 01:22:09,007 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 01:22:10,210 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 01:22:10,212 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 01:22:10,218 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 01:22:10,223 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 01:22:10,245 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 01:22:10,245 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 01:22:10,258 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 01:22:10,267 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 01:22:14,100 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:22:14,100 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:22:14,103 [UID:2] views - GET method
+[DEBUG] 2025-04-02 01:22:14,104 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 01:22:14,105 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 01:22:14,105 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 01:22:14,111 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 01:22:14,178 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 01:22:14,181 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 01:22:14,181 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 01:22:22,739 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:22:22,739 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:22:22,743 [UID:2] views - POST method
+[DEBUG] 2025-04-02 01:22:22,744 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 01:22:22,744 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 01:22:22,744 [UID:2] views - tmp_mbti=INTJ
+[DEBUG] 2025-04-02 01:22:22,744 [UID:2] views - tmp_mbti_name=INTJ-2
+[DEBUG] 2025-04-02 01:22:22,745 [UID:2] views - profile_form.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 01:22:22,745 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 01:22:22,745 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 01:22:22,746 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 01:22:22,746 [UID:2] views - object.mbti_name=INTJ-2
+[DEBUG] 2025-04-02 01:22:22,746 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 01:22:22,746 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 01:22:22,746 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\26_themes_2503250053.jpg
+[DEBUG] 2025-04-02 01:22:22,747 [UID:2] views - old images_data file not exists
+[DEBUG] 2025-04-02 01:22:22,747 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 01:22:22,747 [UID:2] views - themes_data exists=user/ダウンロード_11.jpg
+[DEBUG] 2025-04-02 01:22:22,747 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 01:22:22,747 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\ダウンロード_11.jpg
+[DEBUG] 2025-04-02 01:22:22,748 [UID:2] views - old themes_data file not exists
+[DEBUG] 2025-04-02 01:22:22,748 [UID:2] views - new themes_data=26_themes_2504020122.jpg
+[DEBUG] 2025-04-02 01:22:22,748 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 01:22:22,748 [UID:2] views - save updated Profile object
+[ERROR] 2025-04-02 01:22:22,750 [UID:2] views - couldnt save the Profile object: [Errno 2] No such file or directory: 'C:\\Users\\sasay\\Desktop\\Python\\AinoteProject\\media\\26_images_2504020122.jpg'
+[INFO] 2025-04-02 01:22:22,750 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 01:22:22,751 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 01:22:22,755 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 01:22:22,759 [UID:2] views - object_list exists
+[INFO] 2025-04-02 01:22:22,761 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 01:22:22,785 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 01:22:23,750 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 01:22:23,752 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 01:22:23,756 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 01:22:23,764 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 01:22:23,789 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 01:22:23,790 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 01:22:23,802 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 01:22:23,812 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 01:22:27,448 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 01:22:27,449 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 01:22:27,451 [UID:2] views - GET method
+[DEBUG] 2025-04-02 01:22:27,452 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 01:22:27,453 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 01:22:27,453 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 01:22:27,460 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 01:22:27,534 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 01:22:27,536 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 01:22:27,536 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 10:23:01,988 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 10:23:09,446 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:23:09,447 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:23:09,449 [UID:2] views - GET method
+[DEBUG] 2025-04-02 10:23:09,450 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:23:09,450 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:23:09,451 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 10:23:09,574 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 10:23:09,899 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 10:23:09,902 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:23:09,903 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 10:23:18,059 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:23:18,059 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:23:18,062 [UID:2] views - POST method
+[DEBUG] 2025-04-02 10:23:18,063 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:23:18,063 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 10:23:18,063 [UID:2] views - tmp_mbti=INTJ
+[DEBUG] 2025-04-02 10:23:18,064 [UID:2] views - tmp_mbti_name=INTJ-2
+[DEBUG] 2025-04-02 10:23:18,064 [UID:2] views - profile_form.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 10:23:18,076 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 10:23:18,076 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 10:23:18,077 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 10:23:18,077 [UID:2] views - object.mbti_name=INTJ-2
+[DEBUG] 2025-04-02 10:23:18,078 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 10:23:18,078 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 10:23:18,078 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\26_themes_2503250053.jpg
+[DEBUG] 2025-04-02 10:23:18,078 [UID:2] views - old images_data file not exists
+[DEBUG] 2025-04-02 10:23:18,079 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 10:23:18,079 [UID:2] views - themes_data exists=user/ダウンロード_11.jpg
+[DEBUG] 2025-04-02 10:23:18,079 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 10:23:18,079 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\ダウンロード_11.jpg
+[DEBUG] 2025-04-02 10:23:18,079 [UID:2] views - old themes_data file not exists
+[DEBUG] 2025-04-02 10:23:18,080 [UID:2] views - new themes_data=26_themes_2504021023.jpg
+[DEBUG] 2025-04-02 10:23:18,080 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 10:23:18,080 [UID:2] views - save updated Profile object
+[ERROR] 2025-04-02 10:23:18,081 [UID:2] views - couldnt save the Profile object: [Errno 2] No such file or directory: 'C:\\Users\\sasay\\Desktop\\Python\\AinoteProject\\media\\26_images_2504021023.jpg'
+[INFO] 2025-04-02 10:23:18,081 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 10:23:18,082 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 10:23:18,087 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 10:23:18,091 [UID:2] views - object_list exists
+[INFO] 2025-04-02 10:23:18,092 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 10:23:18,123 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 10:23:19,969 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 10:23:19,972 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 10:23:19,977 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 10:23:19,988 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 10:23:20,025 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 10:23:20,025 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 10:23:20,048 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 10:23:20,185 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 10:23:25,267 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:23:25,268 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:23:25,271 [UID:2] views - GET method
+[DEBUG] 2025-04-02 10:23:25,272 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:23:25,272 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:23:25,273 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 10:23:25,280 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 10:23:25,352 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 10:23:25,355 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:23:25,355 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 10:31:13,521 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:31:13,522 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:31:13,526 [UID:2] views - POST method
+[DEBUG] 2025-04-02 10:31:13,541 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:31:13,544 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 10:31:13,550 [UID:2] views - tmp_mbti=INTJ
+[DEBUG] 2025-04-02 10:31:13,555 [UID:2] views - tmp_mbti_name=INTJ-2
+[DEBUG] 2025-04-02 10:31:13,556 [UID:2] views - profile_form.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 10:31:13,556 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 10:31:13,556 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 10:31:13,847 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 10:31:13,847 [UID:2] views - object.mbti_name=INTJ-2
+[DEBUG] 2025-04-02 10:31:13,847 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 10:31:13,847 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 10:31:13,847 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\26_themes_2503250053.jpg
+[DEBUG] 2025-04-02 10:31:13,848 [UID:2] views - old images_data file not exists
+[DEBUG] 2025-04-02 10:31:13,848 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 10:31:13,848 [UID:2] views - themes_data exists=ダウンロード_11.jpg
+[DEBUG] 2025-04-02 10:31:13,848 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 10:31:13,848 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\ダウンロード_11.jpg
+[DEBUG] 2025-04-02 10:31:13,849 [UID:2] views - old themes_data file not exists
+[DEBUG] 2025-04-02 10:31:13,849 [UID:2] views - new themes_data=26_themes_2504021031.jpg
+[DEBUG] 2025-04-02 10:31:13,849 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 10:31:13,849 [UID:2] views - save updated Profile object
+[ERROR] 2025-04-02 10:31:19,333 [UID:2] views - couldnt save the Profile object: database is locked
+[INFO] 2025-04-02 10:31:19,334 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 10:31:19,335 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 10:31:19,340 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 10:31:19,343 [UID:2] views - object_list exists
+[INFO] 2025-04-02 10:31:19,343 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 10:31:19,367 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[DEBUG] 2025-04-02 10:31:27,467 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 10:31:27,470 [UID:2] views - object_list exists
+[INFO] 2025-04-02 10:31:27,471 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 10:31:27,499 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 10:31:27,613 [UID:Anon] basehttp - "GET /static/assets/dist/js/bootstrap.bundle.js HTTP/1.1" 200 207425
+[INFO] 2025-04-02 10:31:27,620 [UID:2] basehttp - "GET /static/assets/dist/css/bootstrap.css HTTP/1.1" 200 280812
+[INFO] 2025-04-02 10:31:27,625 [UID:2] basehttp - "GET /media/user/images_1.jpg HTTP/1.1" 200 16765
+[INFO] 2025-04-02 10:31:27,634 [UID:2] basehttp - "GET /media/user/12_themes_2503242131.jpg HTTP/1.1" 200 64615
+[INFO] 2025-04-02 10:31:27,640 [UID:2] basehttp - "GET /static/assets/dist/js/bootstrap.bundle.js.map HTTP/1.1" 200 443531
+[INFO] 2025-04-02 10:31:27,695 [UID:2] basehttp - "GET /static/assets/dist/css/bootstrap.css.map HTTP/1.1" 200 678646
+[INFO] 2025-04-02 10:31:29,247 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 10:31:29,249 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 10:31:29,254 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 10:31:29,260 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 10:31:29,283 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 10:31:29,283 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 10:31:29,298 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 10:31:29,308 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 10:31:33,020 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:31:33,020 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:31:33,023 [UID:2] views - GET method
+[DEBUG] 2025-04-02 10:31:33,024 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:31:33,024 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:31:33,024 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 10:31:33,036 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 10:31:33,095 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 10:31:33,098 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:31:33,099 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 10:36:11,993 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 10:36:12,656 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 10:36:24,715 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:36:24,716 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:36:24,719 [UID:2] views - POST method
+[DEBUG] 2025-04-02 10:36:24,720 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:36:24,720 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 10:36:24,721 [UID:2] views - tmp_mbti=INTJ
+[DEBUG] 2025-04-02 10:36:24,721 [UID:2] views - tmp_mbti_name=INTJ-2
+[DEBUG] 2025-04-02 10:36:24,722 [UID:2] views - profile_form.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 10:36:24,724 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 10:36:24,724 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 10:36:24,725 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 10:36:24,725 [UID:2] views - object.mbti_name=INTJ-2
+[DEBUG] 2025-04-02 10:36:24,726 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 10:36:24,726 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 10:36:24,726 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\26_themes_2503250053.jpg
+[DEBUG] 2025-04-02 10:36:24,727 [UID:2] views - old images_data file not exists
+[DEBUG] 2025-04-02 10:36:24,727 [UID:2] views - new images_data=26_images_2504021036.jpg
+[DEBUG] 2025-04-02 10:36:24,727 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 10:36:24,727 [UID:2] views - themes_data exists=user/ダウンロード_11.jpg
+[DEBUG] 2025-04-02 10:36:24,728 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 10:36:24,728 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\ダウンロード_11.jpg
+[DEBUG] 2025-04-02 10:36:24,728 [UID:2] views - old themes_data file not exists
+[DEBUG] 2025-04-02 10:36:24,729 [UID:2] views - new themes_data=26_themes_2504021036.jpg
+[DEBUG] 2025-04-02 10:36:24,729 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 10:36:24,729 [UID:2] views - save updated Profile object
+[ERROR] 2025-04-02 10:36:24,730 [UID:2] views - couldnt save the Profile object: [Errno 2] No such file or directory: 'C:\\Users\\sasay\\Desktop\\Python\\AinoteProject\\media\\26_images_2504021036.jpg'
+[INFO] 2025-04-02 10:36:24,730 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 10:36:24,740 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 10:36:24,747 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 10:36:24,750 [UID:2] views - object_list exists
+[INFO] 2025-04-02 10:36:24,752 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 10:36:24,804 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 10:42:06,989 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 10:42:07,701 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 10:42:10,757 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 10:42:10,762 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 10:42:10,769 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 10:42:10,819 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 10:42:10,868 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 10:42:10,869 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 10:42:10,886 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 10:42:10,914 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 10:42:12,438 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:42:12,438 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:42:12,441 [UID:2] views - GET method
+[DEBUG] 2025-04-02 10:42:12,442 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:42:12,443 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:42:12,443 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 10:42:12,461 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 10:42:12,553 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 10:42:12,556 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:42:12,557 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 10:49:04,065 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 10:49:04,759 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 10:49:11,526 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:49:11,527 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:49:11,529 [UID:2] views - POST method
+[DEBUG] 2025-04-02 10:49:11,530 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:49:11,530 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 10:49:11,531 [UID:2] views - tmp_mbti=INTJ
+[DEBUG] 2025-04-02 10:49:11,531 [UID:2] views - tmp_mbti_name=INTJ-2
+[DEBUG] 2025-04-02 10:49:11,531 [UID:2] views - profile_form.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 10:49:11,534 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 10:49:11,534 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 10:49:11,535 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 10:49:11,535 [UID:2] views - object.mbti_name=INTJ-2
+[DEBUG] 2025-04-02 10:49:11,535 [UID:2] views - images_data=user/26_themes_2503250053.jpg
+[DEBUG] 2025-04-02 10:49:11,535 [UID:2] views - themes_data=user/ダウンロード_11.jpg
+[DEBUG] 2025-04-02 10:49:11,536 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 10:49:11,536 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 10:49:11,536 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\26_themes_2503250053.jpg
+[DEBUG] 2025-04-02 10:49:11,536 [UID:2] views - old images_data file not exists
+[DEBUG] 2025-04-02 10:49:11,537 [UID:2] views - new images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\26_images_2504021049.jpg
+[DEBUG] 2025-04-02 10:49:11,537 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 10:49:11,537 [UID:2] views - themes_data exists=user/ダウンロード_11.jpg
+[DEBUG] 2025-04-02 10:49:11,537 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 10:49:11,537 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\ダウンロード_11.jpg
+[DEBUG] 2025-04-02 10:49:11,537 [UID:2] views - old themes_data file not exists
+[DEBUG] 2025-04-02 10:49:11,538 [UID:2] views - new themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\26_themes_2504021049.jpg
+[DEBUG] 2025-04-02 10:49:11,538 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 10:49:11,538 [UID:2] views - save updated Profile object
+[ERROR] 2025-04-02 10:49:11,540 [UID:2] views - couldnt save the Profile object: [Errno 2] No such file or directory: 'C:\\Users\\sasay\\Desktop\\Python\\AinoteProject\\media\\26_images_2504021049.jpg'
+[INFO] 2025-04-02 10:49:11,540 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 10:49:11,551 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 10:49:11,555 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 10:49:11,560 [UID:2] views - object_list exists
+[INFO] 2025-04-02 10:49:11,561 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 10:49:11,614 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 10:49:59,260 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 10:49:59,264 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 10:49:59,269 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 10:49:59,284 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 10:49:59,309 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 10:49:59,310 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 10:49:59,327 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 10:49:59,354 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 10:50:02,803 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:50:02,804 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:50:02,807 [UID:2] views - GET method
+[DEBUG] 2025-04-02 10:50:02,808 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:50:02,809 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:50:02,810 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 10:50:02,828 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 10:50:02,869 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 10:50:02,871 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:50:02,872 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 10:54:19,094 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 10:54:19,651 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 10:54:23,969 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:54:23,969 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:54:23,972 [UID:2] views - POST method
+[DEBUG] 2025-04-02 10:54:23,973 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:54:23,973 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 10:54:23,975 [UID:2] forms - mbti_name_value=INTJ-1
+[DEBUG] 2025-04-02 10:54:23,976 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 10:54:23,977 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 10:54:23,977 [UID:2] views - object.mbti_name=INTJ-1
+[ERROR] 2025-04-02 10:54:24,028 [UID:2] log - Internal Server Error: /user/update/26/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py", line 232, in update_view
+    logger.debug(f'images_data[POST]={profile_form.POST["images"]}')
+                                      ^^^^^^^^^^^^^^^^^
+AttributeError: 'ProfileForm' object has no attribute 'POST'
+[ERROR] 2025-04-02 10:54:24,031 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 500 112101
+[INFO] 2025-04-02 10:56:13,048 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 10:56:13,583 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 10:56:17,958 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:56:17,959 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:56:17,962 [UID:2] views - GET method
+[DEBUG] 2025-04-02 10:56:17,963 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:56:17,963 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:56:17,963 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 10:56:18,003 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 10:56:18,065 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 10:56:18,069 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:56:18,069 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 10:56:19,332 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:56:19,332 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:56:19,334 [UID:2] views - POST method
+[DEBUG] 2025-04-02 10:56:19,335 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:56:19,335 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 10:56:19,338 [UID:2] forms - mbti_name_value=INTJ-1
+[DEBUG] 2025-04-02 10:56:19,338 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 10:56:19,339 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 10:56:19,339 [UID:2] views - object.mbti_name=INTJ-1
+[DEBUG] 2025-04-02 10:56:19,340 [UID:2] views - images_data[FILE]=None
+[DEBUG] 2025-04-02 10:56:19,340 [UID:2] views - images_data=user/26_themes_2503250053.jpg
+[DEBUG] 2025-04-02 10:56:19,340 [UID:2] views - themes_data[FILE]=None
+[DEBUG] 2025-04-02 10:56:19,340 [UID:2] views - themes_data=user/ダウンロード_11.jpg
+[DEBUG] 2025-04-02 10:56:19,341 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 10:56:19,341 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 10:56:19,341 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\26_themes_2503250053.jpg
+[DEBUG] 2025-04-02 10:56:19,341 [UID:2] views - old images_data file not exists
+[DEBUG] 2025-04-02 10:56:19,342 [UID:2] views - new images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\26_images_2504021056.jpg
+[DEBUG] 2025-04-02 10:56:19,342 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 10:56:19,342 [UID:2] views - themes_data exists=user/ダウンロード_11.jpg
+[DEBUG] 2025-04-02 10:56:19,342 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 10:56:19,342 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\ダウンロード_11.jpg
+[DEBUG] 2025-04-02 10:56:19,343 [UID:2] views - old themes_data file not exists
+[DEBUG] 2025-04-02 10:56:19,343 [UID:2] views - new themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\26_themes_2504021056.jpg
+[DEBUG] 2025-04-02 10:56:19,343 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 10:56:19,343 [UID:2] views - save updated Profile object
+[ERROR] 2025-04-02 10:56:19,345 [UID:2] views - couldnt save the Profile object: [Errno 2] No such file or directory: 'C:\\Users\\sasay\\Desktop\\Python\\AinoteProject\\media\\26_images_2504021056.jpg'
+[INFO] 2025-04-02 10:56:19,345 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 10:56:19,347 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 10:56:19,352 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 10:56:19,356 [UID:2] views - object_list exists
+[INFO] 2025-04-02 10:56:19,357 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 10:56:19,402 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 10:57:39,460 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 10:57:40,059 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 10:57:44,187 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 10:57:44,192 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 10:57:44,198 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 10:57:44,245 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 10:57:44,288 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 10:57:44,292 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 10:57:44,310 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 10:57:44,338 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 10:57:45,892 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:57:45,893 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:57:45,896 [UID:2] views - GET method
+[DEBUG] 2025-04-02 10:57:45,897 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:57:45,898 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:57:45,898 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 10:57:45,916 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 10:57:46,006 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 10:57:46,010 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:57:46,011 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 10:57:46,812 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:57:46,812 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:57:46,815 [UID:2] views - POST method
+[DEBUG] 2025-04-02 10:57:46,815 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:57:46,816 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 10:57:46,818 [UID:2] forms - mbti_name_value=INTJ-1
+[DEBUG] 2025-04-02 10:57:46,818 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 10:57:46,818 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 10:57:46,819 [UID:2] views - object.mbti_name=INTJ-1
+[DEBUG] 2025-04-02 10:57:46,819 [UID:2] views - images_data=None
+[DEBUG] 2025-04-02 10:57:46,819 [UID:2] views - themes_data=None
+[DEBUG] 2025-04-02 10:57:46,819 [UID:2] views - save updated Profile object
+[INFO] 2025-04-02 10:57:46,824 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 10:57:46,825 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 10:57:46,830 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 10:57:46,833 [UID:2] views - object_list exists
+[INFO] 2025-04-02 10:57:46,834 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 10:57:46,864 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 10:58:07,293 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 10:58:07,295 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 10:58:07,299 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 10:58:07,305 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 10:58:07,328 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 10:58:07,328 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 10:58:07,341 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 10:58:07,350 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 10:58:11,848 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:58:11,849 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:58:11,852 [UID:2] views - GET method
+[DEBUG] 2025-04-02 10:58:11,852 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:58:11,853 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:58:11,853 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 10:58:11,859 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 10:58:11,916 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 10:58:11,918 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:58:11,919 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 10:58:20,488 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:58:20,488 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:58:20,491 [UID:2] views - POST method
+[DEBUG] 2025-04-02 10:58:20,492 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:58:20,493 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 10:58:20,493 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 10:58:20,493 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 10:58:20,494 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 10:58:20,494 [UID:2] views - object.mbti_name=INTJ-2
+[DEBUG] 2025-04-02 10:58:20,494 [UID:2] views - images_data=None
+[DEBUG] 2025-04-02 10:58:20,494 [UID:2] views - themes_data=None
+[DEBUG] 2025-04-02 10:58:20,494 [UID:2] views - save updated Profile object
+[INFO] 2025-04-02 10:58:20,499 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 10:58:20,500 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 10:58:20,506 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 10:58:20,509 [UID:2] views - object_list exists
+[INFO] 2025-04-02 10:58:20,510 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 10:58:20,534 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 10:58:21,603 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 10:58:21,607 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 10:58:21,612 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 10:58:21,621 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 10:58:21,654 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 10:58:21,655 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 10:58:21,669 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 10:58:21,681 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 10:58:26,153 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 10:58:26,153 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 10:58:26,157 [UID:2] views - GET method
+[DEBUG] 2025-04-02 10:58:26,158 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 10:58:26,158 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:58:26,159 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 10:58:26,165 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 10:58:26,216 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 10:58:26,220 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 10:58:26,221 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 10:58:55,487 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 10:58:56,039 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:00:41,058 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 11:00:41,588 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:02:51,339 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\device\views.py changed, reloading.
+[INFO] 2025-04-02 11:02:51,907 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:04:02,749 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\group\views.py changed, reloading.
+[INFO] 2025-04-02 11:04:03,347 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:05:07,934 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\headline\views.py changed, reloading.
+[INFO] 2025-04-02 11:05:08,500 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:05:58,613 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\notice\views.py changed, reloading.
+[INFO] 2025-04-02 11:05:59,166 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:06:40,004 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-04-02 11:06:40,563 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:07:25,448 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\room\views.py changed, reloading.
+[INFO] 2025-04-02 11:07:25,993 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:13:22,545 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\device\views.py changed, reloading.
+[INFO] 2025-04-02 11:13:23,114 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:16:11,217 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\group\views.py changed, reloading.
+[INFO] 2025-04-02 11:16:11,776 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:17:51,556 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 11:17:52,191 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:19:07,227 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\headline\views.py changed, reloading.
+[INFO] 2025-04-02 11:19:07,804 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:19:58,930 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\chat\views.py changed, reloading.
+[INFO] 2025-04-02 11:19:59,464 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:20:26,740 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\chat\views.py changed, reloading.
+[INFO] 2025-04-02 11:20:27,303 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:21:12,252 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\device\views.py changed, reloading.
+[INFO] 2025-04-02 11:21:12,811 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:21:47,375 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\group\views.py changed, reloading.
+[INFO] 2025-04-02 11:21:47,928 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:22:06,996 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\headline\views.py changed, reloading.
+[INFO] 2025-04-02 11:22:07,545 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:23:37,044 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\notice\views.py changed, reloading.
+[INFO] 2025-04-02 11:23:37,628 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:25:51,767 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-04-02 11:25:52,339 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:26:59,028 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\room\views.py changed, reloading.
+[INFO] 2025-04-02 11:26:59,588 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:29:17,772 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\room\views.py changed, reloading.
+[INFO] 2025-04-02 11:29:18,424 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:29:33,788 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:29:33,789 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:29:33,793 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:29:33,794 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:29:33,794 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 11:29:33,797 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 11:29:33,797 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 11:29:33,798 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 11:29:33,798 [UID:2] views - save updated Profile object
+[INFO] 2025-04-02 11:29:33,805 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 11:29:33,820 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 11:29:33,823 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 11:29:33,828 [UID:2] views - object_list exists
+[INFO] 2025-04-02 11:29:33,829 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 11:29:33,887 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 11:29:34,825 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 11:29:34,828 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 11:29:34,832 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 11:29:34,841 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 11:29:34,875 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 11:29:34,876 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 11:29:34,891 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 11:29:34,916 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 11:29:38,284 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:29:38,284 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:29:38,287 [UID:2] views - GET method
+[DEBUG] 2025-04-02 11:29:38,288 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:29:38,288 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:29:38,288 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 11:29:38,305 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 11:29:38,351 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:29:38,355 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:29:38,355 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 11:30:05,808 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:30:05,809 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:30:05,811 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:30:05,812 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:30:05,813 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 11:30:05,813 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 11:30:05,813 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 11:30:05,867 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 11:30:05,868 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 11:30:05,868 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 11:30:05,868 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\26_themes_2503250053.jpg
+[DEBUG] 2025-04-02 11:30:05,868 [UID:2] views - old images_data file not exists
+[ERROR] 2025-04-02 11:30:05,887 [UID:2] log - Internal Server Error: /user/update/26/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py", line 256, in update_view
+    logger.debug(f'new images_data={images_data.path}')
+                                    ^^^^^^^^^^^^^^^^
+AttributeError: 'InMemoryUploadedFile' object has no attribute 'path'
+[ERROR] 2025-04-02 11:30:05,890 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 500 113357
+[INFO] 2025-04-02 11:31:26,006 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 11:31:26,565 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:31:37,304 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 11:31:37,916 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:31:41,144 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:31:41,145 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:31:41,147 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:31:41,148 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:31:41,148 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 11:31:41,150 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 11:31:41,151 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 11:31:41,203 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 11:31:41,203 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 11:31:41,204 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 11:31:41,204 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\26_themes_2503250053.jpg
+[DEBUG] 2025-04-02 11:31:41,205 [UID:2] views - old images_data file not exists
+[DEBUG] 2025-04-02 11:31:41,205 [UID:2] views - new images_data=26_images_2504021131.jpg
+[DEBUG] 2025-04-02 11:31:41,205 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 11:31:41,205 [UID:2] views - themes_data exists=ダウンロード_11.jpg
+[DEBUG] 2025-04-02 11:31:41,205 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 11:31:41,206 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\ダウンロード_11.jpg
+[DEBUG] 2025-04-02 11:31:41,206 [UID:2] views - old themes_data file not exists
+[DEBUG] 2025-04-02 11:31:41,206 [UID:2] views - new themes_data=26_themes_2504021131.jpg
+[DEBUG] 2025-04-02 11:31:41,206 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 11:31:41,206 [UID:2] views - save updated Profile object
+[ERROR] 2025-04-02 11:31:46,665 [UID:2] views - couldnt save the Profile object: database is locked
+[INFO] 2025-04-02 11:31:46,665 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 11:31:46,675 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 11:31:46,679 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 11:31:46,683 [UID:2] views - object_list exists
+[INFO] 2025-04-02 11:31:46,684 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 11:31:46,736 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 11:31:47,894 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 11:31:47,897 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 11:31:47,902 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 11:31:47,912 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 11:31:47,930 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 11:31:47,930 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 11:31:47,943 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 11:31:47,954 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 11:31:49,518 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:31:49,518 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:31:49,521 [UID:2] views - GET method
+[DEBUG] 2025-04-02 11:31:49,521 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:31:49,522 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:31:49,522 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 11:31:49,538 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 11:31:49,585 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:31:49,588 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:31:49,589 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 11:32:56,524 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:32:56,524 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:32:56,528 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:32:56,529 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:32:56,530 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 11:32:56,530 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 11:32:56,531 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 11:32:56,531 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 11:32:56,532 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 11:32:56,532 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 11:32:56,532 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\25_themes_2503250049.jpg
+[DEBUG] 2025-04-02 11:32:56,532 [UID:2] views - old images_data file not exists
+[DEBUG] 2025-04-02 11:32:56,532 [UID:2] views - new images_data=26_images_2504021132.jpg
+[DEBUG] 2025-04-02 11:32:56,532 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 11:32:56,533 [UID:2] views - save updated Profile object
+[INFO] 2025-04-02 11:32:56,544 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 11:32:56,544 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 11:32:56,550 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 11:32:56,555 [UID:2] views - object_list exists
+[INFO] 2025-04-02 11:32:56,556 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 11:32:56,580 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 11:32:56,669 [UID:2] basehttp - "GET /media/user/26_images_2504021132.jpg HTTP/1.1" 200 6317
+[INFO] 2025-04-02 11:32:58,571 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 11:32:58,573 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 11:32:58,577 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 11:32:58,583 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 11:32:58,607 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 11:32:58,608 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[INFO] 2025-04-02 11:32:58,605 [UID:2] basehttp - "GET /media/user/26_images_2504021132.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-04-02 11:32:58,622 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 11:32:58,631 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 11:33:00,298 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:33:00,298 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:33:00,300 [UID:2] views - GET method
+[DEBUG] 2025-04-02 11:33:00,300 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:33:00,301 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:33:00,301 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 11:33:00,309 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[INFO] 2025-04-02 11:33:00,332 [UID:2] basehttp - "GET /media/user/26_images_2504021132.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-04-02 11:33:00,399 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:33:00,403 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:33:00,404 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 11:33:16,836 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:33:16,836 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:33:16,839 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:33:16,839 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:33:16,840 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 11:33:16,840 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 11:33:16,840 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 11:33:16,841 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 11:33:16,841 [UID:2] views - save updated Profile object
+[INFO] 2025-04-02 11:33:16,846 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 11:33:16,847 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 11:33:16,852 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 11:33:16,855 [UID:2] views - object_list exists
+[INFO] 2025-04-02 11:33:16,856 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 11:33:16,878 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 11:33:16,900 [UID:2] basehttp - "GET /media/user/26_images_2504021132.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:33:18,034 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 11:33:18,038 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 11:33:18,041 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 11:33:18,047 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 11:33:18,071 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 11:33:18,071 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[INFO] 2025-04-02 11:33:18,068 [UID:2] basehttp - "GET /media/user/26_images_2504021132.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-04-02 11:33:18,085 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 11:33:18,095 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 11:33:19,293 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:33:19,293 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:33:19,295 [UID:2] views - GET method
+[DEBUG] 2025-04-02 11:33:19,296 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:33:19,296 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:33:19,296 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 11:33:19,302 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[DEBUG] 2025-04-02 11:33:19,357 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:33:19,359 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:33:19,360 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 11:33:25,494 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:33:25,495 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:33:25,497 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:33:25,497 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:33:25,497 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 11:33:25,498 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 11:33:25,498 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 11:33:25,499 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 11:33:25,499 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 11:33:25,499 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 11:33:25,499 [UID:2] views - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\26_themes_2503250053.jpg
+[DEBUG] 2025-04-02 11:33:25,500 [UID:2] views - old images_data file not exists
+[DEBUG] 2025-04-02 11:33:25,500 [UID:2] views - new images_data=26_images_2504021133.jpg
+[DEBUG] 2025-04-02 11:33:25,500 [UID:2] views - save new images_data
+[DEBUG] 2025-04-02 11:33:25,500 [UID:2] views - save updated Profile object
+[INFO] 2025-04-02 11:33:25,509 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 11:33:25,510 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 11:33:25,514 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 11:33:25,517 [UID:2] views - object_list exists
+[INFO] 2025-04-02 11:33:25,518 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 11:33:25,541 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41942
+[INFO] 2025-04-02 11:33:25,569 [UID:2] basehttp - "GET /media/user/26_images_2504021133.jpg HTTP/1.1" 200 10321
+[INFO] 2025-04-02 11:33:26,555 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 11:33:26,557 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 11:33:26,562 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 11:33:26,568 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56992
+[INFO] 2025-04-02 11:33:26,605 [UID:2] basehttp - "GET /media/user/26_images_2504021133.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:33:26,611 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 11:33:26,618 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 11:33:26,637 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 11:33:26,647 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 11:33:30,481 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:33:30,486 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:33:30,488 [UID:2] views - GET method
+[DEBUG] 2025-04-02 11:33:30,489 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:33:30,490 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:33:30,490 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 11:33:30,499 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66576
+[INFO] 2025-04-02 11:33:30,528 [UID:2] basehttp - "GET /media/user/26_images_2504021133.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-04-02 11:33:30,564 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:33:30,567 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:33:30,567 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 11:33:46,345 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:33:46,346 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:33:46,348 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:33:46,348 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:33:46,349 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 11:33:46,349 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 11:33:46,349 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 11:33:46,350 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 11:33:46,350 [UID:2] views - themes_data exists=25_themes_2503250049.jpg
+[DEBUG] 2025-04-02 11:33:46,351 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 11:33:46,351 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\25_themes_2503250049.jpg
+[DEBUG] 2025-04-02 11:33:46,351 [UID:2] views - old themes_data file not exists
+[DEBUG] 2025-04-02 11:33:46,351 [UID:2] views - new themes_data=26_themes_2504021133.jpg
+[DEBUG] 2025-04-02 11:33:46,351 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 11:33:46,352 [UID:2] views - save updated Profile object
+[INFO] 2025-04-02 11:33:46,376 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 11:33:46,377 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 11:33:46,381 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 11:33:46,383 [UID:2] views - object_list exists
+[INFO] 2025-04-02 11:33:46,384 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 11:33:46,407 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41905
+[INFO] 2025-04-02 11:33:46,433 [UID:2] basehttp - "GET /media/user/26_images_2504021133.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:33:46,435 [UID:2] basehttp - "GET /media/user/26_themes_2504021133.jpg HTTP/1.1" 200 63365
+[INFO] 2025-04-02 11:33:47,346 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 11:33:47,348 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 11:33:47,351 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 11:33:47,357 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56918
+[INFO] 2025-04-02 11:33:47,381 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 11:33:47,381 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[INFO] 2025-04-02 11:33:47,379 [UID:2] basehttp - "GET /media/user/26_themes_2504021133.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-04-02 11:33:47,397 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 11:33:47,407 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 11:33:50,065 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:33:50,065 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:33:50,068 [UID:2] views - GET method
+[DEBUG] 2025-04-02 11:33:50,068 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:33:50,069 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:33:50,069 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 11:33:50,075 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66539
+[INFO] 2025-04-02 11:33:50,107 [UID:2] basehttp - "GET /media/user/26_images_2504021133.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:33:50,105 [UID:2] basehttp - "GET /media/user/26_themes_2504021133.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-04-02 11:33:50,135 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:33:50,138 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:33:50,139 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 11:33:57,586 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:33:57,587 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:33:57,589 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:33:57,590 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:33:57,590 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[DEBUG] 2025-04-02 11:33:57,590 [UID:2] forms - mbti_name_value=INTJ-2
+[DEBUG] 2025-04-02 11:33:57,590 [UID:2] forms - valid_choices=['INTJ-0', 'INTJ-1', 'INTJ-2']
+[DEBUG] 2025-04-02 11:33:57,591 [UID:2] views - form.is_valid
+[DEBUG] 2025-04-02 11:33:57,592 [UID:2] views - themes_data exists=ダウンロード_11.jpg
+[DEBUG] 2025-04-02 11:33:57,592 [UID:2] views - old themes_data exists
+[DEBUG] 2025-04-02 11:33:57,592 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\ダウンロード_11.jpg
+[DEBUG] 2025-04-02 11:33:57,592 [UID:2] views - old themes_data file not exists
+[DEBUG] 2025-04-02 11:33:57,593 [UID:2] views - new themes_data=26_themes_2504021133.jpg
+[DEBUG] 2025-04-02 11:33:57,593 [UID:2] views - save new themes_data
+[DEBUG] 2025-04-02 11:33:57,593 [UID:2] views - save updated Profile object
+[INFO] 2025-04-02 11:33:57,620 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 11:33:57,621 [UID:2] basehttp - "POST /user/update/26/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 11:33:57,625 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 11:33:57,627 [UID:2] views - object_list exists
+[INFO] 2025-04-02 11:33:57,628 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 11:33:57,656 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41913
+[INFO] 2025-04-02 11:33:57,686 [UID:2] basehttp - "GET /media/user/26_images_2504021133.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:33:57,687 [UID:2] basehttp - "GET /media/user/26_themes_2504021133_ZG47bI5.jpg HTTP/1.1" 200 116122
+[INFO] 2025-04-02 11:33:59,067 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 11:33:59,071 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 11:33:59,075 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 11:33:59,083 [UID:2] basehttp - "GET /user/detail/26/ HTTP/1.1" 200 56934
+[INFO] 2025-04-02 11:33:59,115 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 11:33:59,116 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=26
+[DEBUG] 2025-04-02 11:33:59,132 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 11:33:59,113 [UID:2] basehttp - "GET /media/user/26_themes_2504021133_ZG47bI5.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:33:59,144 [UID:2] basehttp - "GET /friend/disp_qr/26/ HTTP/1.1" 200 8309
+[INFO] 2025-04-02 11:34:15,703 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:34:15,703 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:34:15,705 [UID:2] views - GET method
+[DEBUG] 2025-04-02 11:34:15,706 [UID:2] forms - mbti_value=INTJ
+[DEBUG] 2025-04-02 11:34:15,706 [UID:2] forms - self.fields['mbti_name'].choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:34:15,706 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 11:34:15,712 [UID:2] basehttp - "GET /user/update/26/ HTTP/1.1" 200 66547
+[INFO] 2025-04-02 11:34:15,740 [UID:2] basehttp - "GET /media/user/26_images_2504021133.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:34:15,742 [UID:2] basehttp - "GET /media/user/26_themes_2504021133_ZG47bI5.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-04-02 11:34:15,775 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:34:15,778 [UID:2] views - mbti_name_choices=[('INTJ-0', 'INTJ:建築家'), ('INTJ-1', 'INTJ:冷静な戦略家'), ('INTJ-2', 'INTJ:賢いフクロウ')]
+[INFO] 2025-04-02 11:34:15,779 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=INTJ HTTP/1.1" 200 176
+[INFO] 2025-04-02 11:34:54,466 [UID:2] views - start Profile create_view
+[INFO] 2025-04-02 11:34:54,467 [UID:2] views - GET method
+[DEBUG] 2025-04-02 11:34:54,467 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 11:34:54,468 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[INFO] 2025-04-02 11:34:54,468 [UID:2] views - return render user/create.html
+[INFO] 2025-04-02 11:34:54,478 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 36105
+[DEBUG] 2025-04-02 11:35:37,948 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:35:37,951 [UID:2] views - mbti_name_choices=[('ESTP-0', 'ESTP:起業家'), ('ESTP-1', 'ESTP:行動派アスリート'), ('ESTP-2', 'ESTP:チャレンジザル')]
+[INFO] 2025-04-02 11:35:37,952 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ESTP HTTP/1.1" 200 194
+[INFO] 2025-04-02 11:35:43,878 [UID:2] views - start Profile create_view
+[INFO] 2025-04-02 11:35:43,878 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:35:43,879 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 11:35:43,879 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[ERROR] 2025-04-02 11:35:43,896 [UID:2] views - user-form or profile_form is invalid.
+[INFO] 2025-04-02 11:35:43,899 [UID:2] views - return render user/create.html
+[INFO] 2025-04-02 11:35:43,908 [UID:2] basehttp - "POST /user/create/ HTTP/1.1" 200 36330
+[INFO] 2025-04-02 11:40:13,475 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 11:40:14,177 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-04-02 11:40:35,939 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:40:35,942 [UID:2] views - mbti_name_choices=[('ISTP-0', 'ISTP:巨匠'), ('ISTP-1', 'ISTP:職人肌のエンジニア'), ('ISTP-2', 'ISTP:クールなワシ')]
+[INFO] 2025-04-02 11:40:35,944 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISTP HTTP/1.1" 200 188
+[INFO] 2025-04-02 11:40:42,208 [UID:2] views - start Profile create_view
+[INFO] 2025-04-02 11:40:42,208 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:40:42,209 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 11:40:42,210 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[DEBUG] 2025-04-02 11:40:42,221 [UID:2] forms - mbti_name_value=ISTP-1
+[DEBUG] 2025-04-02 11:40:42,221 [UID:2] forms - valid_choices=['ISTP-0', 'ISTP-1', 'ISTP-2']
+[DEBUG] 2025-04-02 11:40:42,265 [UID:2] views - User Profile form.is_valid
+[DEBUG] 2025-04-02 11:40:42,822 [UID:2] views - images_data exists
+[ERROR] 2025-04-02 11:40:42,848 [UID:2] log - Internal Server Error: /user/create/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py", line 164, in create_view
+    logger.debug(f'images_data.path={images_data.path}')
+                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'InMemoryUploadedFile' object has no attribute 'path'
+[ERROR] 2025-04-02 11:40:42,852 [UID:2] basehttp - "POST /user/create/ HTTP/1.1" 500 83374
+[INFO] 2025-04-02 11:41:17,365 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 11:41:17,949 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:41:23,391 [UID:2] views - start Profile create_view
+[INFO] 2025-04-02 11:41:23,392 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:41:23,393 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 11:41:23,393 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[ERROR] 2025-04-02 11:41:23,403 [UID:2] views - user-form or profile_form is invalid.
+[DEBUG] 2025-04-02 11:41:23,408 [UID:2] forms - mbti_name_value=
+[DEBUG] 2025-04-02 11:41:23,409 [UID:2] forms - valid_choices=['ISTP-0', 'ISTP-1', 'ISTP-2']
+[INFO] 2025-04-02 11:41:23,452 [UID:2] views - return render user/create.html
+[INFO] 2025-04-02 11:41:23,483 [UID:2] basehttp - "POST /user/create/ HTTP/1.1" 200 36442
+[DEBUG] 2025-04-02 11:41:44,253 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:41:44,256 [UID:2] views - mbti_name_choices=[('ENTJ-0', 'ENTJ:指揮官'), ('ENTJ-1', 'ENTJ:カリスマ社長'), ('ENTJ-2', 'ENTJ:リーダーライオン')]
+[INFO] 2025-04-02 11:41:44,257 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ENTJ HTTP/1.1" 200 188
+[INFO] 2025-04-02 11:41:49,361 [UID:2] views - start Profile create_view
+[INFO] 2025-04-02 11:41:49,362 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:41:49,363 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 11:41:49,363 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[DEBUG] 2025-04-02 11:41:49,366 [UID:2] forms - mbti_name_value=ENTJ-1
+[DEBUG] 2025-04-02 11:41:49,366 [UID:2] forms - valid_choices=['ENTJ-0', 'ENTJ-1', 'ENTJ-2']
+[DEBUG] 2025-04-02 11:41:49,367 [UID:2] views - User Profile form.is_valid
+[DEBUG] 2025-04-02 11:41:49,941 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 11:41:49,941 [UID:2] views - images_data=28_images_2504021141.jpg
+[DEBUG] 2025-04-02 11:41:49,941 [UID:2] views - themes_data exists
+[DEBUG] 2025-04-02 11:41:49,941 [UID:2] views - themes_data=ダウンロード_11.jpg
+[INFO] 2025-04-02 11:41:49,970 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 11:41:49,971 [UID:2] basehttp - "POST /user/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 11:41:49,975 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 11:41:49,977 [UID:2] views - object_list exists
+[INFO] 2025-04-02 11:41:49,978 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 11:41:50,010 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41913
+[INFO] 2025-04-02 11:41:50,044 [UID:2] basehttp - "GET /media/user/26_themes_2504021133_ZG47bI5.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:41:50,046 [UID:2] basehttp - "GET /media/user/26_images_2504021133.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:41:50,103 [UID:2] basehttp - "GET /media/user/28_themes_2504021141.jpg HTTP/1.1" 200 10321
+[INFO] 2025-04-02 11:42:38,422 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 11:42:38,425 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 11:42:38,430 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 11:42:38,444 [UID:2] basehttp - "GET /user/detail/28/ HTTP/1.1" 200 23568
+[INFO] 2025-04-02 11:42:38,469 [UID:2] basehttp - "GET /media/user/28_themes_2504021141.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:42:38,476 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 11:42:38,477 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=28
+[DEBUG] 2025-04-02 11:42:38,493 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 11:42:38,503 [UID:2] basehttp - "GET /friend/disp_qr/28/ HTTP/1.1" 200 8323
+[INFO] 2025-04-02 11:42:41,033 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:42:41,033 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:42:41,036 [UID:2] views - GET method
+[DEBUG] 2025-04-02 11:42:41,040 [UID:2] forms - mbti_value=ENTJ
+[DEBUG] 2025-04-02 11:42:41,041 [UID:2] forms - self.fields['mbti_name'].choices=[('ENTJ-0', 'ENTJ:指揮官'), ('ENTJ-1', 'ENTJ:カリスマ社長'), ('ENTJ-2', 'ENTJ:リーダーライオン')]
+[INFO] 2025-04-02 11:42:41,041 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 11:42:41,052 [UID:2] basehttp - "GET /user/update/28/ HTTP/1.1" 200 36459
+[DEBUG] 2025-04-02 11:42:41,106 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:42:41,109 [UID:2] views - mbti_name_choices=[('ENTJ-0', 'ENTJ:指揮官'), ('ENTJ-1', 'ENTJ:カリスマ社長'), ('ENTJ-2', 'ENTJ:リーダーライオン')]
+[INFO] 2025-04-02 11:42:41,110 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ENTJ HTTP/1.1" 200 188
+[INFO] 2025-04-02 11:44:55,174 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 11:44:55,777 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:45:33,463 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\device\views.py changed, reloading.
+[INFO] 2025-04-02 11:45:34,008 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:45:49,926 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\group\views.py changed, reloading.
+[INFO] 2025-04-02 11:45:50,510 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:46:35,389 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-04-02 11:46:35,944 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:48:43,750 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\room\views.py changed, reloading.
+[INFO] 2025-04-02 11:48:44,345 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:49:41,702 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\chat\views.py changed, reloading.
+[INFO] 2025-04-02 11:49:42,279 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:49:50,939 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\chat\views.py changed, reloading.
+[INFO] 2025-04-02 11:49:51,465 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:50:15,673 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\device\views.py changed, reloading.
+[INFO] 2025-04-02 11:50:16,236 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:50:32,142 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\device\views.py changed, reloading.
+[INFO] 2025-04-02 11:50:32,673 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:51:26,888 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\group\views.py changed, reloading.
+[INFO] 2025-04-02 11:51:27,460 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:51:50,594 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\headline\views.py changed, reloading.
+[INFO] 2025-04-02 11:51:51,150 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:52:28,814 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\notice\views.py changed, reloading.
+[INFO] 2025-04-02 11:52:29,377 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:53:09,069 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-04-02 11:53:09,630 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:53:43,124 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\room\views.py changed, reloading.
+[INFO] 2025-04-02 11:53:43,703 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 11:54:18,766 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 11:54:18,769 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 11:54:18,773 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 11:54:18,808 [UID:2] basehttp - "GET /user/detail/28/ HTTP/1.1" 200 23568
+[INFO] 2025-04-02 11:54:18,832 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 11:54:18,833 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=28
+[INFO] 2025-04-02 11:54:18,830 [UID:2] basehttp - "GET /media/user/28_themes_2504021141.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-04-02 11:54:18,848 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 11:54:18,868 [UID:2] basehttp - "GET /friend/disp_qr/28/ HTTP/1.1" 200 8323
+[INFO] 2025-04-02 11:54:25,383 [UID:2] views - start Profile delete_view
+[DEBUG] 2025-04-02 11:54:25,383 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:54:25,385 [UID:2] views - GET method
+[INFO] 2025-04-02 11:54:25,385 [UID:2] views - return render user/delete.html
+[INFO] 2025-04-02 11:54:25,395 [UID:2] basehttp - "GET /user/delete/28/ HTTP/1.1" 200 23620
+[INFO] 2025-04-02 11:54:28,959 [UID:2] views - start Profile delete_view
+[DEBUG] 2025-04-02 11:54:28,960 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:54:28,961 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:54:28,962 [UID:2] views - old images_data exists
+[DEBUG] 2025-04-02 11:54:28,962 [UID:2] views - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\user\28_themes_2504021141.jpg
+[DEBUG] 2025-04-02 11:54:28,963 [UID:2] views - old images_data file exists
+[DEBUG] 2025-04-02 11:54:28,963 [UID:2] views - delete old images_data
+[DEBUG] 2025-04-02 11:54:28,964 [UID:2] views - delete old Profile object
+[INFO] 2025-04-02 11:54:28,971 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 11:54:28,972 [UID:2] basehttp - "POST /user/delete/28/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 11:54:28,976 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 11:54:28,980 [UID:2] views - object_list exists
+[INFO] 2025-04-02 11:54:28,981 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 11:54:29,007 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41888
+[INFO] 2025-04-02 11:54:29,026 [UID:2] basehttp - "GET /media/user/26_images_2504021133.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:54:29,026 [UID:2] basehttp - "GET /media/user/26_themes_2504021133_ZG47bI5.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:54:30,626 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 11:54:30,628 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 11:54:30,632 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 11:54:30,638 [UID:2] basehttp - "GET /user/detail/27/ HTTP/1.1" 200 23397
+[INFO] 2025-04-02 11:54:30,661 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 11:54:30,661 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=27
+[DEBUG] 2025-04-02 11:54:30,673 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 11:54:30,682 [UID:2] basehttp - "GET /friend/disp_qr/27/ HTTP/1.1" 200 8325
+[INFO] 2025-04-02 11:54:32,397 [UID:2] views - start Profile delete_view
+[DEBUG] 2025-04-02 11:54:32,397 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:54:32,399 [UID:2] views - GET method
+[INFO] 2025-04-02 11:54:32,399 [UID:2] views - return render user/delete.html
+[INFO] 2025-04-02 11:54:32,403 [UID:2] basehttp - "GET /user/delete/27/ HTTP/1.1" 200 23739
+[INFO] 2025-04-02 11:54:34,996 [UID:2] views - start Profile delete_view
+[DEBUG] 2025-04-02 11:54:34,996 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:54:34,998 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:54:34,998 [UID:2] views - delete old Profile object
+[INFO] 2025-04-02 11:54:35,006 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 11:54:35,007 [UID:2] basehttp - "POST /user/delete/27/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 11:54:35,010 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 11:54:35,013 [UID:2] views - object_list exists
+[INFO] 2025-04-02 11:54:35,014 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 11:54:35,038 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41913
+[INFO] 2025-04-02 11:54:42,553 [UID:2] views - start Profile create_view
+[INFO] 2025-04-02 11:54:42,553 [UID:2] views - GET method
+[DEBUG] 2025-04-02 11:54:42,554 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 11:54:42,555 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[INFO] 2025-04-02 11:54:42,555 [UID:2] views - return render user/create.html
+[INFO] 2025-04-02 11:54:42,575 [UID:2] basehttp - "GET /user/create/ HTTP/1.1" 200 36105
+[DEBUG] 2025-04-02 11:55:14,199 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:55:14,202 [UID:2] views - mbti_name_choices=[('ISFP-0', 'ISFP:冒険家'), ('ISFP-1', 'ISFP:アートなデザイナー'), ('ISFP-2', 'ISFP:アートなネコ')]
+[INFO] 2025-04-02 11:55:14,203 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISFP HTTP/1.1" 200 194
+[INFO] 2025-04-02 11:55:18,920 [UID:2] views - start Profile create_view
+[INFO] 2025-04-02 11:55:18,920 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:55:18,921 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 11:55:18,921 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[ERROR] 2025-04-02 11:55:18,930 [UID:2] views - user-form or profile_form is invalid.
+[DEBUG] 2025-04-02 11:55:18,932 [UID:2] forms - mbti_name_value=ISFP-1
+[DEBUG] 2025-04-02 11:55:18,932 [UID:2] forms - valid_choices=['ISFP-0', 'ISFP-1', 'ISFP-2']
+[INFO] 2025-04-02 11:55:18,963 [UID:2] views - return render user/create.html
+[INFO] 2025-04-02 11:55:18,970 [UID:2] basehttp - "POST /user/create/ HTTP/1.1" 200 36471
+[DEBUG] 2025-04-02 11:55:43,783 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:55:43,785 [UID:2] views - mbti_name_choices=[('ISTP-0', 'ISTP:巨匠'), ('ISTP-1', 'ISTP:職人肌のエンジニア'), ('ISTP-2', 'ISTP:クールなワシ')]
+[INFO] 2025-04-02 11:55:43,786 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISTP HTTP/1.1" 200 188
+[INFO] 2025-04-02 11:55:52,585 [UID:2] views - start Profile create_view
+[INFO] 2025-04-02 11:55:52,585 [UID:2] views - POST method
+[DEBUG] 2025-04-02 11:55:52,586 [UID:2] forms - mbti_value=None
+[DEBUG] 2025-04-02 11:55:52,587 [UID:2] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[DEBUG] 2025-04-02 11:55:52,589 [UID:2] forms - mbti_name_value=ISTP-1
+[DEBUG] 2025-04-02 11:55:52,589 [UID:2] forms - valid_choices=['ISTP-0', 'ISTP-1', 'ISTP-2']
+[DEBUG] 2025-04-02 11:55:52,590 [UID:2] views - User Profile form.is_valid
+[DEBUG] 2025-04-02 11:55:53,150 [UID:2] views - images_data exists
+[DEBUG] 2025-04-02 11:55:53,150 [UID:2] views - images_data=29_images_2504021155.jpg
+[DEBUG] 2025-04-02 11:55:53,150 [UID:2] views - themes_data exists
+[DEBUG] 2025-04-02 11:55:53,151 [UID:2] views - themes_data=29_themes_2504021155.jpg
+[INFO] 2025-04-02 11:55:53,179 [UID:2] views - return redirect user:list
+[INFO] 2025-04-02 11:55:53,180 [UID:2] basehttp - "POST /user/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 11:55:53,183 [UID:2] views - start Profile list_view
+[DEBUG] 2025-04-02 11:55:53,186 [UID:2] views - object_list exists
+[INFO] 2025-04-02 11:55:53,186 [UID:2] views - return render user/list.html
+[INFO] 2025-04-02 11:55:53,209 [UID:2] basehttp - "GET /user/list/ HTTP/1.1" 200 41936
+[INFO] 2025-04-02 11:55:53,332 [UID:2] basehttp - "GET /media/user/29_themes_2504021155.jpg HTTP/1.1" 200 116122
+[INFO] 2025-04-02 11:55:53,339 [UID:2] basehttp - "GET /media/user/29_images_2504021155.jpg HTTP/1.1" 200 6317
+[INFO] 2025-04-02 11:55:55,172 [UID:2] views - start detail_view
+[DEBUG] 2025-04-02 11:55:55,175 [UID:2] views - get Profile object(pk)
+[DEBUG] 2025-04-02 11:55:55,179 [UID:2] views - return render user/detail.html
+[INFO] 2025-04-02 11:55:55,187 [UID:2] basehttp - "GET /user/detail/29/ HTTP/1.1" 200 23478
+[INFO] 2025-04-02 11:55:55,212 [UID:2] basehttp - "GET /media/user/29_images_2504021155.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:55:55,212 [UID:2] basehttp - "GET /media/user/29_themes_2504021155.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:55:55,233 [UID:2] views - start Friend disp_qr_view
+[INFO] 2025-04-02 11:55:55,233 [UID:2] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=29
+[DEBUG] 2025-04-02 11:55:55,246 [UID:2] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 11:55:55,254 [UID:2] basehttp - "GET /friend/disp_qr/29/ HTTP/1.1" 200 8334
+[INFO] 2025-04-02 11:55:57,502 [UID:2] views - start Profile update_view
+[DEBUG] 2025-04-02 11:55:57,502 [UID:2] views - get Profile object(pk)
+[INFO] 2025-04-02 11:55:57,504 [UID:2] views - GET method
+[DEBUG] 2025-04-02 11:55:57,506 [UID:2] forms - mbti_value=ISTP
+[DEBUG] 2025-04-02 11:55:57,506 [UID:2] forms - self.fields['mbti_name'].choices=[('ISTP-0', 'ISTP:巨匠'), ('ISTP-1', 'ISTP:職人肌のエンジニア'), ('ISTP-2', 'ISTP:クールなワシ')]
+[INFO] 2025-04-02 11:55:57,506 [UID:2] views - return render user/update.html
+[INFO] 2025-04-02 11:55:57,515 [UID:2] basehttp - "GET /user/update/29/ HTTP/1.1" 200 36450
+[INFO] 2025-04-02 11:55:57,533 [UID:2] basehttp - "GET /media/user/29_images_2504021155.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 11:55:57,534 [UID:2] basehttp - "GET /media/user/29_themes_2504021155.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-04-02 11:55:57,558 [UID:2] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-02 11:55:57,561 [UID:2] views - mbti_name_choices=[('ISTP-0', 'ISTP:巨匠'), ('ISTP-1', 'ISTP:職人肌のエンジニア'), ('ISTP-2', 'ISTP:クールなワシ')]
+[INFO] 2025-04-02 11:55:57,562 [UID:2] basehttp - "GET /user/get_mbti_name_choices/?mbti=ISTP HTTP/1.1" 200 188
+[INFO] 2025-04-02 11:56:38,136 [UID:2] basehttp - "GET /top/ HTTP/1.1" 200 42585
+[INFO] 2025-04-02 11:56:38,185 [UID:2] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 14410
+[INFO] 2025-04-02 11:57:03,519 [UID:2] basehttp - "GET /top/ HTTP/1.1" 200 42585
+[INFO] 2025-04-02 11:57:03,556 [UID:2] basehttp - "GET /media/headline/5_2503242302.png HTTP/1.1" 200 149513
+[INFO] 2025-04-02 11:57:03,558 [UID:2] basehttp - "GET /media/headline/6_2503242304.png HTTP/1.1" 200 244100
+[INFO] 2025-04-02 11:57:03,588 [UID:2] basehttp - "GET /media/notice/4_2503242311.png HTTP/1.1" 200 133640
+[INFO] 2025-04-02 11:57:03,598 [UID:2] basehttp - "GET /media/notice/2_2503242307.png HTTP/1.1" 200 98556
+[INFO] 2025-04-02 11:57:03,590 [UID:2] basehttp - "GET /media/notice/3_2503242309.png HTTP/1.1" 200 178341
+[INFO] 2025-04-02 11:57:03,624 [UID:2] basehttp - "GET /mycalendar/mycalendar/ HTTP/1.1" 200 14410
+[INFO] 2025-04-02 11:57:03,631 [UID:2] basehttp - "GET /media/notice/6_2503242315.png HTTP/1.1" 200 121030
+[INFO] 2025-04-02 11:57:03,629 [UID:2] basehttp - "GET /media/notice/5_2503242313.png HTTP/1.1" 200 112819
+[INFO] 2025-04-02 11:57:03,679 [UID:2] basehttp - "GET /static/assets/dist/js/bootstrap.js HTTP/1.1" 200 145007
+[INFO] 2025-04-02 11:57:03,753 [UID:2] basehttp - "GET /static/assets/dist/js/bootstrap.js.map HTTP/1.1" 304 0
