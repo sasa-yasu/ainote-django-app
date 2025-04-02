@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-5w5wxuqy!$tvj&1&e=97(3mu$=2hldjmv@@d93uc@ac$*9--%h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','ainote-django-app.onrender.com']
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 SITE_DOMAIN = "http://127.0.0.1:8000"  # ローカル環境用

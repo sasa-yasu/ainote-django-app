@@ -1731,3 +1731,4 @@ AttributeError: 'InMemoryUploadedFile' object has no attribute 'path'
 [INFO] 2025-04-02 11:57:03,629 [UID:2] basehttp - "GET /media/notice/5_2503242313.png HTTP/1.1" 200 112819
 [INFO] 2025-04-02 11:57:03,679 [UID:2] basehttp - "GET /static/assets/dist/js/bootstrap.js HTTP/1.1" 200 145007
 [INFO] 2025-04-02 11:57:03,753 [UID:2] basehttp - "GET /static/assets/dist/js/bootstrap.js.map HTTP/1.1" 304 0
+[INFO] 2025-04-02 13:51:24,467 [UID:Anon] autoreload - Watching for file changes with StatReloader
