@@ -1,0 +1,126 @@
+[INFO] 2025-04-04 00:37:48,781 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-04 00:50:08,503 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\mycalendar\views.py changed, reloading.
+[INFO] 2025-04-04 00:50:09,650 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-04 00:52:48,883 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\mycalendar\views.py changed, reloading.
+[INFO] 2025-04-04 00:52:50,179 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-04 00:53:15,950 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\mycalendar\views.py changed, reloading.
+[INFO] 2025-04-04 00:53:17,172 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-04 00:53:25,408 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 00:53:25,471 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1860
+[INFO] 2025-04-04 01:00:35,686 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:00:35,755 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1862
+[INFO] 2025-04-04 01:02:22,993 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:02:23,057 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 2126
+[INFO] 2025-04-04 01:05:22,863 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:05:22,923 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 2084
+[INFO] 2025-04-04 01:05:52,442 [UID:1] basehttp - "GET /static/assets/dist/js/bootstrap.js.map HTTP/1.1" 200 305565
+[ERROR] 2025-04-04 01:09:47,451 [UID:1] log - Internal Server Error: /top/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\top\views.py", line 12, in Top
+    return render(request, 'top/index.html', {'headline_object_list': headline_object_list, 'notice_object_list': notice_object_list})
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'mycalendar' not found. 'mycalendar' is not a valid view function or pattern name.
+[ERROR] 2025-04-04 01:09:47,456 [UID:1] basehttp - "GET /top/ HTTP/1.1" 500 170831
+[INFO] 2025-04-04 01:10:33,267 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\mycalendar\views.py changed, reloading.
+[INFO] 2025-04-04 01:10:34,383 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-04 01:10:37,417 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\mycalendar\urls.py changed, reloading.
+[INFO] 2025-04-04 01:10:38,527 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-04 01:10:50,840 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-04 01:10:55,013 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 24941
+[INFO] 2025-04-04 01:10:55,093 [UID:Anon] basehttp - "GET /static/img/device.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 01:10:55,038 [UID:1] basehttp - "GET /media/headline/1_images_2504030702.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 01:10:55,222 [UID:1] basehttp - "GET /static/img/room.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 01:10:55,083 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:10:55,099 [UID:1] basehttp - "GET /media/notice/1_images_2504031318.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 01:10:55,290 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1862
+[INFO] 2025-04-04 01:15:52,397 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 24941
+[INFO] 2025-04-04 01:15:52,469 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:15:52,560 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1863
+[INFO] 2025-04-04 01:16:34,199 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 24941
+[INFO] 2025-04-04 01:16:34,275 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:16:34,365 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1880
+[INFO] 2025-04-04 01:19:06,433 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 24941
+[INFO] 2025-04-04 01:19:06,518 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:19:06,622 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1880
+[INFO] 2025-04-04 01:19:41,212 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 24941
+[INFO] 2025-04-04 01:19:41,292 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:19:41,388 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1880
+[INFO] 2025-04-04 01:20:04,966 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 24941
+[INFO] 2025-04-04 01:20:05,042 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:20:05,127 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1880
+[INFO] 2025-04-04 01:22:27,121 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-04 01:22:46,988 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:22:47,048 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1880
+[INFO] 2025-04-04 01:23:58,617 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:23:58,683 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1903
+[INFO] 2025-04-04 01:24:16,092 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:24:16,152 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1903
+[INFO] 2025-04-04 01:24:21,024 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:24:21,086 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1903
+[INFO] 2025-04-04 01:25:41,008 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:25:41,068 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1887
+[INFO] 2025-04-04 01:26:08,534 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 24941
+[INFO] 2025-04-04 01:26:08,614 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:26:08,708 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1887
+[INFO] 2025-04-04 01:26:37,476 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 24942
+[INFO] 2025-04-04 01:26:37,522 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:26:37,591 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1887
+[INFO] 2025-04-04 01:26:47,443 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 24942
+[INFO] 2025-04-04 01:26:47,482 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:26:47,550 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1887
+[INFO] 2025-04-04 01:29:49,115 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:29:49,174 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1904
+[INFO] 2025-04-04 01:29:57,374 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 24942
+[INFO] 2025-04-04 01:29:57,420 [UID:1] views - return render mycalendar/mycalendar.html
+[INFO] 2025-04-04 01:29:57,508 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1904
+[INFO] 2025-04-04 01:29:57,417 [UID:1] basehttp - "GET /media/notice/1_images_2504031318.png HTTP/1.1" 304 0

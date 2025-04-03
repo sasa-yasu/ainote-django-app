@@ -1,80 +1,132 @@
-import datetime
-from django.shortcuts import redirect
-from django.views import generic
-from . import mixins
-from .forms import BS4ScheduleForm
-from .models import Schedule
+import os
+from django.shortcuts import render, redirect
+from django.conf import settings
+from google_auth_oauthlib.flow import Flow
+from django.http import HttpResponse, JsonResponse
+from .google_calendar import create_event, update_event, delete_event
+
+import logging
+
+# ロガー取得
+logger = logging.getLogger('app')
+error_logger = logging.getLogger('error')
+
+# Google OAuth 認証のエンドポイント
+SCOPES = ['https://www.googleapis.com/auth/calendar.events']
+
+def google_login(request):
+    flow = Flow.from_client_secrets_file(
+        os.path.join(settings.BASE_DIR, 'credentials.json'),
+        scopes=SCOPES,
+        redirect_uri='http://localhost:8000/oauth2callback'
+    )
+    
+    auth_url, _ = flow.authorization_url(prompt='consent')
+    return redirect(auth_url)
+
+def google_callback(request):
+    flow = Flow.from_client_secrets_file(
+        os.path.join(settings.BASE_DIR, 'credentials.json'),
+        scopes=SCOPES,
+        redirect_uri='http://localhost:8000/oauth2callback'
+    )
+
+    flow.fetch_token(authorization_response=request.build_absolute_uri())
+
+    # 認証トークンを取得
+    credentials = flow.credentials
+    token_data = {
+        'token': credentials.token,
+        'refresh_token': credentials.refresh_token,
+        'token_uri': credentials.token_uri,
+        'client_id': credentials.client_id,
+        'client_secret': credentials.client_secret,
+        'scopes': credentials.scopes
+    }
+
+    # トークンを保存する（データベースやセッションに格納可能）
+    request.session['google_credentials'] = token_data
+
+    return HttpResponse("Google OAuth 認証が完了しました！")
 
 
-class MonthCalendar(mixins.MonthCalendarMixin, generic.TemplateView):
-    """月間カレンダーを表示するビュー"""
-    template_name = 'mycalendar/month.html'
+def create_event_view(request):
+    """
+    Google カレンダーに新しい予定を登録するビュー
+    """
+    if 'google_credentials' not in request.session:
+        return redirect('google_login')  # 未認証の場合はログインへリダイレクト
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        calendar_context = self.get_month_calendar()
-        context.update(calendar_context)
-        return context
+    token_data = request.session['google_credentials']
 
-class WeekCalendar(mixins.WeekCalendarMixin, generic.TemplateView):
-    """週間カレンダーを表示するビュー"""
-    template_name = 'mycalendar/week.html'
+    event_data = {
+        'summary': 'テストイベント',
+        'location': '東京都渋谷区',
+        'description': 'これは Django から登録した Google カレンダーの予定です。',
+        'start': {
+            'dateTime': '2025-04-05T10:00:00+09:00',
+            'timeZone': 'Asia/Tokyo',
+        },
+        'end': {
+            'dateTime': '2025-04-05T11:00:00+09:00',
+            'timeZone': 'Asia/Tokyo',
+        }
+    }
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        calendar_context = self.get_week_calendar()
-        context.update(calendar_context)
-        return context
+    event = create_event(token_data, event_data)
 
-class WeekWithScheduleCalendar(mixins.WeekWithScheduleMixin, generic.TemplateView):
-    """スケジュール付きの週間カレンダーを表示するビュー"""
-    template_name = 'mycalendar/week_with_schedule.html'
-    model = Schedule
-    date_field = 'date'
+    return JsonResponse({'message': 'イベントを追加しました', 'event': event})
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        calendar_context = self.get_week_calendar()
-        context.update(calendar_context)
-        return context
 
-class MonthWithScheduleCalendar(mixins.MonthWithScheduleMixin, generic.TemplateView):
-    """スケジュール付きの月間カレンダーを表示するビュー"""
-    template_name = 'mycalendar/month_with_schedule.html'
-    model = Schedule
-    date_field = 'date'
+def update_event_view(request):
+    """
+    Google カレンダーの予定を更新するビュー
+    """
+    if 'google_credentials' not in request.session:
+        return redirect('google_login')  # 未認証の場合はログインへリダイレクト
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        calendar_context = self.get_month_calendar()
-        context.update(calendar_context)
-        return context
+    token_data = request.session['google_credentials']
+    
+    event_id = request.GET.get('event_id')  # 更新するイベントの ID を取得
+    if not event_id:
+        return JsonResponse({'error': 'event_id が必要です'}, status=400)
 
-class MyCalendar(mixins.MonthCalendarMixin, mixins.WeekWithScheduleMixin, generic.CreateView):
-    """月間カレンダー、週間カレンダー、スケジュール登録画面のある欲張りビュー"""
-    template_name = 'mycalendar/mycalendar.html'
-    model = Schedule
-    date_field = 'date'
-    form_class = BS4ScheduleForm
+    event_data = {
+        'summary': '更新されたイベント',
+        'location': '東京都新宿区',
+        'description': 'これは Django で更新した Google カレンダーの予定です。',
+        'start': {
+            'dateTime': '2025-04-05T14:00:00+09:00',
+            'timeZone': 'Asia/Tokyo',
+        },
+        'end': {
+            'dateTime': '2025-04-05T15:00:00+09:00',
+            'timeZone': 'Asia/Tokyo',
+        }
+    }
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        week_calendar_context = self.get_week_calendar()
-        month_calendar_context = self.get_month_calendar()
-        context.update(week_calendar_context)
-        context.update(month_calendar_context)
-        return context
+    updated_event = update_event(token_data, event_id, event_data)
 
-    def form_valid(self, form):
-        month = self.kwargs.get('month')
-        year = self.kwargs.get('year')
-        day = self.kwargs.get('day')
-        if month and year and day:
-            date = datetime.date(year=int(year), month=int(month), day=int(day))
-        else:
-            date = datetime.date.today()
-        schedule = form.save(commit=False)
-        schedule.date = date
-        schedule.save()
-        return redirect('mycalendar:mycalendar', year=date.year, month=date.month, day=date.day)
+    return JsonResponse({'message': 'イベントを更新しました', 'event': updated_event})
 
+
+def delete_event_view(request):
+    """
+    Google カレンダーの予定を削除するビュー
+    """
+    if 'google_credentials' not in request.session:
+        return redirect('google_login')  # 未認証の場合はログインへリダイレクト
+
+    token_data = request.session['google_credentials']
+    
+    event_id = request.GET.get('event_id')  # 削除するイベントの ID を取得
+    if not event_id:
+        return JsonResponse({'error': 'event_id が必要です'}, status=400)
+
+    delete_event(token_data, event_id)
+
+    return JsonResponse({'message': 'イベントを削除しました'})
+
+def mycalendar_view(request):
+    logger.info('return render mycalendar/mycalendar.html')
+    return render(request, 'mycalendar/mycalendar.html')

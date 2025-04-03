@@ -38,7 +38,7 @@
         {% endif %}    
 
         <!-- 左下：MBTI Compatibility -->
-        {% if request.user.profile.mbti and item.mbti %}
+        {% if request.user.profile.id != item.id and request.user.profile.mbti and item.mbti %}
             {% with mbti_comp=item.get_mbti_comp %}
             {% if mbti_comp.pt > 0 %}
             <span class="profile-left-bottom d-inline-flex flex-column align-items-center">

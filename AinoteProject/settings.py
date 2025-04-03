@@ -32,6 +32,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 
+# for google calendar
+GOOGLE_CREDENTIALS_FILE = os.path.join(BASE_DIR, 'credentials.json')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 

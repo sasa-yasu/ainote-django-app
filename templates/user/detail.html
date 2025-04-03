@@ -152,7 +152,7 @@
                         {% endif %}
                     </div>
                     <!-- 右上：MBTI -->
-                    {% if object.mbti %}
+                    {% if object.mbti and object.mbti != '-' %}
                         <span class="profile-right-top d-inline-flex align-items-center">
                           {% with mbti_image='img/mbti/'|add:object.mbti|add:'.png' %}
                             <img src="{% static mbti_image %}" width="80" height="80" alt="MBTI"/>
@@ -161,14 +161,14 @@
                     {% endif %}                    
 
                     <!-- 左下：MBTI Compatibility -->
-                    {% if request.user.profile.mbti and object.mbti %}
+                    {% if request.user.profile.id != object.id and request.user.profile.mbti and object.mbti %}
                         {% with mbti_comp=object.get_mbti_comp %}
                         {% if mbti_comp.pt > 0 %}
                         <span class="profile-left-bottom d-inline-flex flex-column align-items-start">
                             {% with mbti_comp_pt=mbti_comp.pt|stringformat:"s" %}
                             {% with mbti_pt_img='img/mbti/star_'|add:mbti_comp_pt|add:'.png' mbti_relation_img='img/mbti/'|add:mbti_comp.relation|add:'.png' %}
-                                <span style="margin: 2px; padding: 0; text-align: left;"><img src="{% static mbti_pt_img %}" width="75" height=auto alt="MBTI Point" style="display: block;"/></span>
-                                <span style="margin: 0; padding: 0; text-align: left;"><img src="{% static mbti_relation_img %}" width="75" height=auto alt="MBTI Relation" style="display: block;"/></span>
+                                <span style="margin: 2px 0; padding: 0; text-align: left;"><img src="{% static mbti_pt_img %}" width="75" height=auto alt="MBTI Point" style="display: block;"/></span>
+                                <span style="margin: 2px 0; padding: 0; text-align: left;"><img src="{% static mbti_relation_img %}" width="75" height=auto alt="MBTI Relation" style="display: block;"/></span>
                                 <span class="rounded-2" style="margin: 0; padding: 2px 4px; text-align: left; background:white; "><h7 class="display-9" style="margin:0px; font-family: var(--bs-body-font-family)"><B>{{ mbti_comp.description }}</B></h7></span>
                             {% endwith %}{% endwith %}
                         </span>

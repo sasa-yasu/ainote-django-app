@@ -4,14 +4,12 @@ from . import views
 app_name = 'mycalendar'
 
 urlpatterns = [
-    path('month/', views.MonthCalendar.as_view(), name='month'),
-    path('month/<int:year>/<int:month>/', views.MonthCalendar.as_view(), name='month'),
-    path('week/', views.WeekCalendar.as_view(), name='week'),
-    path('week/<int:year>/<int:month>/<int:day>/', views.WeekCalendar.as_view(), name='week'),
-    path('week_with_schedule/', views.WeekWithScheduleCalendar.as_view(), name='week_with_schedule'),
-    path('week_with_schedule/<int:year>/<int:month>/<int:day>/', views.WeekWithScheduleCalendar.as_view(), name='week_with_schedule'),
-    path('month_with_schedule/',views.MonthWithScheduleCalendar.as_view(), name='month_with_schedule'),
-    path('month_with_schedule/<int:year>/<int:month>/',views.MonthWithScheduleCalendar.as_view(), name='month_with_schedule'),
-    path('mycalendar/', views.MyCalendar.as_view(), name='mycalendar'),
-    path('mycalendar/<int:year>/<int:month>/<int:day>/', views.MyCalendar.as_view(), name='mycalendar'),
+    path('', views.mycalendar_view, name='mycalendar'),
+    
+    path('google/login/', views.google_login, name='google_login'),
+    path('oauth2callback/', views.google_callback, name='google_callback'),
+
+    path('create_event/', views.create_event_view, name='create_event'),
+    path('update_event/', views.update_event_view, name='update_event'),
+    path('delete_event/', views.delete_event_view, name='delete_event'),
 ]
