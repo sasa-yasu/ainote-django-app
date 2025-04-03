@@ -17,3 +17,6 @@ media/
 
 # google
 credentials.json
+
+# log系
+AinoteProject/logs/
