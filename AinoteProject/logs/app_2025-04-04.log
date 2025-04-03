@@ -124,3 +124,4 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'mycalendar' not found. 'myca
 [INFO] 2025-04-04 01:29:57,420 [UID:1] views - return render mycalendar/mycalendar.html
 [INFO] 2025-04-04 01:29:57,508 [UID:1] basehttp - "GET /mycalendar/ HTTP/1.1" 200 1904
 [INFO] 2025-04-04 01:29:57,417 [UID:1] basehttp - "GET /media/notice/1_images_2504031318.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 01:40:15,446 [UID:Anon] autoreload - Watching for file changes with StatReloader
