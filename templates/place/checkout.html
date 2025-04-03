@@ -6,50 +6,9 @@
 <link rel="stylesheet" type="text/css" href="{% static 'list/style.css' %}">
 <style type="text/css">
 
-.preview-image {
-        max-width: 300px;
-        max-height: 300px;
-        display: block;
-        margin-top: 10px;
-    }
-
-    .xy_center {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-    
-    .img-container {
-        width: 128px; /* 親要素に対して100%の幅を持つ */
-        height: 128px; /* 必要に応じて高さを調整 */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden; /* 画像のはみ出しを防ぐ */
-    }
-    .preview-image {
-        max-width: 100%; /* カード内で画像がはみ出さないようにする */
-        max-height: 100%; /* 親要素を超えないように制限 */
-        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
-        border-radius: 5px; /* 角丸のデザイン */
-        display: block;
-        margin-top: 10px; 
-    }
-
-    /* 画像とリストを横並びにするコンテナ */
-    .header-container {
-        display: flex;                /* 横並びに表示 */
-        flex-wrap: wrap;              /* 画面幅が狭くなったら折り返す */
-        align-items: center;          /* 垂直方向で中央揃え */
-        gap: 10px;                    /* 画像とリストの間隔 */
-        justify-content: space-between;
-    }
-
+    /***** place card *****/
     /* 画像の重ね合わせコンテナ */
-    .image-wrapper {
+    .place-image-wrapper {
         position: relative;
         width: 100%;
         height: auto;         /* 高さを自動調整 */
@@ -59,7 +18,7 @@
     }
 
     /* 背景の themes 画像 */
-    .bg-image {
+    .place-bg-image {
         position: absolute;
         top: 0;
         left: 0;
@@ -72,7 +31,7 @@
     }
 
     /* 前面の images 画像 */
-    .front-image {
+    .place-front-image {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -87,15 +46,16 @@
     }
 
     /* 前面の images 画像 */
-    .front-image img {
+    .place-front-image img {
         height: 90%;         /* 親要素に対して80%の高さで表示 */
         width: auto;          /* アスペクト比維持 */
         object-fit: contain;  /* はみ出し防止 */
         margin: 2px;
     }
 
+    /***** place card : effect *****/
     /* ホバー時のエフェクト */
-    .image-wrapper:hover .bg-image {
+    .place-image-wrapper:hover .place-bg-image {
         transform: scale(1.10);
         transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
     }

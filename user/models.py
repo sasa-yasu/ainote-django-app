@@ -1,5 +1,4 @@
 import logging
-from django.templatetags.static import static
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.conf import settings
 from django.contrib.auth.signals import user_logged_in, user_logged_out
@@ -9,7 +8,8 @@ from django.dispatch import receiver
 from datetime import date
 from django.utils import timezone
 from datetime import timedelta
-from AinoteProject.utils import crop_square_image, crop_16_9_image
+from AinoteProject.utils import crop_square_image, crop_16_9_image, get_mbti_compatibility
+from middleware.current_request import get_current_request
 
 # ロガー取得
 logger = logging.getLogger('app')
@@ -56,22 +56,22 @@ class Profile(models.Model):
     mbti = models.CharField('MBTI Type', max_length=4, choices=MBTI_CHOICES, null=True, blank=True)
 
     MBTI_NAME_CHOICES = {
-        'INTJ': [('INTJ-0','INTJ:建築家'),           ('INTJ-1','INTJ:冷静な戦略家'),          ('INTJ-2','INTJ:賢いフクロウ')],
-        'INTP': [('INTP-0','INTP:論理学者'),         ('INTP-1','INTP:ひらめき科学者'),        ('INTP-2','INTP:ひらめきネコ')],
-        'ENTJ': [('ENTJ-0','ENTJ:指揮官'),           ('ENTJ-1','ENTJ:カリスマ社長'),          ('ENTJ-2','ENTJ:リーダーライオン')],
-        'ENTP': [('ENTP-0','ENTP:討論者'),           ('ENTP-1','ENTP:機転の利く弁護士'),      ('ENTP-2','ENTP:おしゃべりオウム')],
-        'INFJ': [('INFJ-0','INFJ:提唱者'),           ('INFJ-1','INFJ:理想を追う作家'),        ('INFJ-2','INFJ:ひそかなユニコーン')],
-        'ENFJ': [('ENFJ-0','ENFJ:主人公'),           ('ENFJ-1','ENFJ:みんなの先生'),          ('ENFJ-2','ENFJ:みんなのコアラ')],
-        'INFP': [('INFP-0','INFP:仲介者'),           ('INFP-1','INFP:夢見る詩人'),            ('INFP-2','INFP:夢見るイルカ')],
-        'ENFP': [('ENFP-0','ENFP:運動家'),           ('ENFP-1','ENFP:自由なクリエイター'),     ('ENFP-2','ENFP:わくわくリス')],
-        'ISTJ': [('ISTJ-0','ISTJ:管理者'),           ('ISTJ-1','ISTJ:堅実な公務員'),          ('ISTJ-2','ISTJ:まじめなカメ')],
-        'ISFJ': [('ISFJ-0','ISFJ:擁護者'),           ('ISFJ-1','ISFJ:優しい看護師'),          ('ISFJ-2','ISFJ:やさしいウサギ')],
-        'ESTJ': [('ESTJ-0','ESTJ:幹部'),             ('ESTJ-1','ESTJ:頼れるリーダー'),        ('ESTJ-2','ESTJ:しっかりイヌ')],
-        'ESFJ': [('ESFJ-0','ESFJ:領事'),             ('ESFJ-1','ESFJ:世話好きカウンセラー'),  ('ESFJ-2','ESFJ:お世話好きカンガルー')],
-        'ESTP': [('ESTP-0','ESTP:起業家'),           ('ESTP-1','ESTP:行動派アスリート'),      ('ESTP-2','ESTP:チャレンジザル')],
-        'ISTP': [('ISTP-0','ISTP:巨匠'),             ('ISTP-1','ISTP:職人肌のエンジニア'),    ('ISTP-2','ISTP:クールなワシ')],
-        'ISFP': [('ISFP-0','ISFP:冒険家'),           ('ISFP-1','ISFP:アートなデザイナー'),    ('ISFP-2','ISFP:アートなネコ')],
-        'ESFP': [('ESFP-0','ESFP:エンターテイナー'),  ('ESFP-1','ESFP:ムードメーカー俳優'),    ('ESFP-2','ESFP:パーティーペンギン')],
+        'INTJ': [('INTJ-0','INTJ-0:建築家'),           ('INTJ-1','INTJ-1:冷静な戦略家'),          ('INTJ-2','INTJ-2:賢いフクロウ')],
+        'INTP': [('INTP-0','INTP-0:論理学者'),         ('INTP-1','INTP-1:ひらめき科学者'),        ('INTP-2','INTP-2:ひらめきネコ')],
+        'ENTJ': [('ENTJ-0','ENTJ-0:指揮官'),           ('ENTJ-1','ENTJ-1:カリスマ社長'),          ('ENTJ-2','ENTJ-2:リーダーライオン')],
+        'ENTP': [('ENTP-0','ENTP-0:討論者'),           ('ENTP-1','ENTP-1:機転の利く弁護士'),      ('ENTP-2','ENTP-2:おしゃべりオウム')],
+        'INFJ': [('INFJ-0','INFJ-0:提唱者'),           ('INFJ-1','INFJ-1:理想を追う作家'),        ('INFJ-2','INFJ-2:ひそかなユニコーン')],
+        'ENFJ': [('ENFJ-0','ENFJ-0:主人公'),           ('ENFJ-1','ENFJ-1:みんなの先生'),          ('ENFJ-2','ENFJ-2:みんなのコアラ')],
+        'INFP': [('INFP-0','INFP-0:仲介者'),           ('INFP-1','INFP-1:夢見る詩人'),            ('INFP-2','INFP-2:夢見るイルカ')],
+        'ENFP': [('ENFP-0','ENFP-0:運動家'),           ('ENFP-1','ENFP-1:自由なクリエイター'),     ('ENFP-2','ENFP-2:わくわくリス')],
+        'ISTJ': [('ISTJ-0','ISTJ-0:管理者'),           ('ISTJ-1','ISTJ-1:堅実な公務員'),          ('ISTJ-2','ISTJ-2:まじめなカメ')],
+        'ISFJ': [('ISFJ-0','ISFJ-0:擁護者'),           ('ISFJ-1','ISFJ-1:優しい看護師'),          ('ISFJ-2','ISFJ-2:やさしいウサギ')],
+        'ESTJ': [('ESTJ-0','ESTJ-0:幹部'),             ('ESTJ-1','ESTJ-1:頼れるリーダー'),        ('ESTJ-2','ESTJ-2:しっかりイヌ')],
+        'ESFJ': [('ESFJ-0','ESFJ-0:領事'),             ('ESFJ-1','ESFJ-1:世話好きカウンセラー'),  ('ESFJ-2','ESFJ-2:お世話好きカンガルー')],
+        'ESTP': [('ESTP-0','ESTP-0:起業家'),           ('ESTP-1','ESTP-1:行動派アスリート'),      ('ESTP-2','ESTP-2:チャレンジザル')],
+        'ISTP': [('ISTP-0','ISTP-0:巨匠'),             ('ISTP-1','ISTP-1:職人肌のエンジニア'),    ('ISTP-2','ISTP-2:クールなワシ')],
+        'ISFP': [('ISFP-0','ISFP-0:冒険家'),           ('ISFP-1','ISFP-1:アートなデザイナー'),    ('ISFP-2','ISFP-2:アートなネコ')],
+        'ESFP': [('ESFP-0','ESFP-0:エンターテイナー'),  ('ESFP-1','ESFP-1:ムードメーカー俳優'),    ('ESFP-2','ESFP-2:パーティーペンギン')],
     }
     mbti_name = models.CharField(max_length=100, null=True, blank=True)
 
@@ -100,10 +100,33 @@ class Profile(models.Model):
     def __str__(self):
         return f'<User:id={self.memberid}, {self.nick_name}>'
 
-    def get_display_choices(self):
+    def get_mbti_choices(self):
         """選択した MBTI に応じた表示名称の選択肢を返す"""
         return self.MBTI_NAME_CHOICES.get(self.mbti, [])
 
+    def get_mbti_name_display(self):
+        """mbti_name のラベルを取得する"""
+        for choices in self.MBTI_NAME_CHOICES.values():
+            for key, label in choices:
+                if key == self.mbti_name:
+                    return label
+        return ""
+
+    @property
+    def get_mbti_comp(self):
+        request = get_current_request()  # ミドルウェア等で現在のリクエストを取得する仕組みが必要
+        logger.debug(f'request={request}')
+        logger.debug(f'hasattr(request, "user")={hasattr(request, "user")}')
+        logger.debug(f'hasattr(request.user, "profile")={hasattr(request.user, "profile")}')
+        if request and hasattr(request, 'user') and hasattr(request.user, 'profile'):
+            user_profile = request.user.profile
+            logger.debug(f'user_profile.mbti={user_profile.mbti}')
+            logger.debug(f'self.mbti={self.mbti}')
+            if user_profile.mbti and self.mbti:
+                logger.debug(f'get_mbti_compatibility')
+                return get_mbti_compatibility(user_profile.mbti, self.mbti)
+        return None, None
+    
     @property
     def get_profile_badges_icon(self):
         logger.info('start Profile get_profile_badges_icon')

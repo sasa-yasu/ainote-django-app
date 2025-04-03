@@ -4,33 +4,10 @@
 {% block header %}
 <link rel="stylesheet" type="text/css" href="{% static 'list/style.css' %}">
 <style type="text/css">
-    .xy_center {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-    .img-container {
-        width: 100%; /* 親要素に対して100%の幅を持つ */
-        height: 100%; /* 必要に応じて高さを調整 */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden; /* 画像のはみ出しを防ぐ */
-    }
-    .preview-image {
-        max-width: 128px; /* カード内で画像がはみ出さないようにする */
-        max-height: 128px; /* 親要素を超えないように制限 */
-        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
-        border-radius: 5px; /* 角丸のデザイン */
-        display: block;
-        margin-top: 10px; 
-    }
-
+    
+    /***** profile card *****/
     /* 画像の重ね合わせコンテナ */
-    .image-wrapper {
+    .profile-image-wrapper {
         position: relative;
         width: 100%;
         height: auto;         /* 高さを自動調整 */
@@ -39,7 +16,7 @@
     }
 
     /* 背景の themes 画像 */
-    .bg-image {
+    .profile-bg-image {
         position: absolute;
         top: 0;
         left: 0;
@@ -51,7 +28,7 @@
     }
 
     /* 前面の images 画像 */
-    .front-image {
+    .profile-front-image {
         margin-top:0px;
         position: absolute;
         top: 50%;
@@ -66,14 +43,40 @@
         background-color: white;  /* 背景を白色に */
     }
 
-    .front-image img {
+    .profile-front-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    /* Profile Icon を右下に配置 */
-    .profile-icon {
+    /* Profile画像の左上に配置 */
+    .profile-left-top {
+        position: absolute;
+        top: 10px;      /* 上から10pxの位置 */
+        left: 10px;     /* 左から10pxの位置 */
+        z-index: 3;     /* 前面に表示されるように設定 */
+    }
+
+    /* Profile画像の右上に配置 */
+    .profile-right-top {
+        position: absolute;
+        top: 10px;      /* 上から10pxの位置 */
+        right: 10px;     /* 右から10pxの位置 */
+        z-index: 3;     /* 前面に表示されるように設定 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+    /* Profile画像の左下に配置 */
+    .profile-left-bottom {
+        position: absolute;
+        bottom: 10px;    /* 下から10pxの位置 */
+        left: 10px;     /* 左から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+    }
+
+    /* Profile画像の右下に配置 */
+    .profile-right-bottom {
         position: absolute;
         bottom: 10px;    /* 下から10pxの位置 */
         right: 10px;     /* 右から10pxの位置 */
@@ -82,18 +85,11 @@
         border: 2px solid #ccc; /* 枠線 */
     }
 
+    /***** profile card : effect *****/
     /* ホバー時のエフェクト */
-    .image-wrapper:hover .bg-image {
+    .profile-image-wrapper:hover .profile-bg-image {
         transform: scale(1.10);
         transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
-    }
-
-    /* Status-In 画像を左上に配置 */
-    .status-in-icon {
-        position: absolute;
-        top: 10px;      /* 上から10pxの位置 */
-        left: 10px;     /* 左から10pxの位置 */
-        z-index: 2;     /* 前面に表示されるように設定 */
     }
 
 </style>

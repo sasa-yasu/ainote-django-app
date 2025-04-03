@@ -1,12 +1,10 @@
-import os
-from django.utils.timezone import now
 import logging
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
-from django.core.files.storage import default_storage
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from AinoteProject.utils import create_images, update_images, delete_images
 from .models import Chat
 from .forms  import ChatForm
 from user.models import Profile
@@ -103,13 +101,10 @@ def create_view(request):
 
             if images_data:
                 logger.debug('images_data exists')
-                ext = os.path.splitext(images_data.name)[1]  # 拡張子を取得
-                timestamp = now().strftime('%y%m%d%H%M')  # タイムスタンプ生成 (yyMMddHHmm)
-                images_data.name = f"{object.id}_{timestamp}{ext}"  # 例: "12_2503201935.jpg"
-                logger.debug(f'new images_data={images_data}')
-                object.images = images_data
+                object.images = create_images(object, images_data)
 
                 try:
+                    logger.debug('save new images_data')
                     object.save()
                 except:
                     logger.error(f'couldnt save the images_data in Chat object: {e}')
@@ -147,34 +142,11 @@ def update_view(request, pk):
             object.title = form.cleaned_data['title']
             object.context = form.cleaned_data['context']
             object.author = form.cleaned_data['author']
-
-            # images data handling start
             images_data = form.cleaned_data.get('images')
+
             if images_data: # File Selected
                 logger.debug('images_data exists')
-                
-                # **古いファイルを削除**
-                if object.images:
-                    logger.debug('old images_data exists')
-                    old_image_path = object.images.path  # 旧ファイルのパス
-                    logger.debug(f'old images_data={old_image_path}')
-                    if default_storage.exists(old_image_path):
-                        logger.debug('old images_data file exists')
-                        try:
-                            logger.debug('delete old images_data')
-                            default_storage.delete(old_image_path)  # 削除
-                        except Exception as e:
-                            logger.error(f'couldnt delete old images_data={old_image_path}: {e}')
-                    else:
-                        logger.debug('old images_data file not exists')
-                # **新しいファイルを保存**
-                ext = os.path.splitext(images_data.name)[1]  # 拡張子を取得
-                timestamp = now().strftime('%y%m%d%H%M')  # タイムスタンプ生成 (yyMMddHHmm)
-                images_data.name = f"{object.id}_{timestamp}{ext}"  # 例: "12_2503201935.jpg"
-                logger.debug(f'new images_data={images_data}')
-                logger.debug('save new images_data')
-                object.images = images_data
-            # images data handling end
+                object.images = update_images(object, images_data)
 
             try:
                 logger.debug('save updated Chat object')
@@ -209,19 +181,8 @@ def delete_view(request, pk):
 
         # **古いファイルを削除**
         if object.images:
-            logger.debug('old images_data exists')
-            old_image_path = object.images.path  # 旧ファイルのパス
-            logger.debug(f'old images_data={old_image_path}')
-            if default_storage.exists(old_image_path):
-                logger.debug('old images_data file exists')
-                try:
-                    logger.debug('delete old images_data')
-                    default_storage.delete(old_image_path)  # 削除
-                except Exception as e:
-                    logger.debug(f'couldnt delete old images_data={old_image_path}: {e}')
-            else:
-                logger.debug('old images_data file not exists')
-
+            delete_images(object)
+        
         try:
             logger.debug('delete old Chat object')
             object.delete()

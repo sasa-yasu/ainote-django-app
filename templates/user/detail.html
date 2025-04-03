@@ -4,32 +4,7 @@
 
 {% block header %}
 <style type="text/css">
-    .xy_center {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-    
-    .img-container {
-        width: 128px; /* 親要素に対して100%の幅を持つ */
-        height: 128px; /* 必要に応じて高さを調整 */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden; /* 画像のはみ出しを防ぐ */
-    }
-    .preview-image {
-        max-width: 100%; /* カード内で画像がはみ出さないようにする */
-        max-height: 100%; /* 親要素を超えないように制限 */
-        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
-        border-radius: 5px; /* 角丸のデザイン */
-        display: block;
-        margin-top: 10px; 
-    }
-
+    /***** ページ全体 *****/
     /* 画像とリストを横並びにするコンテナ */
     .header-container {
         display: flex;                /* 横並びに表示 */
@@ -39,8 +14,9 @@
         justify-content: space-between;
     }
 
+    /***** profile card *****/
     /* 画像の重ね合わせコンテナ */
-    .image-wrapper {
+    .profile-image-wrapper {
         position: relative;
         width: 100%;
         aspect-ratio: 16 / 9; /* 16:9を維持しつつ高さを可変に */
@@ -48,7 +24,7 @@
     }
 
     /* 背景の themes 画像 */
-    .bg-image {
+    .profile-bg-image {
         position: absolute;
         top: 0;
         left: 0;
@@ -60,7 +36,7 @@
     }
 
     /* 前面の images 画像 */
-    .front-image {
+    .profile-front-image {
         margin-top:0px;
         position: absolute;
         top: 50%;
@@ -75,20 +51,40 @@
         background-color: white;  /* 背景を白色に */
     }
 
-    .front-image img {
+    .profile-front-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    .profile-container {
-        width: 100%;           /* 横幅を100%に広げる */
-        max-width: 1200px;     /* 最大幅を制限して大きくなりすぎないように */
-        margin: 0 auto;        /* 中央寄せ */
+    /* Profile画像の左上に配置 */
+    .profile-left-top {
+        position: absolute;
+        top: 10px;      /* 上から10pxの位置 */
+        left: 10px;     /* 左から10pxの位置 */
+        z-index: 3;     /* 前面に表示されるように設定 */
     }
 
-    /* Profile Icon を右下に配置 */
-    .profile-icon {
+    /* Profile画像の右上に配置 */
+    .profile-right-top {
+        position: absolute;
+        top: 10px;      /* 上から10pxの位置 */
+        right: 10px;     /* 右から10pxの位置 */
+        z-index: 3;     /* 前面に表示されるように設定 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+    /* Profile画像の左下に配置 */
+    .profile-left-bottom {
+        position: absolute;
+        bottom: 10px;    /* 下から10pxの位置 */
+        left: 10px;     /* 左から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+    }
+
+    /* Profile画像の右下に配置 */
+    .profile-right-bottom {
         position: absolute;
         bottom: 10px;    /* 下から10pxの位置 */
         right: 10px;     /* 右から10pxの位置 */
@@ -97,33 +93,22 @@
         border: 2px solid #ccc; /* 枠線 */
     }
 
-    .table {
+    .profile-property-table {
         width: 100%;
         table-layout: fixed;  /* 固定レイアウトで表示崩れ防止 */
     }
 
-    .table th, .table td {
+    .profile-property-table th, .profile-property-table td {
         word-wrap: break-word; /* 長い単語を折り返す */
     }
 
-    .col-md-6 {
-        flex: 0 0 100%;        /* 横幅を100%に広げる */
-        max-width: 100%;
-    }
-
+    /***** profile card : effect *****/
     /* ホバー時のエフェクト */
-    .image-wrapper:hover .bg-image {
+    .profile-image-wrapper:hover .profile-bg-image {
         transform: scale(1.10);
         transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
     }
 
-    /* Status-In 画像を左上に配置 */
-    .status-in-icon {
-        position: absolute;
-        top: 10px;      /* 上から10pxの位置 */
-        left: 10px;     /* 左から10pxの位置 */
-        z-index: 2;     /* 前面に表示されるように設定 */
-    }
 
 </style>
 <link href="{% static 'user/blog.css' %}" rel="stylesheet">
@@ -151,21 +136,45 @@
             <div class="col p-4 flex-column position-static" style="width:900px;">
               <div class="d-flex align-items-center"><h1 class="display-6">{{ object.nick_name }}</h1><p style="margin-top:auto; align-self:flex-end; margin-bottom:8px;">( {{ object.user1.username }} )</p></div>
               <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
-                <div class="image-wrapper" style="max-width:900px; ">
+                <div class="profile-image-wrapper" style="max-width:900px; ">
                     <!-- 背景：themes -->
                     {% if object.themes %}
-                    <img src="{{ object.themes.url }}" class="bg-image" alt="User Themes"/>
+                    <img src="{{ object.themes.url }}" class="profile-bg-image" alt="User Themes"/>
                     {% else %}
-                    <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+                    <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
                     {% endif %}
                     <!-- 前面：images(circle切り取り) -->
-                    <div class="front-image">
+                    <div class="profile-front-image">
                         {% if object.images %}
                         <img src="{{ object.images.url }}" class="rounded-circle" alt="User Images"/>
                         {% else %}
                         <img src="{% static 'img/user.png' %}" class="rounded-circle" alt="Default Images"/>
                         {% endif %}
                     </div>
+                    <!-- 右上：MBTI -->
+                    {% if object.mbti %}
+                        <span class="profile-right-top d-inline-flex align-items-center">
+                          {% with mbti_image='img/mbti/'|add:object.mbti|add:'.png' %}
+                            <img src="{% static mbti_image %}" width="80" height="80" alt="MBTI"/>
+                          {% endwith %}
+                        </span>
+                    {% endif %}                    
+
+                    <!-- 左下：MBTI Compatibility -->
+                    {% if request.user.profile.mbti and object.mbti %}
+                        {% with mbti_comp=object.get_mbti_comp %}
+                        {% if mbti_comp.pt > 0 %}
+                        <span class="profile-left-bottom d-inline-flex flex-column align-items-start">
+                            {% with mbti_comp_pt=mbti_comp.pt|stringformat:"s" %}
+                            {% with mbti_pt_img='img/mbti/star_'|add:mbti_comp_pt|add:'.png' mbti_relation_img='img/mbti/'|add:mbti_comp.relation|add:'.png' %}
+                                <span style="margin: 2px; padding: 0; text-align: left;"><img src="{% static mbti_pt_img %}" width="75" height=auto alt="MBTI Point" style="display: block;"/></span>
+                                <span style="margin: 0; padding: 0; text-align: left;"><img src="{% static mbti_relation_img %}" width="75" height=auto alt="MBTI Relation" style="display: block;"/></span>
+                                <span class="rounded-2" style="margin: 0; padding: 2px 4px; text-align: left; background:white; "><h7 class="display-9" style="margin:0px; font-family: var(--bs-body-font-family)"><B>{{ mbti_comp.description }}</B></h7></span>
+                            {% endwith %}{% endwith %}
+                        </span>
+                        {% endif %}
+                        {% endwith %}
+                    {% endif %}
                 </div>
               </div>
             </div>
@@ -176,7 +185,7 @@
         <div class="align-self-start" style="min-width: 100px; max-width: 900px; ">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
-              <table class="table">
+              <table class="table profile-property-table">
                 <tr><th style="width:150px;">User Name</th><td>{{ object.user1.username }}</td></tr>
                 <tr><th>Member ID</th><td>{{ object.memberid }}</td></tr>
                 <tr><th>Nick Name</th><td>{{ object.nick_name }}</td></tr>
@@ -193,15 +202,13 @@
                 <tr><th>Birthday</th><td>{{ object.birthday|date:"m/d" }}</td></tr>
                 <tr>
                   <th>MBTI Type</th>
-                  <td>
-                    {% for value, label in object.MBTI_CHOICES %}
-                    {% if object.mbti == value %}
-                      {{ label }}
-                    {% endif %}
-                    {% endfor %}
-                  </td>
+                  <td>{{ object.get_mbti_display }}</td>
                 </tr>
-                <tr><th>Given Likes</th><td>{{ object.given_likes|intcomma }}</td></tr>
+                <tr>
+                  <th>MBTI Name</th>
+                  <td>{{ object.get_mbti_name_display }}</td>
+                </tr>
+                <tr><th>Likes Given</th><td>{{ object.given_likes|intcomma }}</td></tr>
               </table>
             </div>
           </div>
@@ -295,7 +302,7 @@
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
           <h5><B>&lt;&lt;[ Build-up Friendship QR Code ]&gt;&gt;</B></h5>
           <div class="row g-0 flex-md-row mb-0 position-relative">
-            <div style="width:auto;"><img src="{% url 'friend:disp_qr' profile_id=object.id %}" alt="Profile QR Code" width="300" height="300"></div>
+            <div style="width:auto;"><img src="{% url 'friend:disp_qr' %}?profile_id={{ object.id }}" alt="Profile QR Code" width="300" height="300"></div>
           </div>
         </div>
         <br/>

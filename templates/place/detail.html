@@ -4,39 +4,7 @@
 {% block header %}
 <style type="text/css">
 
-    .preview-image {
-        max-width: 300px;
-        max-height: 300px;
-        display: block;
-        margin-top: 10px;
-    }
-
-    .xy_center {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-    
-    .img-container {
-        width: 128px; /* 親要素に対して100%の幅を持つ */
-        height: 128px; /* 必要に応じて高さを調整 */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden; /* 画像のはみ出しを防ぐ */
-    }
-    .preview-image {
-        max-width: 100%; /* カード内で画像がはみ出さないようにする */
-        max-height: 100%; /* 親要素を超えないように制限 */
-        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
-        border-radius: 5px; /* 角丸のデザイン */
-        display: block;
-        margin-top: 10px; 
-    }
-
+    /***** ページ全体 *****/
     /* 画像とリストを横並びにするコンテナ */
     .header-container {
         display: flex;                /* 横並びに表示 */
@@ -46,8 +14,9 @@
         justify-content: space-between;
     }
 
+    /***** place card *****/
     /* 画像の重ね合わせコンテナ */
-    .image-wrapper {
+    .place-image-wrapper {
         position: relative;
         width: 100%;
         height: auto;         /* 高さを自動調整 */
@@ -57,7 +26,7 @@
     }
 
     /* 背景の themes 画像 */
-    .bg-image {
+    .place-bg-image {
         position: absolute;
         top: 0;
         left: 0;
@@ -70,7 +39,7 @@
     }
 
     /* 前面の images 画像 */
-    .front-image {
+    .place-front-image {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -85,19 +54,21 @@
     }
 
     /* 前面の images 画像 */
-    .front-image img {
+    .place-front-image img {
         height: 90%;         /* 親要素に対して80%の高さで表示 */
         width: auto;          /* アスペクト比維持 */
         object-fit: contain;  /* はみ出し防止 */
         margin: 2px;
     }
 
+    /***** place card : effect *****/
     /* ホバー時のエフェクト */
-    .image-wrapper:hover .bg-image {
+    .place-image-wrapper:hover .place-bg-image {
         transform: scale(1.10);
         transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
     }
 
+    /***** individual *****/
     /* GoogleMap用 */
     .map-container {
             width: 100%;
@@ -149,15 +120,15 @@
                         <div class="d-flex align-items-center"><h2 class="display-7">{{ object.place }}</h2></div>
 
                         <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
-                            <div class="image-wrapper" style="max-width:900px; ">
+                            <div class="place-image-wrapper" style="max-width:900px; ">
                                 <!-- 背景：themes -->
                                 {% if object.themes %}
-                                <img src="{{ object.themes.url }}" class="bg-image" alt="Place Themes"/>
+                                <img src="{{ object.themes.url }}" class="place-bg-image" alt="Place Themes"/>
                                 {% else %}
-                                <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+                                <img src="{% static 'img/themes.png' %}" class="place-bg-image" alt="Default Themes"/>
                                 {% endif %}
                                 <!-- 前面：images(circle切り取り) -->
-                                <div class="front-image">
+                                <div class="place-front-image">
                                     {% if object.images %}
                                     <img src="{{ object.images.url }}" style="border-radius: 50%;" alt="Place Images"/>
                                     {% else %}
@@ -283,6 +254,21 @@
                 </div>
                 {% endif %}
                 <br/>
+                <!--Display:QR for Checkin-->
+                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+                  <h5><B>&lt;&lt;[ Checkin QR Code ]&gt;&gt;</B></h5>
+                  <div class="row g-0 flex-md-row mb-0 position-relative">
+                    <div style="width:auto;"><img src="{% url 'place:disp_in_qr'%}?place_id={{ object.id }}" alt="Place Checkin QR Code" width="300" height="300"></div>
+                  </div>
+                </div>
+                <br/>
+                <!--Display:QR for Checkout-->
+                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+                  <h5><B>&lt;&lt;[ Checkout QR Code ]&gt;&gt;</B></h5>
+                  <div class="row g-0 flex-md-row mb-0 position-relative">
+                    <div style="width:auto;"><img src="{% url 'place:disp_out_qr' %}?place_id={{ object.id }}" alt="Place Checkout QR Code" width="300" height="300"></div>
+                  </div>
+                </div>
 
             </div></div>
 

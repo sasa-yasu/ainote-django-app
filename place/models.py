@@ -125,6 +125,7 @@ class Place(models.Model):
             .order_by('-pk')
         )
 
+
 class CheckinRecord(models.Model):
     """チェックイン履歴"""
 

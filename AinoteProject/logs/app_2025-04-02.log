@@ -2100,3 +2100,1158 @@ TypeError: must be real number, not NoneType
 [INFO] 2025-04-02 19:13:46,167 [UID:1] basehttp - "GET /media/user/1_themes_2504021009.jpg HTTP/1.1" 304 0
 [INFO] 2025-04-02 19:13:46,166 [UID:1] basehttp - "GET /media/user/1_images_2504021009.jpg HTTP/1.1" 304 0
 [INFO] 2025-04-02 19:24:56,231 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 22:05:44,579 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-04-02 22:05:49,665 [UID:1] views - start Group list_view
+[DEBUG] 2025-04-02 22:05:49,741 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 22:05:49,741 [UID:1] views - return render group/list.html
+[INFO] 2025-04-02 22:05:49,777 [UID:1] basehttp - "GET /group/list/ HTTP/1.1" 200 15761
+[DEBUG] 2025-04-02 22:05:53,556 [UID:1] views - start Device list_view
+[DEBUG] 2025-04-02 22:05:53,618 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 22:05:53,618 [UID:1] views - return render device/list.html
+[INFO] 2025-04-02 22:05:53,621 [UID:1] basehttp - "GET /device/list/ HTTP/1.1" 200 15769
+[INFO] 2025-04-02 22:05:54,725 [UID:1] views - start Device create_view
+[INFO] 2025-04-02 22:05:54,726 [UID:1] views - GET method
+[INFO] 2025-04-02 22:05:54,726 [UID:1] views - return render device/create.html
+[INFO] 2025-04-02 22:05:54,739 [UID:1] basehttp - "GET /device/create/ HTTP/1.1" 200 17044
+[WARNING] 2025-04-02 22:05:54,768 [UID:1] basehttp - "GET /static/js/themes.js HTTP/1.1" 404 1850
+[INFO] 2025-04-02 22:08:19,925 [UID:1] views - start Device create_view
+[INFO] 2025-04-02 22:08:19,925 [UID:1] views - GET method
+[INFO] 2025-04-02 22:08:19,926 [UID:1] views - return render device/create.html
+[INFO] 2025-04-02 22:08:19,935 [UID:1] basehttp - "GET /device/create/ HTTP/1.1" 200 17052
+[DEBUG] 2025-04-02 22:08:34,237 [UID:1] views - start Device list_view
+[DEBUG] 2025-04-02 22:08:34,289 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 22:08:34,289 [UID:1] views - return render device/list.html
+[INFO] 2025-04-02 22:08:34,292 [UID:1] basehttp - "GET /device/list/ HTTP/1.1" 200 15769
+[DEBUG] 2025-04-02 22:08:40,508 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-02 22:08:40,558 [UID:1] views - object_list exists
+[INFO] 2025-04-02 22:08:40,560 [UID:1] views - return render user/list.html
+[INFO] 2025-04-02 22:08:40,634 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 18248
+[INFO] 2025-04-02 22:08:40,660 [UID:1] basehttp - "GET /media/user/1_images_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 22:08:40,659 [UID:1] basehttp - "GET /media/user/1_themes_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 22:08:42,623 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 22:08:42,673 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-02 22:08:42,680 [UID:1] views - return render user/detail.html
+[INFO] 2025-04-02 22:08:42,697 [UID:1] basehttp - "GET /user/detail/1/ HTTP/1.1" 200 24043
+[INFO] 2025-04-02 22:08:42,769 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-02 22:08:42,769 [UID:1] views - profile_url=http://127.0.0.1:8000/friend/create/?profile_id=1
+[DEBUG] 2025-04-02 22:08:42,790 [UID:1] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 22:08:42,901 [UID:1] basehttp - "GET /friend/disp_qr/1/ HTTP/1.1" 200 8320
+[DEBUG] 2025-04-02 22:08:50,733 [UID:1] views - start Place list_view
+[DEBUG] 2025-04-02 22:08:50,787 [UID:1] views - object_list exists
+[INFO] 2025-04-02 22:08:50,788 [UID:1] views - return render place/list.html
+[INFO] 2025-04-02 22:08:50,793 [UID:1] basehttp - "GET /place/list/ HTTP/1.1" 200 18108
+[INFO] 2025-04-02 22:08:50,816 [UID:1] basehttp - "GET /media/place/1_themes_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 22:08:50,817 [UID:1] basehttp - "GET /media/place/1_images_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 22:08:52,254 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 22:08:52,304 [UID:1] views - get Place object(pk)
+[DEBUG] 2025-04-02 22:08:52,307 [UID:1] views - return render place/detail.html
+[INFO] 2025-04-02 22:08:52,322 [UID:1] basehttp - "GET /place/detail/1/ HTTP/1.1" 200 26978
+[INFO] 2025-04-02 22:10:20,975 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\models.py changed, reloading.
+[INFO] 2025-04-02 22:10:21,621 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 22:18:55,276 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\AinoteProject\utils.py changed, reloading.
+[INFO] 2025-04-02 22:18:55,861 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 22:23:15,427 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py changed, reloading.
+[INFO] 2025-04-02 22:23:16,114 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 22:23:19,634 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-04-02 22:23:20,200 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 22:27:55,494 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\friend\urls.py changed, reloading.
+[INFO] 2025-04-02 22:27:56,166 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 22:33:19,635 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py changed, reloading.
+[INFO] 2025-04-02 22:33:20,221 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 22:34:16,679 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\friend\views.py changed, reloading.
+[INFO] 2025-04-02 22:34:17,267 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 22:37:12,023 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\forms.py changed, reloading.
+[INFO] 2025-04-02 22:37:12,632 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 22:42:02,644 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 22:42:02,693 [UID:1] views - get Place object(pk)
+[DEBUG] 2025-04-02 22:42:02,697 [UID:1] views - return render place/detail.html
+[ERROR] 2025-04-02 22:42:02,843 [UID:1] log - Internal Server Error: /place/detail/1/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 74, in detail_view
+    return render(request, 'place/detail.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'disp_in_qr' not found. 'disp_in_qr' is not a valid view function or pattern name.
+[ERROR] 2025-04-02 22:42:02,849 [UID:1] basehttp - "GET /place/detail/1/ HTTP/1.1" 500 175577
+[INFO] 2025-04-02 22:42:41,281 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 22:42:45,977 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 22:42:46,132 [UID:1] views - get Place object(pk)
+[DEBUG] 2025-04-02 22:42:46,134 [UID:1] views - return render place/detail.html
+[ERROR] 2025-04-02 22:42:46,239 [UID:1] log - Internal Server Error: /place/detail/1/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 74, in detail_view
+    return render(request, 'place/detail.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'disp_in_qr' not found. 'disp_in_qr' is not a valid view function or pattern name.
+[ERROR] 2025-04-02 22:42:46,244 [UID:1] basehttp - "GET /place/detail/1/ HTTP/1.1" 500 175577
+[INFO] 2025-04-02 22:42:48,398 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 22:42:48,448 [UID:1] views - get Place object(pk)
+[DEBUG] 2025-04-02 22:42:48,450 [UID:1] views - return render place/detail.html
+[ERROR] 2025-04-02 22:42:48,533 [UID:1] log - Internal Server Error: /place/detail/1/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 74, in detail_view
+    return render(request, 'place/detail.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'disp_in_qr' not found. 'disp_in_qr' is not a valid view function or pattern name.
+[ERROR] 2025-04-02 22:42:48,537 [UID:1] basehttp - "GET /place/detail/1/ HTTP/1.1" 500 175278
+[INFO] 2025-04-02 22:44:01,682 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 22:44:01,740 [UID:1] views - get Place object(pk)
+[DEBUG] 2025-04-02 22:44:01,743 [UID:1] views - return render place/detail.html
+[ERROR] 2025-04-02 22:44:01,835 [UID:1] log - Internal Server Error: /place/detail/1/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 74, in detail_view
+    return render(request, 'place/detail.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'disp_in_qr' with keyword arguments '{'place_id': 1}' not found. 1 pattern(s) tried: ['place/disp_in_qr/\\Z']
+[ERROR] 2025-04-02 22:44:01,839 [UID:1] basehttp - "GET /place/detail/1/ HTTP/1.1" 500 177121
+[INFO] 2025-04-02 22:44:31,127 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 22:44:35,380 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 22:44:35,430 [UID:1] views - get Place object(pk)
+[DEBUG] 2025-04-02 22:44:35,434 [UID:1] views - return render place/detail.html
+[ERROR] 2025-04-02 22:44:35,539 [UID:1] log - Internal Server Error: /place/detail/1/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 74, in detail_view
+    return render(request, 'place/detail.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'disp_in_qr' with keyword arguments '{'place_id': 1}' not found. 1 pattern(s) tried: ['place/disp_in_qr/\\Z']
+[ERROR] 2025-04-02 22:44:35,544 [UID:1] basehttp - "GET /place/detail/1/ HTTP/1.1" 500 176984
+[INFO] 2025-04-02 22:44:38,827 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 22:44:38,877 [UID:1] views - get Place object(pk)
+[DEBUG] 2025-04-02 22:44:38,880 [UID:1] views - return render place/detail.html
+[ERROR] 2025-04-02 22:44:38,973 [UID:1] log - Internal Server Error: /place/detail/1/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py", line 74, in detail_view
+    return render(request, 'place/detail.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'disp_in_qr' with keyword arguments '{'place_id': 1}' not found. 1 pattern(s) tried: ['place/disp_in_qr/\\Z']
+[ERROR] 2025-04-02 22:44:38,976 [UID:1] basehttp - "GET /place/detail/1/ HTTP/1.1" 500 177146
+[INFO] 2025-04-02 22:45:56,672 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 22:45:56,727 [UID:1] views - get Place object(pk)
+[DEBUG] 2025-04-02 22:45:56,730 [UID:1] views - return render place/detail.html
+[INFO] 2025-04-02 22:45:56,745 [UID:1] basehttp - "GET /place/detail/1/ HTTP/1.1" 200 27950
+[INFO] 2025-04-02 22:45:56,766 [UID:1] basehttp - "GET /media/place/1_images_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 22:45:56,765 [UID:1] basehttp - "GET /media/place/1_themes_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 22:45:56,910 [UID:1] views - start Place disp_checkin_qr_view
+[INFO] 2025-04-02 22:45:56,910 [UID:1] views - url_for_qr=http://127.0.0.1:8000/place/checkin/?place_id=1
+[DEBUG] 2025-04-02 22:45:56,922 [UID:1] utils - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 22:45:56,943 [UID:1] basehttp - "GET /place/disp_in_qr/?place_id=1 HTTP/1.1" 200 8346
+[INFO] 2025-04-02 22:45:57,027 [UID:1] views - start Place disp_checkout_qr_view
+[INFO] 2025-04-02 22:45:57,027 [UID:1] views - url_for_qr=http://127.0.0.1:8000/place/checkout/?place_id=1
+[DEBUG] 2025-04-02 22:45:57,038 [UID:1] utils - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 22:45:57,045 [UID:1] basehttp - "GET /place/disp_out_qr/?place_id=1 HTTP/1.1" 200 8345
+[INFO] 2025-04-02 22:48:38,240 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-04-02 22:48:38,840 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:14:31,661 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\chat\views.py changed, reloading.
+[INFO] 2025-04-02 23:14:32,272 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:14:43,797 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\AinoteProject\utils.py changed, reloading.
+[INFO] 2025-04-02 23:14:44,376 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:14:54,229 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-04-02 23:15:02,980 [UID:1] views - start Chat list_view
+[DEBUG] 2025-04-02 23:15:03,035 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 23:15:03,035 [UID:1] views - return render chat/list.html
+[INFO] 2025-04-02 23:15:03,061 [UID:1] basehttp - "GET /chat/list/ HTTP/1.1" 200 15957
+[INFO] 2025-04-02 23:15:03,086 [UID:1] basehttp - "GET /static/chat/jumbotrons.css HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:15:05,038 [UID:1] views - start Chat create_view
+[INFO] 2025-04-02 23:15:05,039 [UID:1] views - GET method
+[INFO] 2025-04-02 23:15:05,040 [UID:1] views - return render chat/create.html
+[INFO] 2025-04-02 23:15:05,051 [UID:1] basehttp - "GET /chat/create/ HTTP/1.1" 200 15719
+[INFO] 2025-04-02 23:15:05,128 [UID:1] views - start Chat create_view
+[INFO] 2025-04-02 23:15:05,129 [UID:1] views - GET method
+[INFO] 2025-04-02 23:15:05,129 [UID:1] views - return render chat/create.html
+[INFO] 2025-04-02 23:15:05,132 [UID:1] basehttp - "GET /chat/create/ HTTP/1.1" 200 15719
+[INFO] 2025-04-02 23:15:35,969 [UID:1] views - start Chat create_view
+[INFO] 2025-04-02 23:15:35,970 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:15:36,227 [UID:1] views - Chat form.is_valid
+[DEBUG] 2025-04-02 23:15:36,234 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 23:15:36,234 [UID:1] utils - new images_data=1_2504021415.jpg
+[DEBUG] 2025-04-02 23:15:36,234 [UID:1] views - save new images_data
+[INFO] 2025-04-02 23:15:36,241 [UID:1] views - return redirect chat:list
+[INFO] 2025-04-02 23:15:36,241 [UID:1] basehttp - "POST /chat/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:15:36,245 [UID:1] views - start Chat list_view
+[DEBUG] 2025-04-02 23:15:36,297 [UID:1] views - object_list exists
+[INFO] 2025-04-02 23:15:36,299 [UID:1] views - return render chat/list.html
+[INFO] 2025-04-02 23:15:36,317 [UID:1] basehttp - "GET /chat/list/ HTTP/1.1" 200 18788
+[INFO] 2025-04-02 23:15:36,351 [UID:Anon] basehttp - "GET /static/img/up.png HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:15:36,348 [UID:1] basehttp - "GET /media/user/1_images_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:15:36,423 [UID:1] basehttp - "GET /media/chat/1_2504021415.jpg HTTP/1.1" 200 6407
+[INFO] 2025-04-02 23:15:43,647 [UID:1] views - start Chat detail_view
+[DEBUG] 2025-04-02 23:15:43,696 [UID:1] views - get Chat object(pk)
+[DEBUG] 2025-04-02 23:15:43,698 [UID:1] views - return render chat/detail.html
+[INFO] 2025-04-02 23:15:43,705 [UID:1] basehttp - "GET /chat/detail/1/ HTTP/1.1" 200 14557
+[INFO] 2025-04-02 23:15:43,723 [UID:1] basehttp - "GET /media/chat/1_2504021415.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:15:45,216 [UID:1] views - start Chat update_view
+[DEBUG] 2025-04-02 23:15:45,216 [UID:1] views - get Chat object(pk)
+[INFO] 2025-04-02 23:15:45,218 [UID:1] views - GET method
+[INFO] 2025-04-02 23:15:45,218 [UID:1] views - return render chat/update.html
+[INFO] 2025-04-02 23:15:45,224 [UID:1] basehttp - "GET /chat/update/1/ HTTP/1.1" 200 15624
+[INFO] 2025-04-02 23:15:45,240 [UID:1] basehttp - "GET /media/chat/1_2504021415.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:15:51,688 [UID:1] views - start Chat update_view
+[DEBUG] 2025-04-02 23:15:51,688 [UID:1] views - get Chat object(pk)
+[INFO] 2025-04-02 23:15:51,690 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:15:51,690 [UID:1] views - form.is_valid
+[DEBUG] 2025-04-02 23:15:51,691 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 23:15:51,691 [UID:1] utils - old images_data exists
+[DEBUG] 2025-04-02 23:15:51,691 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\chat\1_2504021415.jpg
+[DEBUG] 2025-04-02 23:15:51,691 [UID:1] utils - old images_data file exists
+[DEBUG] 2025-04-02 23:15:51,692 [UID:1] utils - delete old images_data
+[DEBUG] 2025-04-02 23:15:51,692 [UID:1] utils - new images_data=1_2504021415.webp
+[DEBUG] 2025-04-02 23:15:51,692 [UID:1] views - save updated Chat object
+[INFO] 2025-04-02 23:15:51,710 [UID:1] views - return redirect chat:list
+[INFO] 2025-04-02 23:15:51,711 [UID:1] basehttp - "POST /chat/update/1/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:15:51,715 [UID:1] views - start Chat list_view
+[DEBUG] 2025-04-02 23:15:51,764 [UID:1] views - object_list exists
+[INFO] 2025-04-02 23:15:51,766 [UID:1] views - return render chat/list.html
+[INFO] 2025-04-02 23:15:51,772 [UID:1] basehttp - "GET /chat/list/ HTTP/1.1" 200 18789
+[INFO] 2025-04-02 23:15:51,796 [UID:1] basehttp - "GET /media/chat/1_2504021415.webp HTTP/1.1" 200 5054
+[INFO] 2025-04-02 23:16:12,893 [UID:1] views - start Chat detail_view
+[DEBUG] 2025-04-02 23:16:12,947 [UID:1] views - get Chat object(pk)
+[DEBUG] 2025-04-02 23:16:12,949 [UID:1] views - return render chat/detail.html
+[INFO] 2025-04-02 23:16:12,953 [UID:1] basehttp - "GET /chat/detail/1/ HTTP/1.1" 200 14558
+[INFO] 2025-04-02 23:16:12,967 [UID:1] basehttp - "GET /media/chat/1_2504021415.webp HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:16:14,235 [UID:1] views - start Chat delete_view
+[DEBUG] 2025-04-02 23:16:14,236 [UID:1] views - get Chat object(pk)
+[INFO] 2025-04-02 23:16:14,238 [UID:1] views - GET method
+[INFO] 2025-04-02 23:16:14,238 [UID:1] views - return render chat/delete.html
+[INFO] 2025-04-02 23:16:14,245 [UID:1] basehttp - "GET /chat/delete/1/ HTTP/1.1" 200 15209
+[INFO] 2025-04-02 23:16:14,266 [UID:1] basehttp - "GET /media/chat/1_2504021415.webp HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:16:17,152 [UID:1] views - start Chat delete_view
+[DEBUG] 2025-04-02 23:16:17,152 [UID:1] views - get Chat object(pk)
+[INFO] 2025-04-02 23:16:17,153 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:16:17,154 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\chat\1_2504021415.webp
+[DEBUG] 2025-04-02 23:16:17,154 [UID:1] utils - old images_data file exists
+[DEBUG] 2025-04-02 23:16:17,154 [UID:1] utils - delete old images_data
+[DEBUG] 2025-04-02 23:16:17,155 [UID:1] views - delete old Chat object
+[INFO] 2025-04-02 23:16:17,158 [UID:1] views - return redirect chat:list
+[INFO] 2025-04-02 23:16:17,158 [UID:1] basehttp - "POST /chat/delete/1/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:16:17,162 [UID:1] views - start Chat list_view
+[DEBUG] 2025-04-02 23:16:17,210 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 23:16:17,211 [UID:1] views - return render chat/list.html
+[INFO] 2025-04-02 23:16:17,212 [UID:1] basehttp - "GET /chat/list/ HTTP/1.1" 200 15957
+[INFO] 2025-04-02 23:19:54,472 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\headline\views.py changed, reloading.
+[INFO] 2025-04-02 23:19:55,153 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:19:57,611 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\chat\views.py changed, reloading.
+[INFO] 2025-04-02 23:19:58,208 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:23:05,170 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\notice\views.py changed, reloading.
+[INFO] 2025-04-02 23:23:05,797 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:23:08,294 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\chat\views.py changed, reloading.
+[INFO] 2025-04-02 23:23:08,864 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:38:00,716 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\device\views.py changed, reloading.
+[INFO] 2025-04-02 23:38:01,371 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:38:03,783 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\AinoteProject\utils.py changed, reloading.
+[INFO] 2025-04-02 23:38:04,381 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:42:49,944 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\group\views.py changed, reloading.
+[INFO] 2025-04-02 23:42:50,549 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:47:12,041 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\place\views.py changed, reloading.
+[INFO] 2025-04-02 23:47:12,746 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:47:14,191 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\device\views.py changed, reloading.
+[INFO] 2025-04-02 23:47:14,820 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:49:49,616 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\room\views.py changed, reloading.
+[INFO] 2025-04-02 23:49:50,231 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:52:56,058 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py changed, reloading.
+[INFO] 2025-04-02 23:52:56,675 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-02 23:53:26,250 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[DEBUG] 2025-04-02 23:53:32,175 [UID:1] views - start Chat list_view
+[DEBUG] 2025-04-02 23:53:32,270 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 23:53:32,271 [UID:1] views - return render chat/list.html
+[INFO] 2025-04-02 23:53:32,310 [UID:1] basehttp - "GET /chat/list/ HTTP/1.1" 200 15957
+[DEBUG] 2025-04-02 23:53:33,473 [UID:1] views - start Chat list_view
+[DEBUG] 2025-04-02 23:53:33,528 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 23:53:33,528 [UID:1] views - return render chat/list.html
+[INFO] 2025-04-02 23:53:33,530 [UID:1] basehttp - "GET /chat/list/ HTTP/1.1" 200 15957
+[DEBUG] 2025-04-02 23:53:42,352 [UID:1] views - start Chat list_view
+[DEBUG] 2025-04-02 23:53:42,402 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 23:53:42,403 [UID:1] views - return render chat/list.html
+[INFO] 2025-04-02 23:53:42,404 [UID:1] basehttp - "GET /chat/list/ HTTP/1.1" 200 15957
+[INFO] 2025-04-02 23:53:43,617 [UID:1] views - start Chat create_view
+[INFO] 2025-04-02 23:53:43,617 [UID:1] views - GET method
+[INFO] 2025-04-02 23:53:43,618 [UID:1] views - return render chat/create.html
+[INFO] 2025-04-02 23:53:43,627 [UID:1] basehttp - "GET /chat/create/ HTTP/1.1" 200 15719
+[INFO] 2025-04-02 23:53:43,705 [UID:1] views - start Chat create_view
+[INFO] 2025-04-02 23:53:43,706 [UID:1] views - GET method
+[INFO] 2025-04-02 23:53:43,706 [UID:1] views - return render chat/create.html
+[INFO] 2025-04-02 23:53:43,710 [UID:1] basehttp - "GET /chat/create/ HTTP/1.1" 200 15719
+[INFO] 2025-04-02 23:54:08,108 [UID:1] views - start Chat create_view
+[INFO] 2025-04-02 23:54:08,108 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:54:08,150 [UID:1] views - Chat form.is_valid
+[DEBUG] 2025-04-02 23:54:08,155 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 23:54:08,155 [UID:1] utils - new images_data=2_images_2504021454.jpg
+[DEBUG] 2025-04-02 23:54:08,155 [UID:1] views - save new images_data
+[INFO] 2025-04-02 23:54:08,162 [UID:1] views - return redirect chat:list
+[INFO] 2025-04-02 23:54:08,162 [UID:1] basehttp - "POST /chat/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:54:08,166 [UID:1] views - start Chat list_view
+[DEBUG] 2025-04-02 23:54:08,217 [UID:1] views - object_list exists
+[INFO] 2025-04-02 23:54:08,218 [UID:1] views - return render chat/list.html
+[INFO] 2025-04-02 23:54:08,235 [UID:1] basehttp - "GET /chat/list/ HTTP/1.1" 200 18792
+[INFO] 2025-04-02 23:54:08,269 [UID:1] basehttp - "GET /media/user/1_images_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:54:08,337 [UID:1] basehttp - "GET /media/chat/2_images_2504021454.jpg HTTP/1.1" 200 6407
+[INFO] 2025-04-02 23:54:13,729 [UID:1] views - start Chat detail_view
+[DEBUG] 2025-04-02 23:54:13,777 [UID:1] views - get Chat object(pk)
+[DEBUG] 2025-04-02 23:54:13,779 [UID:1] views - return render chat/detail.html
+[INFO] 2025-04-02 23:54:13,785 [UID:1] basehttp - "GET /chat/detail/2/ HTTP/1.1" 200 14561
+[INFO] 2025-04-02 23:54:13,801 [UID:1] basehttp - "GET /media/chat/2_images_2504021454.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:54:14,968 [UID:1] views - start Chat update_view
+[DEBUG] 2025-04-02 23:54:14,968 [UID:1] views - get Chat object(pk)
+[INFO] 2025-04-02 23:54:14,970 [UID:1] views - GET method
+[INFO] 2025-04-02 23:54:14,970 [UID:1] views - return render chat/update.html
+[INFO] 2025-04-02 23:54:14,976 [UID:1] basehttp - "GET /chat/update/2/ HTTP/1.1" 200 15628
+[INFO] 2025-04-02 23:54:15,001 [UID:1] basehttp - "GET /media/chat/2_images_2504021454.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:54:20,659 [UID:1] views - start Chat update_view
+[DEBUG] 2025-04-02 23:54:20,660 [UID:1] views - get Chat object(pk)
+[INFO] 2025-04-02 23:54:20,662 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:54:20,663 [UID:1] views - form.is_valid
+[DEBUG] 2025-04-02 23:54:20,664 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 23:54:20,664 [UID:1] utils - old images_data exists
+[DEBUG] 2025-04-02 23:54:20,664 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\chat\2_images_2504021454.jpg
+[DEBUG] 2025-04-02 23:54:20,664 [UID:1] utils - old images_data file exists
+[DEBUG] 2025-04-02 23:54:20,665 [UID:1] utils - delete old images_data
+[DEBUG] 2025-04-02 23:54:20,665 [UID:1] utils - new images_data=2_images_2504021454.webp
+[DEBUG] 2025-04-02 23:54:20,666 [UID:1] views - save updated Chat object
+[INFO] 2025-04-02 23:54:20,686 [UID:1] views - return redirect chat:list
+[INFO] 2025-04-02 23:54:20,687 [UID:1] basehttp - "POST /chat/update/2/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:54:20,691 [UID:1] views - start Chat list_view
+[DEBUG] 2025-04-02 23:54:20,790 [UID:1] views - object_list exists
+[INFO] 2025-04-02 23:54:20,792 [UID:1] views - return render chat/list.html
+[INFO] 2025-04-02 23:54:20,799 [UID:1] basehttp - "GET /chat/list/ HTTP/1.1" 200 18793
+[INFO] 2025-04-02 23:54:20,821 [UID:1] basehttp - "GET /media/chat/2_images_2504021454.webp HTTP/1.1" 200 5054
+[INFO] 2025-04-02 23:54:26,547 [UID:1] views - start Chat detail_view
+[DEBUG] 2025-04-02 23:54:26,603 [UID:1] views - get Chat object(pk)
+[DEBUG] 2025-04-02 23:54:26,605 [UID:1] views - return render chat/detail.html
+[INFO] 2025-04-02 23:54:26,610 [UID:1] basehttp - "GET /chat/detail/2/ HTTP/1.1" 200 14562
+[INFO] 2025-04-02 23:54:26,624 [UID:1] basehttp - "GET /media/chat/2_images_2504021454.webp HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:54:27,756 [UID:1] views - start Chat delete_view
+[DEBUG] 2025-04-02 23:54:27,757 [UID:1] views - get Chat object(pk)
+[INFO] 2025-04-02 23:54:27,759 [UID:1] views - GET method
+[INFO] 2025-04-02 23:54:27,759 [UID:1] views - return render chat/delete.html
+[INFO] 2025-04-02 23:54:27,766 [UID:1] basehttp - "GET /chat/delete/2/ HTTP/1.1" 200 15213
+[INFO] 2025-04-02 23:54:27,788 [UID:1] basehttp - "GET /media/chat/2_images_2504021454.webp HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:54:30,794 [UID:1] views - start Chat delete_view
+[DEBUG] 2025-04-02 23:54:30,795 [UID:1] views - get Chat object(pk)
+[INFO] 2025-04-02 23:54:30,798 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:54:30,798 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\chat\2_images_2504021454.webp
+[DEBUG] 2025-04-02 23:54:30,799 [UID:1] utils - old images_data file exists
+[DEBUG] 2025-04-02 23:54:30,799 [UID:1] utils - delete old images_data
+[DEBUG] 2025-04-02 23:54:30,799 [UID:1] views - delete old Chat object
+[INFO] 2025-04-02 23:54:30,801 [UID:1] views - return redirect chat:list
+[INFO] 2025-04-02 23:54:30,802 [UID:1] basehttp - "POST /chat/delete/2/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:54:30,806 [UID:1] views - start Chat list_view
+[DEBUG] 2025-04-02 23:54:30,857 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 23:54:30,857 [UID:1] views - return render chat/list.html
+[INFO] 2025-04-02 23:54:30,859 [UID:1] basehttp - "GET /chat/list/ HTTP/1.1" 200 15957
+[DEBUG] 2025-04-02 23:54:36,937 [UID:1] views - start Group list_view
+[DEBUG] 2025-04-02 23:54:36,988 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 23:54:36,988 [UID:1] views - return render group/list.html
+[INFO] 2025-04-02 23:54:36,991 [UID:1] basehttp - "GET /group/list/ HTTP/1.1" 200 15761
+[INFO] 2025-04-02 23:54:38,223 [UID:1] views - start Group create_view
+[INFO] 2025-04-02 23:54:38,223 [UID:1] views - GET method
+[INFO] 2025-04-02 23:54:38,224 [UID:1] views - return render group/create.html
+[INFO] 2025-04-02 23:54:38,228 [UID:1] basehttp - "GET /group/create/ HTTP/1.1" 200 16164
+[INFO] 2025-04-02 23:54:54,472 [UID:1] views - start Group create_view
+[INFO] 2025-04-02 23:54:54,472 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:54:54,473 [UID:1] views - Group form.is_valid
+[DEBUG] 2025-04-02 23:54:54,475 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 23:54:54,476 [UID:1] utils - new images_data=1_images_2504021454.jpg
+[DEBUG] 2025-04-02 23:54:54,476 [UID:1] views - themes_data exists
+[DEBUG] 2025-04-02 23:54:54,476 [UID:1] utils - themes_data=1_themes_2504021454.jpg
+[INFO] 2025-04-02 23:54:54,516 [UID:1] views - return redirect group:list
+[INFO] 2025-04-02 23:54:54,517 [UID:1] basehttp - "POST /group/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:54:54,520 [UID:1] views - start Group list_view
+[DEBUG] 2025-04-02 23:54:54,571 [UID:1] views - object_list exists
+[INFO] 2025-04-02 23:54:54,573 [UID:1] views - return render group/list.html
+[INFO] 2025-04-02 23:54:54,577 [UID:1] basehttp - "GET /group/list/ HTTP/1.1" 200 17582
+[INFO] 2025-04-02 23:54:54,596 [UID:1] basehttp - "GET /media/group/1_images_2504021454.jpg HTTP/1.1" 200 6407
+[INFO] 2025-04-02 23:54:54,598 [UID:1] basehttp - "GET /media/group/1_themes_2504021454.jpg HTTP/1.1" 200 73967
+[INFO] 2025-04-02 23:55:02,898 [UID:1] views - start Group detail_view
+[DEBUG] 2025-04-02 23:55:03,049 [UID:1] views - get Group object(pk)
+[DEBUG] 2025-04-02 23:55:03,051 [UID:1] views - return render group/detail.html
+[INFO] 2025-04-02 23:55:03,060 [UID:1] basehttp - "GET /group/detail/1/ HTTP/1.1" 200 21603
+[INFO] 2025-04-02 23:55:03,078 [UID:1] basehttp - "GET /media/group/1_images_2504021454.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:55:03,079 [UID:1] basehttp - "GET /media/group/1_themes_2504021454.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:55:03,201 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-02 23:55:03,201 [UID:1] views - group_url=http://127.0.0.1:8000/group/join/?group_id=1
+[DEBUG] 2025-04-02 23:55:03,211 [UID:1] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 23:55:03,218 [UID:1] basehttp - "GET /group/disp_qr/1/ HTTP/1.1" 200 7824
+[INFO] 2025-04-02 23:55:04,228 [UID:1] views - start Group update_view
+[DEBUG] 2025-04-02 23:55:04,228 [UID:1] views - get Group object(pk)
+[INFO] 2025-04-02 23:55:04,230 [UID:1] views - GET method
+[INFO] 2025-04-02 23:55:04,230 [UID:1] views - return render group/update.html
+[INFO] 2025-04-02 23:55:04,235 [UID:1] basehttp - "GET /group/update/1/ HTTP/1.1" 200 16229
+[INFO] 2025-04-02 23:55:04,254 [UID:1] basehttp - "GET /media/group/1_themes_2504021454.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:55:04,253 [UID:1] basehttp - "GET /media/group/1_images_2504021454.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:55:13,377 [UID:1] views - start Group update_view
+[DEBUG] 2025-04-02 23:55:13,377 [UID:1] views - get Group object(pk)
+[INFO] 2025-04-02 23:55:13,379 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:55:13,380 [UID:1] views - form.is_valid
+[DEBUG] 2025-04-02 23:55:13,381 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 23:55:13,381 [UID:1] utils - old images_data exists
+[DEBUG] 2025-04-02 23:55:13,381 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\group\1_images_2504021454.jpg
+[DEBUG] 2025-04-02 23:55:13,381 [UID:1] utils - old images_data file exists
+[DEBUG] 2025-04-02 23:55:13,382 [UID:1] utils - delete old images_data
+[DEBUG] 2025-04-02 23:55:13,382 [UID:1] utils - new images_data=1_images_2504021455.webp
+[DEBUG] 2025-04-02 23:55:13,383 [UID:1] views - themes_data exists=2_themes_2503281712.jpg
+[DEBUG] 2025-04-02 23:55:13,383 [UID:1] utils - old themes_data exists
+[DEBUG] 2025-04-02 23:55:13,383 [UID:1] utils - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\group\1_themes_2504021454.jpg
+[DEBUG] 2025-04-02 23:55:13,384 [UID:1] utils - old themes_data file exists
+[DEBUG] 2025-04-02 23:55:13,384 [UID:1] utils - delete old themes_data
+[DEBUG] 2025-04-02 23:55:13,384 [UID:1] utils - themes_data=1_themes_2504021455.jpg
+[DEBUG] 2025-04-02 23:55:13,384 [UID:1] views - save updated Group object
+[INFO] 2025-04-02 23:55:13,446 [UID:1] views - return redirect group:list
+[INFO] 2025-04-02 23:55:13,447 [UID:1] basehttp - "POST /group/update/1/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:55:13,454 [UID:1] views - start Group list_view
+[DEBUG] 2025-04-02 23:55:13,637 [UID:1] views - object_list exists
+[INFO] 2025-04-02 23:55:13,639 [UID:1] views - return render group/list.html
+[INFO] 2025-04-02 23:55:13,643 [UID:1] basehttp - "GET /group/list/ HTTP/1.1" 200 17583
+[INFO] 2025-04-02 23:55:13,672 [UID:1] basehttp - "GET /media/group/1_images_2504021455.webp HTTP/1.1" 200 5054
+[INFO] 2025-04-02 23:55:13,673 [UID:1] basehttp - "GET /media/group/1_themes_2504021455.jpg HTTP/1.1" 200 93373
+[INFO] 2025-04-02 23:55:23,371 [UID:1] views - start Group detail_view
+[DEBUG] 2025-04-02 23:55:23,419 [UID:1] views - get Group object(pk)
+[DEBUG] 2025-04-02 23:55:23,420 [UID:1] views - return render group/detail.html
+[INFO] 2025-04-02 23:55:23,426 [UID:1] basehttp - "GET /group/detail/1/ HTTP/1.1" 200 21605
+[INFO] 2025-04-02 23:55:23,445 [UID:1] basehttp - "GET /media/group/1_themes_2504021455.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:55:23,444 [UID:1] basehttp - "GET /media/group/1_images_2504021455.webp HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:55:23,561 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-02 23:55:23,561 [UID:1] views - group_url=http://127.0.0.1:8000/group/join/?group_id=1
+[DEBUG] 2025-04-02 23:55:23,570 [UID:1] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-02 23:55:23,577 [UID:1] basehttp - "GET /group/disp_qr/1/ HTTP/1.1" 200 7824
+[INFO] 2025-04-02 23:55:24,848 [UID:1] views - start Group delete_view
+[DEBUG] 2025-04-02 23:55:24,848 [UID:1] views - get Group object(pk)
+[INFO] 2025-04-02 23:55:24,849 [UID:1] views - GET method
+[INFO] 2025-04-02 23:55:24,850 [UID:1] views - return render group/delete.html
+[INFO] 2025-04-02 23:55:24,853 [UID:1] basehttp - "GET /group/delete/1/ HTTP/1.1" 200 15309
+[INFO] 2025-04-02 23:55:24,872 [UID:1] basehttp - "GET /media/group/1_images_2504021455.webp HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:55:24,874 [UID:1] basehttp - "GET /media/group/1_themes_2504021455.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:55:27,753 [UID:1] views - start Group delete_view
+[DEBUG] 2025-04-02 23:55:27,754 [UID:1] views - get Group object(pk)
+[INFO] 2025-04-02 23:55:27,756 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:55:27,756 [UID:1] views - old images_data exists
+[DEBUG] 2025-04-02 23:55:27,757 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\group\1_images_2504021455.webp
+[DEBUG] 2025-04-02 23:55:27,757 [UID:1] utils - old images_data file exists
+[DEBUG] 2025-04-02 23:55:27,757 [UID:1] utils - delete old images_data
+[DEBUG] 2025-04-02 23:55:27,758 [UID:1] views - old themes_data exists
+[DEBUG] 2025-04-02 23:55:27,758 [UID:1] utils - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\group\1_themes_2504021455.jpg
+[DEBUG] 2025-04-02 23:55:27,758 [UID:1] utils - old themes_data file exists
+[DEBUG] 2025-04-02 23:55:27,759 [UID:1] utils - delete old themes_data
+[DEBUG] 2025-04-02 23:55:27,759 [UID:1] views - delete old Group object
+[INFO] 2025-04-02 23:55:27,764 [UID:1] views - return redirect group:list
+[INFO] 2025-04-02 23:55:27,764 [UID:1] basehttp - "POST /group/delete/1/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:55:27,768 [UID:1] views - start Group list_view
+[DEBUG] 2025-04-02 23:55:27,817 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 23:55:27,817 [UID:1] views - return render group/list.html
+[INFO] 2025-04-02 23:55:27,819 [UID:1] basehttp - "GET /group/list/ HTTP/1.1" 200 15761
+[DEBUG] 2025-04-02 23:55:33,780 [UID:1] views - start Room list_view
+[DEBUG] 2025-04-02 23:55:33,831 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 23:55:33,831 [UID:1] views - return render room/list.html
+[INFO] 2025-04-02 23:55:33,834 [UID:1] basehttp - "GET /room/list/ HTTP/1.1" 200 15753
+[INFO] 2025-04-02 23:55:35,021 [UID:1] views - start Room create_view
+[INFO] 2025-04-02 23:55:35,021 [UID:1] views - GET method
+[INFO] 2025-04-02 23:55:35,022 [UID:1] views - return render room/create.html
+[INFO] 2025-04-02 23:55:35,026 [UID:1] basehttp - "GET /room/create/ HTTP/1.1" 200 16599
+[INFO] 2025-04-02 23:55:50,618 [UID:1] views - start Room create_view
+[INFO] 2025-04-02 23:55:50,618 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:55:50,619 [UID:1] views - Room form.is_valid
+[DEBUG] 2025-04-02 23:55:50,622 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 23:55:50,622 [UID:1] utils - new images_data=1_images_2504021455.webp
+[DEBUG] 2025-04-02 23:55:50,623 [UID:1] views - themes_data exists
+[DEBUG] 2025-04-02 23:55:50,623 [UID:1] utils - themes_data=1_themes_2504021455.jpg
+[INFO] 2025-04-02 23:55:50,679 [UID:1] views - return redirect room:list
+[INFO] 2025-04-02 23:55:50,680 [UID:1] basehttp - "POST /room/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:55:50,685 [UID:1] views - start Room list_view
+[DEBUG] 2025-04-02 23:55:50,736 [UID:1] views - object_list exists
+[INFO] 2025-04-02 23:55:50,738 [UID:1] views - return render room/list.html
+[INFO] 2025-04-02 23:55:50,742 [UID:1] basehttp - "GET /room/list/ HTTP/1.1" 200 17526
+[INFO] 2025-04-02 23:55:50,762 [UID:1] basehttp - "GET /media/room/1_themes_2504021455.jpg HTTP/1.1" 200 93373
+[INFO] 2025-04-02 23:55:50,760 [UID:1] basehttp - "GET /media/room/1_images_2504021455.webp HTTP/1.1" 200 5054
+[INFO] 2025-04-02 23:56:00,108 [UID:1] views - start Room detail_view
+[DEBUG] 2025-04-02 23:56:00,158 [UID:1] views - get Room object(pk)
+[DEBUG] 2025-04-02 23:56:00,159 [UID:1] views - return render room/detail.html
+[INFO] 2025-04-02 23:56:00,164 [UID:1] basehttp - "GET /room/detail/1/ HTTP/1.1" 200 20672
+[INFO] 2025-04-02 23:56:00,186 [UID:1] basehttp - "GET /media/room/1_themes_2504021455.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:56:00,187 [UID:1] basehttp - "GET /media/room/1_images_2504021455.webp HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:56:01,342 [UID:1] views - start Room update_view
+[DEBUG] 2025-04-02 23:56:01,342 [UID:1] views - get Room object(pk)
+[INFO] 2025-04-02 23:56:01,344 [UID:1] views - GET method
+[INFO] 2025-04-02 23:56:01,344 [UID:1] views - return render room/update.html
+[INFO] 2025-04-02 23:56:01,348 [UID:1] basehttp - "GET /room/update/1/ HTTP/1.1" 200 16664
+[INFO] 2025-04-02 23:56:01,369 [UID:1] basehttp - "GET /media/room/1_images_2504021455.webp HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:56:01,370 [UID:1] basehttp - "GET /media/room/1_themes_2504021455.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:56:09,779 [UID:1] views - start Room update_view
+[DEBUG] 2025-04-02 23:56:09,781 [UID:1] views - get Room object(pk)
+[INFO] 2025-04-02 23:56:09,784 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:56:09,785 [UID:1] views - form.is_valid
+[DEBUG] 2025-04-02 23:56:09,785 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 23:56:09,786 [UID:1] utils - old images_data exists
+[DEBUG] 2025-04-02 23:56:09,786 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\room\1_images_2504021455.webp
+[DEBUG] 2025-04-02 23:56:09,786 [UID:1] utils - old images_data file exists
+[DEBUG] 2025-04-02 23:56:09,787 [UID:1] utils - delete old images_data
+[DEBUG] 2025-04-02 23:56:09,787 [UID:1] utils - new images_data=1_images_2504021456.jpg
+[DEBUG] 2025-04-02 23:56:09,788 [UID:1] views - themes_data exists=3_themes_2503280030.jpg
+[DEBUG] 2025-04-02 23:56:09,788 [UID:1] utils - old themes_data exists
+[DEBUG] 2025-04-02 23:56:09,788 [UID:1] utils - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\room\1_themes_2504021455.jpg
+[DEBUG] 2025-04-02 23:56:09,789 [UID:1] utils - old themes_data file exists
+[DEBUG] 2025-04-02 23:56:09,789 [UID:1] utils - delete old themes_data
+[DEBUG] 2025-04-02 23:56:09,789 [UID:1] utils - themes_data=1_themes_2504021456.jpg
+[DEBUG] 2025-04-02 23:56:09,790 [UID:1] views - save updated Room object
+[INFO] 2025-04-02 23:56:09,868 [UID:1] views - return redirect room:list
+[INFO] 2025-04-02 23:56:09,869 [UID:1] basehttp - "POST /room/update/1/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:56:09,875 [UID:1] views - start Room list_view
+[DEBUG] 2025-04-02 23:56:09,967 [UID:1] views - object_list exists
+[INFO] 2025-04-02 23:56:09,968 [UID:1] views - return render room/list.html
+[INFO] 2025-04-02 23:56:09,972 [UID:1] basehttp - "GET /room/list/ HTTP/1.1" 200 17525
+[INFO] 2025-04-02 23:56:10,003 [UID:1] basehttp - "GET /media/room/1_themes_2504021456.jpg HTTP/1.1" 200 134383
+[INFO] 2025-04-02 23:56:10,001 [UID:1] basehttp - "GET /media/room/1_images_2504021456.jpg HTTP/1.1" 200 95032
+[INFO] 2025-04-02 23:56:17,629 [UID:1] views - start Room detail_view
+[DEBUG] 2025-04-02 23:56:17,682 [UID:1] views - get Room object(pk)
+[DEBUG] 2025-04-02 23:56:17,683 [UID:1] views - return render room/detail.html
+[INFO] 2025-04-02 23:56:17,686 [UID:1] basehttp - "GET /room/detail/1/ HTTP/1.1" 200 20670
+[INFO] 2025-04-02 23:56:17,703 [UID:1] basehttp - "GET /media/room/1_themes_2504021456.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:56:17,702 [UID:1] basehttp - "GET /media/room/1_images_2504021456.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:56:18,694 [UID:1] views - start Room delete_view
+[DEBUG] 2025-04-02 23:56:18,694 [UID:1] views - get Room object(pk)
+[INFO] 2025-04-02 23:56:18,696 [UID:1] views - GET method
+[INFO] 2025-04-02 23:56:18,696 [UID:1] views - return render room/delete.html
+[INFO] 2025-04-02 23:56:18,700 [UID:1] basehttp - "GET /room/delete/1/ HTTP/1.1" 200 15550
+[INFO] 2025-04-02 23:56:18,719 [UID:1] basehttp - "GET /media/room/1_images_2504021456.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:56:18,721 [UID:1] basehttp - "GET /media/room/1_themes_2504021456.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:56:21,000 [UID:1] views - start Room delete_view
+[DEBUG] 2025-04-02 23:56:21,000 [UID:1] views - get Room object(pk)
+[INFO] 2025-04-02 23:56:21,002 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:56:21,002 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\room\1_images_2504021456.jpg
+[DEBUG] 2025-04-02 23:56:21,002 [UID:1] utils - old images_data file exists
+[DEBUG] 2025-04-02 23:56:21,003 [UID:1] utils - delete old images_data
+[DEBUG] 2025-04-02 23:56:21,003 [UID:1] views - old themes_data exists
+[DEBUG] 2025-04-02 23:56:21,003 [UID:1] utils - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\room\1_themes_2504021456.jpg
+[DEBUG] 2025-04-02 23:56:21,003 [UID:1] utils - old themes_data file exists
+[DEBUG] 2025-04-02 23:56:21,003 [UID:1] utils - delete old themes_data
+[DEBUG] 2025-04-02 23:56:21,004 [UID:1] views - delete old Room object
+[INFO] 2025-04-02 23:56:21,005 [UID:1] views - return redirect room:list
+[INFO] 2025-04-02 23:56:21,006 [UID:1] basehttp - "POST /room/delete/1/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:56:21,009 [UID:1] views - start Room list_view
+[DEBUG] 2025-04-02 23:56:21,057 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 23:56:21,057 [UID:1] views - return render room/list.html
+[INFO] 2025-04-02 23:56:21,059 [UID:1] basehttp - "GET /room/list/ HTTP/1.1" 200 15753
+[DEBUG] 2025-04-02 23:56:24,702 [UID:1] views - start Device list_view
+[DEBUG] 2025-04-02 23:56:24,752 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 23:56:24,752 [UID:1] views - return render device/list.html
+[INFO] 2025-04-02 23:56:24,755 [UID:1] basehttp - "GET /device/list/ HTTP/1.1" 200 15769
+[INFO] 2025-04-02 23:56:25,657 [UID:1] views - start Device create_view
+[INFO] 2025-04-02 23:56:25,657 [UID:1] views - GET method
+[INFO] 2025-04-02 23:56:25,657 [UID:1] views - return render device/create.html
+[INFO] 2025-04-02 23:56:25,663 [UID:1] basehttp - "GET /device/create/ HTTP/1.1" 200 17052
+[INFO] 2025-04-02 23:56:39,864 [UID:1] views - start Device create_view
+[INFO] 2025-04-02 23:56:39,865 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:56:39,866 [UID:1] views - Device form.is_valid
+[DEBUG] 2025-04-02 23:56:39,869 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 23:56:39,869 [UID:1] utils - new images_data=1_images_2504021456.jpg
+[DEBUG] 2025-04-02 23:56:39,869 [UID:1] views - themes_data exists
+[DEBUG] 2025-04-02 23:56:39,870 [UID:1] utils - themes_data=1_themes_2504021456.jpg
+[INFO] 2025-04-02 23:56:39,943 [UID:1] views - return redirect device:list
+[INFO] 2025-04-02 23:56:39,944 [UID:1] basehttp - "POST /device/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:56:39,948 [UID:1] views - start Device list_view
+[DEBUG] 2025-04-02 23:56:40,009 [UID:1] views - object_list exists
+[INFO] 2025-04-02 23:56:40,010 [UID:1] views - return render device/list.html
+[INFO] 2025-04-02 23:56:40,015 [UID:1] basehttp - "GET /device/list/ HTTP/1.1" 200 17591
+[INFO] 2025-04-02 23:56:40,043 [UID:1] basehttp - "GET /media/device/1_images_2504021456.jpg HTTP/1.1" 200 95032
+[INFO] 2025-04-02 23:56:40,045 [UID:1] basehttp - "GET /media/device/1_themes_2504021456.jpg HTTP/1.1" 200 134383
+[INFO] 2025-04-02 23:56:49,899 [UID:1] views - start Device detail_view
+[DEBUG] 2025-04-02 23:56:49,952 [UID:1] views - get Device object(pk)
+[DEBUG] 2025-04-02 23:56:49,953 [UID:1] views - return render device/detail.html
+[INFO] 2025-04-02 23:56:49,958 [UID:1] basehttp - "GET /device/detail/1/ HTTP/1.1" 200 20586
+[INFO] 2025-04-02 23:56:49,979 [UID:1] basehttp - "GET /media/device/1_themes_2504021456.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:56:49,980 [UID:1] basehttp - "GET /media/device/1_images_2504021456.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:56:51,160 [UID:1] views - start Device update_view
+[DEBUG] 2025-04-02 23:56:51,160 [UID:1] views - get Device object(pk)
+[INFO] 2025-04-02 23:56:51,161 [UID:1] views - GET method
+[INFO] 2025-04-02 23:56:51,162 [UID:1] views - return render device/update.html
+[INFO] 2025-04-02 23:56:51,168 [UID:1] basehttp - "GET /device/update/1/ HTTP/1.1" 200 17080
+[INFO] 2025-04-02 23:56:51,184 [UID:1] basehttp - "GET /media/device/1_images_2504021456.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:56:51,185 [UID:1] basehttp - "GET /media/device/1_themes_2504021456.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:56:59,632 [UID:1] views - start Device update_view
+[DEBUG] 2025-04-02 23:56:59,632 [UID:1] views - get Device object(pk)
+[INFO] 2025-04-02 23:56:59,634 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:56:59,635 [UID:1] views - form.is_valid
+[DEBUG] 2025-04-02 23:56:59,635 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 23:56:59,635 [UID:1] utils - old images_data exists
+[DEBUG] 2025-04-02 23:56:59,635 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\device\1_images_2504021456.jpg
+[DEBUG] 2025-04-02 23:56:59,635 [UID:1] utils - old images_data file exists
+[DEBUG] 2025-04-02 23:56:59,636 [UID:1] utils - delete old images_data
+[DEBUG] 2025-04-02 23:56:59,636 [UID:1] utils - new images_data=1_images_2504021456.jpg
+[DEBUG] 2025-04-02 23:56:59,636 [UID:1] views - themes_data exists=1_themes_2503281713.jpg
+[DEBUG] 2025-04-02 23:56:59,636 [UID:1] utils - old themes_data exists
+[DEBUG] 2025-04-02 23:56:59,637 [UID:1] utils - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\device\1_themes_2504021456.jpg
+[DEBUG] 2025-04-02 23:56:59,637 [UID:1] utils - old themes_data file exists
+[DEBUG] 2025-04-02 23:56:59,637 [UID:1] utils - delete old themes_data
+[DEBUG] 2025-04-02 23:56:59,637 [UID:1] utils - themes_data=1_themes_2504021456.jpg
+[DEBUG] 2025-04-02 23:56:59,638 [UID:1] views - save updated Device object
+[INFO] 2025-04-02 23:56:59,682 [UID:1] views - return redirect device:list
+[INFO] 2025-04-02 23:56:59,683 [UID:1] basehttp - "POST /device/update/1/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:56:59,687 [UID:1] views - start Device list_view
+[DEBUG] 2025-04-02 23:56:59,753 [UID:1] views - object_list exists
+[INFO] 2025-04-02 23:56:59,754 [UID:1] views - return render device/list.html
+[INFO] 2025-04-02 23:56:59,759 [UID:1] basehttp - "GET /device/list/ HTTP/1.1" 200 17591
+[INFO] 2025-04-02 23:56:59,791 [UID:1] basehttp - "GET /media/device/1_themes_2504021456.jpg HTTP/1.1" 200 73967
+[INFO] 2025-04-02 23:56:59,790 [UID:1] basehttp - "GET /media/device/1_images_2504021456.jpg HTTP/1.1" 200 6407
+[INFO] 2025-04-02 23:57:06,830 [UID:1] views - start Device detail_view
+[DEBUG] 2025-04-02 23:57:06,880 [UID:1] views - get Device object(pk)
+[DEBUG] 2025-04-02 23:57:06,882 [UID:1] views - return render device/detail.html
+[INFO] 2025-04-02 23:57:06,884 [UID:1] basehttp - "GET /device/detail/1/ HTTP/1.1" 200 20586
+[INFO] 2025-04-02 23:57:06,907 [UID:1] basehttp - "GET /media/device/1_images_2504021456.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:57:06,906 [UID:1] basehttp - "GET /media/device/1_themes_2504021456.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:57:11,054 [UID:1] views - start Device delete_view
+[DEBUG] 2025-04-02 23:57:11,055 [UID:1] views - get Device object(pk)
+[INFO] 2025-04-02 23:57:11,056 [UID:1] views - GET method
+[INFO] 2025-04-02 23:57:11,056 [UID:1] views - return render device/delete.html
+[INFO] 2025-04-02 23:57:11,060 [UID:1] basehttp - "GET /device/delete/1/ HTTP/1.1" 200 15803
+[INFO] 2025-04-02 23:57:11,079 [UID:1] basehttp - "GET /media/device/1_themes_2504021456.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:57:11,077 [UID:1] basehttp - "GET /media/device/1_images_2504021456.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:57:13,896 [UID:1] views - start Device delete_view
+[DEBUG] 2025-04-02 23:57:13,896 [UID:1] views - get Device object(pk)
+[INFO] 2025-04-02 23:57:13,898 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:57:13,898 [UID:1] views - old images_data exists
+[DEBUG] 2025-04-02 23:57:13,898 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\device\1_images_2504021456.jpg
+[DEBUG] 2025-04-02 23:57:13,899 [UID:1] utils - old images_data file exists
+[DEBUG] 2025-04-02 23:57:13,899 [UID:1] utils - delete old images_data
+[DEBUG] 2025-04-02 23:57:13,899 [UID:1] views - old themes_data exists
+[DEBUG] 2025-04-02 23:57:13,899 [UID:1] utils - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\device\1_themes_2504021456.jpg
+[DEBUG] 2025-04-02 23:57:13,900 [UID:1] utils - old themes_data file exists
+[DEBUG] 2025-04-02 23:57:13,900 [UID:1] utils - delete old themes_data
+[DEBUG] 2025-04-02 23:57:13,901 [UID:1] views - delete old Device object
+[INFO] 2025-04-02 23:57:13,903 [UID:1] views - return redirect device:list
+[INFO] 2025-04-02 23:57:13,904 [UID:1] basehttp - "POST /device/delete/1/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:57:13,908 [UID:1] views - start Device list_view
+[DEBUG] 2025-04-02 23:57:13,956 [UID:1] views - object_list not exists
+[INFO] 2025-04-02 23:57:13,957 [UID:1] views - return render device/list.html
+[INFO] 2025-04-02 23:57:13,958 [UID:1] basehttp - "GET /device/list/ HTTP/1.1" 200 15769
+[DEBUG] 2025-04-02 23:57:22,076 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-02 23:57:22,132 [UID:1] views - object_list exists
+[INFO] 2025-04-02 23:57:22,133 [UID:1] views - return render user/list.html
+[INFO] 2025-04-02 23:57:22,140 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 18248
+[INFO] 2025-04-02 23:57:22,157 [UID:1] basehttp - "GET /media/user/1_themes_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-02 23:57:24,053 [UID:1] views - start Profile create_view
+[INFO] 2025-04-02 23:57:24,053 [UID:1] views - GET method
+[DEBUG] 2025-04-02 23:57:24,055 [UID:1] forms - mbti_value=None
+[DEBUG] 2025-04-02 23:57:24,055 [UID:1] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[INFO] 2025-04-02 23:57:24,056 [UID:1] views - return render user/create.html
+[INFO] 2025-04-02 23:57:24,065 [UID:1] basehttp - "GET /user/create/ HTTP/1.1" 200 36105
+[INFO] 2025-04-02 23:57:53,329 [UID:1] views - start Profile create_view
+[INFO] 2025-04-02 23:57:53,329 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:57:53,330 [UID:1] forms - mbti_value=None
+[DEBUG] 2025-04-02 23:57:53,330 [UID:1] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[ERROR] 2025-04-02 23:57:53,339 [UID:1] views - user-form or profile_form is invalid.
+[DEBUG] 2025-04-02 23:57:53,341 [UID:1] forms - mbti_name_value=
+[DEBUG] 2025-04-02 23:57:53,341 [UID:1] forms - valid_choices=[]
+[INFO] 2025-04-02 23:57:53,343 [UID:1] views - return render user/create.html
+[INFO] 2025-04-02 23:57:53,349 [UID:1] basehttp - "POST /user/create/ HTTP/1.1" 200 36415
+[INFO] 2025-04-02 23:58:22,842 [UID:1] views - start Profile create_view
+[INFO] 2025-04-02 23:58:22,842 [UID:1] views - POST method
+[DEBUG] 2025-04-02 23:58:22,843 [UID:1] forms - mbti_value=None
+[DEBUG] 2025-04-02 23:58:22,843 [UID:1] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[DEBUG] 2025-04-02 23:58:22,846 [UID:1] forms - mbti_name_value=
+[DEBUG] 2025-04-02 23:58:22,847 [UID:1] forms - valid_choices=[]
+[DEBUG] 2025-04-02 23:58:22,848 [UID:1] views - User Profile form.is_valid
+[DEBUG] 2025-04-02 23:58:23,423 [UID:1] views - images_data exists
+[DEBUG] 2025-04-02 23:58:23,423 [UID:1] utils - new images_data=2_images_2504021458.webp
+[DEBUG] 2025-04-02 23:58:23,423 [UID:1] views - themes_data exists
+[DEBUG] 2025-04-02 23:58:23,423 [UID:1] utils - themes_data=2_themes_2504021458.jpg
+[INFO] 2025-04-02 23:58:23,479 [UID:1] views - return redirect user:list
+[INFO] 2025-04-02 23:58:23,480 [UID:1] basehttp - "POST /user/create/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-02 23:58:23,483 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-02 23:58:23,534 [UID:1] views - object_list exists
+[INFO] 2025-04-02 23:58:23,535 [UID:1] views - return render user/list.html
+[INFO] 2025-04-02 23:58:23,545 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 19913
+[INFO] 2025-04-02 23:58:23,571 [UID:1] basehttp - "GET /media/user/2_images_2504021458.webp HTTP/1.1" 200 5054
+[INFO] 2025-04-02 23:58:23,573 [UID:1] basehttp - "GET /media/user/2_themes_2504021458.jpg HTTP/1.1" 200 93373
+[INFO] 2025-04-02 23:58:43,174 [UID:1] views - start detail_view
+[DEBUG] 2025-04-02 23:58:43,234 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-02 23:58:43,240 [UID:1] views - return render user/detail.html
+[ERROR] 2025-04-02 23:58:43,294 [UID:1] log - Internal Server Error: /user/detail/2/
+Traceback (most recent call last):
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sasay\Desktop\Python\AinoteProject\user\views.py", line 84, in detail_view
+    return render(request, 'user/detail.html', context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sasay\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'disp_qr' with keyword arguments '{'profile_id': 2}' not found. 1 pattern(s) tried: ['friend/disp_qr/\\Z']
+[ERROR] 2025-04-02 23:58:43,300 [UID:1] basehttp - "GET /user/detail/2/ HTTP/1.1" 500 177499
+[INFO] 2025-04-03 00:00:11,517 [UID:1] views - start detail_view
+[DEBUG] 2025-04-03 00:00:11,568 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-03 00:00:11,575 [UID:1] views - return render user/detail.html
+[INFO] 2025-04-03 00:00:11,591 [UID:1] basehttp - "GET /user/detail/2/ HTTP/1.1" 200 23376
+[INFO] 2025-04-03 00:00:11,612 [UID:1] basehttp - "GET /media/user/2_themes_2504021458.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-03 00:00:11,613 [UID:1] basehttp - "GET /media/user/2_images_2504021458.webp HTTP/1.1" 304 0
+[INFO] 2025-04-03 00:00:11,732 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-03 00:00:11,733 [UID:1] views - url_for_qr=http://127.0.0.1:8000/friend/create/?profile_id=2
+[DEBUG] 2025-04-03 00:00:11,744 [UID:1] utils - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-03 00:00:11,752 [UID:1] basehttp - "GET /friend/disp_qr/?profile_id=2 HTTP/1.1" 200 8343
+[INFO] 2025-04-03 00:00:23,811 [UID:1] views - start Profile update_view
+[DEBUG] 2025-04-03 00:00:23,811 [UID:1] views - get Profile object(pk)
+[INFO] 2025-04-03 00:00:23,815 [UID:1] views - GET method
+[DEBUG] 2025-04-03 00:00:23,816 [UID:1] forms - mbti_value=-
+[DEBUG] 2025-04-03 00:00:23,816 [UID:1] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[INFO] 2025-04-03 00:00:23,816 [UID:1] views - return render user/update.html
+[INFO] 2025-04-03 00:00:23,828 [UID:1] basehttp - "GET /user/update/2/ HTTP/1.1" 200 36094
+[INFO] 2025-04-03 00:00:23,864 [UID:1] basehttp - "GET /media/user/2_images_2504021458.webp HTTP/1.1" 304 0
+[INFO] 2025-04-03 00:00:23,864 [UID:1] basehttp - "GET /media/user/2_themes_2504021458.jpg HTTP/1.1" 304 0
+[DEBUG] 2025-04-03 00:00:23,940 [UID:1] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-03 00:00:23,991 [UID:1] views - mbti_name_choices=[]
+[INFO] 2025-04-03 00:00:23,992 [UID:1] basehttp - "GET /user/get_mbti_name_choices/?mbti=- HTTP/1.1" 200 25
+[INFO] 2025-04-03 00:00:39,490 [UID:1] views - start Profile update_view
+[DEBUG] 2025-04-03 00:00:39,490 [UID:1] views - get Profile object(pk)
+[INFO] 2025-04-03 00:00:39,493 [UID:1] views - POST method
+[DEBUG] 2025-04-03 00:00:39,494 [UID:1] forms - mbti_value=-
+[DEBUG] 2025-04-03 00:00:39,494 [UID:1] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[DEBUG] 2025-04-03 00:00:39,494 [UID:1] forms - mbti_name_value=
+[DEBUG] 2025-04-03 00:00:39,495 [UID:1] forms - valid_choices=[]
+[DEBUG] 2025-04-03 00:00:39,495 [UID:1] views - form.is_valid
+[DEBUG] 2025-04-03 00:00:39,496 [UID:1] views - images_data exists
+[DEBUG] 2025-04-03 00:00:39,496 [UID:1] utils - old images_data exists
+[DEBUG] 2025-04-03 00:00:39,496 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\3_images_2503282357.jpg
+[DEBUG] 2025-04-03 00:00:39,496 [UID:1] utils - old images_data file not exists
+[DEBUG] 2025-04-03 00:00:39,496 [UID:1] utils - new images_data=2_images_2504021500.jpg
+[DEBUG] 2025-04-03 00:00:39,497 [UID:1] views - themes_data exists=3_themes_2503280030.jpg
+[DEBUG] 2025-04-03 00:00:39,497 [UID:1] utils - old themes_data exists
+[DEBUG] 2025-04-03 00:00:39,497 [UID:1] utils - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\3_themes_2503280030.jpg
+[DEBUG] 2025-04-03 00:00:39,497 [UID:1] utils - old themes_data file not exists
+[DEBUG] 2025-04-03 00:00:39,497 [UID:1] utils - themes_data=2_themes_2504021500.jpg
+[DEBUG] 2025-04-03 00:00:39,497 [UID:1] views - save updated Profile object
+[INFO] 2025-04-03 00:00:39,555 [UID:1] views - return redirect user:list
+[INFO] 2025-04-03 00:00:39,556 [UID:1] basehttp - "POST /user/update/2/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-03 00:00:39,560 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-03 00:00:39,610 [UID:1] views - object_list exists
+[INFO] 2025-04-03 00:00:39,612 [UID:1] views - return render user/list.html
+[INFO] 2025-04-03 00:00:39,622 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 19690
+[INFO] 2025-04-03 00:00:39,648 [UID:1] basehttp - "GET /media/user/2_images_2504021500.jpg HTTP/1.1" 200 95032
+[INFO] 2025-04-03 00:00:39,650 [UID:1] basehttp - "GET /media/user/2_themes_2504021500.jpg HTTP/1.1" 200 134383
+[INFO] 2025-04-03 00:01:23,118 [UID:1] views - start detail_view
+[DEBUG] 2025-04-03 00:01:23,284 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-03 00:01:23,289 [UID:1] views - return render user/detail.html
+[INFO] 2025-04-03 00:01:23,300 [UID:1] basehttp - "GET /user/detail/2/ HTTP/1.1" 200 23373
+[INFO] 2025-04-03 00:01:23,318 [UID:1] basehttp - "GET /media/user/2_themes_2504021500.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-03 00:01:23,319 [UID:1] basehttp - "GET /media/user/2_images_2504021500.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-03 00:01:23,441 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-03 00:01:23,441 [UID:1] views - url_for_qr=http://127.0.0.1:8000/friend/create/?profile_id=2
+[DEBUG] 2025-04-03 00:01:23,453 [UID:1] utils - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-03 00:01:23,461 [UID:1] basehttp - "GET /friend/disp_qr/?profile_id=2 HTTP/1.1" 200 8343
+[INFO] 2025-04-03 00:01:24,963 [UID:1] views - start Profile update_view
+[DEBUG] 2025-04-03 00:01:24,963 [UID:1] views - get Profile object(pk)
+[INFO] 2025-04-03 00:01:24,966 [UID:1] views - GET method
+[DEBUG] 2025-04-03 00:01:24,967 [UID:1] forms - mbti_value=-
+[DEBUG] 2025-04-03 00:01:24,967 [UID:1] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[INFO] 2025-04-03 00:01:24,967 [UID:1] views - return render user/update.html
+[INFO] 2025-04-03 00:01:24,973 [UID:1] basehttp - "GET /user/update/2/ HTTP/1.1" 200 36085
+[DEBUG] 2025-04-03 00:01:25,004 [UID:1] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-03 00:01:25,059 [UID:1] views - mbti_name_choices=[]
+[INFO] 2025-04-03 00:01:25,060 [UID:1] basehttp - "GET /user/get_mbti_name_choices/?mbti=- HTTP/1.1" 200 25
+[INFO] 2025-04-03 00:01:36,221 [UID:1] views - start Profile update_view
+[DEBUG] 2025-04-03 00:01:36,221 [UID:1] views - get Profile object(pk)
+[INFO] 2025-04-03 00:01:36,224 [UID:1] views - POST method
+[DEBUG] 2025-04-03 00:01:36,225 [UID:1] forms - mbti_value=-
+[DEBUG] 2025-04-03 00:01:36,226 [UID:1] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[DEBUG] 2025-04-03 00:01:36,226 [UID:1] forms - mbti_name_value=
+[DEBUG] 2025-04-03 00:01:36,226 [UID:1] forms - valid_choices=[]
+[DEBUG] 2025-04-03 00:01:36,227 [UID:1] views - form.is_valid
+[DEBUG] 2025-04-03 00:01:36,227 [UID:1] views - images_data exists
+[DEBUG] 2025-04-03 00:01:36,228 [UID:1] utils - old images_data exists
+[DEBUG] 2025-04-03 00:01:36,228 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\1_images_2503282356.jpg
+[DEBUG] 2025-04-03 00:01:36,228 [UID:1] utils - old images_data file not exists
+[DEBUG] 2025-04-03 00:01:36,228 [UID:1] utils - new images_data=2_images_2504021501.jpg
+[DEBUG] 2025-04-03 00:01:36,228 [UID:1] views - themes_data exists=1_themes_2503281713.jpg
+[DEBUG] 2025-04-03 00:01:36,229 [UID:1] utils - old themes_data exists
+[DEBUG] 2025-04-03 00:01:36,229 [UID:1] utils - old themes_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\1_themes_2503281713.jpg
+[DEBUG] 2025-04-03 00:01:36,229 [UID:1] utils - old themes_data file not exists
+[DEBUG] 2025-04-03 00:01:36,229 [UID:1] utils - themes_data=2_themes_2504021501.jpg
+[DEBUG] 2025-04-03 00:01:36,229 [UID:1] views - save updated Profile object
+[INFO] 2025-04-03 00:01:36,272 [UID:1] views - return redirect user:list
+[INFO] 2025-04-03 00:01:36,273 [UID:1] basehttp - "POST /user/update/2/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-03 00:01:36,278 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-03 00:01:36,358 [UID:1] views - object_list exists
+[INFO] 2025-04-03 00:01:36,360 [UID:1] views - return render user/list.html
+[INFO] 2025-04-03 00:01:36,370 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 19690
+[INFO] 2025-04-03 00:01:36,395 [UID:1] basehttp - "GET /media/user/2_themes_2504021501.jpg HTTP/1.1" 200 73967
+[INFO] 2025-04-03 00:01:36,393 [UID:1] basehttp - "GET /media/user/2_images_2504021501.jpg HTTP/1.1" 200 6407
+[INFO] 2025-04-03 00:12:33,399 [UID:1] views - start detail_view
+[DEBUG] 2025-04-03 00:12:33,455 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-03 00:12:33,460 [UID:1] views - return render user/detail.html
+[INFO] 2025-04-03 00:12:33,471 [UID:1] basehttp - "GET /user/detail/2/ HTTP/1.1" 200 23373
+[INFO] 2025-04-03 00:12:33,506 [UID:1] basehttp - "GET /media/user/2_images_2504021501.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-03 00:12:33,504 [UID:1] basehttp - "GET /media/user/2_themes_2504021501.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-03 00:12:33,700 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-03 00:12:33,701 [UID:1] views - url_for_qr=http://127.0.0.1:8000/friend/create/?profile_id=2
+[DEBUG] 2025-04-03 00:12:33,717 [UID:1] utils - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-03 00:12:33,728 [UID:1] basehttp - "GET /friend/disp_qr/?profile_id=2 HTTP/1.1" 200 8343
+[INFO] 2025-04-03 00:12:34,807 [UID:1] views - start Profile update_view
+[DEBUG] 2025-04-03 00:12:34,808 [UID:1] views - get Profile object(pk)
+[INFO] 2025-04-03 00:12:34,811 [UID:1] views - GET method
+[DEBUG] 2025-04-03 00:12:34,812 [UID:1] forms - mbti_value=-
+[DEBUG] 2025-04-03 00:12:34,813 [UID:1] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[INFO] 2025-04-03 00:12:34,813 [UID:1] views - return render user/update.html
+[INFO] 2025-04-03 00:12:34,818 [UID:1] basehttp - "GET /user/update/2/ HTTP/1.1" 200 36085
+[DEBUG] 2025-04-03 00:12:34,866 [UID:1] views - start Profile get_mbti_name_choices
+[DEBUG] 2025-04-03 00:12:35,026 [UID:1] views - mbti_name_choices=[]
+[INFO] 2025-04-03 00:12:35,027 [UID:1] basehttp - "GET /user/get_mbti_name_choices/?mbti=- HTTP/1.1" 200 25
+[INFO] 2025-04-03 00:12:41,672 [UID:1] views - start Profile update_view
+[DEBUG] 2025-04-03 00:12:41,673 [UID:1] views - get Profile object(pk)
+[INFO] 2025-04-03 00:12:41,677 [UID:1] views - POST method
+[DEBUG] 2025-04-03 00:12:41,677 [UID:1] forms - mbti_value=-
+[DEBUG] 2025-04-03 00:12:41,678 [UID:1] forms - self.fields['mbti_name'].choices=[('', '---------')]
+[DEBUG] 2025-04-03 00:12:41,678 [UID:1] forms - mbti_name_value=
+[DEBUG] 2025-04-03 00:12:41,678 [UID:1] forms - valid_choices=[]
+[DEBUG] 2025-04-03 00:12:41,679 [UID:1] views - form.is_valid
+[DEBUG] 2025-04-03 00:12:41,679 [UID:1] views - images_data exists
+[DEBUG] 2025-04-03 00:12:41,680 [UID:1] utils - old images_data exists
+[DEBUG] 2025-04-03 00:12:41,680 [UID:1] utils - old images_data=C:\Users\sasay\Desktop\Python\AinoteProject\media\2_images_2503282356.webp
+[DEBUG] 2025-04-03 00:12:41,680 [UID:1] utils - old images_data file not exists
+[DEBUG] 2025-04-03 00:12:41,680 [UID:1] utils - new images_data=2_images_2504021512.webp
+[DEBUG] 2025-04-03 00:12:41,680 [UID:1] views - save updated Profile object
+[INFO] 2025-04-03 00:12:41,700 [UID:1] views - return redirect user:list
+[INFO] 2025-04-03 00:12:41,701 [UID:1] basehttp - "POST /user/update/2/ HTTP/1.1" 302 0
+[DEBUG] 2025-04-03 00:12:41,706 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-03 00:12:41,757 [UID:1] views - object_list exists
+[INFO] 2025-04-03 00:12:41,759 [UID:1] views - return render user/list.html
+[INFO] 2025-04-03 00:12:41,768 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 19692
+[INFO] 2025-04-03 00:12:41,796 [UID:1] basehttp - "GET /media/user/2_images_2504021512.webp HTTP/1.1" 200 5054

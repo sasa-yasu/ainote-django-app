@@ -1,12 +1,10 @@
-import os
-from django.utils.timezone import now
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
-from django.core.files.storage import default_storage
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes
 from .forms import ProfileForm, UserCreateForm
 from .models import Profile
 
@@ -155,27 +153,18 @@ def create_view(request):
                 logger.info('return render user/create.html')
                 return render(request, 'user/create.html', context)
 
-            if images_data or themes_data:
-                if images_data:
-                    logger.debug('images_data exists')
-                    ext = os.path.splitext(images_data.name)[1]  # 拡張子を取得
-                    timestamp = now().strftime('%y%m%d%H%M')  # タイムスタンプ生成 (yyMMddHHmm)
-                    images_data.name = f"{object.id}_images_{timestamp}{ext}"  # 例: "12_2503201935.jpg"
-                    logger.debug(f'images_data={images_data}')
-                    object.images = images_data
+            if images_data:
+                logger.debug('images_data exists')
+                object.images = create_images(object, images_data)
 
-                if themes_data:
-                    logger.debug('themes_data exists')
-                    ext = os.path.splitext(themes_data.name)[1]  # 拡張子を取得
-                    timestamp = now().strftime('%y%m%d%H%M')  # タイムスタンプ生成 (yyMMddHHmm)
-                    themes_data.name = f"{object.id}_themes_{timestamp}{ext}"  # 例: "12_2503201935.jpg"
-                    logger.debug(f'themes_data={themes_data}')
-                    object.themes = themes_data
+            if themes_data:
+                logger.debug('themes_data exists')
+                object.themes = create_themes(object, themes_data)
 
-                try:
-                    object.save()
-                except Exception as e:
-                    logger.error(f'couldnt save the images_data / themes_data in Profile object: {e}')
+            try:
+                object.save()
+            except Exception as e:
+                logger.error(f'couldnt save the images_data / themes_data in Profile object: {e}')
             
             logger.info('return redirect user:list')
             return redirect('user:list')
@@ -211,7 +200,7 @@ def update_view(request, pk):
         # POSTデータから `mbti` を取得
         mbti_value = request.POST.get('mbti', object.mbti)
         
-        profile_form = ProfileForm(request.POST, request.FILES, instance=object)
+        profile_form = ProfileForm(request.POST, request.FILES)
         profile_form.fields['mbti_name'].choices = Profile.MBTI_NAME_CHOICES.get(mbti_value, [("", "---------")])
         
         context = {'object': object, 'user_form': user_form, 'profile_form': profile_form}
@@ -236,56 +225,13 @@ def update_view(request, pk):
             images_data = request.FILES.get("images")
             themes_data = request.FILES.get("themes")
 
-            if images_data or themes_data:
-                if images_data: # File Selected
-                    logger.debug('images_data exists')
+            if images_data: # File Selected
+                logger.debug('images_data exists')
+                object.images = update_images(object, images_data)
 
-                    # **古いファイルを削除**
-                    if object.images:
-                        logger.debug('old images_data exists')
-                        old_image_path = object.images.path  # 旧ファイルのパス
-                        logger.debug(f'old images_data={old_image_path}')
-                        if default_storage.exists(old_image_path):
-                            logger.debug('old images_data file exists')
-                            try:
-                                logger.debug('delete old images_data')
-                                default_storage.delete(old_image_path)  # 削除
-                            except Exception as e:
-                                logger.error(f'couldnt delete old images_data={old_image_path}: {e}')
-                        else:
-                            logger.debug('old images_data file not exists')
-                    # **新しいファイルを保存**
-                    ext = os.path.splitext(images_data.name)[1]  # 拡張子を取得
-                    timestamp = now().strftime('%y%m%d%H%M')  # タイムスタンプ生成 (yyMMddHHmm)
-                    images_data.name = f"{object.id}_images_{timestamp}{ext}"  # 例: "12_2503201935.jpg"
-                    logger.debug(f'new images_data={images_data}')
-                    logger.debug('save new images_data')
-                    object.images = images_data
-
-
-                if themes_data: # File Selected
-                    logger.debug(f'themes_data exists={themes_data}')
-                    # **古いファイルを削除**
-                    if object.themes:
-                        logger.debug('old themes_data exists')
-                        old_image_path = object.themes.path  # 旧ファイルのパス
-                        logger.debug(f'old themes_data={old_image_path}')
-                        if default_storage.exists(old_image_path):
-                            logger.debug('old themes_data file exists')
-                            try:
-                                logger.debug('delete old themes_data')
-                                default_storage.delete(old_image_path)  # 削除
-                            except Exception as e:
-                                logger.error(f'couldnt delete old themes_data={old_image_path}: {e}')
-                        else:
-                            logger.debug('old themes_data file not exists')
-                    # **新しいファイルを保存**
-                    ext = os.path.splitext(themes_data.name)[1]  # 拡張子を取得
-                    timestamp = now().strftime('%y%m%d%H%M')  # タイムスタンプ生成 (yyMMddHHmm)
-                    themes_data.name = f"{object.id}_themes_{timestamp}{ext}"  # 例: "12_2503201935.jpg"
-                    logger.debug(f'new themes_data={themes_data}')
-                    logger.debug('save new themes_data')
-                    object.themes = themes_data
+            if themes_data: # File Selected
+                logger.debug(f'themes_data exists={themes_data}')
+                object.themes = update_themes(object, themes_data)
 
             try:
                 logger.debug('save updated Profile object')
@@ -322,17 +268,12 @@ def delete_view(request, pk):
         # **古いファイルを削除**
         if object.images:
             logger.debug('old images_data exists')
-            old_image_path = object.images.path  # 旧ファイルのパス
-            logger.debug(f'old themes_data={old_image_path}')
-            if default_storage.exists(old_image_path):
-                logger.debug('old images_data file exists')
-                try:
-                    logger.debug('delete old images_data')
-                    default_storage.delete(old_image_path)  # 削除
-                except Exception as e:
-                    logger.error(f'couldnt delete old images_data={old_image_path}: {e}')
-            else:
-                logger.debug('old images_data file not exists')
+            object = delete_images(object)
+
+        # **古いファイルを削除**
+        if object.themes:
+            logger.debug('old themes_data exists')
+            object = delete_themes(object)
 
         try:
             logger.debug('delete old Profile object')

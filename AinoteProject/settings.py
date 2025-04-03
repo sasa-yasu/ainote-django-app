@@ -39,11 +39,9 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 SITE_DOMAIN = os.getenv('SITE_DOMAIN')
+MBTI_TEST_URL = os.getenv('MBTI_TEST_URL')
 
-# 本番環境は以下のように変更
-# SITE_DOMAIN = "https://your-production-domain.com"
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -80,7 +78,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 #    'maintenance_mode.middleware.MaintenanceModeMiddleware',
-    'middleware.current_request.ThreadLocalMiddleware',
+    'middleware.current_request.CurrentRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'AinoteProject.urls'

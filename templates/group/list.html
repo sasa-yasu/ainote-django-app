@@ -4,14 +4,9 @@
 {% block header %}
 <link rel="'stylesheet" type="text/css" href="{% static 'list/style.css' %}">
 <style type="text/css">
-    .xy_center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 
     /* 画像の重ね合わせコンテナ */
-    .image-wrapper {
+    .profile-image-wrapper {
         position: relative;
         width: 100%;
         height: auto;         /* 高さを自動調整 */
@@ -21,7 +16,7 @@
     }
 
     /* 背景の themes 画像 */
-    .bg-image {
+    .profile-bg-image {
         position: absolute;
         top: 0;
         left: 0;
@@ -34,7 +29,7 @@
     }
 
     /* 前面の images 画像 */
-    .front-image {
+    .profile-front-image {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -49,7 +44,7 @@
     }
 
     /* 前面の images 画像 */
-    .front-image img {
+    .profile-front-image img {
         height: 90%;         /* 親要素に対して80%の高さで表示 */
         width: auto;          /* アスペクト比維持 */
         object-fit: contain;  /* はみ出し防止 */
@@ -57,7 +52,7 @@
     }
 
     /* ホバー時のエフェクト */
-    .image-wrapper:hover .bg-image {
+    .profile-image-wrapper:hover .profile-bg-image {
         transform: scale(1.10);
         transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
     }

@@ -61,7 +61,7 @@ class ProfileForm(forms.ModelForm):
 
     MBTI_NAME_CHOICES = Profile.MBTI_NAME_CHOICES
     mbti_name = forms.ChoiceField(
-        label='MBTI Name', choices=[], widget=forms.Select(attrs={'class': 'form-control', 'id': 'id_mbti_name'}),
+        label='MBTI Display Name', choices=[], widget=forms.Select(attrs={'class': 'form-control', 'id': 'id_mbti_name'}),
         required=False, help_text='* Choose a specific name.'
         )
     

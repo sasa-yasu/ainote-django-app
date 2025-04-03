@@ -45,11 +45,11 @@ class PlaceForm(forms.ModelForm):
         )
     latitude = forms.FloatField(
         label='Latitude', widget=forms.TextInput(attrs={'class':'form-control'}),
-        required=False, help_text='* GPS Geolocation : Latitude.'
+        required=True, help_text='* GPS Geolocation : Latitude.'
         )
     longitude = forms.FloatField(
         label='Longitude', widget=forms.TextInput(attrs={'class':'form-control'}),
-        required=False, help_text='* GPS Geolocation : Longitude.'
+        required=True, help_text='* GPS Geolocation : Longitude.'
         )
     googlemap_url = forms.CharField(
         label='Google Map URL', max_length=3000, widget=forms.TextInput(attrs={'class': 'form-control'}),

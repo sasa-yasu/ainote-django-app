@@ -4,7 +4,9 @@
 {% block header %}
 <link rel="'stylesheet" type="text/css" href="{% static 'list/style.css' %}">
 <style type="text/css">
-    .xy_center {
+
+    /***** notice card *****/
+    .notice-xy_center {
         display: -webkit-flex;
         display: flex;
         -webkit-justify-content: center;
@@ -12,7 +14,7 @@
         -webkit-align-items: center;
         align-items: center;
     }
-    .img-container {
+    .notice-img-container {
         width: 100%; /* 親要素に対して100%の幅を持つ */
         height: 100%; /* 必要に応じて高さを調整 */
         display: flex;
@@ -20,7 +22,7 @@
         align-items: center;
         overflow: hidden; /* 画像のはみ出しを防ぐ */
     }
-    .preview-image {
+    .notice-preview-image {
         max-width: 100%; /* カード内で画像がはみ出さないようにする */
         max-height: 100%; /* 親要素を超えないように制限 */
         object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
@@ -53,11 +55,11 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for item in display_object_list %}
             <div class="col"><div class="card shadow-sm">
-                <div class="mt-2 xy_center">
+                <div class="mt-2 notice-xy_center">
                     {% if item.images %}
-                    <div class="img-container"><img src="{{ item.images.url }}" class="preview-image"/></div>
+                    <div class="notice-img-container"><img src="{{ item.images.url }}" class="notice-preview-image"/></div>
                     {% else %}
-                    <div class="img-container"><img src="{% static 'img/headline.png' %}" class="preview-image"/></div>
+                    <div class="notice-img-container"><img src="{% static 'img/headline.png' %}" class="notice-preview-image"/></div>
                     {% endif %}
                 </div>
                 <div class="card-body">

@@ -4,16 +4,16 @@
 
 <div class="col"><div class="card shadow-sm" style="margin-bottom:0px;">
     <!-- 画像ヘッダ -->
-    <div class="image-wrapper"><a href="{% url 'user:detail' item.pk %}">
+    <div class="profile-image-wrapper"><a href="{% url 'user:detail' item.pk %}">
         <!-- 背景：themes -->
         {% if item.themes %}
-        <img src="{{ item.themes.url }}" class="bg-image" alt="User Themes"/>
+        <img src="{{ item.themes.url }}" class="profile-bg-image" alt="User Themes"/>
         {% else %}
-        <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+        <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
         {% endif %}
 
         <!-- 前面：images(circle切り取り) -->
-        <div class="front-image">
+        <div class="profile-front-image">
             {% if item.images %}
             <img src="{{ item.images.url }}" class="rounded-circle" alt="User Images"/>
             {% else %}
@@ -21,15 +21,39 @@
             {% endif %}
         </div>
 
-        <!-- Status-In -->
+        <!-- 左上：Status-In -->
         {% if item.is_status_in %}
-            <span class="status-in-icon d-inline-flex align-items-center">
+            <span class="profile-left-top d-inline-flex align-items-center rounded-circle">
                 <img src="{% static 'img/status_in.png' %}" class="rounded-circle" width="40" height="40" alt="Status-In"/>
             </span>
         {% endif %}
 
-        <!-- パーソナルバッジ -->
-        <span class="profile-icon badge d-inline-flex align-items-center p-0 pe-1 text-{{ item.badges }}-emphasis bg-{{ item.badges }}-subtle border border-{{ item.badges }}-subtle rounded-pill">
+        <!-- 右上：MBTI -->
+        {% if item.mbti %}
+            <span class="profile-right-top d-inline-flex align-items-center">
+                {% with mbti_image='img/mbti/'|add:item.mbti|add:'.png' %}
+                <img src="{% static mbti_image %}" width="40" height="40" alt="MBTI"/>
+                {% endwith %}
+            </span>
+        {% endif %}    
+
+        <!-- 左下：MBTI Compatibility -->
+        {% if request.user.profile.mbti and item.mbti %}
+            {% with mbti_comp=item.get_mbti_comp %}
+            {% if mbti_comp.pt > 0 %}
+            <span class="profile-left-bottom d-inline-flex flex-column align-items-center">
+                {% with mbti_comp_pt=mbti_comp.pt|stringformat:"s" %}
+                {% with mbti_pt_img='img/mbti/star_'|add:mbti_comp_pt|add:'.png' mbti_relation_img='img/mbti/'|add:mbti_comp.relation|add:'.png' %}
+                    <span style="margin: 2px; padding: 0;"><img src="{% static mbti_pt_img %}" width="50" height=auto alt="MBTI Point" style="display: block;"/></span>
+                    <span style="margin: 0; padding: 0;"><img src="{% static mbti_relation_img %}" width="50" height=auto alt="MBTI Relation" style="display: block;"/></span>
+                {% endwith %}{% endwith %}
+            </span>
+            {% endif %}
+            {% endwith %}
+        {% endif %}
+        
+        <!-- 右下：Badge -->
+        <span class="profile-right-bottom badge d-inline-flex align-items-center p-0 pe-1 text-{{ item.badges }}-emphasis bg-{{ item.badges }}-subtle border border-{{ item.badges }}-subtle rounded-pill">
             {% if item.images %}
                 <img class="rounded-circle me-1" width="24" height="24" src="{{ item.images.url }}" alt="Profile icon">{{ item.nick_name }}
             {% else %}

@@ -3,40 +3,8 @@
 
 {% block header %}
 <style type="text/css">
-    .smoke {background-color: whitesmoke;}
-    .preview-image {
-        max-width: 300px;
-        max-height: 300px;
-        display: block;
-        margin-top: 10px;
-    }
 
-    .xy_center {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-    
-    .img-container {
-        width: 128px; /* 親要素に対して100%の幅を持つ */
-        height: 128px; /* 必要に応じて高さを調整 */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden; /* 画像のはみ出しを防ぐ */
-    }
-    .preview-image {
-        max-width: 100%; /* カード内で画像がはみ出さないようにする */
-        max-height: 100%; /* 親要素を超えないように制限 */
-        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
-        border-radius: 5px; /* 角丸のデザイン */
-        display: block;
-        margin-top: 10px; 
-    }
-
+    /***** ページ全体 *****/
     /* 画像とリストを横並びにするコンテナ */
     .header-container {
         display: flex;                /* 横並びに表示 */
@@ -46,8 +14,9 @@
         justify-content: space-between;
     }
 
+    /***** profile card *****/
     /* 画像の重ね合わせコンテナ */
-    .image-wrapper {
+    .profile-image-wrapper {
         position: relative;
         width: 100%;
         height: auto;         /* 高さを自動調整 */
@@ -57,7 +26,7 @@
     }
 
     /* 背景の themes 画像 */
-    .bg-image {
+    .profile-bg-image {
         position: absolute;
         top: 0;
         left: 0;
@@ -70,7 +39,7 @@
     }
 
     /* 前面の images 画像 */
-    .front-image {
+    .profile-front-image {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -85,7 +54,7 @@
     }
 
     /* 前面の images 画像 */
-    .front-image img {
+    .profile-front-image img {
         height: 90%;         /* 親要素に対して80%の高さで表示 */
         width: auto;          /* アスペクト比維持 */
         object-fit: contain;  /* はみ出し防止 */
@@ -93,7 +62,7 @@
     }
 
     /* ホバー時のエフェクト */
-    .image-wrapper:hover .bg-image {
+    .profile-image-wrapper:hover .profile-bg-image {
         transform: scale(1.10);
         transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
     }
@@ -135,15 +104,15 @@
                         <div class="d-flex align-items-center"><h2 class="display-7">{{ object.name }}</h2></div>
 
                         <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
-                            <div class="image-wrapper" style="max-width:900px; ">
+                            <div class="profile-image-wrapper" style="max-width:900px; ">
                                 <!-- 背景：themes -->
                                 {% if object.themes %}
-                                <img src="{{ object.themes.url }}" class="bg-image" alt="Group Themes"/>
+                                <img src="{{ object.themes.url }}" class="profile-bg-image" alt="Group Themes"/>
                                 {% else %}
-                                <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+                                <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
                                 {% endif %}
                                 <!-- 前面：images(circle切り取り) -->
-                                <div class="front-image">
+                                <div class="profile-front-image">
                                     {% if object.images %}
                                     <img src="{{ object.images.url }}" style="border-radius: 50%;" alt="Group Images"/>
                                     {% else %}
