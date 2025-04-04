@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.db import IntegrityError
@@ -9,7 +10,14 @@ from notice.models import Notice
 def Top(request):
     headline_object_list = Headline.objects.order_by('published_at').all()
     notice_object_list = Notice.objects.order_by('published_at').all()
-    return render(request, 'top/index.html', {'headline_object_list': headline_object_list, 'notice_object_list': notice_object_list})
+    top_calendar_monthly = f'{settings.TOP_CALENDAR_MONTHLY}'
+    top_calendar_weekly = f'{settings.TOP_CALENDAR_WEEKLY}'
+
+    context = {
+        'headline_object_list': headline_object_list, 'notice_object_list': notice_object_list,
+        'top_calendar_monthly': top_calendar_monthly, 'top_calendar_weekly': top_calendar_weekly
+    }
+    return render(request, 'top/index.html', context)
 
 
 def Signup(request):

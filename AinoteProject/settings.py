@@ -43,6 +43,9 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 SITE_DOMAIN = os.getenv('SITE_DOMAIN')
 
+TOP_CALENDAR_MONTHLY = os.getenv('TOP_CALENDAR_MONTHLY')
+TOP_CALENDAR_WEEKLY = os.getenv('TOP_CALENDAR_WEEKLY')
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',

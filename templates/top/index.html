@@ -201,12 +201,10 @@
     <!-- Calendar -->
     <div class="row">
         <div class="col-md-5">
-            {% get_fixed_value 'TOP_GOOGLE_CALENDAR_MONTHLY' as cal_monthly %}
-            {{ cal_monthly|safe }}
+            {{ top_calendar_monthly|safe }}
         </div>
         <div class="col-md-7">
-            {% get_fixed_value 'TOP_GOOGLE_CALENDAR_WEEKLY' as cal_weekly %}
-            {{ cal_weekly|safe }}
+            {{ top_calendar_weekly|safe }}
         </div>
     </div>
 
