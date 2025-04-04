@@ -4,7 +4,6 @@ from . import views
 app_name = 'mycalendar'
 
 urlpatterns = [
-    path('', views.mycalendar_view, name='mycalendar'),
     
     path('google/login/', views.google_login, name='google_login'),
     path('oauth2callback/', views.google_callback, name='google_callback'),

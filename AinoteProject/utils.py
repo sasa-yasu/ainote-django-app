@@ -428,3 +428,29 @@ def get_mbti_compatibility(user_mbti, profile_mbti):
     """
     compatibility = mbti_matrix.get(user_mbti, {}).get(profile_mbti, {"pt": 0, "name": "不明"})
     return compatibility  # {"pt": 5, "name": "双対関係"} のような辞書を返す
+
+# MBTIベースの詳細説明画面への誘導URL
+mbti_links = {
+    "INTJ": "https://www.16personalities.com/ja/intj%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "INTP": "https://www.16personalities.com/ja/intp%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "ENTJ": "https://www.16personalities.com/ja/entj%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "ENTP": "https://www.16personalities.com/ja/entp%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "INFJ": "https://www.16personalities.com/ja/infj%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "INFP": "https://www.16personalities.com/ja/infp%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "ENFJ": "https://www.16personalities.com/ja/enfj%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "ENFP": "https://www.16personalities.com/ja/enfp%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "ISTJ": "https://www.16personalities.com/ja/istj%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "ISFJ": "https://www.16personalities.com/ja/isfj%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "ESTJ": "https://www.16personalities.com/ja/estj%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "ESFJ": "https://www.16personalities.com/ja/esfj%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "ISTP": "https://www.16personalities.com/ja/istp%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "ISFP": "https://www.16personalities.com/ja/isfp%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "ESTP": "https://www.16personalities.com/ja/estp%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+    "ESFP": "https://www.16personalities.com/ja/esfp%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC",
+}
+
+def get_mbti_detail_url(mbti):
+    """
+    MBTIから該当詳細説明URLを取得
+    """
+    return mbti_links.get(mbti, []) # mbtiに該当するURLを返す

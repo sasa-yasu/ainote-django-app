@@ -8,7 +8,7 @@ from django.dispatch import receiver
 from datetime import date
 from django.utils import timezone
 from datetime import timedelta
-from AinoteProject.utils import crop_square_image, crop_16_9_image, get_mbti_compatibility
+from AinoteProject.utils import crop_square_image, crop_16_9_image, get_mbti_compatibility, get_mbti_detail_url
 from middleware.current_request import get_current_request
 
 # ロガー取得
@@ -111,6 +111,12 @@ class Profile(models.Model):
                 if key == self.mbti_name:
                     return label
         return ""
+
+    @property
+    def get_mbti_url(self):
+        """選択した MBTI に応じた詳細説明画面URLを返す"""
+        return get_mbti_detail_url(self.mbti)
+
 
     @property
     def get_mbti_comp(self):

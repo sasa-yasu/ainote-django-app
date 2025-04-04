@@ -43,6 +43,14 @@ class PlaceForm(forms.ModelForm):
         label='Remarks', widget=forms.Textarea(attrs={'class': 'form-control'}),
         required=False, help_text='* Anything you want to share.'
         )
+    schedule_monthly = forms.CharField(
+        label='Schedule Monthly', max_length=1028, widget=forms.TextInput(attrs={'class':'form-control'}),
+        required=False, help_text='* Past the google schedule monthly URL (start with "iframe" tag).<br/>* Should change width-setting to width="100%".'
+    )
+    schedule_weekly = forms.CharField(
+        label='Schedule Weekly', max_length=1028, widget=forms.TextInput(attrs={'class':'form-control'}),
+        required=False, help_text='* Past the google schedule weekly URL (start with "iframe" tag).<br/>* Should change width-setting to width="100%".'
+    )
     latitude = forms.FloatField(
         label='Latitude', widget=forms.TextInput(attrs={'class':'form-control'}),
         required=True, help_text='* GPS Geolocation : Latitude.'
@@ -58,7 +66,7 @@ class PlaceForm(forms.ModelForm):
 
     class Meta:
         model = Place
-        fields = ("place", "images", "themes", "area", "overview", "address", "tel", "url", "context", "remarks", "latitude", "longitude", "googlemap_url")
+        fields = ("place", "images", "themes", "area", "overview", "address", "tel", "url", "context", "remarks", "schedule_monthly", "schedule_weekly", "latitude", "longitude", "googlemap_url")
 
 
     def __init__(self, *args, **kwargs):

@@ -82,6 +82,8 @@ def create_view(request):
             capacity_data = form.cleaned_data['capacity']
             context_data = form.cleaned_data['context']
             remarks_data = form.cleaned_data['remarks']
+            schedule_monthly_data = form.cleaned_data['schedule_monthly']
+            schedule_weekly_data = form.cleaned_data['schedule_weekly']
 
             try:
                 object = Room.objects.create(
@@ -91,6 +93,8 @@ def create_view(request):
                     capacity = capacity_data,
                     context = context_data,
                     remarks = remarks_data,
+                    schedule_monthly = schedule_monthly_data,
+                    schedule_weekly = schedule_weekly_data,
                 )
             except Exception as e:
                 logger.error(f'couldnt create the Room object: {e}')
@@ -144,6 +148,8 @@ def update_view(request, pk):
             object.capacity = form.cleaned_data['capacity']
             object.context = form.cleaned_data['context']
             object.remarks = form.cleaned_data['remarks']
+            object.schedule_monthly = form.cleaned_data['schedule_monthly']
+            object.schedule_weekly = form.cleaned_data['schedule_weekly']
 
             images_data = request.FILES.get("images")
             themes_data = request.FILES.get('themes')

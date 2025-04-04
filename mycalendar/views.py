@@ -127,6 +127,3 @@ def delete_event_view(request):
 
     return JsonResponse({'message': 'イベントを削除しました'})
 
-def mycalendar_view(request):
-    logger.info('return render mycalendar/mycalendar.html')
-    return render(request, 'mycalendar/mycalendar.html')

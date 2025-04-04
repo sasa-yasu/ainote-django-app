@@ -11,6 +11,8 @@ class Group(models.Model):
     themes = models.ImageField('Themes', upload_to='group', null=True, blank=True)
     context = models.TextField('Context', null=True, blank=True)
     remarks = models.TextField('Remarks', null=True, blank=True)
+    schedule_monthly = models.CharField('Schedule Monthly', max_length=1028, null=True, blank=True)
+    schedule_weekly = models.CharField('Schedule Weekly', max_length=1028, null=True, blank=True)
     likes = models.IntegerField(null=True, blank=True)
     likes_record =  models.TextField(null=True, blank=True, default = '|')
     created_at = models.DateTimeField('Created at', auto_now_add=True)

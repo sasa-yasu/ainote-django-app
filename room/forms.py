@@ -27,10 +27,18 @@ class RoomForm(forms.ModelForm):
         label='Remarks', widget=forms.Textarea(attrs={'class':'form-control'}),
         required=False, help_text='* Anything you want to share.'
     )
+    schedule_monthly = forms.CharField(
+        label='Schedule Monthly', max_length=1028, widget=forms.TextInput(attrs={'class':'form-control'}),
+        required=False, help_text='* Past the google schedule monthly URL (start with "iframe" tag).<br/>* Should change width-setting to width="100%".'
+    )
+    schedule_weekly = forms.CharField(
+        label='Schedule Weekly', max_length=1028, widget=forms.TextInput(attrs={'class':'form-control'}),
+        required=False, help_text='* Past the google schedule weekly URL (start with "iframe" tag).<br/>* Should change width-setting to width="100%".'
+    )
 
     class Meta:
         model = Room
-        fields = ("name", "images", "themes", "capacity", "context", "remarks")
+        fields = ("name", "images", "themes", "capacity", "context", "remarks", "schedule_monthly", "schedule_weekly")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

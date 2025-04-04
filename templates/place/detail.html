@@ -232,9 +232,10 @@
                 </div>
                 {% endif %}
                 <br/>
-
+        
                 <!-- GPS Geolocation -->
                 {% if object.latitude and object.longitude %}
+                <hr class="featurette-divider">
                 <div class="align-self-start" style="min-width: 100px; width: 900px; ">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
                     <div class="col p-4 d-flex flex-column position-static">
@@ -245,15 +246,16 @@
                 </div>
                 </div>
                 {% endif %}
-                <br/>
                 
                 <!-- Googleマップを埋め込み -->
                 {% if object.googlemap_url %}
+                <hr class="featurette-divider">
                 <div class="map-container">
                     {{ object.googlemap_url|safe }}
                 </div>
                 {% endif %}
-                <br/>
+
+                <hr class="featurette-divider">
                 <!--Display:QR for Checkin-->
                 <div class="align-self-start" style="min-width: 100px; width: 900px; ">
                   <h5><B>&lt;&lt;[ Checkin QR Code ]&gt;&gt;</B></h5>
@@ -312,6 +314,19 @@
         <br/>
         <!--submit button-->
         {% include 'includes/detail_staff_controled_buttons.html' with app_name='place' %}
+
+        <!-- Calendar -->
+        {% if object.schedule_monthly and object.schedule_weekly %}
+        <hr class="featurette-divider">
+        <div class="row">
+            <div class="col-md-5">
+                {{ object.schedule_monthly|safe }}
+            </div>
+            <div class="col-md-7">
+                {{ object.schedule_weekly|safe }}
+            </div>
+        </div>
+        {% endif %}
     </form>
 </div></main>
 <!--MAIN END-->

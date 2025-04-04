@@ -50,6 +50,11 @@
                 <!--Display:remarks-->
                 <div class="mb-3">{% include 'includes/display_field.html' with target=object.remarks disp_name='Remarks' %}</div>
 
+                <!--Display:schedule_monthly-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.schedule_monthly disp_name='Schedule Monthly' %}</div>
+                <!--Display:schedule_weekly-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.schedule_weekly disp_name='Schedule Weekly' %}</div>
+
                 <!--Display:created_at/updated_at-->
                 {% include 'includes/bottom_dates.html' %}
                 <br/>

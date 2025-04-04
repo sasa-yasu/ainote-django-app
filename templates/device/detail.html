@@ -208,6 +208,21 @@
         <br/>
         <!--submit button-->
         {% include 'includes/detail_staff_controled_buttons.html' with app_name='device' %}
+
+        {% if object.schedule_monthly and object.schedule_weekly %}
+        <hr class="featurette-divider">
+
+        <!-- Calendar -->
+        <div class="row">
+            <div class="col-md-5">
+                {{ object.schedule_monthly|safe }}
+            </div>
+            <div class="col-md-7">
+                {{ object.schedule_weekly|safe }}
+            </div>
+        </div>
+        {% endif %}
+                
     </form>
 </div></main>
 <!--MAIN END-->

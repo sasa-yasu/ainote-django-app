@@ -1,6 +1,7 @@
 {% extends '../base.html' %}
 {% load static %}
 {% load custom_tags %}
+{% load fixed_values %}
 
 {% block header %}
 <style type="text/css">
@@ -153,7 +154,7 @@
                         <b>&lt;&lt;[ {{ profile_form.mbti.label|safe }} ]&gt;&gt;</b>
                     </label>
                     <br/>
-                    <span class="helptext" style="font-size:10pt">MBTI TEST : ==> <a href="https://www.16personalities.com/ja/%E6%80%A7%E6%A0%BC%E8%A8%BA%E6%96%AD%E3%83%86%E3%82%B9%E3%83%88" target="_blank"><img width=auto height="24" src="{% static 'img/mbti/mbti_test.png' %}" alt="MBTI TEST icon"></a></span><br/>
+                    <span class="helptext" style="font-size:10pt">MBTI TEST : ==> <a href="{% get_fixed_value 'MBTI_TEST_URL' %}" target="_blank"><img width=auto height="24" src="{% static 'img/mbti/mbti_test.png' %}" alt="MBTI TEST icon"></a></span><br/>
                     {% if profile_form.mbti.help_text %} <span class="helptext" style="font-size:10pt">{{ profile_form.mbti.help_text|safe }}</span> {% endif %}
                     {% if profile_form.mbti.errors %} <div class="errortext" style="font-size:10pt"> {% for error in profile_form.mbti.errors %} * {{ error }}<br/> {% endfor %} </div> {% endif %}                    
                     <div class="form-group" style="padding:6px 12px;">

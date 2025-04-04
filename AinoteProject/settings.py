@@ -32,8 +32,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # for google calendar
-GOOGLE_CREDENTIALS_FILE = os.path.join(BASE_DIR, 'credentials.json')
-
 GOOGLE_OAUTH_CLIENT_ID = os.getenv('GOOGLE_OAUTH_CLIENT_ID')
 GOOGLE_OAUTH_CLIENT_SECRET = os.getenv('GOOGLE_OAUTH_CLIENT_SECRET')
 
@@ -44,7 +42,6 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 SITE_DOMAIN = os.getenv('SITE_DOMAIN')
-MBTI_TEST_URL = os.getenv('MBTI_TEST_URL')
 
 # Application definition
 INSTALLED_APPS = [

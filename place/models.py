@@ -22,6 +22,8 @@ class Place(models.Model):
     remarks = models.TextField('Remarks', null=True, blank=True)
     likes = models.IntegerField(null=True, blank=True)
     likes_record =  models.TextField(null=True, blank=True, default = '|')
+    schedule_monthly = models.CharField('Schedule Monthly', max_length=1028, null=True, blank=True)
+    schedule_weekly = models.CharField('Schedule Weekly', max_length=1028, null=True, blank=True)
 
     # GPS 座標を追加
     latitude = models.FloatField('Latitude', null=True, blank=True)

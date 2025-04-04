@@ -97,6 +97,8 @@ def create_view(request):
             url_data = form.cleaned_data["url"]
             context_data = form.cleaned_data["context"]
             remarks_data = form.cleaned_data["remarks"]
+            schedule_monthly_data = form.cleaned_data['schedule_monthly']
+            schedule_weekly_data = form.cleaned_data['schedule_weekly']
             latitude_data = form.cleaned_data["latitude"]
             longitude_data = form.cleaned_data["longitude"]
             googlemap_url_data = form.cleaned_data["googlemap_url"]
@@ -113,6 +115,8 @@ def create_view(request):
                     url = url_data,
                     context = context_data,
                     remarks = remarks_data,
+                    schedule_monthly = schedule_monthly_data,
+                    schedule_weekly = schedule_weekly_data,
                     latitude = latitude_data,
                     longitude = longitude_data,
                     googlemap_url = googlemap_url_data,
@@ -173,6 +177,8 @@ def update_view(request, pk):
             object.url = form.cleaned_data["url"]
             object.context = form.cleaned_data["context"]
             object.remarks = form.cleaned_data["remarks"]
+            object.schedule_monthly = form.cleaned_data['schedule_monthly']
+            object.schedule_weekly = form.cleaned_data['schedule_weekly']
             object.latitude = form.cleaned_data["latitude"]
             object.longitude = form.cleaned_data["longitude"]
             object.googlemap_url = form.cleaned_data["googlemap_url"]

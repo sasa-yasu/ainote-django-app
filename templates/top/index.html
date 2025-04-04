@@ -1,5 +1,6 @@
 {% extends '../base.html' %}
 {% load static %}
+{% load fixed_values %}
 
 {% block header %}
 <!-- Custom styles for this template -->
@@ -78,7 +79,7 @@
   <div class="container marketing">
 
     <!-- Menu -->
-    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
+    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-3">
 
         <!-- Chat -->
          <div class="col"><a href="{% url 'chat:list' %}" class="text-decoration-none">
@@ -98,7 +99,7 @@
             </div></div>
         </a></div>
 
-        <!-- [for superuser] User -->
+        <!-- User -->
         <div class="col"><a href="{% url 'user:list' %}" class="text-decoration-none">
             <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
                 <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/user.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
@@ -107,7 +108,20 @@
             </div></div>
         </a></div>
 
-        <!-- [for superuser] Group -->
+        <!-- Place -->
+        <div class="col"><a href="{% url 'place:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/place.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Place</B></h4>
+                <small class="text-muted">The Place which we are.</small>
+            </div></div>
+        </a></div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-3">
+        <!-- Group -->
         <div class="col"><a href="{% url 'group:list' %}" class="text-decoration-none">
             <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
                 <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/group.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
@@ -116,7 +130,7 @@
             </div></div>
         </a></div>
 
-        <!-- [for superuser] Room -->
+        <!-- Room -->
         <div class="col"><a href="{% url 'room:list' %}" class="text-decoration-none">
             <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
                 <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/room.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
@@ -126,15 +140,15 @@
         </a></div>
 
         <!-- Room Reservation -->
-        <div class="col"><a href="#" class="text-decoration-none">
+<!--        <div class="col"><a href="#" class="text-decoration-none">
             <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
                 <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/room_reservation.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
                 <h4 class="display-7 lh-1 fw-bold"><B>Room<br/>Reservation</B></h4>
                 <small class="text-muted">The List of Room Reservations which we have.</small>
             </div></div>
         </a></div>
-
-        <!-- [for superuser] Device -->
+-->
+        <!-- Device -->
         <div class="col"><a href="{% url 'device:list' %}" class="text-decoration-none">
             <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
                 <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/device.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
@@ -144,13 +158,22 @@
         </a></div>
 
         <!-- Device Reservation -->
-        <div class="col"><a href="#" class="text-decoration-none">
+<!--        <div class="col"><a href="#" class="text-decoration-none">
             <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
                 <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/device_reservation.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
                 <h4 class="display-7 lh-1 fw-bold"><B>Device<br/>Reservation</B></h4>
                 <small class="text-muted">The List of Device Reservations which we have.</small>
             </div></div>
         </a></div>
+-->
+    </div>
+
+<!--login check-->
+{% if user.is_authenticated and user.is_staff %}
+
+    <hr class="featurette-divider">
+
+    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 g-3">
 
         <!-- [for superuser] Headline -->
         <div class="col"><a href="{% url 'headline:list' %}" class="text-decoration-none">
@@ -170,28 +193,34 @@
             </div></div>
         </a></div>
 
-        <!-- [for superuser] Place -->
-        <div class="col"><a href="{% url 'place:list' %}" class="text-decoration-none">
-            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
-                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/place.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
-                <h4 class="display-7 lh-1 fw-bold"><B>Place</B></h4>
-                <small class="text-muted">The Place which we are.</small>
-            </div></div>
-        </a></div>
-
     </div>
+{% endif %}
 
     <hr class="featurette-divider">
 
     <!-- Calendar -->
-    <iframe src="{% url 'mycalendar:mycalendar' %}" style="width: 100%; height:650px; border: none;"></iframe>
+    <div class="row">
+        <div class="col-md-5">
+            {% get_fixed_value 'TOP_GOOGLE_CALENDAR_MONTHLY' as cal_monthly %}
+            {{ cal_monthly|safe }}
+        </div>
+        <div class="col-md-7">
+            {% get_fixed_value 'TOP_GOOGLE_CALENDAR_WEEKLY' as cal_weekly %}
+            {{ cal_weekly|safe }}
+        </div>
+    </div>
 
     <hr class="featurette-divider">
 
     <!-- Notice -->
     {% for item in notice_object_list %}
     <div class="row featurette">
-        <div class="col-md-7 {% if forloop.counter|divisibleby:2 %} order-md-2 {% endif %}"><a href="{% url 'notice:detail' item.pk %}" class="text-decoration-none" style="display: block; text-decoration: none; color: inherit;">
+        <div class="col-md-5 {% if forloop.counter|divisibleby:2 %} order-md-2 {% endif %}">
+            <div class="img-container"><img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="{{item.images.url}}" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/></img>
+            </div>
+        </div>
+        <div class="col-md-7 {% if forloop.counter|divisibleby:2 %} order-md-1 {% endif %}"><a href="{% url 'notice:detail' item.pk %}" class="text-decoration-none" style="display: block; text-decoration: none; color: inherit;">
             <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column gap-1 p-3">
                 <h5 class="fw-normal lh-1">{{item.title|safe}}</h5>
                 <small><B>{{item.period|safe}}</B></small>
@@ -199,12 +228,6 @@
                 <small>{{item.context|safe|linebreaksbr}}</small>
             </div></div>
         </a></div>
-
-        <div class="col-md-5 {% if forloop.counter|divisibleby:2 %} order-md-1 {% endif %}">
-        <div class="img-container"><img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="{{item.images.url}}" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/></img>
-        </div>
-    </div>
     </div>
 
     <hr class="featurette-divider">

@@ -153,12 +153,14 @@
                     </div>
                     <!-- 右上：MBTI -->
                     {% if object.mbti and object.mbti != '-' %}
-                        <span class="profile-right-top d-inline-flex align-items-center">
+                      <span class="profile-right-top d-inline-flex align-items-center">
+                        <a href="{{ object.get_mbti_url }}" target="_blank">
                           {% with mbti_image='img/mbti/'|add:object.mbti|add:'.png' %}
                             <img src="{% static mbti_image %}" width="80" height="80" alt="MBTI"/>
                           {% endwith %}
-                        </span>
-                    {% endif %}                    
+                        </a>
+                      </span>
+                    {% endif %}
 
                     <!-- 左下：MBTI Compatibility -->
                     {% if request.user.profile.id != object.id and request.user.profile.mbti and object.mbti %}
@@ -202,7 +204,7 @@
                 <tr><th>Birthday</th><td>{{ object.birthday|date:"m/d" }}</td></tr>
                 <tr>
                   <th>MBTI Type</th>
-                  <td>{{ object.get_mbti_display }}</td>
+                  <td><a href="{{ object.get_mbti_url }}" target="_blank">{{ object.get_mbti_display }}</a></td>
                 </tr>
                 <tr>
                   <th>MBTI Name</th>
