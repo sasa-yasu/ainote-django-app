@@ -90,6 +90,10 @@
         <br/>
         <!--submit button-->
         {% include 'includes/detail_staff_controled_buttons.html' with app_name='group' %}
+        {% if object.is_user_member %}
+            <a>&nbsp;</a>
+            <a href="{% url 'group:leave' object.id %}" class="btn btn-danger">Leave from Group</a>
+        {% endif %}
         <br/><br/>
 
         <div class="row g-5">
@@ -151,20 +155,14 @@
                 </div>
                 {% endif %}
                 <br/>
-                <!--Display:QR for join Group-->
-                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-                    <h5><B>&lt;&lt;[ Join this Group QR Code ]&gt;&gt;</B></h5>
-                    <div class="row g-0 flex-md-row mb-0 position-relative">
-                        <div style="width:auto;"><img src="{% url 'group:disp_qr' group_id=object.id %}" alt="Group QR Code" width="300" height="300"></div>
-                    </div>
-                </div>
-                <br/>
                 <!--Profiles-->
                 <div class="align-self-start" style="min-width: 100px; width: 900px; ">
                   <h5><B>&lt;&lt;[ Joined Profiles List ]&gt;&gt;</B></h5>
                   <div class="container bg-body-tertiary"><div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3">
                     {% for item in joined_profiles %}
                         {% include 'includes/profile_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" %}
+                    {% empty %}
+                        <div>No joined profiles yet.</div>
                     {% endfor %}
                   </div></div>
                 </div>
@@ -211,6 +209,11 @@
         <br/>
         <!--submit button-->
         {% include 'includes/detail_staff_controled_buttons.html' with app_name='group' %}
+        {% if object.is_user_member %}
+            <a>&nbsp;</a>
+            <a href="{% url 'group:leave' object.id %}" class="btn btn-danger">Leave from Group</a>
+        {% endif %}
+        <br/>
 
         {% if object.schedule_monthly and object.schedule_weekly %}
         <hr class="featurette-divider">
@@ -225,6 +228,14 @@
             </div>
         </div>
         {% endif %}
+        <hr class="featurette-divider">
+        <!--Display:QR for join Group-->
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <h5><B>&lt;&lt;[ Join this Group QR Code ]&gt;&gt;</B></h5>
+            <div class="row g-0 flex-md-row mb-0 position-relative">
+                <div style="width:auto;"><img src="{% url 'group:disp_qr' pk=object.id %}" alt="Group QR Code" width="300" height="300"></div>
+            </div>
+        </div>
 
     </form>
 </div></main>

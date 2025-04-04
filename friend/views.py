@@ -127,12 +127,56 @@ def delete_view(request, pk):
 
     logger.debug('get Friend object(pk)')
     object = get_object_or_404(Friend, pk=pk)
+    profile_own = request.user.profile
 
+    if object.profile1 == profile_own:
+        profile_with = object.profile2
+    elif object.profile2 == profile_own:
+        profile_with = object.profile1
+    else:
+        logger.info('not include request user.')
+
+        logger.info('return redirect friend:list')
+        return redirect('friend:list')
+    
     form = Friend() # 取得はするが使用しない
-    context = {'object': object, 'form': form}
+    
+    context = {'profile_own': profile_own, 'profile_with': profile_with}
 
-    logger.info('return render chat/delete.html')
-    return render(request, 'chat/delete.html', context)
+    if request.method == "POST":
+        logger.info('POST method')
+
+        # GETの情報ではなく、POSTの情報から2つのProfileを取得(REMOVEを押下されたもののみ)
+        profile1_id = request.POST["profile_own_id"]
+        logger.debug(f'POST profile_own_id={profile1_id}')
+        profile1 = get_object_or_404(Profile, id=profile1_id)
+        logger.debug(f'POST profile_own={profile1}')
+
+        profile2_id = request.POST["profile_with_id"]
+        logger.debug(f'POST profile_with_id={profile2_id}')
+        profile2 = get_object_or_404(Profile, id=profile2_id)
+        logger.debug(f'POST profile_with={profile2}')
+
+        try:
+            # 順序を考慮して登録
+            if profile1.id < profile2.id:
+                friend = Friend.objects.get(profile1=profile1, profile2=profile2)
+            else:
+                friend = Friend.objects.get(profile1=profile2, profile2=profile1)
+            logger.debug(f"{friend.profile1} - {friend.profile2}")
+            friend.delete()
+        except Exception as e:
+            logger.error(f'couldnt delete friend object profile1={profile1} profile2={profile2}: {e}')
+
+        logger.info('return redirect friend:list')
+        return redirect('friend:list')
+    
+    else:
+        logger.info('GET method')
+        pass
+
+    logger.info('return render friend/delete.html')
+    return render(request, 'friend/delete.html', context)
 
 
 @login_required

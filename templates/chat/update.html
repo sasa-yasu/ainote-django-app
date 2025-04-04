@@ -32,7 +32,7 @@
     <div class="container">
         <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
             <!--login check-->
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated and (user.is_staff or user.profile.id == object.id) %}
 
             <!--common error-->
             {% if form.non_field_errors %}<div class="alert alert-danger"> {% for error in form.non_field_errors %} * {{ error }}<br/> {% endfor %} </div>{% endif %}

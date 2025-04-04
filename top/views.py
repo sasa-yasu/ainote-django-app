@@ -58,5 +58,5 @@ def Login(request):
 
 def Logout(request):
     logout(request)
-    return redirect('top:login')
+    return redirect('top:top')
 

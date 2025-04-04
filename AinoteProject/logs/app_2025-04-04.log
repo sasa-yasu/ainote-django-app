@@ -11100,3 +11100,581 @@ TypeError: 'method' object is not subscriptable
 [INFO] 2025-04-04 20:38:59,970 [UID:21] basehttp - "GET /chat/list/?page_cnt=1 HTTP/1.1" 200 108376
 [INFO] 2025-04-04 20:40:13,709 [UID:Anon] autoreload - Watching for file changes with StatReloader
 [INFO] 2025-04-04 21:20:04,794 [UID:Anon] autoreload - Watching for file changes with StatReloader
+[INFO] 2025-04-04 21:20:07,847 [UID:21] basehttp - "GET /top/ HTTP/1.1" 200 39155
+[INFO] 2025-04-04 21:20:07,879 [UID:21] basehttp - "GET /media/headline/3_images_2504040920.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 21:20:07,925 [UID:21] basehttp - "GET /media/notice/1_images_2504040922.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 21:20:07,931 [UID:21] basehttp - "GET /media/notice/3_images_2504040924.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 21:20:07,930 [UID:21] basehttp - "GET /media/notice/2_images_2504040923.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 21:20:07,964 [UID:21] basehttp - "GET /media/headline/4_images_2504040921.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 21:20:07,938 [UID:21] basehttp - "GET /media/notice/4_images_2504040924.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 21:20:07,880 [UID:21] basehttp - "GET /media/headline/1_images_2504040919.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 21:20:08,082 [UID:21] basehttp - "GET /media/headline/2_images_2504040920.png HTTP/1.1" 304 0
+[DEBUG] 2025-04-04 22:32:42,936 [UID:21] views - start Room list_view
+[DEBUG] 2025-04-04 22:32:43,001 [UID:21] views - object_list exists
+[INFO] 2025-04-04 22:32:43,002 [UID:21] views - return render room/list.html
+[INFO] 2025-04-04 22:32:43,025 [UID:21] basehttp - "GET /room/list/ HTTP/1.1" 200 26736
+[INFO] 2025-04-04 22:32:43,059 [UID:21] basehttp - "GET /media/room/8_images_2504040704.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,060 [UID:21] basehttp - "GET /media/room/8_themes_2504040704.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,100 [UID:21] basehttp - "GET /media/room/4_themes_2504040702.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,095 [UID:21] basehttp - "GET /media/room/5_themes_2504040703.webp HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,096 [UID:21] basehttp - "GET /media/room/6_images_2504040703.webp HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,088 [UID:21] basehttp - "GET /media/room/6_themes_2504040703.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,215 [UID:21] basehttp - "GET /media/room/7_themes_2504040704.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,243 [UID:21] basehttp - "GET /media/room/7_images_2504040704.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,265 [UID:21] basehttp - "GET /media/room/3_themes_2504040702.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,275 [UID:21] basehttp - "GET /media/room/5_images_2504040703.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,258 [UID:21] basehttp - "GET /media/room/4_images_2504040702.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,270 [UID:21] basehttp - "GET /media/room/3_images_2504040702.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,352 [UID:21] basehttp - "GET /media/room/2_themes_2504040701.webp HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:43,381 [UID:21] basehttp - "GET /media/room/2_images_2504040701.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:32:44,067 [UID:21] views - start Room detail_view
+[DEBUG] 2025-04-04 22:32:44,115 [UID:21] views - get Room object(pk)
+[DEBUG] 2025-04-04 22:32:44,117 [UID:21] views - return render room/detail.html
+[INFO] 2025-04-04 22:32:44,123 [UID:21] basehttp - "GET /room/detail/7/ HTTP/1.1" 200 23225
+[INFO] 2025-04-04 22:32:54,196 [UID:21] basehttp - "GET /top/login/ HTTP/1.1" 200 12508
+[INFO] 2025-04-04 22:33:01,747 [UID:21] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-04-04 22:33:01,802 [UID:21] basehttp - "GET /top/login/ HTTP/1.1" 200 12508
+[INFO] 2025-04-04 22:33:04,982 [UID:Anon] basehttp - "GET /top/logout/ HTTP/1.1" 302 0
+[INFO] 2025-04-04 22:33:04,989 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-04-04 22:33:06,456 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-04-04 22:33:11,706 [UID:Anon] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-04-04 22:33:11,711 [UID:Anon] basehttp - "GET /top/login/ HTTP/1.1" 200 12514
+[INFO] 2025-04-04 22:33:15,735 [UID:1] basehttp - "POST /top/login/ HTTP/1.1" 302 0
+[INFO] 2025-04-04 22:33:15,794 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 40603
+[INFO] 2025-04-04 22:33:15,842 [UID:1] basehttp - "GET /media/headline/3_images_2504040920.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:33:15,845 [UID:1] basehttp - "GET /media/headline/4_images_2504040921.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:33:15,844 [UID:1] basehttp - "GET /media/headline/1_images_2504040919.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:33:15,846 [UID:1] basehttp - "GET /media/headline/2_images_2504040920.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:33:15,934 [UID:1] basehttp - "GET /media/notice/4_images_2504040924.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:33:15,970 [UID:1] basehttp - "GET /media/notice/2_images_2504040923.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:33:15,972 [UID:1] basehttp - "GET /media/notice/3_images_2504040924.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:33:15,975 [UID:1] basehttp - "GET /media/notice/1_images_2504040922.png HTTP/1.1" 304 0
+[DEBUG] 2025-04-04 22:33:22,086 [UID:1] views - start Room list_view
+[DEBUG] 2025-04-04 22:33:22,140 [UID:1] views - object_list exists
+[INFO] 2025-04-04 22:33:22,142 [UID:1] views - return render room/list.html
+[INFO] 2025-04-04 22:33:22,147 [UID:1] basehttp - "GET /room/list/ HTTP/1.1" 200 26740
+[INFO] 2025-04-04 22:33:23,239 [UID:1] views - start Room detail_view
+[DEBUG] 2025-04-04 22:33:23,293 [UID:1] views - get Room object(pk)
+[DEBUG] 2025-04-04 22:33:23,295 [UID:1] views - return render room/detail.html
+[INFO] 2025-04-04 22:33:23,298 [UID:1] basehttp - "GET /room/detail/7/ HTTP/1.1" 200 23599
+[INFO] 2025-04-04 22:33:45,097 [UID:1] basehttp - "GET /top/ HTTP/1.1" 200 40603
+[DEBUG] 2025-04-04 22:38:59,887 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-04 22:38:59,943 [UID:1] views - object_list exists
+[INFO] 2025-04-04 22:38:59,944 [UID:1] views - return render user/list.html
+[DEBUG] 2025-04-04 22:38:59,960 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:38:59,961 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:38:59,961 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:38:59,962 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:38:59,962 [UID:1] models - self.mbti=INTJ
+[DEBUG] 2025-04-04 22:38:59,962 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:38:59,966 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:38:59,966 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:38:59,966 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:38:59,966 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:38:59,966 [UID:1] models - self.mbti=INFJ
+[DEBUG] 2025-04-04 22:38:59,966 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:38:59,970 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:38:59,970 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:38:59,971 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:38:59,971 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:38:59,971 [UID:1] models - self.mbti=ISTJ
+[DEBUG] 2025-04-04 22:38:59,971 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:38:59,975 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:38:59,975 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:38:59,975 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:38:59,975 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:38:59,975 [UID:1] models - self.mbti=ESTP
+[DEBUG] 2025-04-04 22:38:59,975 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:38:59,978 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:38:59,978 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:38:59,978 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:38:59,978 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:38:59,978 [UID:1] models - self.mbti=INTP
+[DEBUG] 2025-04-04 22:38:59,978 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:38:59,981 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:38:59,981 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:38:59,981 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:38:59,981 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:38:59,981 [UID:1] models - self.mbti=ENFJ
+[DEBUG] 2025-04-04 22:38:59,981 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:38:59,984 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:38:59,984 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:38:59,984 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:38:59,984 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:38:59,984 [UID:1] models - self.mbti=ISFJ
+[DEBUG] 2025-04-04 22:38:59,984 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:38:59,987 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:38:59,987 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:38:59,987 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:38:59,987 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:38:59,987 [UID:1] models - self.mbti=ISTP
+[DEBUG] 2025-04-04 22:38:59,987 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:38:59,991 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:38:59,991 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:38:59,991 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:38:59,991 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:38:59,991 [UID:1] models - self.mbti=ENTJ
+[DEBUG] 2025-04-04 22:38:59,991 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:38:59,994 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:38:59,994 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:38:59,994 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:38:59,994 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:38:59,994 [UID:1] models - self.mbti=INFP
+[DEBUG] 2025-04-04 22:38:59,994 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:38:59,996 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:38:59,997 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:38:59,997 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:38:59,997 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:38:59,997 [UID:1] models - self.mbti=ESTJ
+[DEBUG] 2025-04-04 22:38:59,997 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:39:00,000 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:39:00,000 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:39:00,001 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:39:00,001 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:39:00,001 [UID:1] models - self.mbti=ISFP
+[DEBUG] 2025-04-04 22:39:00,001 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:39:00,005 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:39:00,005 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:39:00,005 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:39:00,006 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:39:00,007 [UID:1] models - self.mbti=ENTP
+[DEBUG] 2025-04-04 22:39:00,007 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:39:00,010 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:39:00,010 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:39:00,010 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:39:00,010 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:39:00,010 [UID:1] models - self.mbti=ENFP
+[DEBUG] 2025-04-04 22:39:00,010 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:39:00,013 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:39:00,013 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:39:00,014 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:39:00,014 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:39:00,014 [UID:1] models - self.mbti=ESFJ
+[DEBUG] 2025-04-04 22:39:00,014 [UID:1] models - get_mbti_compatibility
+[INFO] 2025-04-04 22:39:00,017 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 51884
+[INFO] 2025-04-04 22:39:00,054 [UID:1] basehttp - "GET /media/user/26_themes_2504040744.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,052 [UID:1] basehttp - "GET /media/user/26_images_2504040744.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,170 [UID:1] basehttp - "GET /media/user/24_themes_2504040741.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,182 [UID:1] basehttp - "GET /media/user/23_themes_2504040740.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,173 [UID:1] basehttp - "GET /media/user/24_images_2504040741.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,184 [UID:1] basehttp - "GET /media/user/23_images_2504040740.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,183 [UID:1] basehttp - "GET /media/user/25_themes_2504040743.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,187 [UID:1] basehttp - "GET /media/user/25_images_2504040743.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,272 [UID:1] basehttp - "GET /media/user/21_themes_2504040737.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,340 [UID:1] basehttp - "GET /media/user/16_themes_2504040730.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,352 [UID:1] basehttp - "GET /media/user/19_themes_2504040734.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,369 [UID:1] basehttp - "GET /media/user/21_images_2504040737.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,356 [UID:1] basehttp - "GET /media/user/18_themes_2504040733.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,370 [UID:1] basehttp - "GET /media/user/22_themes_2504040739.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,484 [UID:1] basehttp - "GET /media/user/17_themes_2504040731.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,531 [UID:1] basehttp - "GET /media/user/20_images_2504040735.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,429 [UID:1] basehttp - "GET /media/user/20_themes_2504040735.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,515 [UID:1] basehttp - "GET /media/user/15_themes_2504040728.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,571 [UID:1] basehttp - "GET /media/user/16_images_2504040730.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,517 [UID:1] basehttp - "GET /media/user/22_images_2504040739.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,644 [UID:1] basehttp - "GET /media/user/14_images_2504040727.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,654 [UID:1] basehttp - "GET /media/user/15_images_2504040728.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,534 [UID:1] basehttp - "GET /media/user/19_images_2504040734.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,661 [UID:1] basehttp - "GET /media/user/18_images_2504040733.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,682 [UID:1] basehttp - "GET /media/user/17_images_2504040731.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,762 [UID:1] basehttp - "GET /media/user/13_images_2504040725.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,670 [UID:1] basehttp - "GET /media/user/13_themes_2504040725.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,787 [UID:1] basehttp - "GET /media/user/12_themes_2504040724.webp HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,781 [UID:1] basehttp - "GET /media/user/14_themes_2504040727.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:00,861 [UID:1] basehttp - "GET /media/user/12_images_2504040724.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:01,150 [UID:1] views - start detail_view
+[DEBUG] 2025-04-04 22:39:01,201 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-04 22:39:01,208 [UID:1] views - return render user/detail.html
+[DEBUG] 2025-04-04 22:39:01,216 [UID:1] models - request=<WSGIRequest: GET '/user/detail/24/'>
+[DEBUG] 2025-04-04 22:39:01,216 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:39:01,216 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:39:01,216 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:39:01,216 [UID:1] models - self.mbti=ISTJ
+[DEBUG] 2025-04-04 22:39:01,217 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:39:01,226 [UID:1] models - request=<WSGIRequest: GET '/user/detail/24/'>
+[DEBUG] 2025-04-04 22:39:01,226 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:39:01,227 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:39:01,227 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:39:01,227 [UID:1] models - self.mbti=ISTJ
+[DEBUG] 2025-04-04 22:39:01,227 [UID:1] models - get_mbti_compatibility
+[INFO] 2025-04-04 22:39:01,231 [UID:1] basehttp - "GET /user/detail/24/ HTTP/1.1" 200 49636
+[INFO] 2025-04-04 22:39:01,316 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-04 22:39:01,316 [UID:1] views - url_for_qr=http://127.0.0.1:8000/friend/create/?profile_id=24
+[DEBUG] 2025-04-04 22:39:01,336 [UID:1] utils - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-04 22:39:01,444 [UID:1] basehttp - "GET /friend/disp_qr/?profile_id=24 HTTP/1.1" 200 8356
+[DEBUG] 2025-04-04 22:39:40,782 [UID:1] views - start Group list_view
+[DEBUG] 2025-04-04 22:39:40,835 [UID:1] views - object_list exists
+[INFO] 2025-04-04 22:39:40,837 [UID:1] views - return render group/list.html
+[INFO] 2025-04-04 22:39:40,844 [UID:1] basehttp - "GET /group/list/ HTTP/1.1" 200 23709
+[INFO] 2025-04-04 22:39:40,879 [UID:1] basehttp - "GET /media/group/6_themes_2504040700.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:40,895 [UID:1] basehttp - "GET /media/group/4_themes_2504030227.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:40,880 [UID:1] basehttp - "GET /media/group/6_images_2504040700.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:40,896 [UID:1] basehttp - "GET /media/group/4_images_2504030227.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:40,900 [UID:1] basehttp - "GET /media/group/3_images_2504030227.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:40,898 [UID:1] basehttp - "GET /media/group/3_themes_2504030227.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:41,007 [UID:1] basehttp - "GET /media/group/5_themes_2504040659.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:41,058 [UID:1] basehttp - "GET /media/group/5_images_2504040659.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:41,079 [UID:1] basehttp - "GET /media/group/2_themes_2504030227.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:41,083 [UID:1] basehttp - "GET /media/group/2_images_2504030227.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:39:41,799 [UID:1] views - start Group detail_view
+[DEBUG] 2025-04-04 22:39:41,852 [UID:1] views - get Group object(pk)
+[DEBUG] 2025-04-04 22:39:41,853 [UID:1] views - return render group/detail.html
+[INFO] 2025-04-04 22:39:41,863 [UID:1] basehttp - "GET /group/detail/5/ HTTP/1.1" 200 21600
+[INFO] 2025-04-04 22:39:41,960 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-04 22:39:41,960 [UID:1] views - group_url=http://127.0.0.1:8000/group/join/?group_id=5
+[DEBUG] 2025-04-04 22:39:41,969 [UID:1] views - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-04 22:39:41,976 [UID:1] basehttp - "GET /group/disp_qr/5/ HTTP/1.1" 200 7851
+[DEBUG] 2025-04-04 22:55:56,037 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-04 22:55:56,095 [UID:1] views - object_list exists
+[INFO] 2025-04-04 22:55:56,097 [UID:1] views - return render user/list.html
+[DEBUG] 2025-04-04 22:55:56,112 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,112 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,112 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,113 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,113 [UID:1] models - self.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,113 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,115 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,116 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,116 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,116 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,116 [UID:1] models - self.mbti=INFJ
+[DEBUG] 2025-04-04 22:55:56,116 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,119 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,119 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,119 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,119 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,120 [UID:1] models - self.mbti=ISTJ
+[DEBUG] 2025-04-04 22:55:56,120 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,123 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,123 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,124 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,124 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,124 [UID:1] models - self.mbti=ESTP
+[DEBUG] 2025-04-04 22:55:56,124 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,126 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,127 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,127 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,127 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,127 [UID:1] models - self.mbti=INTP
+[DEBUG] 2025-04-04 22:55:56,127 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,130 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,130 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,130 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,130 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,131 [UID:1] models - self.mbti=ENFJ
+[DEBUG] 2025-04-04 22:55:56,131 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,133 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,133 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,134 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,134 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,134 [UID:1] models - self.mbti=ISFJ
+[DEBUG] 2025-04-04 22:55:56,134 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,137 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,137 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,138 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,138 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,138 [UID:1] models - self.mbti=ISTP
+[DEBUG] 2025-04-04 22:55:56,138 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,141 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,141 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,141 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,141 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,142 [UID:1] models - self.mbti=ENTJ
+[DEBUG] 2025-04-04 22:55:56,142 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,144 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,145 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,145 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,145 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,145 [UID:1] models - self.mbti=INFP
+[DEBUG] 2025-04-04 22:55:56,145 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,147 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,148 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,148 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,148 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,148 [UID:1] models - self.mbti=ESTJ
+[DEBUG] 2025-04-04 22:55:56,148 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,151 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,151 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,151 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,151 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,151 [UID:1] models - self.mbti=ISFP
+[DEBUG] 2025-04-04 22:55:56,152 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,155 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,155 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,155 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,156 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,156 [UID:1] models - self.mbti=ENTP
+[DEBUG] 2025-04-04 22:55:56,156 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,158 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,159 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,159 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,159 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,159 [UID:1] models - self.mbti=ENFP
+[DEBUG] 2025-04-04 22:55:56,159 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:56,162 [UID:1] models - request=<WSGIRequest: GET '/user/list/'>
+[DEBUG] 2025-04-04 22:55:56,162 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:56,163 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:56,163 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:56,163 [UID:1] models - self.mbti=ESFJ
+[DEBUG] 2025-04-04 22:55:56,163 [UID:1] models - get_mbti_compatibility
+[INFO] 2025-04-04 22:55:56,168 [UID:1] basehttp - "GET /user/list/ HTTP/1.1" 200 51884
+[INFO] 2025-04-04 22:55:56,212 [UID:1] basehttp - "GET /static/img/mbti/same.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:56,224 [UID:1] basehttp - "GET /static/img/mbti/similler.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:56,244 [UID:1] basehttp - "GET /static/img/mbti/opposite_sub.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:56,245 [UID:Anon] basehttp - "GET /static/img/mbti/same_sub.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:56,258 [UID:1] basehttp - "GET /static/img/mbti/relax.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:56,259 [UID:Anon] basehttp - "GET /static/img/mbti/active.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:56,278 [UID:Anon] basehttp - "GET /static/img/mbti/mirror.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:56,297 [UID:Anon] basehttp - "GET /static/img/mbti/opposite.png HTTP/1.1" 304 0
+[DEBUG] 2025-04-04 22:55:59,587 [UID:1] views - start Profile list_view
+[DEBUG] 2025-04-04 22:55:59,640 [UID:1] views - object_list exists
+[INFO] 2025-04-04 22:55:59,642 [UID:1] views - return render user/list.html
+[DEBUG] 2025-04-04 22:55:59,649 [UID:1] models - request=<WSGIRequest: GET '/user/list/?page_cnt=2'>
+[DEBUG] 2025-04-04 22:55:59,649 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:59,649 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:59,650 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:59,650 [UID:1] models - self.mbti=ESFP
+[DEBUG] 2025-04-04 22:55:59,650 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:59,652 [UID:1] models - request=<WSGIRequest: GET '/user/list/?page_cnt=2'>
+[DEBUG] 2025-04-04 22:55:59,652 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:59,652 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:59,652 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:59,653 [UID:1] models - self.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:59,653 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:59,655 [UID:1] models - request=<WSGIRequest: GET '/user/list/?page_cnt=2'>
+[DEBUG] 2025-04-04 22:55:59,656 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:59,656 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:59,656 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:59,657 [UID:1] models - self.mbti=INFJ
+[DEBUG] 2025-04-04 22:55:59,657 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:59,660 [UID:1] models - request=<WSGIRequest: GET '/user/list/?page_cnt=2'>
+[DEBUG] 2025-04-04 22:55:59,660 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:59,660 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:59,661 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:59,661 [UID:1] models - self.mbti=ISTJ
+[DEBUG] 2025-04-04 22:55:59,661 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:59,663 [UID:1] models - request=<WSGIRequest: GET '/user/list/?page_cnt=2'>
+[DEBUG] 2025-04-04 22:55:59,663 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:59,664 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:59,664 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:59,664 [UID:1] models - self.mbti=ESTP
+[DEBUG] 2025-04-04 22:55:59,664 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:59,666 [UID:1] models - request=<WSGIRequest: GET '/user/list/?page_cnt=2'>
+[DEBUG] 2025-04-04 22:55:59,666 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:59,666 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:59,667 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:59,667 [UID:1] models - self.mbti=INTP
+[DEBUG] 2025-04-04 22:55:59,667 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:59,669 [UID:1] models - request=<WSGIRequest: GET '/user/list/?page_cnt=2'>
+[DEBUG] 2025-04-04 22:55:59,669 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:59,669 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:59,669 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:59,669 [UID:1] models - self.mbti=ESFJ
+[DEBUG] 2025-04-04 22:55:59,670 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:59,672 [UID:1] models - request=<WSGIRequest: GET '/user/list/?page_cnt=2'>
+[DEBUG] 2025-04-04 22:55:59,672 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:59,672 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:59,673 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:59,673 [UID:1] models - self.mbti=ENTJ
+[DEBUG] 2025-04-04 22:55:59,673 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:55:59,676 [UID:1] models - request=<WSGIRequest: GET '/user/list/?page_cnt=2'>
+[DEBUG] 2025-04-04 22:55:59,676 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:55:59,676 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:55:59,676 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:55:59,677 [UID:1] models - self.mbti=INFJ
+[DEBUG] 2025-04-04 22:55:59,677 [UID:1] models - get_mbti_compatibility
+[INFO] 2025-04-04 22:55:59,680 [UID:1] basehttp - "GET /user/list/?page_cnt=2 HTTP/1.1" 200 39735
+[INFO] 2025-04-04 22:55:59,734 [UID:Anon] basehttp - "GET /static/img/mbti/ESFP.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,713 [UID:1] basehttp - "GET /media/user/11_themes_2504040722.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,735 [UID:1] basehttp - "GET /media/user/7_themes_2504040716.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,730 [UID:1] basehttp - "GET /media/user/10_images_2504040721.png HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,738 [UID:1] basehttp - "GET /media/user/6_themes_2504040713.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,731 [UID:1] basehttp - "GET /media/user/9_themes_2504040719.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,848 [UID:1] basehttp - "GET /media/user/11_images_2504040722.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,723 [UID:1] basehttp - "GET /media/user/10_themes_2504040721.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,874 [UID:1] basehttp - "GET /media/user/6_images_2504040713.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,876 [UID:1] basehttp - "GET /media/user/8_themes_2504040718.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,882 [UID:1] basehttp - "GET /media/user/5_themes_2504030225.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,869 [UID:1] basehttp - "GET /media/user/3_themes_2504021547.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,966 [UID:1] basehttp - "GET /media/user/7_images_2504040716.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:55:59,975 [UID:1] basehttp - "GET /media/user/4_themes_2504030224.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:56:00,016 [UID:1] basehttp - "GET /media/user/4_images_2504030224.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:56:00,018 [UID:1] basehttp - "GET /media/user/8_images_2504040718.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:56:00,017 [UID:1] basehttp - "GET /media/user/5_images_2504030225.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:56:00,020 [UID:1] basehttp - "GET /media/user/9_images_2504040719.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:56:00,078 [UID:1] basehttp - "GET /media/user/3_images_2504021547.webp HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:56:00,109 [UID:1] basehttp - "GET /media/user/1_themes_2504021009.jpg HTTP/1.1" 304 0
+[INFO] 2025-04-04 22:56:01,619 [UID:1] views - start detail_view
+[DEBUG] 2025-04-04 22:56:01,782 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-04 22:56:01,787 [UID:1] views - return render user/detail.html
+[DEBUG] 2025-04-04 22:56:01,805 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 22:56:01,805 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:56:01,805 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:56:01,806 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:56:01,806 [UID:1] models - self.mbti=ENTJ
+[DEBUG] 2025-04-04 22:56:01,806 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:56:01,810 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 22:56:01,810 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:56:01,810 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:56:01,811 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:56:01,811 [UID:1] models - self.mbti=INFJ
+[DEBUG] 2025-04-04 22:56:01,811 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:56:01,814 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 22:56:01,814 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:56:01,814 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:56:01,815 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:56:01,815 [UID:1] models - self.mbti=ESFJ
+[DEBUG] 2025-04-04 22:56:01,815 [UID:1] models - get_mbti_compatibility
+[INFO] 2025-04-04 22:56:01,820 [UID:1] basehttp - "GET /user/detail/1/ HTTP/1.1" 200 40318
+[INFO] 2025-04-04 22:56:01,911 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-04 22:56:01,911 [UID:1] views - url_for_qr=http://127.0.0.1:8000/friend/create/?profile_id=1
+[DEBUG] 2025-04-04 22:56:01,922 [UID:1] utils - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-04 22:56:01,929 [UID:1] basehttp - "GET /friend/disp_qr/?profile_id=1 HTTP/1.1" 200 8320
+[INFO] 2025-04-04 22:56:56,603 [UID:1] views - start detail_view
+[DEBUG] 2025-04-04 22:56:56,659 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-04 22:56:56,666 [UID:1] views - return render user/detail.html
+[DEBUG] 2025-04-04 22:56:56,689 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 22:56:56,689 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:56:56,689 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:56:56,690 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:56:56,690 [UID:1] models - self.mbti=ENTJ
+[DEBUG] 2025-04-04 22:56:56,691 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:56:56,695 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 22:56:56,695 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:56:56,695 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:56:56,696 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:56:56,696 [UID:1] models - self.mbti=INFJ
+[DEBUG] 2025-04-04 22:56:56,696 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:56:56,699 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 22:56:56,699 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:56:56,699 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:56:56,700 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:56:56,700 [UID:1] models - self.mbti=ESFJ
+[DEBUG] 2025-04-04 22:56:56,700 [UID:1] models - get_mbti_compatibility
+[INFO] 2025-04-04 22:56:56,706 [UID:1] basehttp - "GET /user/detail/1/ HTTP/1.1" 200 40279
+[INFO] 2025-04-04 22:56:56,795 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-04 22:56:56,796 [UID:1] views - url_for_qr=http://127.0.0.1:8000/friend/create/?profile_id=1
+[DEBUG] 2025-04-04 22:56:56,807 [UID:1] utils - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-04 22:56:56,814 [UID:1] basehttp - "GET /friend/disp_qr/?profile_id=1 HTTP/1.1" 200 8320
+[INFO] 2025-04-04 22:57:32,515 [UID:1] views - start detail_view
+[DEBUG] 2025-04-04 22:57:32,566 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-04 22:57:32,572 [UID:1] views - return render user/detail.html
+[DEBUG] 2025-04-04 22:57:32,594 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 22:57:32,595 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:57:32,595 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:57:32,595 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:57:32,595 [UID:1] models - self.mbti=ENTJ
+[DEBUG] 2025-04-04 22:57:32,596 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:57:32,598 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 22:57:32,599 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:57:32,599 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:57:32,599 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:57:32,599 [UID:1] models - self.mbti=INFJ
+[DEBUG] 2025-04-04 22:57:32,599 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:57:32,602 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 22:57:32,602 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:57:32,602 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:57:32,602 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:57:32,603 [UID:1] models - self.mbti=ESFJ
+[DEBUG] 2025-04-04 22:57:32,603 [UID:1] models - get_mbti_compatibility
+[INFO] 2025-04-04 22:57:32,609 [UID:1] basehttp - "GET /user/detail/1/ HTTP/1.1" 200 40303
+[INFO] 2025-04-04 22:57:32,788 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-04 22:57:32,789 [UID:1] views - url_for_qr=http://127.0.0.1:8000/friend/create/?profile_id=1
+[DEBUG] 2025-04-04 22:57:32,800 [UID:1] utils - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-04 22:57:32,809 [UID:1] basehttp - "GET /friend/disp_qr/?profile_id=1 HTTP/1.1" 200 8320
+[INFO] 2025-04-04 22:57:55,202 [UID:1] views - start detail_view
+[DEBUG] 2025-04-04 22:57:55,252 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-04 22:57:55,259 [UID:1] views - return render user/detail.html
+[DEBUG] 2025-04-04 22:57:55,279 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 22:57:55,280 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:57:55,280 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:57:55,280 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:57:55,280 [UID:1] models - self.mbti=ENTJ
+[DEBUG] 2025-04-04 22:57:55,281 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:57:55,283 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 22:57:55,284 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:57:55,284 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:57:55,284 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:57:55,285 [UID:1] models - self.mbti=INFJ
+[DEBUG] 2025-04-04 22:57:55,285 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:57:55,288 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 22:57:55,288 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:57:55,288 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:57:55,288 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:57:55,289 [UID:1] models - self.mbti=ESFJ
+[DEBUG] 2025-04-04 22:57:55,289 [UID:1] models - get_mbti_compatibility
+[INFO] 2025-04-04 22:57:55,295 [UID:1] basehttp - "GET /user/detail/1/ HTTP/1.1" 200 40313
+[INFO] 2025-04-04 22:57:55,371 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-04 22:57:55,372 [UID:1] views - url_for_qr=http://127.0.0.1:8000/friend/create/?profile_id=1
+[DEBUG] 2025-04-04 22:57:55,384 [UID:1] utils - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-04 22:57:55,392 [UID:1] basehttp - "GET /friend/disp_qr/?profile_id=1 HTTP/1.1" 200 8320
+[INFO] 2025-04-04 22:59:21,526 [UID:1] views - start detail_view
+[DEBUG] 2025-04-04 22:59:21,588 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-04 22:59:21,595 [UID:1] views - return render user/detail.html
+[DEBUG] 2025-04-04 22:59:21,599 [UID:1] models - request=<WSGIRequest: GET '/user/detail/5/'>
+[DEBUG] 2025-04-04 22:59:21,600 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:59:21,601 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:59:21,601 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:59:21,601 [UID:1] models - self.mbti=ESFJ
+[DEBUG] 2025-04-04 22:59:21,601 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 22:59:21,617 [UID:1] models - request=<WSGIRequest: GET '/user/detail/5/'>
+[DEBUG] 2025-04-04 22:59:21,618 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 22:59:21,618 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 22:59:21,618 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 22:59:21,618 [UID:1] models - self.mbti=ESFJ
+[DEBUG] 2025-04-04 22:59:21,618 [UID:1] models - get_mbti_compatibility
+[INFO] 2025-04-04 22:59:21,622 [UID:1] basehttp - "GET /user/detail/5/ HTTP/1.1" 200 49468
+[INFO] 2025-04-04 23:00:03,144 [UID:1] views - start detail_view
+[DEBUG] 2025-04-04 23:00:03,199 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-04 23:00:03,205 [UID:1] views - return render user/detail.html
+[DEBUG] 2025-04-04 23:00:03,233 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 23:00:03,233 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 23:00:03,234 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 23:00:03,234 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 23:00:03,234 [UID:1] models - self.mbti=ENTJ
+[DEBUG] 2025-04-04 23:00:03,234 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 23:00:03,238 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 23:00:03,238 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 23:00:03,238 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 23:00:03,238 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 23:00:03,238 [UID:1] models - self.mbti=INFJ
+[DEBUG] 2025-04-04 23:00:03,239 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 23:00:03,241 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 23:00:03,241 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 23:00:03,241 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 23:00:03,242 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 23:00:03,242 [UID:1] models - self.mbti=ESFJ
+[DEBUG] 2025-04-04 23:00:03,242 [UID:1] models - get_mbti_compatibility
+[INFO] 2025-04-04 23:00:03,250 [UID:1] basehttp - "GET /user/detail/1/ HTTP/1.1" 200 40315
+[INFO] 2025-04-04 23:00:03,345 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-04 23:00:03,345 [UID:1] views - url_for_qr=http://127.0.0.1:8000/friend/create/?profile_id=1
+[DEBUG] 2025-04-04 23:00:03,357 [UID:1] utils - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-04 23:00:03,365 [UID:1] basehttp - "GET /friend/disp_qr/?profile_id=1 HTTP/1.1" 200 8320
+[INFO] 2025-04-04 23:00:11,999 [UID:1] views - start detail_view
+[DEBUG] 2025-04-04 23:00:12,056 [UID:1] views - get Profile object(pk)
+[DEBUG] 2025-04-04 23:00:12,061 [UID:1] views - return render user/detail.html
+[DEBUG] 2025-04-04 23:00:12,084 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 23:00:12,084 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 23:00:12,085 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 23:00:12,085 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 23:00:12,085 [UID:1] models - self.mbti=ENTJ
+[DEBUG] 2025-04-04 23:00:12,086 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 23:00:12,089 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 23:00:12,089 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 23:00:12,090 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 23:00:12,090 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 23:00:12,090 [UID:1] models - self.mbti=INFJ
+[DEBUG] 2025-04-04 23:00:12,090 [UID:1] models - get_mbti_compatibility
+[DEBUG] 2025-04-04 23:00:12,094 [UID:1] models - request=<WSGIRequest: GET '/user/detail/1/'>
+[DEBUG] 2025-04-04 23:00:12,094 [UID:1] models - hasattr(request, "user")=True
+[DEBUG] 2025-04-04 23:00:12,094 [UID:1] models - hasattr(request.user, "profile")=True
+[DEBUG] 2025-04-04 23:00:12,094 [UID:1] models - user_profile.mbti=INTJ
+[DEBUG] 2025-04-04 23:00:12,094 [UID:1] models - self.mbti=ESFJ
+[DEBUG] 2025-04-04 23:00:12,094 [UID:1] models - get_mbti_compatibility
+[INFO] 2025-04-04 23:00:12,100 [UID:1] basehttp - "GET /user/detail/1/ HTTP/1.1" 200 40305
+[INFO] 2025-04-04 23:00:12,180 [UID:1] views - start Friend disp_qr_view
+[INFO] 2025-04-04 23:00:12,180 [UID:1] views - url_for_qr=http://127.0.0.1:8000/friend/create/?profile_id=1
+[DEBUG] 2025-04-04 23:00:12,192 [UID:1] utils - Logo file load from: C:\Users\sasay\Desktop\Python\AinoteProject/static/img/ainote.png
+[INFO] 2025-04-04 23:00:12,200 [UID:1] basehttp - "GET /friend/disp_qr/?profile_id=1 HTTP/1.1" 200 8320
+[INFO] 2025-04-04 23:59:56,888 [UID:Anon] autoreload - C:\Users\sasay\Desktop\Python\AinoteProject\user\models.py changed, reloading.
+[INFO] 2025-04-05 00:00:02,924 [UID:Anon] autoreload - Watching for file changes with StatReloader

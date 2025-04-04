@@ -90,19 +90,26 @@
         border: 2px solid #ccc; /* 枠線 */
     }
 
+    /***** profile card : effect *****/
+    /* ホバー時のエフェクト */
+    .profile-image-wrapper:hover .profile-bg-image {
+        transform: scale(1.10);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
 </style>
 {% endblock header %}
 
 {% block content %}
 <!-- START TITLE -->
 <div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
-    <img class="bi" width="60" height="60" src="{% static 'img/group.png' %}" alt="Group Icon">
-    <h1 class="text-body-emphasis fst-italic mb-0">New Group</h1>
+    <img class="bi" width="60" height="60" src="{% static 'img/friend.png' %}" alt="Friend Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Friend</h1>
     &nbsp;
-    <img class="bi" width="50" height="50" src="{% static 'img/create.png' %}" alt="Create Icon">
-    <h1 class="text-body-emphasis fst-italic mb-0">Join</h1>
+    <img class="bi" width="50" height="50" src="{% static 'img/delete.png' %}" alt="List Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Remove</h1>
     </div>
-    <p class="col-lg-8 mx-auto lead fst-italic">Join new Profile to Group</p>
+    <p class="col-lg-8 mx-auto lead fst-italic">Break-up this Friendship</p>
 </div>
 <!-- END TITLE -->
 
@@ -117,22 +124,22 @@
                 <!--login check-->
                 {% if user.is_authenticated %}
 
-                    <!--profile_own-->
+                    <!-- profile_own -->
                     <input type="hidden" class="card-text" id="id_profile_own_id" name="profile_own_id" value="{{ profile_own.id }}">
                     {% include 'includes/profile_item.html' with item=profile_own disp_date=profile_own.updated_at|date:"'y/m/d H:i:s" %}
 
-                    <!--Handshake-->
+                    <!-- handshake icon -->
                     <div class="col-md-4 d-flex justify-content-center align-items-center" style="min-height: 300px;">
                         <img src="{% static 'img/handshake.png' %}" alt="Handshake" class="img-fluid" style="max-width: 100%; height: auto;">
                     </div>
 
-                    <!--group_with-->
-                    <input type="hidden" class="card-text" id="id_group_with_id" name="group_with_id" value="{{ group_with.id }}">
-                    {% include 'includes/group_item.html' with item=group_with disp_date=group_with.updated_at|date:"'y/m/d H:i:s" disp_like='none' %}
+                    <!-- profile_with -->
+                    <input type="hidden" class="card-text" id="id_profile_with_id" name="profile_with_id" value="{{ profile_with.id }}">
+                    {% include 'includes/profile_item.html' with item=profile_with disp_date=profile_with.updated_at|date:"'y/m/d H:i:s" %}
 
                     <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
                         <!--submit button-->
-                        {% include 'includes/submit_button.html' with action="Accept" %}
+                        {% include 'includes/submit_button_danger.html' with action="Remove" %}
                     </div>
                 {% else %}
                     <label for="require_login" class="form-label">ログインしてください</label>

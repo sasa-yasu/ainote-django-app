@@ -77,7 +77,7 @@
         <main><div class="container">
             <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
                 <!--login check-->
-                {% if user.is_authenticated %}
+                {% if user.is_authenticated and user.is_superuser %}
                 
                     <form action='' method="POST">
                         {% csrf_token %}
@@ -153,11 +153,11 @@
                         <br/>
                         <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
                             <!--submit button-->
-                            {% include 'includes/submit_button.html' with action="Delete" %}
+                            {% include 'includes/submit_button_danger.html' with action="Delete" %}
                         </div>
                     </form>
                 {% else %}
-                    <label for="require_login" class="form-label">ログインしてください</label>
+                    <label for="require_login" class="form-label">superuserでログインしてください</label>
                     &nbsp;
                     <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
                 {% endif %}

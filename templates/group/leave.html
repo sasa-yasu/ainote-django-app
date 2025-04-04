@@ -97,12 +97,12 @@
 <!-- START TITLE -->
 <div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
     <img class="bi" width="60" height="60" src="{% static 'img/group.png' %}" alt="Group Icon">
-    <h1 class="text-body-emphasis fst-italic mb-0">New Group</h1>
+    <h1 class="text-body-emphasis fst-italic mb-0">Group</h1>
     &nbsp;
-    <img class="bi" width="50" height="50" src="{% static 'img/create.png' %}" alt="Create Icon">
-    <h1 class="text-body-emphasis fst-italic mb-0">Join</h1>
+    <img class="bi" width="50" height="50" src="{% static 'img/create.png' %}" alt="Delete Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Leave</h1>
     </div>
-    <p class="col-lg-8 mx-auto lead fst-italic">Join new Profile to Group</p>
+    <p class="col-lg-8 mx-auto lead fst-italic">Leave from this Group</p>
 </div>
 <!-- END TITLE -->
 
@@ -132,7 +132,7 @@
 
                     <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
                         <!--submit button-->
-                        {% include 'includes/submit_button.html' with action="Accept" %}
+                        {% include 'includes/submit_button_danger.html' with action="Leave" %}
                     </div>
                 {% else %}
                     <label for="require_login" class="form-label">ログインしてください</label>

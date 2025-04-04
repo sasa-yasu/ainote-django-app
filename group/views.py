@@ -223,11 +223,11 @@ def delete_view(request, pk):
     return render(request, 'group/delete.html', context)
 
 @login_required
-def disp_qr_view(request, group_id):
+def disp_qr_view(request, pk):
     logger.info('start Friend disp_qr_view')
 
     base_url = f"{settings.SITE_DOMAIN}/group/join/?group_id="  # 実際のドメインに要変更
-    group_url = f"{base_url}{group_id}"
+    group_url = f"{base_url}{pk}"
     logger.info(f'group_url={ group_url }')
     
     qr = qrcode.QRCode(
@@ -280,24 +280,24 @@ def join_view(request):
         logger.error(f'couldnt get my request.user={request.user}: {e}')
         profile_own = None
 
-    # profile_with = friend target
+    # group_with = Group target
     try:
         group_id = int(request.GET.get("group_id", 1)) # get profile_id from URL query
         logger.debug(f'group_id={group_id}')
-        group_join = Group.objects.get(id=group_id)
+        group_with = Group.objects.get(id=group_id)
     except ValueError:
-        logger.debug(f'couldnt catch target group_id={group_id}')
+        logger.debug(f'couldnt catch target group_with_id={group_with_id}')
         group_id = 1
 
-    context = {'profile_own': profile_own, 'group_join': group_join}
+    context = {'profile_own': profile_own, 'group_with': group_with}
 
     if request.method == "POST":
         logger.info('POST method')
 
         # GETの情報ではなく、POSTの情報から2つのProfileを取得(ACCEPTを押下されたもののみ)
-        group_join_id = request.POST["group_join_id"]
-        logger.debug(f'POST group_join_id={group_join_id}')
-        group = get_object_or_404(Group, id=group_join_id)
+        group_with_id = request.POST["group_with_id"]
+        logger.debug(f'POST group_with_id={group_with_id}')
+        group = get_object_or_404(Group, id=group_with_id)
         logger.debug(f'POST group={group}')
 
         try:
@@ -308,13 +308,58 @@ def join_view(request):
             logger.error(f'couldnt create group-profile object group_id={group.id} profile_id={profile_own.id}: {e}')
 
         logger.info('return redirect group:list')
-        return redirect('user:list')
+        return redirect('group:list')
     else:
         logger.info('GET method')
         pass
 
     logger.info('return render group/join.html')
     return render(request, 'group/join.html', context)
+
+@login_required
+def leave_view(request, pk):
+    logger.info('start Group leave_view')
+
+    # profile_own = operator
+    try:
+        profile_own = Profile.objects.get(user1=request.user) # get login profile object
+        logger.debug(f'profile_own={profile_own}')
+    except Exception as e:
+        logger.error(f'couldnt get my request.user={request.user}: {e}')
+        profile_own = None
+
+    # group_with = Group target
+    try:
+        group_with = Group.objects.get(pk=pk)
+    except ValueError:
+        logger.debug(f'couldnt catch target group_with={group_with}')
+
+    context = {'profile_own': profile_own, 'group_with': group_with}
+
+    if request.method == "POST":
+        logger.info('POST method')
+
+        # GETの情報ではなく、POSTの情報から2つのProfileを取得(ACCEPTを押下されたもののみ)
+        group_with_id = request.POST["group_with_id"]
+        logger.debug(f'POST group_with_id={group_with_id}')
+        group = get_object_or_404(Group, id=group_with_id)
+        logger.debug(f'POST group={group}')
+
+        try:
+            # GroupにProfileを登録
+            profile_own.groups.remove(group)
+            profile_own.save()
+        except Exception as e:
+            logger.error(f'couldnt remove group-profile object group_id={group.id} profile_id={profile_own.id}: {e}')
+
+        logger.info('return redirect group:list')
+        return redirect('group:list')
+    else:
+        logger.info('GET method')
+        pass
+
+    logger.info('return render group/leave.html')
+    return render(request, 'group/leave.html', context)
 
 @csrf_exempt  # 関数デコレータに変更
 @login_required

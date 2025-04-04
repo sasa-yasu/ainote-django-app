@@ -124,7 +124,11 @@
     {% csrf_token %}
     <br/>
     <!--submit button-->
-    {% include 'includes/detail_user_controled_buttons.html' with app_name='user' %}
+    {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='user' %}
+    {% if object.get_friend_pk %}
+      <a>&nbsp;</a>
+      <a href="{% url 'friend:delete' object.get_friend_pk %}" class="btn btn-danger">Leave from Friend</a>
+    {% endif %}
     <br/><br/>
 
     <div class="row g-5">
@@ -215,98 +219,96 @@
             </div>
           </div>
         </div>
-        <!-- Hobby -->
-        {% if object.hobby %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Hobby</h2>{{ object.hobby|safe|linebreaksbr }}
-              </article>
+
+        <!-- Only Display to Frind Profile -->
+        {% if user.is_staff or object.get_friend_pk %}
+
+          <!-- Hobby -->
+          {% if object.hobby %}
+          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+              <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                  <h2>Hobby</h2>{{ object.hobby|safe|linebreaksbr }}
+                </article>
+              </div>
             </div>
           </div>
-        </div>
-        {% endif %}
-        <!-- Sports -->
-        {% if object.sports %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Sports</h2>{{ object.sports|safe|linebreaksbr }}
-              </article>
+          {% endif %}
+          <!-- Sports -->
+          {% if object.sports %}
+          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+              <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                  <h2>Sports</h2>{{ object.sports|safe|linebreaksbr }}
+                </article>
+              </div>
             </div>
           </div>
-        </div>
-        {% endif %}
-        <!-- Movie -->
-        {% if object.movie %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Movie</h2>{{ object.movie|safe|linebreaksbr }}
-              </article>
+          {% endif %}
+          <!-- Movie -->
+          {% if object.movie %}
+          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+              <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                  <h2>Movie</h2>{{ object.movie|safe|linebreaksbr }}
+                </article>
+              </div>
             </div>
           </div>
-        </div>
-        {% endif %}
-        <!-- Music -->
-        {% if object.music %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Music</h2>{{ object.music|safe|linebreaksbr }}
-              </article>
+          {% endif %}
+          <!-- Music -->
+          {% if object.music %}
+          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+              <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                  <h2>Music</h2>{{ object.music|safe|linebreaksbr }}
+                </article>
+              </div>
             </div>
           </div>
-        </div>
-        {% endif %}
-        <!-- Book -->
-        {% if object.book %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Book</h2>{{ object.book|safe|linebreaksbr }}
-              </article>
+          {% endif %}
+          <!-- Book -->
+          {% if object.book %}
+          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+              <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                  <h2>Book</h2>{{ object.book|safe|linebreaksbr }}
+                </article>
+              </div>
             </div>
           </div>
-        </div>
-        {% endif %}
-        <!-- Event -->
-        {% if object.event %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Event</h2>{{ object.event|safe|linebreaksbr }}
-              </article>
+          {% endif %}
+          <!-- Event -->
+          {% if object.event %}
+          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+              <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                  <h2>Event</h2>{{ object.event|safe|linebreaksbr }}
+                </article>
+              </div>
             </div>
           </div>
-        </div>
-        {% endif %}
-        <!-- Remarks -->
-        {% if object.remarks %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Remarks</h2>{{ object.remarks|safe|linebreaksbr }}
-              </article>
+          {% endif %}
+          <!-- Remarks -->
+          {% if object.remarks %}
+          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+              <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                  <h2>Remarks</h2>{{ object.remarks|safe|linebreaksbr }}
+                </article>
+              </div>
             </div>
           </div>
-        </div>
+          {% endif %}
         {% endif %}
-        <br/>
-        <!--Display:QR for Friendship-->
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <h5><B>&lt;&lt;[ Build-up Friendship QR Code ]&gt;&gt;</B></h5>
-          <div class="row g-0 flex-md-row mb-0 position-relative">
-            <div style="width:auto;"><img src="{% url 'friend:disp_qr' %}?profile_id={{ object.id }}" alt="Profile QR Code" width="300" height="300"></div>
-          </div>
-        </div>
+
         <br/>
         <!--joined Group-->
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
@@ -354,29 +356,48 @@
             {% endfor %}
           </div>
 
-          <div style="margin-top:16px;">
-            <h4 class="fst-italic">Recent logins</h4>
-            {% for login_record in recent_login_records %}
-              <div class="card" style="margin-bottom:2px;"><div class="card-body" style="padding:2px; padding-left:4px;">
-                <small class="text-muted">{{ login_record.login_time|date:"'y/m/d H:i" }} - </small>
-                <small class="text-muted">
-                  {% if login_record.logout_time and login_record.login_time|date:"Y/m/d" != login_record.logout_time|date:"Y/m/d" %}{{ login_record.logout_time|date:"m/d" }}{% endif %}
-                  {{ login_record.logout_time|date:"H:i" }}
-                </small>
-                <small class="text-muted">[{{ login_record.get_diff_time }}]</small>
-              </div></div>
-            {% empty %}
-                <div>No recent logins.</div>
-            {% endfor %}
-          </div>
+          <!-- Only Display to Frind Profile -->
+          {% if user.is_staff or object.get_friend_pk %}
+            <div style="margin-top:16px;">
+              <h4 class="fst-italic">Recent logins</h4>
+              {% for login_record in recent_login_records %}
+                <div class="card" style="margin-bottom:2px;"><div class="card-body" style="padding:2px; padding-left:4px;">
+                  <small class="text-muted">{{ login_record.login_time|date:"'y/m/d H:i" }} - </small>
+                  <small class="text-muted">
+                    {% if login_record.logout_time and login_record.login_time|date:"Y/m/d" != login_record.logout_time|date:"Y/m/d" %}{{ login_record.logout_time|date:"m/d" }}{% endif %}
+                    {{ login_record.logout_time|date:"H:i" }}
+                  </small>
+                  <small class="text-muted">[{{ login_record.get_diff_time }}]</small>
+                </div></div>
+              {% empty %}
+                  <div>No recent logins.</div>
+              {% endfor %}
+            </div>
+          {% endif %}
 
         </div>
       </div>
     </div>
     <br/>
     <!--submit button-->
-    {% include 'includes/detail_user_controled_buttons.html' with app_name='user' %}
+    {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='user' %}
+    {% if object.get_friend_pk %}
+      <a>&nbsp;</a>
+      <a href="{% url 'friend:delete' object.get_friend_pk %}" class="btn btn-danger">Leave from Friend</a>
+    {% endif %}
     <br/>
+
+    {% if user.is_authenticated and user.profile.id == object.id %}
+    <hr class="featurette-divider">
+    <!--Display:QR for Friendship-->
+    <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+      <h5><B>&lt;&lt;[ Make Friend QR Code ]&gt;&gt;</B></h5>
+      <div class="row g-0 flex-md-row mb-0 position-relative">
+        <div style="width:auto;"><img src="{% url 'friend:disp_qr' %}?profile_id={{ object.id }}" alt="Profile QR Code" width="300" height="300"></div>
+      </div>
+    </div>
+    {% endif %}
+
   </form>
 </div></main>
 <!--MAIN END-->

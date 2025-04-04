@@ -4,6 +4,6 @@
         <a>&nbsp;</a>
         <a href="{% url app_name|add:':update' object.pk %}" class="btn btn-primary">Edit</a>
         <a>&nbsp;</a>
-        <a href="{% url app_name|add:':delete' object.pk %}" class="btn btn-primary">Delete</a>
+        <a href="{% url app_name|add:':delete' object.pk %}" class="btn btn-danger">Delete</a>
     {% endif %}
 {% endif %}

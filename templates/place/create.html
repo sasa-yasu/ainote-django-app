@@ -31,7 +31,7 @@
 <main><div class="container">
     <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
         <!--login check-->
-        {% if user.is_authenticated %}
+        {% if user.is_authenticated and user.is_superuser %}
 
             <!--form common errors-->
             {% if form.non_field_errors %}<div class="alert alert-danger"> {% for error in form.non_field_errors %} * {{ error }}<br/> {% endfor %} </div>{% endif %}
@@ -88,7 +88,7 @@
                 {% include 'includes/submit_button.html' with action="Create" %}
             </form>
         {% else %}
-            <label for="require_login" class="form-label">ログインしてください</label>
+            <label for="require_login" class="form-label">superuserでログインしてください</label>
             &nbsp;
             <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
         {% endif %}

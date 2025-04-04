@@ -13,8 +13,9 @@ urlpatterns = [
     path('update/<int:pk>/', views.update_view, name='update'),
     path('delete/<int:pk>/', views.delete_view, name='delete'),
     path('push-likes/<int:pk>/', views.push_likes, name='push_likes'),
-    path('disp_qr/<int:group_id>/', views.disp_qr_view, name='disp_qr'),
+    path('disp_qr/<int:pk>/', views.disp_qr_view, name='disp_qr'),
     path('join/', views.join_view, name='join'),
+    path('leave/<int:pk>/', views.leave_view, name='leave'),
 ]
 
 if settings.DEBUG:

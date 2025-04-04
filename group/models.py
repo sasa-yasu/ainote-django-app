@@ -1,6 +1,7 @@
 import random  # ← ランダム数生成用
 from django.db import models
 from django.utils import timezone
+from middleware.current_request import get_current_request
 from AinoteProject.utils import crop_square_image, crop_16_9_image
 from user.models import Profile
 
@@ -44,6 +45,22 @@ class Group(models.Model):
     def get_profiles(self):
         """ グループに所属するすべてのプロフィールを取得 """
         return self.profiles.all()
+
+    @property
+    def is_user_member(self):
+        """
+        request.userがこのGroupに所属していればTrueを返す
+        """
+        request = get_current_request()  # 現在のリクエストを取得
+        if not request.user.is_authenticated:
+            return False
+
+        try:
+            user_profile = request.user.profile
+        except Profile.DoesNotExist:
+            return False
+
+        return self.profiles.filter(id=user_profile.id).exists()
 
     def get_all_groups_profiles(self):
         """ Profileに紐づいているすべてのグループ情報をProfile情報付きで取得 """

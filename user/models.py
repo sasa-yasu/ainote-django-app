@@ -8,8 +8,9 @@ from django.dispatch import receiver
 from datetime import date
 from django.utils import timezone
 from datetime import timedelta
-from AinoteProject.utils import crop_square_image, crop_16_9_image, get_mbti_compatibility, get_mbti_detail_url
 from middleware.current_request import get_current_request
+from AinoteProject.utils import crop_square_image, crop_16_9_image, get_mbti_compatibility, get_mbti_detail_url
+
 
 # ロガー取得
 logger = logging.getLogger('app')
@@ -120,7 +121,7 @@ class Profile(models.Model):
 
     @property
     def get_mbti_comp(self):
-        request = get_current_request()  # ミドルウェア等で現在のリクエストを取得する仕組みが必要
+        request = get_current_request()  # 現在のリクエストを取得
         logger.debug(f'request={request}')
         logger.debug(f'hasattr(request, "user")={hasattr(request, "user")}')
         logger.debug(f'hasattr(request.user, "profile")={hasattr(request.user, "profile")}')
@@ -155,7 +156,7 @@ class Profile(models.Model):
         logger.debug(f'html={html}')
 
         return html
-
+    
     def save(self, *args, **kwargs):
         if self.images and self.images != self.__class__.objects.get(pk=self.pk).images: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
             self.images = crop_square_image(self.images, 300) # Update the images size
@@ -228,12 +229,34 @@ class Profile(models.Model):
         """
         # profile_id が profile1 側の場合 → profile2 を取得
         # profile_id が profile2 側の場合 → profile1 を取得
+        from friend.models import Friend
         friends = Profile.objects.filter(
             Q(friends1__profile2_id=self.id) |  # 自分がprofile1側 → profile2を取得
             Q(friends2__profile1_id=self.id)    # 自分がprofile2側 → profile1を取得
         ).exclude(id=self.id).distinct()        # 自分を除外して重複を削除
 
         return friends
+
+    @property
+    def get_friend_pk(self):
+        """
+        ログイン中のユーザー（request.user.profile）と self profile が友達関係にある場合、
+        対象のFriendオブジェクトのpkを返す。なければNone。
+        :return: Friend.pk or None
+        """
+        request = get_current_request()
+        if not request or not hasattr(request, 'user') or not hasattr(request.user, 'profile'):
+            return None
+
+        user_profile = request.user.profile
+
+        from friend.models import Friend
+        friend = Friend.objects.filter(
+            Q(profile1=user_profile, profile2=self) |
+            Q(profile1=self, profile2=user_profile)
+        ).first()
+
+        return friend.pk if friend else None
 
     def increment_given_likes(self):
         # 一旦、常にインクリメント

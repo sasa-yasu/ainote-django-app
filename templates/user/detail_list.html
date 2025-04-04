@@ -75,7 +75,7 @@
             <form method="POST">
                 {% csrf_token %}
                 <!--submit button-->
-                {% include 'includes/detail_buttons.html' with app_name='user' %}
+                {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='user' %}
                 <br/><br/>
 
                 <!--Display:user_id(auto:key)-->
@@ -154,7 +154,7 @@
                 </div>
                 <br/>
                 <!--submit button-->
-                {% include 'includes/detail_buttons.html' with app_name='user' %}
+                {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='user' %}
                 <br/>
             </form>
         </div>

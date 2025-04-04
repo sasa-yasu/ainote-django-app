@@ -32,7 +32,7 @@
             <form method="POST">
                 {% csrf_token %}
                 <!--submit button-->
-                {% include 'includes/detail_buttons.html' with app_name='device' %}
+                {% include 'includes/detail_staff_controled_buttons.html' with app_name='device' %}
                 <br/><br/>
 
                 <!--Display:id(auto:key)-->
@@ -64,7 +64,7 @@
                 {% include 'includes/bottom_dates.html' %}
                 <br/>
                 <!--submit button-->
-                {% include 'includes/detail_buttons.html' with app_name='device' %}
+                {% include 'includes/detail_staff_controled_buttons.html' with app_name='device' %}
                 <br/>
             </form>
         </div>
