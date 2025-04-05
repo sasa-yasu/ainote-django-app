@@ -116,7 +116,7 @@
     <!--login check-->
     {% if user.is_authenticated %}
         <!-- START MAIN LIST BODY -->
-        <div class="container bg-body-tertiary"><div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
+        <div class="container bg-body-tertiary"><div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 row-cols-xxl-7 g-3">
                 {% for item in display_object_list %}
                     {% if item.profile1.user1.id == user.id %}
                         {% include 'includes/profile_item.html' with item=item.profile2 disp_date=item.created_at|date:"'y/m/d H:i:s" %}

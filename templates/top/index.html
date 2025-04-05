@@ -196,9 +196,9 @@
     </div>
 {% endif %}
 
-    <hr class="featurette-divider">
-
+{% if top_calendar_monthly and top_calendar_weekly %}
     <!-- Calendar -->
+    <hr class="featurette-divider">
     <div class="row">
         <div class="col-md-5">
             {{ top_calendar_monthly|safe }}
@@ -207,11 +207,11 @@
             {{ top_calendar_weekly|safe }}
         </div>
     </div>
-
-    <hr class="featurette-divider">
+{% endif %}
 
     <!-- Notice -->
     {% for item in notice_object_list %}
+    <hr class="featurette-divider">
     <div class="row featurette">
         <div class="col-md-5 {% if forloop.counter|divisibleby:2 %} order-md-2 {% endif %}">
             <div class="img-container"><img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="{{item.images.url}}" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -228,11 +228,19 @@
         </a></div>
     </div>
 
-    <hr class="featurette-divider">
-
     {% endfor %}
 
-    <!-- /END THE FEATURETTES -->
+    {% if task_control %}
+    <!-- Task Control -->
+    <hr class="featurette-divider">
+    <div class="row">
+        <div class="col-md-12">
+            {{ task_control|safe }}
+        </div>
+    </div>
+    {% endif %}
+
+<!-- /END THE FEATURETTES -->
 </main>
 {% endblock content %}
 

@@ -14,6 +14,7 @@ class Group(models.Model):
     remarks = models.TextField('Remarks', null=True, blank=True)
     schedule_monthly = models.CharField('Schedule Monthly', max_length=1028, null=True, blank=True)
     schedule_weekly = models.CharField('Schedule Weekly', max_length=1028, null=True, blank=True)
+    task_control = models.CharField('Task Control', max_length=1028, null=True, blank=True)
     likes = models.IntegerField(null=True, blank=True)
     likes_record =  models.TextField(null=True, blank=True, default = '|')
     created_at = models.DateTimeField('Created at', auto_now_add=True)

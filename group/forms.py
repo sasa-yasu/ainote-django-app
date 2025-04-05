@@ -24,16 +24,20 @@ class GroupForm(forms.ModelForm):
     )
     schedule_monthly = forms.CharField(
         label='Schedule Monthly', max_length=1028, widget=forms.TextInput(attrs={'class':'form-control'}),
-        required=False, help_text='* Past the google schedule monthly URL (start with "iframe" tag).<br/>* Should change width-setting to width="100%".'
+        required=False, help_text='* Past the google schedule monthly URL (start with "&lt;iframe&gt;" tag).<br/>* Should change width-setting to width="100%".'
     )
     schedule_weekly = forms.CharField(
         label='Schedule Weekly', max_length=1028, widget=forms.TextInput(attrs={'class':'form-control'}),
-        required=False, help_text='* Past the google schedule weekly URL (start with "iframe" tag).<br/>* Should change width-setting to width="100%".'
+        required=False, help_text='* Past the google schedule weekly URL (start with "&lt;iframe&gt;" tag).<br/>* Should change width-setting to width="100%".'
+    )
+    task_control = forms.CharField(
+        label='Task Control', max_length=1028, widget=forms.TextInput(attrs={'class':'form-control'}),
+        required=False, help_text='* Past the notion task-boad URL (start with "&lt;iframe&gt;" tag and should be end with "&lt;&#47;iframe&gt;" tag).<br/>* Should change height-setting to height="1000px".'
     )
 
     class Meta:
         model = Group
-        fields = ("name", "images", "themes", "context", "remarks", "schedule_monthly", "schedule_weekly")
+        fields = ("name", "images", "themes", "context", "remarks", "schedule_monthly", "schedule_weekly", "task_control")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

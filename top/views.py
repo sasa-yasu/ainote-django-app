@@ -12,10 +12,11 @@ def Top(request):
     notice_object_list = Notice.objects.order_by('published_at').all()
     top_calendar_monthly = f'{settings.TOP_CALENDAR_MONTHLY}'
     top_calendar_weekly = f'{settings.TOP_CALENDAR_WEEKLY}'
+    task_control = f'{settings.TASK_CONTROL}'
 
     context = {
         'headline_object_list': headline_object_list, 'notice_object_list': notice_object_list,
-        'top_calendar_monthly': top_calendar_monthly, 'top_calendar_weekly': top_calendar_weekly
+        'top_calendar_monthly': top_calendar_monthly, 'top_calendar_weekly': top_calendar_weekly, 'task_control': task_control,
     }
     return render(request, 'top/index.html', context)
 

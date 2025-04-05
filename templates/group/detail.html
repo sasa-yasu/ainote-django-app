@@ -158,7 +158,7 @@
                 <!--Profiles-->
                 <div class="align-self-start" style="min-width: 100px; width: 900px; ">
                   <h5><B>&lt;&lt;[ Joined Profiles List ]&gt;&gt;</B></h5>
-                  <div class="container bg-body-tertiary"><div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3">
+                  <div class="container bg-body-tertiary"><div class="row row-cols-2 row-cols-sm-3 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-3">
                     {% for item in joined_profiles %}
                         {% include 'includes/profile_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" %}
                     {% empty %}
@@ -215,6 +215,17 @@
         {% endif %}
         <br/>
 
+        {% if user.is_staff or object.is_user_member %}
+        <hr class="featurette-divider">
+        <!--Display:QR for join Group-->
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <h5><B>&lt;&lt;[ Join this Group QR Code ]&gt;&gt;</B></h5>
+            <div class="row g-0 flex-md-row mb-0 position-relative">
+                <div style="width:auto;"><img src="{% url 'group:disp_qr' pk=object.id %}" alt="Group QR Code" width="300" height="300"></div>
+            </div>
+        </div>
+        {% endif %}
+
         {% if object.schedule_monthly and object.schedule_weekly %}
         <hr class="featurette-divider">
 
@@ -228,14 +239,17 @@
             </div>
         </div>
         {% endif %}
+
+        {% if object.task_control %}
         <hr class="featurette-divider">
-        <!--Display:QR for join Group-->
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-            <h5><B>&lt;&lt;[ Join this Group QR Code ]&gt;&gt;</B></h5>
-            <div class="row g-0 flex-md-row mb-0 position-relative">
-                <div style="width:auto;"><img src="{% url 'group:disp_qr' pk=object.id %}" alt="Group QR Code" width="300" height="300"></div>
+
+        <!-- Task Control -->
+        <div class="row">
+            <div class="col-md-12">
+                {{ object.task_control|safe }}
             </div>
         </div>
+        {% endif %}
 
     </form>
 </div></main>

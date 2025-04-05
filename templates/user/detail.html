@@ -14,6 +14,18 @@
         justify-content: space-between;
     }
 
+    /* detailページのみ：背景の themes 画像 */
+    .bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
+        z-index: 1;          /* 背景に表示 */
+        opacity: 1;         /* 透明度を設定しない */
+    }
+
     /***** profile card *****/
     /* 画像の重ね合わせコンテナ */
     .profile-image-wrapper {
@@ -109,6 +121,11 @@
         transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
     }
 
+    .profile-right-top:hover .profile-mbti-img {
+        transform: scale(1.10);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
 
 </style>
 <link href="{% static 'user/blog.css' %}" rel="stylesheet">
@@ -126,7 +143,7 @@
     <!--submit button-->
     {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='user' %}
     {% if object.get_friend_pk %}
-      <a>&nbsp;</a>
+      <a>&nbsp;-&nbsp;</a>
       <a href="{% url 'friend:delete' object.get_friend_pk %}" class="btn btn-danger">Leave from Friend</a>
     {% endif %}
     <br/><br/>
@@ -143,9 +160,9 @@
                 <div class="profile-image-wrapper" style="max-width:900px; ">
                     <!-- 背景：themes -->
                     {% if object.themes %}
-                    <img src="{{ object.themes.url }}" class="profile-bg-image" alt="User Themes"/>
+                    <img src="{{ object.themes.url }}" class="bg-image" alt="User Themes"/>
                     {% else %}
-                    <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
+                    <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
                     {% endif %}
                     <!-- 前面：images(circle切り取り) -->
                     <div class="profile-front-image">
@@ -160,7 +177,7 @@
                       <span class="profile-right-top d-inline-flex align-items-center">
                         <a href="{{ object.get_mbti_url }}" target="_blank">
                           {% with mbti_image='img/mbti/'|add:object.mbti|add:'.png' %}
-                            <img src="{% static mbti_image %}" width="80" height="80" alt="MBTI"/>
+                            <img src="{% static mbti_image %}" width="80" height="80" alt="MBTI" class="profile-mbti-img"/>
                           {% endwith %}
                         </a>
                       </span>
@@ -208,7 +225,7 @@
                 <tr><th>Birthday</th><td>{{ object.birthday|date:"m/d" }}</td></tr>
                 <tr>
                   <th>MBTI Type</th>
-                  <td><a href="{{ object.get_mbti_url }}" target="_blank">{{ object.get_mbti_display }}</a></td>
+                  <td><a href="{{ object.get_mbti_url }}" target="_blank" class="btn btn-sm btn-outline-primary me-2">{{ object.get_mbti_display }}</a></td>
                 </tr>
                 <tr>
                   <th>MBTI Name</th>
@@ -313,7 +330,7 @@
         <!--joined Group-->
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
           <h5><B>&lt;&lt;[ Joined Group List ]&gt;&gt;</B></h5>
-          <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 g-3">
+          <div class="row row-cols-2 row-cols-sm-3 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-3">
             {% for item in joined_groups %}
               {% include 'includes/group_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" disp_like='none' %}
             {% empty %}
@@ -325,7 +342,7 @@
         <!--Friends-->
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
           <h5><B>&lt;&lt;[ Friend List ]&gt;&gt;</B></h5>
-          <div class="container bg-body-tertiary"><div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3">
+          <div class="container bg-body-tertiary"><div class="row row-cols-2 row-cols-sm-3 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-3">
             {% for item in friends %}
               {% include 'includes/profile_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" %}
             {% empty %}
@@ -382,7 +399,7 @@
     <!--submit button-->
     {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='user' %}
     {% if object.get_friend_pk %}
-      <a>&nbsp;</a>
+      <a>&nbsp;-&nbsp;</a>
       <a href="{% url 'friend:delete' object.get_friend_pk %}" class="btn btn-danger">Leave from Friend</a>
     {% endif %}
     <br/>
