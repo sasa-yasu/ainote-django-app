@@ -33,7 +33,7 @@
             </div>
 
             <!--likes-->
-            <a class="btn btn-outline-secondary rounded-pill btn-sm like-btn" data-device-id="{{ item.id }}" style="max-height:31px;">
+            <a class="btn btn-outline-secondary rounded-pill btn-sm like-btn" data-device-id="{{ item.id }}" style="padding:2px;max-height:30px;min-width:60px;">
                 <img width="20px" height="20px" src="{% static 'img/good.png' %}"><span class="like-count" id="like-count-{{ item.id }}">({{ item.likes }})</span>
             </a>
         </div>
