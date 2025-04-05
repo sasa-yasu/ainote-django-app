@@ -72,16 +72,16 @@
     /* Profile画像の左上に配置 */
     .profile-left-top {
         position: absolute;
-        top: 10px;      /* 上から10pxの位置 */
-        left: 10px;     /* 左から10pxの位置 */
+        top: 5px;      /* 上から10pxの位置 */
+        left: 5px;     /* 左から10pxの位置 */
         z-index: 3;     /* 前面に表示されるように設定 */
     }
 
     /* Profile画像の右上に配置 */
     .profile-right-top {
         position: absolute;
-        top: 10px;      /* 上から10pxの位置 */
-        right: 10px;     /* 右から10pxの位置 */
+        top: 5px;      /* 上から5pxの位置 */
+        right: 5px;     /* 右から5pxの位置 */
         z-index: 3;     /* 前面に表示されるように設定 */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
         border: 2px solid #ccc; /* 枠線 */
@@ -90,16 +90,16 @@
     /* Profile画像の左下に配置 */
     .profile-left-bottom {
         position: absolute;
-        bottom: 10px;    /* 下から10pxの位置 */
-        left: 10px;     /* 左から10pxの位置 */
+        bottom: 5px;    /* 下から10pxの位置 */
+        left: 5px;     /* 左から10pxの位置 */
         z-index: 3;       /* 最前面に表示 */
     }
 
     /* Profile画像の右下に配置 */
     .profile-right-bottom {
         position: absolute;
-        bottom: 10px;    /* 下から10pxの位置 */
-        right: 10px;     /* 右から10pxの位置 */
+        bottom: 5px;    /* 下から10pxの位置 */
+        right: 5px;     /* 右から10pxの位置 */
         z-index: 3;       /* 最前面に表示 */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
         border: 2px solid #ccc; /* 枠線 */
@@ -225,7 +225,11 @@
                 <tr><th>Birthday</th><td>{{ object.birthday|date:"m/d" }}</td></tr>
                 <tr>
                   <th>MBTI Type</th>
-                  <td><a href="{{ object.get_mbti_url }}" target="_blank" class="btn btn-sm btn-outline-secondary me-2">{{ object.get_mbti_display }}</a></td>
+                  {% if object.mbti == '-' %}
+                    <td>{{ object.get_mbti_display }}</td>
+                  {% else %}
+                    <td><a href="{{ object.get_mbti_url }}" target="_blank" class="btn btn-sm btn-outline-secondary me-2">{{ object.get_mbti_display }}</a></td>
+                  {% endif %}
                 </tr>
                 <tr>
                   <th>MBTI Name</th>
@@ -404,7 +408,8 @@
     {% endif %}
     <br/>
 
-    {% if user.is_authenticated and user.profile.id == object.id %}
+    {% if user.is_authenticated %}
+    {% if user.is_staff or user.profile.id == object.id %}
     <hr class="featurette-divider">
     <!--Display:QR for Friendship-->
     <div class="align-self-start" style="min-width: 100px; width: 900px; ">
@@ -413,7 +418,7 @@
         <div style="width:auto;"><img src="{% url 'friend:disp_qr' %}?profile_id={{ object.id }}" alt="Profile QR Code" width="300" height="300"></div>
       </div>
     </div>
-    {% endif %}
+    {% endif %}{% endif %}
 
   </form>
 </div></main>

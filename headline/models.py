@@ -2,6 +2,7 @@ from django.db import models
 from PIL import Image
 from io import BytesIO
 from django.core.files.base import ContentFile
+from user.models import Profile
 
 class Headline(models.Model):
     """Headline"""
@@ -13,7 +14,9 @@ class Headline(models.Model):
     published_at = models.DateField('Published at', null=True, blank=True)
     remarks = models.TextField('Remarks', null=True, blank=True)
     created_at = models.DateTimeField('Created at', auto_now_add=True)
+    created_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='headline_created_pics')  # 紐づくProfileが削除されたらNULL設定
     updated_at = models.DateTimeField('Updated at', auto_now=True)
+    updated_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='headline_updated_pics')  # 紐づくProfileが削除されたらNULL設定
 
     class Meta:
         constraints = [

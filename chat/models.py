@@ -16,7 +16,9 @@ class Chat(models.Model):
     likes_record =  models.TextField(null=True, blank=True, default = '|')
     order_by_at = models.DateTimeField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    created_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='chat_created_pics')  # 紐づくProfileが削除されたらNULL設定
     updated_at = models.DateTimeField(auto_now=True)
+    updated_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='chat_updated_pics')  # 紐づくProfileが削除されたらNULL設定
 
     """ Profile紐づけ """
     profile = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='chats' )  # 紐づくProfileが削除されてもChatは残る

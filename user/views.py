@@ -125,6 +125,7 @@ def create_view(request):
             book_data = profile_form.cleaned_data["book"]
             event_data = profile_form.cleaned_data["event"]
             remarks_data = profile_form.cleaned_data["remarks"]
+            pic_data = request.user.profile
 
             images_data = request.FILES.get("images")
             themes_data = request.FILES.get("themes")
@@ -146,7 +147,9 @@ def create_view(request):
                     event = event_data,
                     remarks = remarks_data,
                     images = None, # 画像はまだ保存しない
-                    themes = None # 画像はまだ保存しない
+                    themes = None, # 画像はまだ保存しない
+                    created_pic = pic_data,
+                    updated_pic = pic_data,
                 )
             except Exception as e:
                 logger.error(f'couldnt create the Profile Object: {e}')
@@ -221,6 +224,7 @@ def update_view(request, pk):
             object.book = profile_form.cleaned_data["book"]
             object.event = profile_form.cleaned_data["event"]
             object.remarks = profile_form.cleaned_data["remarks"]
+            object.updated_pic = request.user.profile
 
             images_data = request.FILES.get("images")
             themes_data = request.FILES.get("themes")

@@ -18,7 +18,9 @@ class Device(models.Model):
     likes = models.IntegerField(null=True, blank=True)
     likes_record =  models.TextField(null=True, blank=True, default = '|')
     created_at = models.DateTimeField('Created at', auto_now_add=True)
+    created_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='device_created_pics')  # 紐づくProfileが削除されたらNULL設定
     updated_at = models.DateTimeField('Updated at', auto_now=True)
+    updated_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='device_updated_pics')  # 紐づくProfileが削除されたらNULL設定
 
     class Meta:
         constraints = [
@@ -29,6 +31,7 @@ class Device(models.Model):
         return f'<Device:id={self.id}, {self.name}>'
 
     def save(self, *args, **kwargs):
+        
         # 新規作成時に `likes` にランダム数を割り当てる
         if self._state.adding and self.likes is None:
             self.likes = random.randint(1, 5)

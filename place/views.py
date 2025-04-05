@@ -102,6 +102,7 @@ def create_view(request):
             latitude_data = form.cleaned_data["latitude"]
             longitude_data = form.cleaned_data["longitude"]
             googlemap_url_data = form.cleaned_data["googlemap_url"]
+            pic_data = request.user.profile
 
             try:
                 object = Place.objects.create(
@@ -120,6 +121,8 @@ def create_view(request):
                     latitude = latitude_data,
                     longitude = longitude_data,
                     googlemap_url = googlemap_url_data,
+                    created_pic = pic_data,
+                    updated_pic = pic_data,
                 )
             except Exception as e:
                 logger.error(f'couldnt create the Place Object: {e}')
@@ -182,6 +185,7 @@ def update_view(request, pk):
             object.latitude = form.cleaned_data["latitude"]
             object.longitude = form.cleaned_data["longitude"]
             object.googlemap_url = form.cleaned_data["googlemap_url"]
+            object.updated_pic = request.user.profile
 
             images_data = request.FILES.get("images")
             themes_data = request.FILES.get('themes')

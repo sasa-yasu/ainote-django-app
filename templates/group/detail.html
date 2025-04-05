@@ -61,6 +61,42 @@
         margin: 2px;
     }
 
+    /* Profile画像の左上に配置 */
+    .profile-left-top {
+        position: absolute;
+        top: 5px;      /* 上から10pxの位置 */
+        left: 5px;     /* 左から10pxの位置 */
+        z-index: 3;     /* 前面に表示されるように設定 */
+    }
+
+    /* Profile画像の右上に配置 */
+    .profile-right-top {
+        position: absolute;
+        top: 5px;      /* 上から5pxの位置 */
+        right: 5px;     /* 右から5pxの位置 */
+        z-index: 3;     /* 前面に表示されるように設定 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+    /* Profile画像の左下に配置 */
+    .profile-left-bottom {
+        position: absolute;
+        bottom: 5px;    /* 下から10pxの位置 */
+        left: 5px;     /* 左から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+    }
+
+    /* Profile画像の右下に配置 */
+    .profile-right-bottom {
+        position: absolute;
+        bottom: 5px;    /* 下から10pxの位置 */
+        right: 5px;     /* 右から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+    
     /* ホバー時のエフェクト */
     .profile-image-wrapper:hover .profile-bg-image {
         transform: scale(1.10);
@@ -91,7 +127,7 @@
         <!--submit button-->
         {% include 'includes/detail_staff_controled_buttons.html' with app_name='group' %}
         {% if object.is_user_member %}
-            <a>&nbsp;</a>
+            <a>&nbsp;-&nbsp;</a>
             <a href="{% url 'group:leave' object.id %}" class="btn btn-danger">Leave from Group</a>
         {% endif %}
         <br/><br/>
@@ -210,7 +246,7 @@
         <!--submit button-->
         {% include 'includes/detail_staff_controled_buttons.html' with app_name='group' %}
         {% if object.is_user_member %}
-            <a>&nbsp;</a>
+            <a>&nbsp;-&nbsp;</a>
             <a href="{% url 'group:leave' object.id %}" class="btn btn-danger">Leave from Group</a>
         {% endif %}
         <br/>

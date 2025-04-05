@@ -92,6 +92,7 @@ def create_view(request):
             schedule_monthly_data = form.cleaned_data['schedule_monthly']
             schedule_weekly_data = form.cleaned_data['schedule_weekly']
             task_control_data = form.cleaned_data['task_control']
+            pic_data = request.user.profile
 
             try:
                 object = Group.objects.create(
@@ -103,6 +104,8 @@ def create_view(request):
                     schedule_monthly = schedule_monthly_data,
                     schedule_weekly = schedule_weekly_data,
                     task_control = task_control_data,
+                    created_pic = pic_data,
+                    updated_pic = pic_data,
                 )
             except Exception as e:
                 logger.error(f'couldnt create the Group object: {e}')
@@ -158,6 +161,7 @@ def update_view(request, pk):
             object.schedule_monthly = form.cleaned_data['schedule_monthly']
             object.schedule_weekly = form.cleaned_data['schedule_weekly']
             object.task_control = form.cleaned_data['task_control']
+            object.updated_pic = request.user.profile
 
             images_data = request.FILES.get("images")
             themes_data = request.FILES.get('themes')

@@ -31,7 +31,9 @@ class Place(models.Model):
     googlemap_url = models.CharField('Google Map URL', max_length=3000, null=True, blank=True)
 
     created_at = models.DateTimeField('Created at', auto_now_add=True)
+    created_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='place_created_pics')  # 紐づくProfileが削除されたらNULL設定
     updated_at = models.DateTimeField('Updated at', auto_now=True)
+    updated_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='place_updated_pics')  # 紐づくProfileが削除されたらNULL設定
 
     class Meta:
         constraints = [
@@ -42,6 +44,11 @@ class Place(models.Model):
         return f'<Place:id={self.id}, {self.place}, {self.area}>'
 
     def save(self, *args, **kwargs):
+
+        # 新規作成時に `likes` にランダム数を割り当てる
+        if self._state.adding and self.likes is None:
+            self.likes = random.randint(1, 5)
+            
         if self.images and self.images != self.__class__.objects.get(pk=self.pk).images: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
             self.images = resize_image(self.images, 300) # Update the images size
 

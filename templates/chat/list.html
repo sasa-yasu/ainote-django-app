@@ -81,8 +81,8 @@
 
                         <!--login check-->
                         {% if user.is_authenticated %}
-                            <!--superuser or its author-->
-                            {% if user.is_superuser or user.id == item.profile.user1.id %}
+                            <!--staff or its author-->
+                            {% if user.is_staff or user.id == item.profile.user1.id %}
                                 <a class="btn btn-outline-primary rounded-pill btn-sm" style="max-height:31px;" href="{% url 'chat:detail' item.id %}">Detail</a>
                             {% else %}
                                 <div></div> <!-- 左側に空の要素を維持 -->

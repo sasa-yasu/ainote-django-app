@@ -11,7 +11,6 @@ from datetime import timedelta
 from middleware.current_request import get_current_request
 from AinoteProject.utils import crop_square_image, crop_16_9_image, get_mbti_compatibility, get_mbti_detail_url
 
-
 # ロガー取得
 logger = logging.getLogger('app')
 error_logger = logging.getLogger('error')
@@ -87,8 +86,11 @@ class Profile(models.Model):
 
     images = models.ImageField('Images', upload_to='user', null=True, blank=True)
     themes = models.ImageField('Themes', upload_to='user', null=True, blank=True)
+    
     created_at = models.DateTimeField(auto_now_add=True)
+    created_pic = models.ForeignKey('Profile', on_delete=models.SET_NULL, null=True, blank=True, related_name='user_created_pics')  # 紐づくProfileが削除されたらNULL設定
     updated_at = models.DateTimeField(auto_now=True)
+    updated_pic = models.ForeignKey('Profile', on_delete=models.SET_NULL, null=True, blank=True, related_name='user_updated_pics')  # 紐づくProfileが削除されたらNULL設定
 
     """ グループモデル """
     groups = models.ManyToManyField('group.Group', blank=True, related_name='profiles')  # 紐づくProfileが削除されてもChatは残る

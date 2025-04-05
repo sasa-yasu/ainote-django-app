@@ -1,8 +1,8 @@
 <div class="mb-3">
     <label for="created_at" class="form-label">Created_at</label>
-    <label type="datetime" class="form-control smoke" id="created_at" name="created_at">{{ object.created_at|date:"Y/m/d H:i:s" }}</label>
+    <label type="datetime" class="form-control smoke" id="created_at" name="created_at">{{ object.created_at|date:"Y/m/d H:i:s" }} {% if object.created_pic.nick_name %}by {{ object.created_pic.nick_name }}{% endif %}</label>
 </div>
 <div class="mb-3">
     <label for="updated_at" class="form-label">Updated_at</label>
-    <label type="datetime" class="form-control smoke" id="updated_at" name="updated_at">{{ object.updated_at|date:"Y/m/d H:i:s" }}</label>
+    <label type="datetime" class="form-control smoke" id="updated_at" name="updated_at">{{ object.updated_at|date:"Y/m/d H:i:s" }} {% if object.updated_pic.nick_name %}by {{ object.updated_pic.nick_name }}{% endif %}</label>
 </div>

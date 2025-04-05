@@ -8,6 +8,7 @@ class Friend(models.Model):
     profile1 = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='friends1')
     profile2 = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='friends2')
     created_at = models.DateTimeField(default=timezone.now)
+    created_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='friend_created_pics')  # 紐づくProfileが削除されたらNULL設定
 
     class Meta:
         # 同一関係を防ぐために一意制約を追加

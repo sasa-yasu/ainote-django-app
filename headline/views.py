@@ -81,6 +81,7 @@ def create_view(request):
             context_data = form.cleaned_data['context']
             published_at_data = form.cleaned_data['published_at']
             remarks_data = form.cleaned_data['remarks']
+            pic_data = request.user.profile
 
             try:
                 object = Headline.objects.create(
@@ -91,6 +92,8 @@ def create_view(request):
                     published_at = published_at_data,
                     remarks = remarks_data,
                     images = None, # 画像はまだ保存しない
+                    created_pic = pic_data,
+                    updated_pic = pic_data,
                 )
             except Exception as e:
                 logger.error(f'couldnt create the Headline object: {e}')
@@ -142,6 +145,7 @@ def update_view(request, pk):
             object.context = form.cleaned_data['context']
             object.published_at = form.cleaned_data['published_at']
             object.remarks = form.cleaned_data['remarks']
+            object.updated_pic = request.user.profile
 
             images_data = request.FILES.get("images")
             

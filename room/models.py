@@ -17,7 +17,9 @@ class Room(models.Model):
     likes = models.IntegerField(null=True, blank=True)
     likes_record =  models.TextField(null=True, blank=True, default = '|')
     created_at = models.DateTimeField('Created at', auto_now_add=True)
+    created_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='room_created_pics')  # 紐づくProfileが削除されたらNULL設定
     updated_at = models.DateTimeField('Updated at', auto_now=True)
+    updated_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='room_updated_pics')  # 紐づくProfileが削除されたらNULL設定
 
     class Meta:
         constraints = [

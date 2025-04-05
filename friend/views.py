@@ -102,12 +102,14 @@ def create_view(request):
         profile2 = get_object_or_404(Profile, id=profile2_id)
         logger.debug(f'POST profile_with={profile2}')
 
+        pic_data = request.user.profile
+
         try:
             # 順序を考慮して登録
             if profile1.id < profile2.id:
-                friend = Friend.objects.create(profile1=profile1, profile2=profile2)
+                friend = Friend.objects.create(profile1=profile1, profile2=profile2, created_pic = pic_data)
             else:
-                friend = Friend.objects.create(profile1=profile2, profile2=profile1)
+                friend = Friend.objects.create(profile1=profile2, profile2=profile1, created_pic = pic_data)
             logger.debug(f"{friend.profile1} - {friend.profile2}")
         except Exception as e:
             logger.error(f'couldnt create friend object profile1={profile1} profile2={profile2}: {e}')

@@ -79,7 +79,8 @@ def create_view(request):
             images_data = form.cleaned_data.get('images')
             author_data = form.cleaned_data['author']
             profile_data = None # initial setting
-
+            pic_data = request.user.profile
+            
             if author_data != "None":
                 pass
             else:
@@ -92,7 +93,9 @@ def create_view(request):
                     context = context_data,
                     images = None, # 画像はまだ保存しない
                     author = author_data,
-                    profile = profile_data
+                    profile = profile_data,
+                    created_pic = pic_data,
+                    updated_pic = pic_data,
                 )
             except Exception as e:
                 logger.error(f'couldnt create the Chat object: {e}')
@@ -142,6 +145,9 @@ def update_view(request, pk):
             object.title = form.cleaned_data['title']
             object.context = form.cleaned_data['context']
             object.author = form.cleaned_data['author']
+            object.author = form.cleaned_data['author']
+            object.updated_pic = request.user.profile
+
             images_data = form.cleaned_data.get('images')
 
             if images_data: # File Selected
