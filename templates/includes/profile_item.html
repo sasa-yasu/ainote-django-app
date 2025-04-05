@@ -41,7 +41,7 @@
         {% if request.user.profile.id != item.id and request.user.profile.mbti and item.mbti %}
             {% with mbti_comp=item.get_mbti_comp %}
                 {% if mbti_comp.pt > 0 %}
-                <span class="profile-left-bottom d-inline-flex flex-column align-items-center">
+                <span class="profile-left-bottom d-inline-flex flex-column align-items-center rounded-1" style="background:white;">
                     {% with mbti_comp_pt=mbti_comp.pt|stringformat:"s" %}
                     {% with mbti_pt_img='img/mbti/star_'|add:mbti_comp_pt|add:'.png' mbti_relation_img='img/mbti/'|add:mbti_comp.relation|add:'.png' %}
                     <span style="margin: 2px; padding: 0;"><img src="{% static mbti_pt_img %}" width="50" height=auto alt="MBTI Point" style="display: block;"/></span>
