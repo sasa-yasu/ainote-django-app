@@ -5,7 +5,7 @@ class NoticeForm(forms.ModelForm):
 
     images = forms.ImageField(
         label='Images', widget=forms.FileInput(attrs={'class':'form-control'}),
-        required=False, help_text='* Image file size will be adjusted to 500px X 500px.'
+        required=True, help_text='* Image file size will be adjusted to 500px X 500px.'
     )
     title = forms.CharField(
         label='Title', max_length=100, widget=forms.TextInput(attrs={'class':'form-control'}),

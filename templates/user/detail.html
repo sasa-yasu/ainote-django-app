@@ -412,7 +412,7 @@
     {% if user.is_staff or user.profile.id == object.id %}
     <hr class="featurette-divider">
     <!--Display:QR for Friendship-->
-    <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+    <div class="align-self-start" style="min-width:100px; width:100%;">
       <h5><B>&lt;&lt;[ Make Friend QR Code ]&gt;&gt;</B></h5>
       <div class="row g-0 flex-md-row mb-0 position-relative">
         <div style="width:auto;"><img src="{% url 'friend:disp_qr' %}?profile_id={{ object.id }}" alt="Profile QR Code" width="300" height="300"></div>

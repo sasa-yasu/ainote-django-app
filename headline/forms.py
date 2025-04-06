@@ -5,7 +5,7 @@ class HeadlineForm(forms.ModelForm):
 
     images = forms.ImageField(
         label='Images', widget=forms.FileInput(attrs={'class':'form-control'}),
-        required=False, help_text='* Image file size will be adjusted to max 1500px X 1500px, and ratio 23:9.'
+        required=True, help_text='* Image file size will be adjusted to max 1500px X 1500px, and ratio 23:9.'
     )
     title = forms.CharField(
         label='Title', max_length=100, widget=forms.TextInput(attrs={'class':'form-control'}),

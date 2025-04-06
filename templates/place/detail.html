@@ -257,7 +257,7 @@
 
                 <hr class="featurette-divider">
                 <!--Display:QR for Checkin-->
-                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+                <div class="align-self-start" style="min-width:100px; width:100%;">
                   <h5><B>&lt;&lt;[ Checkin QR Code ]&gt;&gt;</B></h5>
                   <div class="row g-0 flex-md-row mb-0 position-relative">
                     <div style="width:auto;"><img src="{% url 'place:disp_in_qr'%}?place_id={{ object.id }}" alt="Place Checkin QR Code" width="300" height="300"></div>
@@ -265,7 +265,7 @@
                 </div>
                 <br/>
                 <!--Display:QR for Checkout-->
-                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+                <div class="align-self-start" style="min-width:100px; width:100%;">
                   <h5><B>&lt;&lt;[ Checkout QR Code ]&gt;&gt;</B></h5>
                   <div class="row g-0 flex-md-row mb-0 position-relative">
                     <div style="width:auto;"><img src="{% url 'place:disp_out_qr' %}?place_id={{ object.id }}" alt="Place Checkout QR Code" width="300" height="300"></div>

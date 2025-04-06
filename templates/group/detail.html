@@ -254,7 +254,7 @@
         {% if user.is_staff or object.is_user_member %}
         <hr class="featurette-divider">
         <!--Display:QR for join Group-->
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="align-self-start" style="min-width:100px; width:100%;">
             <h5><B>&lt;&lt;[ Join this Group QR Code ]&gt;&gt;</B></h5>
             <div class="row g-0 flex-md-row mb-0 position-relative">
                 <div style="width:auto;"><img src="{% url 'group:disp_qr' pk=object.id %}" alt="Group QR Code" width="300" height="300"></div>
