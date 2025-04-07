@@ -458,6 +458,10 @@ def checkout_view(request):
                     checkin_record.checkout_time = now()
                     checkin_record.save()
                     context.update({'messages': f'Successfully Checked-Out at {checkin_record.checkout_time.strftime("%Y/%m/%d %H:%M:%S")}.'})
+
+                    # send the checkout email to parents
+                    place_with.send_checkout_email(profile_own)
+
                 except Exception as e:
                     checkin_record = CheckinRecord()
                     logger.error(f'couldnt update the Place CheckinRecord Object: {e}')
