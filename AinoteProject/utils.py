@@ -458,7 +458,7 @@ from django.core.mail import EmailMessage
 def send_email_smtp(to_email, subject, body):
     email = EmailMessage(
         from_email=None, # settings.DEFAULT_FROM_EMAIL が使われる
-        to=[to_email], # 複数のメールアドレスをリストで渡す
+        to=to_email, # 複数のメールアドレスをリストで渡す
         subject=subject,
         body=body
     )
