@@ -145,8 +145,10 @@
                     </div>
                 </div>
 
-                <!--Input:birthday-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.birthday %}</div>
+                <!--Input:birth_year-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.birth_year %}</div>
+                <!--Input:birth_month_day-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.birth_month_day %}</div>
 
                 <!--Input[pulldown]:mbti-->
                 <div class="mb-2">
@@ -197,6 +199,17 @@
                 <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.event %}</div>
                 <!--Input:remarks-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.remarks %}</div>
+
+                <!--Input:caretaker01-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker01 %}</div>
+                <!--Input:caretaker02-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker02 %}</div>
+                <!--Input:caretaker03-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker03 %}</div>
+                <!--Input:caretaker04-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker04 %}</div>
+                <!--Input:caretaker05-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker05 %}</div>
 
                 <!--Display:created_at/updated_at-->
                 {% include 'includes/bottom_dates.html' %}

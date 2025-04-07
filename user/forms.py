@@ -1,4 +1,5 @@
 from django import forms
+from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 
@@ -48,10 +49,17 @@ class ProfileForm(forms.ModelForm):
         required=True, initial='light', help_text='* Select your personal color.'
     )
     
-    birthday = forms.DateField(
-        label='Birthday', widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), input_formats=['%Y-%m-%d'],
-        required=False, help_text='* If you share it, it might be something. You can set 9999 for YEAR. YEAR will be ignored.'
-        )
+    default_year = timezone.now().year  # 当年を基準にして選択肢を作成
+    years_choice = [('', '----')] + [(year, str(year)) for year in range(default_year - 130, default_year + 1)]  # 過去130年分の年をリストとして作成
+    birth_year = forms.ChoiceField(
+        label='Year of Birth', choices=years_choice, widget=forms.Select(attrs={'class': 'form-control'}),
+        required=False, help_text='* If you input this, you can get the genaration-gap points.'
+    )
+    
+    birth_month_day = forms.DateField(
+        label='Birth Month/Day', widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'min': f'2000-01-01', 'max': f'2000-12-31'}), input_formats=['%Y-%m-%d'],
+        required=False, help_text='* If you input this, you can get more accurate genaration-gap points.<br/>* bellow shows year 2000 but system ignore the year info.'
+    )
 
     MBTI_CHOICES = Profile.MBTI_CHOICES
     mbti = forms.ChoiceField(
@@ -110,9 +118,32 @@ class ProfileForm(forms.ModelForm):
         required=False, help_text='* Your personal theme in your profile page.'
         )
 
+    caretaker01 = forms.CharField(
+        label='Caretaker01 email', max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}),
+        required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
+        )
+    caretaker02 = forms.CharField(
+        label='Caretaker02 email', max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}),
+        required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
+        )
+    caretaker03 = forms.CharField(
+        label='Caretaker03 email', max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}),
+        required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
+        )
+    caretaker04 = forms.CharField(
+        label='Caretaker04 email', max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}),
+        required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
+        )
+    caretaker05 = forms.CharField(
+        label='Caretaker05 email', max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}),
+        required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
+        )
+
     class Meta:
         model = Profile
-        fields = ("memberid", "nick_name", "badges", "birthday", "mbti", "mbti_name", "hobby", "sports", "movie", "music", "book", "event", "remarks", "images", "themes")
+        fields = ("memberid", "nick_name", "badges", "birth_year", "birth_month_day",
+                  "mbti", "mbti_name", "hobby", "sports", "movie", "music", "book", "event", "remarks", "images", "themes",
+                  "caretaker01", "caretaker02", "caretaker03", "caretaker04", "caretaker05")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -121,6 +152,14 @@ class ProfileForm(forms.ModelForm):
             if field.required:
                 field.label = f"{field.label} <span style='color: red; font-size:10pt;'>(*)</span>" # if required field, show "(*)"
         
+#        if self.instance:  # インスタンスが存在する場合（つまり、更新時）
+#            # birth_year に既存のデータ（インスタンスのフィールド値）を設定
+#            self.fields['birth_year'].initial = str(self.instance.birth_year)
+            
+#        # birth_month_day を年を除いた月日（MM-DD）のみとして表示する
+#        if self.instance.birth_month_day:
+#            self.fields['birth_month_day'].initial = f"{self.instance.birth_month_day}"
+
         # `POST` データがあれば取得（なければ `instance.mbti` を使用）
         if 'data' in kwargs:
             mbti_value = kwargs['data'].get('mbti', self.instance.mbti if self.instance else None)

@@ -47,6 +47,18 @@ TOP_CALENDAR_MONTHLY = os.getenv('TOP_CALENDAR_MONTHLY')
 TOP_CALENDAR_WEEKLY = os.getenv('TOP_CALENDAR_WEEKLY')
 TASK_CONTROL = os.getenv('TASK_CONTROL')
 
+# Email (for development)
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Email (for live)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',

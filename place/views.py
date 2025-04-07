@@ -360,6 +360,9 @@ def checkin_view(request):
                 context.update({'messages': f'Successfully Checked-In at {checkin_record.checkin_time.strftime("%Y/%m/%d %H:%M:%S")}'})
                 context.update({'checkin_record': checkin_record})
 
+                # send the checkin email to parents
+                place_with.send_checkin_email(profile_own)
+                
             except Exception as e:
                 logger.error(f'Failed to create CheckinRecord: {e}')
                 context.update({'errors': 'Failed to create CheckinRecord.'})
@@ -380,6 +383,9 @@ def checkin_view(request):
                     )
                     context.update({'messages': f'Successfully Checked-In at {new_checkin.checkin_time.strftime("%Y/%m/%d %H:%M:%S")}'})
                     context.update({'checkin_record': new_checkin})
+
+                    # send the checkin email to parents
+                    place_with.send_checkin_email(profile_own)
 
                 except Exception as e:
                     logger.error(f'Failed to create new CheckinRecord: {e}')

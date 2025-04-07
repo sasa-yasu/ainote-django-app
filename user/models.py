@@ -32,7 +32,12 @@ class Profile(models.Model):
         ('dark', 'Black')
     ]
     badges = models.CharField('Badges', max_length=30, choices=BADGES_CHOICES, null=True, blank=True)
-    birthday = models.DateField('Birthday', null=True, blank=True)
+
+    default_year = timezone.now().year  # 当年を基準にして選択肢を作成
+    years_choice = [(year, str(year)) for year in range(default_year - 130, default_year + 1)]  # 過去130年分の年をリストとして作成
+    birth_year = models.PositiveIntegerField('Year of Birth', choices=years_choice, null=True, blank=True)  # 年を保存
+
+    birth_month_day = models.DateField('Birth Month/Day', null=True, blank=True)  # 月日を保存、デフォルトは12月31日
 
     MBTI_CHOICES = [
         ('-', '-'),
@@ -86,7 +91,13 @@ class Profile(models.Model):
 
     images = models.ImageField('Images', upload_to='user', null=True, blank=True)
     themes = models.ImageField('Themes', upload_to='user', null=True, blank=True)
-    
+
+    caretaker01 = models.CharField('Caretaker01 email', max_length=255, null=True, blank=True)
+    caretaker02 = models.CharField('Caretaker02 email', max_length=255, null=True, blank=True)
+    caretaker03 = models.CharField('Caretaker03 email', max_length=255, null=True, blank=True)
+    caretaker04 = models.CharField('Caretaker04 email', max_length=255, null=True, blank=True)
+    caretaker05 = models.CharField('Caretaker05 email', max_length=255, null=True, blank=True)
+
     created_at = models.DateTimeField(auto_now_add=True)
     created_pic = models.ForeignKey('Profile', on_delete=models.SET_NULL, null=True, blank=True, related_name='user_created_pics')  # 紐づくProfileが削除されたらNULL設定
     updated_at = models.DateTimeField(auto_now=True)
@@ -288,7 +299,7 @@ class LoginRecord(models.Model):
     """ログイン履歴"""
 
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, verbose_name='User', on_delete=models.PROTECT)
+        settings.AUTH_USER_MODEL, verbose_name='User', on_delete=models.CASCADE)
     login_time = models.DateTimeField('Login', blank=True, null=True)
     logout_time = models.DateTimeField('Logout', blank=True, null=True)
 

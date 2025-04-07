@@ -222,7 +222,7 @@
                     {% endfor %}
                   </td>
                 </tr>
-                <tr><th>Birthday</th><td>{{ object.birthday|date:"m/d" }}</td></tr>
+                <tr><th>Birthday</th><td>{{ object.birth_year}}{% if object.birth_month_day %}/{{object.birth_month_day|date:"m/d" }}{% endif %}</td></tr>
                 <tr>
                   <th>MBTI Type</th>
                   {% if object.mbti == '-' %}

@@ -115,7 +115,8 @@ def create_view(request):
             memberid_data = profile_form.cleaned_data["memberid"]
             nick_name_data = profile_form.cleaned_data["nick_name"]
             badges_data = profile_form.cleaned_data["badges"]
-            birthday_data = profile_form.cleaned_data["birthday"]
+            birth_year_data = profile_form.cleaned_data["birth_year"]
+            birth_month_day_data = profile_form.cleaned_data["birth_month_day"]
             mbti_data = profile_form.cleaned_data["mbti"]
             mbti_name_data = profile_form.cleaned_data["mbti_name"]
             hobby_data = profile_form.cleaned_data["hobby"]
@@ -125,6 +126,11 @@ def create_view(request):
             book_data = profile_form.cleaned_data["book"]
             event_data = profile_form.cleaned_data["event"]
             remarks_data = profile_form.cleaned_data["remarks"]
+            caretaker01_data = profile_form.cleaned_data["caretaker01"]
+            caretaker02_data = profile_form.cleaned_data["caretaker02"]
+            caretaker03_data = profile_form.cleaned_data["caretaker03"]
+            caretaker04_data = profile_form.cleaned_data["caretaker04"]
+            caretaker05_data = profile_form.cleaned_data["caretaker05"]
             pic_data = request.user.profile
 
             images_data = request.FILES.get("images")
@@ -136,7 +142,8 @@ def create_view(request):
                     memberid = memberid_data,
                     nick_name = nick_name_data,
                     badges = badges_data,
-                    birthday = birthday_data,
+                    birth_year = birth_year_data,
+                    birth_month_day = birth_month_day_data,
                     mbti = mbti_data,
                     mbti_name = mbti_name_data,
                     hobby = hobby_data,
@@ -148,6 +155,11 @@ def create_view(request):
                     remarks = remarks_data,
                     images = None, # 画像はまだ保存しない
                     themes = None, # 画像はまだ保存しない
+                    caretaker01 = caretaker01_data,
+                    caretaker02 = caretaker02_data,
+                    caretaker03 = caretaker03_data,
+                    caretaker04 = caretaker04_data,
+                    caretaker05 = caretaker05_data,
                     created_pic = pic_data,
                     updated_pic = pic_data,
                 )
@@ -214,7 +226,8 @@ def update_view(request, pk):
             object.memberid = profile_form.cleaned_data["memberid"]
             object.nick_name = profile_form.cleaned_data["nick_name"]
             object.badges = profile_form.cleaned_data["badges"]
-            object.birthday = profile_form.cleaned_data["birthday"]
+            object.birth_year = profile_form.cleaned_data["birth_year"]
+            object.birth_month_day = profile_form.cleaned_data["birth_month_day"]
             object.mbti = profile_form.cleaned_data["mbti"]
             object.mbti_name = profile_form.cleaned_data["mbti_name"]
             object.hobby = profile_form.cleaned_data["hobby"]
@@ -224,6 +237,11 @@ def update_view(request, pk):
             object.book = profile_form.cleaned_data["book"]
             object.event = profile_form.cleaned_data["event"]
             object.remarks = profile_form.cleaned_data["remarks"]
+            object.caretaker01 = profile_form.cleaned_data["caretaker01"]
+            object.caretaker02 = profile_form.cleaned_data["caretaker02"]
+            object.caretaker03 = profile_form.cleaned_data["caretaker03"]
+            object.caretaker04 = profile_form.cleaned_data["caretaker04"]
+            object.caretaker05 = profile_form.cleaned_data["caretaker05"]
             object.updated_pic = request.user.profile
 
             images_data = request.FILES.get("images")

@@ -1,9 +1,7 @@
 import os
 from django.utils.timezone import now
-import math
 from PIL import Image
 from io import BytesIO
-import qrcode
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
@@ -184,6 +182,7 @@ def crop_16_9_image(p_themes, p_size):
 
 
 # GPS座標系
+import math
 def haversine(lat1, lon1, lat2, lon2):
     """2点間のハーサイン距離から近くにいるかを判断"""
     R = 6371  # 地球の半径（キロメートル）
@@ -214,6 +213,7 @@ def haversine(lat1, lon1, lat2, lon2):
         return False
 
 # QRコード系
+import qrcode
 def disp_qr_code(url_for_qr):
 
     qr = qrcode.QRCode(
@@ -254,8 +254,6 @@ def disp_qr_code(url_for_qr):
 
     return HttpResponse(img_io.getvalue(), content_type="image/png")
 
-# MBTI系
-import pandas as pd
 
 # MBTI相性データを辞書として定義（もしくはDBから取得）
 mbti_matrix = {
@@ -422,6 +420,7 @@ mbti_matrix = {
     # 他のMBTIタイプも同様に記述
 }
 
+# MBTI系
 def get_mbti_compatibility(user_mbti, profile_mbti):
     """
     ユーザーのMBTIを基準に、プロフィールのMBTIとの相性スコアと関係名称を取得
@@ -454,3 +453,14 @@ def get_mbti_detail_url(mbti):
     MBTIから該当詳細説明URLを取得
     """
     return mbti_links.get(mbti, []) # mbtiに該当するURLを返す
+
+from django.core.mail import EmailMessage
+def send_email_smtp(to_email, subject, body):
+    email = EmailMessage(
+        from_email=None, # settings.DEFAULT_FROM_EMAIL が使われる
+        to=[to_email], # 複数のメールアドレスをリストで渡す
+        subject=subject,
+        body=body
+    )
+    # email.content_subtype = "html"  # HTMLメールにする場合
+    email.send()

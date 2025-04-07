@@ -1,12 +1,17 @@
 import random  # ← ランダム数生成用
 from django.db import models
 from django.utils import timezone
-from AinoteProject.utils import resize_image, crop_16_9_image
-from django.conf import settings
 from datetime import timedelta
 from django.db.models import Max
 from django.db.models.functions import TruncDate
+from AinoteProject.utils import resize_image, crop_16_9_image, send_email_smtp
 from user.models import Profile
+
+import logging
+
+# ロガー取得
+logger = logging.getLogger('app')
+error_logger = logging.getLogger('error')
 
 class Place(models.Model):
     """Place"""
@@ -134,6 +139,37 @@ class Place(models.Model):
             .order_by('-pk')
         )
 
+    def send_checkin_email(self, profile_own):
+        logger.debug('start Place send_checkin_email')
+
+        # caretaker01〜05をリストにして扱う
+        caretakers = [
+            profile_own.caretaker01,
+            profile_own.caretaker02,
+            profile_own.caretaker03,
+            profile_own.caretaker04,
+            profile_own.caretaker05,
+        ]
+
+        # Noneや空文字を除去
+        to_email = [email.strip() for email in caretakers if email and email.strip()]
+        if not to_email:
+            logger.debug("送信先メールアドレスがありません。")
+            return False
+        
+        subject = f'Check-In:{self.place}'
+        body = (    f"Ainoteからの連絡メールです。\n"
+                    f"{profile_own.user1.username}さんが、{self.place}に入室されました。\n"
+                    f"退室される際に、また、連絡させて頂きます。\n"
+                    f"Ainote管理者より\n"
+                )
+        try:
+            send_email_smtp(to_email, subject, body)
+            logger.debug("sent email successfully.")
+        except Exception as e:
+            logger.error(f'Failed to send email: {e}')
+
+        return True
 
 class CheckinRecord(models.Model):
     """チェックイン履歴"""
