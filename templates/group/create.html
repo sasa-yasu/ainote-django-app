@@ -54,6 +54,20 @@
                 <!--Display[img]:themes_display-->
                 <div class="mb-3">{% include 'includes/image.html' with target=object.themes field_name='themes' display_name='Themes' app_name='group' %}</div>
                 
+                <!--Input:categories-->
+                <div class="mb-3">
+                    <label for="{{ target.id_for_label }}" class="form-label btn btn-primary-input labeltext"><B>&lt;&lt;[ {{ form.categories.label|safe }} ]&gt;&gt;</B></label><br/>
+                    {% if form.categories.help_text %} <span class="helptext" style="font-size:10pt">{{ form.categories.help_text|safe }}</span> {% endif %}
+                    {% if form.categories.errors %} <div class="errortext" style="font-size:10pt"> {% for error in form.categories.errors %} * {{ error }}<br/> {% endfor %} </div> {% endif %}
+                    <div class="checkbox-row" style="padding:6px 12px;">
+                        {% for checkbox in form.categories %}
+                          <label class="checkbox-item">
+                            {{ checkbox.tag }}
+                            {{ checkbox.choice_label }}
+                          </label>
+                        {% endfor %}
+                    </div>           
+                </div>
                 <!--Input:context-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=form.context %}</div>
                 <!--Input:remarks-->

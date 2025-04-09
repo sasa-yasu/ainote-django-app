@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
+from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes
@@ -25,7 +26,32 @@ def list_view(request, page_cnt=1):
         logger.debug('couldnt catch the page cnt')
         page_cnt = 1
     
-    object_list = Room.objects.order_by('-id').all() 
+    # フリーワード検索用
+    search_str = request.GET.get("search_str", "")
+    logger.debug(f'Searching for: {search_str}')
+    if search_str:
+        object_list = Room.objects.filter(
+            Q(name__icontains=search_str) |
+            Q(capacity__icontains=search_str) |
+            Q(context__icontains=search_str) |
+            Q(remarks__icontains=search_str)
+        )
+    else:
+        object_list = Room.objects.all()
+
+    # 並び替え処理
+    sort_options = {
+        "name_asc": "name",
+        "name_desc": "-name",
+        "created_asc": "created_at",
+        "created_desc": "-created_at",
+        "updated_asc": "updated_at",
+        "updated_desc": "-updated_at",
+    }
+    sort_by = request.GET.get("sort_by", "name_asc")
+    logger.debug(f'Sort by: {sort_by}')
+    sort_field = sort_options.get(sort_by, "-id")  # デフォルトは -id
+    object_list = object_list.order_by(sort_field)
 
     if object_list.exists():
         logger.debug('object_list exists')
@@ -43,7 +69,12 @@ def list_view(request, page_cnt=1):
         display_object_list = []
         link_object_list = []
 
-    context = {'display_object_list': display_object_list, 'link_object_list': link_object_list}
+    context = {
+        'display_object_list': display_object_list,
+        'link_object_list': link_object_list,
+        'search_str': search_str,
+        'sort_by': sort_by,
+    }
 
     logger.info('return render room/list.html')
     return render(request, 'room/list.html', context)

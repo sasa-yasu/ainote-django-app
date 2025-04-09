@@ -165,6 +165,20 @@
                     </div>
                 </div>
 
+                {% if object.categories.all %}
+                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                        <div class="col p-4 d-flex flex-column position-static">
+                        <article class="blog-post" style="margin:0px;">
+                            <h2>Categories</h2>
+                            {% for category in object.categories.all %}
+                                <div>{{ category.name }}</div>  <!-- カテゴリの名前を表示 -->
+                            {% endfor %}
+                        </article>
+                    </div>
+                </div>
+                {% endif %}
+
                 <!-- context -->
                 {% if object.context %}
                 <div class="align-self-start" style="min-width: 100px; width: 900px; ">

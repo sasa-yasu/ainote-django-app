@@ -25,12 +25,8 @@
         <small class="card-text">{{ item.capacity|safe }}</small><br/>
         <small class="card-text">{{ item.context|safe|linebreaksbr }}</small>
         <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group d-flex align-items-center">
-                <!-- Detailボタン -->
-                <a type="button" class="btn btn-sm btn-outline-secondary me-2" href="{% url 'room:detail' item.pk %}">Detail</a>
-                <!-- 日付表示 -->
-                <small class="text-body-secondary">{{ disp_date }}</small>
-            </div>
+            <!-- 日付表示 -->
+            <small class="text-body-secondary">{{ disp_date }}</small>
 
             <!--likes-->
             <a class="btn btn-outline-secondary rounded-pill btn-sm like-btn" data-room-id="{{ item.id }}" style="padding:2px;max-height:30px;min-width:60px;">

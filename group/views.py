@@ -6,10 +6,11 @@ import logging
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
+from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes
-from .models import Group
+from .models import Group, GroupCategory
 from .forms  import GroupForm
 from user.models import Profile
 
@@ -17,7 +18,7 @@ from user.models import Profile
 logger = logging.getLogger('app')
 error_logger = logging.getLogger('error')
 
-def list_view(request, page_cnt=1):
+def list_view(request):
     logger.debug('start Group list_view')
 
     page_size = 12 # disply page size
@@ -30,7 +31,38 @@ def list_view(request, page_cnt=1):
         logger.debug('couldnt catch the page cnt')
         page_cnt = 1
     
-    object_list = Group.objects.order_by('-id').all() 
+    # カテゴリ検索
+    search_categories = request.GET.getlist('category')  # 複数カテゴリで検索
+    if search_categories:
+        groups = Group.objects.filter(categories__name__in=search_categories).distinct()
+    else:
+        groups = Group.objects.all()
+
+    # フリーワード検索用
+    search_str = request.GET.get("search_str", "")
+    logger.debug(f'Searching for: {search_str}')
+    if search_str:
+        object_list = groups.objects.filter(
+            Q(name__icontains=search_str) |
+            Q(context__icontains=search_str) |
+            Q(remarks__icontains=search_str)
+        )
+    else:
+        object_list = groups
+
+    # 並び替え処理
+    sort_options = {
+        "name_asc": "name",
+        "name_desc": "-name",
+        "created_asc": "created_at",
+        "created_desc": "-created_at",
+        "updated_asc": "updated_at",
+        "updated_desc": "-updated_at",
+    }
+    sort_by = request.GET.get("sort_by", "name_asc")
+    logger.debug(f'Sort by: {sort_by}')
+    sort_field = sort_options.get(sort_by, "-id")  # デフォルトは -id
+    object_list = object_list.order_by(sort_field)
 
     if object_list.exists():
         logger.debug('object_list exists')
@@ -48,7 +80,15 @@ def list_view(request, page_cnt=1):
         display_object_list = []
         link_object_list = []
 
-    context = {'display_object_list': display_object_list, 'link_object_list': link_object_list}
+    categories = GroupCategory.objects.all()  # カテゴリのリストを取得
+    context = {
+        'display_object_list': display_object_list,
+        'link_object_list': link_object_list,
+        'categories': categories,
+        'search_categories': search_categories,
+        'search_str': search_str,
+        'sort_by': sort_by,
+    }
 
     logger.info('return render group/list.html')
     return render(request, 'group/list.html', context)
@@ -86,6 +126,7 @@ def create_view(request):
 
             images_data = request.FILES.get("images")
             themes_data = request.FILES.get('themes')
+            categories_data = form.cleaned_data['categories']
             
             context_data = form.cleaned_data['context']
             remarks_data = form.cleaned_data['remarks']
@@ -99,6 +140,7 @@ def create_view(request):
                     name = name_data,
                     images = None, # 画像はまだ保存しない
                     themes = None, # 画像はまだ保存しない
+                    # categories は指定しない
                     context = context_data,
                     remarks = remarks_data,
                     schedule_monthly = schedule_monthly_data,
@@ -120,10 +162,14 @@ def create_view(request):
                 logger.debug('themes_data exists')
                 object.themes = create_themes(object, themes_data)
 
+            if categories_data:
+                logger.debug('categories_data exists')
+                object.categories.set(categories_data)
+
             try:
                 object.save()
             except Exception as e:
-                logger.error(f'couldnt save the images_data / themes_data in Group object: {e}')
+                logger.error(f'couldnt save the categories / images_data / themes_data in Group object: {e}')
 
             logger.info('return redirect group:list')
             return redirect('group:list')
@@ -165,6 +211,7 @@ def update_view(request, pk):
 
             images_data = request.FILES.get("images")
             themes_data = request.FILES.get('themes')
+            categories_data = form.cleaned_data['categories']
 
             if images_data: # File Selected
                 logger.debug('images_data exists')
@@ -173,6 +220,10 @@ def update_view(request, pk):
             if themes_data: # File Selected
                 logger.debug(f'themes_data exists={themes_data}')
                 object.themes = update_themes(object, themes_data)
+
+            if categories_data:
+                logger.debug('categories_data exists')
+                object.categories.set(categories_data)
 
             try:
                 logger.debug('save updated Group object')

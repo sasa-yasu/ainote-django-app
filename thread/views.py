@@ -31,8 +31,6 @@ def list_view(request, page_cnt=1):
         logger.debug('couldnt catch the page cnt')
         page_cnt = 1
     
-    # フリーワード検索用
-
     # カテゴリ検索
     search_categories = request.GET.getlist('category')  # 複数カテゴリで検索
     if search_categories:

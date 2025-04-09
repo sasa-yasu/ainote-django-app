@@ -29,14 +29,12 @@ def list_view(request, page_cnt=1):
     try:
         login_profile = Profile.objects.get(user1=request.user)
         logger.debug(f'login_profile={login_profile}')
+        object_list = Friend.objects.filter( Q(profile1=login_profile) | Q(profile2=login_profile) ).order_by('-created_at')
+
+        logger.debug(f'object_list={object_list}')
     except Profile.DoesNotExist:
         logger.warning(f'Profile not found for user: {request.user}')
         login_profile = None
-
-    if login_profile:
-        object_list = Friend.objects.filter( Q(profile1=login_profile) | Q(profile2=login_profile) ).order_by('-created_at')
-        logger.debug(f'object_list={object_list}')
-    else:
         object_list = Friend.objects.none()
 
     if object_list.exists():

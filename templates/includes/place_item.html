@@ -25,12 +25,8 @@
         <small class="card-text">{{ item.area|safe }}</small><br/>
         <small class="card-text">{{ item.overview|safe|linebreaksbr }}</small>
         <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group d-flex align-items-center">
-                <!-- Detailボタン -->
-                <a type="button" class="btn btn-sm btn-outline-secondary me-2" href="{% url 'place:detail' item.pk %}">Detail</a>
-                <!-- 日付表示 -->
-                <small class="text-body-secondary">{{ disp_date }}</small>
-            </div>
+            <!-- 日付表示 -->
+            <small class="text-body-secondary">{{ disp_date }}</small>
 
             {% if disp_like != 'none' %}
                 <!--likes-->

@@ -45,6 +45,8 @@
                 <!--Display[img]:themes-->
                 <div class="mb-3">{% include 'includes/display_image.html' with target=object.themes field_name='themes' disp_name='Themes' app_name='group' %}</div>
 
+                <!--Display:categories-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.categories disp_name='Categories' %}</div>
                 <!--Display:context-->
                 <div class="mb-3">{% include 'includes/display_field.html' with target=object.context disp_name='Context' %}</div>
                 <!--Display:remarks-->

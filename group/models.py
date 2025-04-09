@@ -5,6 +5,15 @@ from middleware.current_request import get_current_request
 from AinoteProject.utils import crop_square_image, crop_16_9_image
 from user.models import Profile
 
+class GroupCategory(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)  # 作成日時
+    updated_at = models.DateTimeField(auto_now=True)  # 更新日時
+
+    def __str__(self):
+        return self.name
+    
 class Group(models.Model):
     """Group"""
     name = models.CharField('Name', max_length=255, null=True, blank=True)
@@ -21,6 +30,8 @@ class Group(models.Model):
     created_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='group_created_pics')  # 紐づくProfileが削除されたらNULL設定
     updated_at = models.DateTimeField('Updated at', auto_now=True)
     updated_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='group_updated_pics')  # 紐づくProfileが削除されたらNULL設定
+
+    categories = models.ManyToManyField(GroupCategory, related_name='groups', blank=True)
 
     class Meta:
         constraints = [

@@ -20,16 +20,12 @@
         </div>
     </a></div>
 
-    <div class="card-body">
+    <div class="card-body" style="padding:8px;">
         <small class="card-text"><B>{{ item.name|safe }}</B></small><br/>
-        <small class="card-text">{{ item.overview|safe }}</small><br/>
+        {% if item.overview %}<small class="card-text">{{ item.overview|safe }}</small><br/>{% endif %}
         <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-thread d-flex align-items-center">
-                <!-- Detailボタン -->
-                <a type="button" class="btn btn-sm btn-outline-secondary me-2" href="{% url 'thread:detail' item.pk %}">Detail</a>
-                <!-- 日付表示 -->
-                <small class="text-body-secondary">{{ disp_date }}</small>
-            </div>
+            <!-- 日付表示 -->
+            <small class="text-body-secondary">{{ disp_date }}</small>
 
             {% if disp_like != 'none' %}
                 <!--likes-->

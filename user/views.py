@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
+from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes
@@ -23,10 +24,10 @@ def get_mbti_name_choices(request):
 
     return JsonResponse({'mbti_name_choices': list(mbti_name_choices)})
 
-def list_view(request, page_cnt=1):
+def list_view(request):
     logger.debug('start Profile list_view')
 
-    page_size = 15 # disply page size
+    page_size = 48 # disply page size
     onEachSide = 2 # display how many pages around current page
     onEnds = 2 # display how many pages on first/last edge
  
@@ -36,7 +37,29 @@ def list_view(request, page_cnt=1):
         logger.debug('couldnt catch the page cnt')
         page_cnt = 1
     
-    object_list = Profile.objects.order_by('-id').all() 
+    # フリーワード検索用
+    search_str = request.GET.get("search_str", "")
+    logger.debug(f'Searching for: {search_str}')
+    if search_str:
+        object_list = Profile.objects.filter(
+            Q(nick_name__icontains=search_str)
+        )
+    else:
+        object_list = Profile.objects.all()
+
+    # 並び替え処理
+    sort_options = {
+        "nick_name_asc": "nick_name",
+        "nick_name_desc": "-nick_name",
+        "created_asc": "created_at",
+        "created_desc": "-created_at",
+        "updated_asc": "updated_at",
+        "updated_desc": "-updated_at",
+    }
+    sort_by = request.GET.get("sort_by", "nick_name_asc")
+    logger.debug(f'Sort by: {sort_by}')
+    sort_field = sort_options.get(sort_by, "-id")  # デフォルトは -id
+    object_list = object_list.order_by(sort_field)
 
     if object_list.exists():
         logger.debug('object_list exists')
@@ -54,7 +77,12 @@ def list_view(request, page_cnt=1):
         display_object_list = []
         link_object_list = []
 
-    context = {'display_object_list': display_object_list, 'link_object_list': link_object_list}
+    context = {
+        'display_object_list': display_object_list,
+        'link_object_list': link_object_list,
+        'search_str': search_str,
+        'sort_by': sort_by,
+    }
 
     logger.info('return render user/list.html')
     return render(request, 'user/list.html', context)

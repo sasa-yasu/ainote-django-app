@@ -38,8 +38,8 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: auto;       /* 幅自動調整でアスペクト比維持 */
-        height: 90%;      /* front-imageの高さを80%に */
+        width: 40%;       /* 幅自動調整でアスペクト比維持 */
+        aspect-ratio: 1 / 1;  /* 正方形を維持 */
         transform: translate(-50%, -50%);
         z-index: 2;
         overflow: hidden;         /* はみ出し防止 */
@@ -80,11 +80,31 @@
 <!-- END TITLE -->
 
 <main class="container">
-    <a href="{% url 'room:create' %}" class="btn btn-primary">Create Room</a>
+    <form method="GET" class="d-flex flex-column align-items-start">
+        <div class="d-flex flex-row align-items-center " style="gap: 8px;">
+            <!-- ソート条件（ラジオボタン） -->
+            <label>Sort by:</label>
+            <div class="d-flex flex-row" style="gap: 8px;">
+                <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="name_asc"{% if sort_by == "name_asc" %}checked{% endif %}>Name asc</label>
+                <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="name_desc"{% if sort_by == "name_desc" %}checked{% endif %}>Name desc</label>
+                <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="created_asc"{% if sort_by == "created_asc" %}checked{% endif %}>Created asc</label>
+                <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="created_desc"{% if sort_by == "created_desc" %}checked{% endif %}>Created desc</label>
+                <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="updated_asc"{% if sort_by == "updated_asc" %}checked{% endif %}>Updated asc</label>
+                <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="updated_desc"{% if sort_by == "updated_desc" %}checked{% endif %}>Updated desc</label>
+            </div>
+        </div>
+        <div class="d-flex flex-row align-items-center " style="gap: 8px;">
+            <label>Search:</label>
+            <input type="text" name="search_str" value="{{ search_str }}" class="form-control" maxlength="100" aria-describedby="id_search_str" id="id_search_str" style="width: 100px;">
+            <input type="submit" class="btn btn-primary" id="submit-button" value="Filter">
+            <span class="mx-3">|</span>
+            <a href="{% url 'room:create' %}" class="btn btn-primary">Create Room</a>
+        </div>
+    </form>
     <hr>
     <!-- START MAIN LIST BODY -->
     <div class="album py-5 bg-body-tertiary"><div class="container">
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3">
+        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-3">
             {% for item in display_object_list %}
                 {% include 'includes/room_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" %}
             {% endfor %}

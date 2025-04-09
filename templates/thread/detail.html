@@ -267,7 +267,7 @@
                     {% include 'includes/thread_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
                 </div>
         
-                {% if object.categories %}
+                {% if object.categories.all %}
                     <br/>
                     <div>
                         <h4 class="fst-italic">Categories</h4>

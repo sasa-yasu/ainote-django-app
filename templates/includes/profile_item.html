@@ -32,7 +32,7 @@
         {% if item.mbti and item.mbti != '-' %}
             <span class="profile-right-top d-inline-flex align-items-center">
                 {% with mbti_image='img/mbti/'|add:item.mbti|add:'.png' %}
-                <img src="{% static mbti_image %}" width="40" height="40" alt="MBTI"/>
+                <img src="{% static mbti_image %}" width="30px" height="30px" alt="MBTI"/>
                 {% endwith %}
             </span>
         {% endif %}    
@@ -62,15 +62,8 @@
         </span>
     </a></div>
     <!-- テキストボディ -->
-    <div class="card-body">
-        <small class="card-text"><B>{{ item.user1.username }}</B></small><br/>
-        <small class="card-text">{{ item.memberid }}</small><br/>
-        <small class="card-text">{{ item.nick_name }}</small>
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-                <a type="button" class="btn btn-sm btn-outline-secondary me-2" href="{% url 'user:detail' item.pk %}">Detail</a>
-            </div>
-            <small class="text-body-secondary">{{ disp_date }}</small>
-        </div>
+    <div class="card-body" style="padding:8px;">
+        <small class="card-text">{{ item.nick_name }}</small><br/>
+        <small class="text-body-secondary">{{ disp_date }}</small>
     </div>
 </div></div>
