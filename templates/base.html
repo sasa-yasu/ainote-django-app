@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Ainote Project - A web application for managing groups, friends, and reservations.">
+    <meta name="description" content="Trencadis - A web application for managing groups, friends, and reservations.">
     <meta name="author" content="Yasuhiro Sasagawa, and Bootstrap contributors">
     <meta name="generator" content="Django on Visual Studio Code">
 
@@ -14,7 +14,7 @@
     <link href="{% static 'assets/dist/css/bootstrap.css' %}" rel="stylesheet">
     <script src="{% static 'assets/dist/js/bootstrap.bundle.js' %}"></script>
 
-    <title>Ainote Project</title>
+    <title>Trencadis Project</title>
 
     <style type="text/css">
       .btn-primary-input {
@@ -75,7 +75,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" aria-label="Offcanvas navbar large">
       <div class="container-fluid">
-        <a class="navbar-brand fst-italic" href="#">Ainote-Projects
+        <a class="navbar-brand fst-italic" href="#">Trencadis-Projects
           {% if request.user.is_authenticated %}
             <small class="navbar-brand">[{{ request.user.username }}]</small>
           {% else %}
@@ -100,6 +100,12 @@
                 <a class="nav-link" href="{% url 'chat:list' %}">Chat</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="{% url 'thread:list' %}">Thread</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Matching</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{% url 'friend:list' %}">Friends</a>
               </li>
               <li class="nav-item">
@@ -110,23 +116,28 @@
               </li>
 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="admin-menu" role="button" aria-expanded="false">
-                  Administration
+                <a class="nav-link dropdown-toggle" href="#" id="reserv-menu" role="button" aria-expanded="false">
+                  Reserv.
                 </a>
-                <ul class="dropdown-menu" id="admin-submenu">
-                  <li><a class="dropdown-item" href="{% url 'group:list' %}">Group</a></li>
+                <ul class="dropdown-menu" id="reserv-submenu">
                   <li><a class="dropdown-item" href="{% url 'room:list' %}">Room</a></li>
                   <li><a class="dropdown-item" href="{% url 'device:list' %}">Device</a></li>
-
-                  {% if user.is_authenticated and user.is_staff %}
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="{% url 'headline:list' %}">Headline</a></li>
-                  <li><a class="dropdown-item" href="{% url 'notice:list' %}">Notice</a></li>
-                  {% endif %}
                 </ul>
               </li>
+
+              {% if user.is_authenticated and user.is_staff %}
+              <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="admin-menu" role="button" aria-expanded="false">
+                    Admin
+                  </a>
+                <ul class="dropdown-menu" id="admin-submenu">
+                  <li><a class="dropdown-item" href="{% url 'headline:list' %}">Headline</a></li>
+                  <li><a class="dropdown-item" href="{% url 'notice:list' %}">Notice</a></li>
+                </ul>
+              </li>
+              {% endif %}
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="session-menu" role="button" aria-expanded="false">
                   Session
@@ -155,6 +166,7 @@
     <script>
       document.addEventListener('DOMContentLoaded', () => {
           const menus = [
+              { menu: 'reserv-menu', submenu: 'reserv-submenu' },
               { menu: 'admin-menu', submenu: 'admin-submenu' },
               { menu: 'session-menu', submenu: 'session-submenu' }
           ];

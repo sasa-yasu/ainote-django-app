@@ -1,0 +1,148 @@
+{% extends "../base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block header %}
+<link rel="stylesheet" type="text/css" href="{% static 'list/style.css' %}">
+<style type="text/css">
+
+    /***** profile card *****/
+    /* 画像の重ね合わせコンテナ */
+    .profile-image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;  /* 16:9のアスペクト比 */
+        overflow: hidden;
+        border-radius: 12px;  /* カードの角を丸める */
+    }
+
+    /* 背景の themes 画像 */
+    .profile-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
+        z-index: 1;          /* 背景に表示 */
+        opacity: 1;         /* 透明度を設定しない */
+    }
+
+    /* 前面の images 画像 */
+    .profile-front-image {
+        margin-top:0px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30%;
+        aspect-ratio: 1 / 1;  /* 正方形を維持 */
+        transform: translate(-50%, -50%);
+        z-index: 2;          /* 前面に表示 */
+        border-radius: 50%;   /* 完全な円形に */
+        background-color: white;  /* 背景を白色に */
+    }
+
+    .profile-front-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 2px solid #444040; /* 縁取り */
+    }
+
+    /* Profile画像の左上に配置 */
+    .profile-left-top {
+        position: absolute;
+        top: 10px;      /* 上から10pxの位置 */
+        left: 10px;     /* 左から10pxの位置 */
+        z-index: 3;     /* 前面に表示されるように設定 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+    /* Profile画像の右上に配置 */
+    .profile-right-top {
+        position: absolute;
+        top: 10px;      /* 上から10pxの位置 */
+        right: 10px;     /* 右から10pxの位置 */
+        z-index: 3;     /* 前面に表示されるように設定 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+    /* Profile画像の左下に配置 */
+    .profile-left-bottom {
+        position: absolute;
+        bottom: 10px;    /* 下から10pxの位置 */
+        left: 10px;     /* 左から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+    /* Profile画像の右下に配置 */
+    .profile-right-bottom {
+        position: absolute;
+        bottom: 10px;    /* 下から10pxの位置 */
+        right: 10px;     /* 右から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+</style>
+{% endblock header %}
+
+{% block content %}
+<!-- START TITLE -->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="60" height="60" src="{% static 'img/thread.png' %}" alt="Thread Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">New Thread</h1>
+    &nbsp;
+    <img class="bi" width="50" height="50" src="{% static 'img/create.png' %}" alt="Create Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Join</h1>
+    </div>
+    <p class="col-lg-8 mx-auto lead fst-italic">Join new Profile to Thread</p>
+</div>
+<!-- END TITLE -->
+
+<!--MAIN START-->
+<main class="container">
+    <!-- START MAIN LIST BODY -->
+    <div class="album py-5 bg-body-tertiary"><div class="container">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3 justify-content-center">
+                <!--login check-->
+                {% if user.is_authenticated %}
+
+                    <!--profile_own-->
+                    <input type="hidden" class="card-text" id="id_profile_own_id" name="profile_own_id" value="{{ profile_own.id }}">
+                    {% include 'includes/profile_item.html' with item=profile_own disp_date=profile_own.updated_at|date:"'y/m/d H:i:s" %}
+
+                    <!--Handshake-->
+                    <div class="col-md-4 d-flex justify-content-center align-items-center" style="min-height: 300px;">
+                        <img src="{% static 'img/handshake.png' %}" alt="Handshake" class="img-fluid" style="max-width: 100%; height: auto;">
+                    </div>
+
+                    <!--thread_with-->
+                    <input type="hidden" class="card-text" id="id_thread_with_id" name="thread_with_id" value="{{ thread_with.id }}">
+                    {% include 'includes/thread_item.html' with item=thread_with disp_date=thread_with.updated_at|date:"'y/m/d H:i:s" disp_like='none' %}
+
+                    <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+                        <!--submit button-->
+                        {% include 'includes/submit_button.html' with action="Accept" %}
+                    </div>
+                {% else %}
+                    <label for="require_login" class="form-label">ログインしてください</label>
+                    &nbsp;
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+                {% endif %}
+            </div>
+        </form>
+    </div></div>
+    <!-- END MAIN LIST BODY -->
+</main>
+<!--MAIN END-->
+{% endblock content %}

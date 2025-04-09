@@ -1,0 +1,79 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block header %}
+<style type="text/css">
+    .smoke {background-color: whitesmoke;}
+    .preview-image {
+        max-width: 300px;
+        max-height: 300px;
+        display: block;
+        margin-top: 10px;
+    }
+</style>
+{% endblock header %}
+
+{% block content %}
+<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet">
+    <div class="modal-dialog" role="document"><div class="modal-content rounded-4 shadow">
+        <!--HEADER START-->  
+        <div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+            <img class="bi" width="50" height="50" src="{% static 'img/thread.png' %}" alt="Thread Icon">
+            <h3 class="text-body-emphasis fst-italic mb-0">Thread</h3>
+            &nbsp;
+            <img class="bi" width="40" height="40" src="{% static 'img/delete.png' %}" alt="Delete Icon">
+            <h3 class="text-body-emphasis fst-italic mb-0">Delete</h3>
+        </div></div>
+        <!--HEADER END-->
+
+        <div class="modal-body py-0">
+            <p>Are you sure that you really want to delete it??</p>
+        </div>
+
+        <!--MAIN START-->
+        <main><div class="container">
+            <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
+                <!--login check-->
+                {% if user.is_authenticated %}
+                
+                    <form action='' method="POST">
+                        {% csrf_token %}
+                        
+                        <!--Display:id(auto:key)-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.id disp_name='ID' %}</div>
+                        <!--Display:name-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.name disp_name='Name' %}</div>
+
+                        <!--Display[img]:images-->
+                        <div class="mb-3">{% include 'includes/display_image.html' with target=object.images field_name='images' disp_name='Images' app_name='thread' %}</div>
+                        <!--Display[img]:themes-->
+                        <div class="mb-3">{% include 'includes/display_image.html' with target=object.themes field_name='themes' disp_name='Themes' app_name='thread' %}</div>
+
+                        <!--Display:categories-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.categories disp_name='Categories' %}</div>
+                        <!--Display:overview-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.overview disp_name='Overview' %}</div>
+                        <!--Display:context-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.context disp_name='Context' %}</div>
+                        <!--Display:remarks-->
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.remarks disp_name='Remarks' %}</div>
+
+                        <!--Display:created_at/updated_at-->
+                        {% include 'includes/bottom_dates.html' %}
+                        <br/>
+                        <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+                            <!--submit button-->
+                            {% include 'includes/submit_button_danger.html' with action="Delete" %}
+                        </div>
+                    </form>
+                {% else %}
+                    <label for="require_login" class="form-label">ログインしてください</label>
+                    &nbsp;
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+                {% endif %}
+            </div></div>
+        </div></main>
+        <!--MAIN END-->
+    </div></div>
+</div>
+{% endblock content %}

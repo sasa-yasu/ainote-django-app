@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from AinoteProject.utils import create_images, update_images, delete_images
-from .models import Chat
+from .models import GlobalChat
 from .forms  import ChatForm
 from user.models import Profile
 
@@ -26,7 +26,7 @@ def list_view(request, page_cnt=1):
         logger.debug('couldnt catch the page cnt')
         page_cnt = 1
     
-    object_list = Chat.objects.order_by('-order_by_at').all()  # order_by_at の降順で取得
+    object_list = GlobalChat.objects.order_by('-order_by_at').all()  # order_by_at の降順で取得
     
     if object_list.exists():
         logger.debug('object_list exists')
@@ -54,7 +54,7 @@ def detail_view(request, pk):
     logger.info('start Chat detail_view')
 
     logger.debug('get Chat object(pk)')
-    object = get_object_or_404(Chat, pk=pk)
+    object = get_object_or_404(GlobalChat, pk=pk)
 
     context = {'object': object}
 
@@ -88,7 +88,7 @@ def create_view(request):
                 profile_data = get_object_or_404(Profile, user1=request.user)
 
             try:
-                object = Chat.objects.create(
+                object = GlobalChat.objects.create(
                     title = title_data,
                     context = context_data,
                     images = None, # 画像はまだ保存しない
@@ -131,7 +131,7 @@ def update_view(request, pk):
     logger.info('start Chat update_view')
 
     logger.debug('get Chat object(pk)')
-    object = get_object_or_404(Chat, pk=pk)
+    object = get_object_or_404(GlobalChat, pk=pk)
     
     if request.method == "POST":
         logger.info('POST method')
@@ -179,7 +179,7 @@ def delete_view(request, pk):
     logger.info('start Chat delete_view')
 
     logger.debug('get Chat object(pk)')
-    object = get_object_or_404(Chat, pk=pk)
+    object = get_object_or_404(GlobalChat, pk=pk)
     context = {'object': object}
 
     if request.method == "POST":
@@ -211,7 +211,7 @@ def push_likes(request, pk):
     if request.method == 'POST':
         logger.info('POST method')
 
-        chat = get_object_or_404(Chat, id=pk)
+        chat = get_object_or_404(GlobalChat, id=pk)
         logger.debug(f'get Chat object(pk)={chat}')
 
         # いいね処理を実行
@@ -232,7 +232,7 @@ def age_order_by_at(request, pk):
     if request.method == 'POST':
         logger.info('POST method')
 
-        chat = get_object_or_404(Chat, id=pk)
+        chat = get_object_or_404(GlobalChat, id=pk)
         logger.debug(f'get Chat object(pk)={chat}')
 
         # アゲ処理を実行
@@ -244,3 +244,4 @@ def age_order_by_at(request, pk):
 
     logger.info(f'return Invalid request:status=400')
     return JsonResponse({'error': 'Invalid request'}, status=400)
+

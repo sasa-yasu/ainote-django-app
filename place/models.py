@@ -158,10 +158,10 @@ class Place(models.Model):
             return False
         
         subject = f'Check-In:{self.place}'
-        body = (    f"Ainoteからの連絡メールです。\n"
+        body = (    f"Trencadisからの連絡メールです。\n"
                     f"{profile_own.user1.username}さんが、{self.place}に入室されました。\n"
                     f"退室される際に、また、連絡させて頂きます。\n"
-                    f"Ainote管理者より\n"
+                    f"Trencadis管理者より\n"
                 )
         try:
             send_email_smtp(to_email, subject, body)
@@ -190,10 +190,10 @@ class Place(models.Model):
             return False
         
         subject = f'Check-Out:{self.place}'
-        body = (    f"Ainoteからの連絡メールです。\n"
+        body = (    f"Trencadisからの連絡メールです。\n"
                     f"{profile_own.user1.username}さんが、{self.place}を退室されました。\n"
                     f"ご利用ありがとうございました。またのご利用、お待ちしております。\n"
-                    f"Ainote管理者より\n"
+                    f"Trencadis管理者より\n"
                 )
         try:
             send_email_smtp(to_email, subject, body)

@@ -33,6 +33,7 @@ urlpatterns = [
     path('user/', include('user.urls')),
     path('friend/', include('friend.urls')),
     path('chat/', include('chat.urls')),
+    path('thread/', include('thread.urls')),
     path('mycalendar/', include('mycalendar.urls')),
     path('room/', include('room.urls')),
     path('device/', include('device.urls')),

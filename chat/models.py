@@ -1,8 +1,6 @@
 import random  # ← ランダム数生成用
 from django.db import models
-from PIL import Image
-from io import BytesIO
-from django.core.files.base import ContentFile
+from AinoteProject.utils import crop_square_image
 from django.utils import timezone
 from user.models import Profile
 
@@ -21,12 +19,11 @@ class Chat(models.Model):
     updated_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='chat_updated_pics')  # 紐づくProfileが削除されたらNULL設定
 
     """ Profile紐づけ """
-    profile = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='chats' )  # 紐づくProfileが削除されてもChatは残る
+    profile = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='chats')  # 紐づくProfileが削除されてもChatは残る
 
     class Meta:
-        constraints = [
-            models.UniqueConstraint(fields=['id'], name='chat_pk'),
-        ]
+        abstract = True
+        pass
 
     def __str__(self):
         return f"{self.title} <by { self.author if self.author else 'Unknown' }>"
@@ -42,17 +39,7 @@ class Chat(models.Model):
 
         # 画像処理
         if self.images and self.images != self.__class__.objects.get(pk=self.pk).images: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
-            img = Image.open(self.images)
-            format = img.format if img.format else "JPEG"  # フォーマットがない場合はJPEGで保存
-
-            max_size = (300, 300)
-            img.thumbnail(max_size)  # keep height x width shape
-
-            img_io = BytesIO() # prepare buffer area
-            print(f'images img.format={img.format}')
-            img.save(img_io, format=format) # save to buffer area
-
-            self.images = ContentFile(img_io.getvalue(), name=self.images.name) # Update the images size
+            self.images = crop_square_image(self.images, 300) # Update the images size
 
         super().save(*args, **kwargs)
 
@@ -90,3 +77,7 @@ class Chat(models.Model):
             profile.increment_given_likes()
 
         return self.order_by_at
+
+# Create your models here.
+class GlobalChat(Chat):
+    pass

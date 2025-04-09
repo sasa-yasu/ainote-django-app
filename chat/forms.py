@@ -1,6 +1,5 @@
 from django import forms
-from user.models import Profile
-from .models import Chat
+from .models import GlobalChat
 
 #CATEGORIES = (
 #    ('1', 'お仕事の依頼'),
@@ -28,7 +27,7 @@ class ChatForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Chat
+        model = GlobalChat
         fields = ("title", "context", "images", "author")
 
     def __init__(self, *args, **kwargs):

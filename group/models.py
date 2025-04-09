@@ -47,7 +47,7 @@ class Group(models.Model):
 
     def get_profiles(self):
         """ グループに所属するすべてのプロフィールを取得 """
-        return self.profiles.all()
+        return self.group_profiles.all()
 
     @property
     def is_user_member(self):
@@ -63,11 +63,11 @@ class Group(models.Model):
         except Profile.DoesNotExist:
             return False
 
-        return self.profiles.filter(id=user_profile.id).exists()
+        return self.group_profiles.filter(id=user_profile.id).exists()
 
     def get_all_groups_profiles(self):
         """ Profileに紐づいているすべてのグループ情報をProfile情報付きで取得 """
-        return self.objects.prefetch_related('profiles').all()
+        return self.objects.prefetch_related('grou_profiles').all()
 
     def push_likes(self, request):
         if request.user:

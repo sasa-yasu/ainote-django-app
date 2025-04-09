@@ -1,0 +1,375 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block header %}
+<style type="text/css">
+
+    /***** ページ全体 *****/
+    /* 画像とリストを横並びにするコンテナ */
+    .header-container {
+        display: flex;                /* 横並びに表示 */
+        flex-wrap: wrap;              /* 画面幅が狭くなったら折り返す */
+        align-items: center;          /* 垂直方向で中央揃え */
+        gap: 10px;                    /* 画像とリストの間隔 */
+        justify-content: space-between;
+    }
+
+    /***** chat list *****/
+    .xy_center {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .img-container {
+        width: 100%; /* 親要素に対して100%の幅を持つ */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* 画像のはみ出しを防ぐ */
+    }
+    .preview-image {
+        max-width: 100%; /* カード内で画像がはみ出さないようにする */
+        max-height: 128px;
+        object-fit: contain; /* 画像のアスペクト比を維持しながら、親要素にフィット */
+        border-radius: 5px; /* 角丸のデザイン */
+        display: block;
+    }
+
+    /***** profile card *****/
+    /* 画像の重ね合わせコンテナ */
+    .profile-image-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;         /* 高さを自動調整 */
+        aspect-ratio: 16 / 9; /* 16:9を維持しつつ高さを可変に */
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* 境界線 */
+    }
+
+    /* 背景の themes 画像 */
+    .profile-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
+        z-index: 1;          /* 背景に表示 */
+        opacity: 1;         /* 透明度を設定しない */
+        transition: transform 0.3s ease;  /* ホバー時のアニメーション */
+    }
+
+    /* 前面の images 画像 */
+    .profile-front-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;       /* 幅自動調整でアスペクト比維持 */
+        height: 90%;      /* front-imageの高さを80%に */
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        overflow: hidden;         /* はみ出し防止 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 前面の images 画像 */
+    .profile-front-image img {
+        height: 90%;         /* 親要素に対して80%の高さで表示 */
+        width: auto;          /* アスペクト比維持 */
+        object-fit: contain;  /* はみ出し防止 */
+        margin: 2px;
+    }
+
+    /* Profile画像の左上に配置 */
+    .profile-left-top {
+        position: absolute;
+        top: 5px;      /* 上から10pxの位置 */
+        left: 5px;     /* 左から10pxの位置 */
+        z-index: 3;     /* 前面に表示されるように設定 */
+    }
+
+    /* Profile画像の右上に配置 */
+    .profile-right-top {
+        position: absolute;
+        top: 5px;      /* 上から5pxの位置 */
+        right: 5px;     /* 右から5pxの位置 */
+        z-index: 3;     /* 前面に表示されるように設定 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+    /* Profile画像の左下に配置 */
+    .profile-left-bottom {
+        position: absolute;
+        bottom: 5px;    /* 下から10pxの位置 */
+        left: 5px;     /* 左から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+    }
+
+    /* Profile画像の右下に配置 */
+    .profile-right-bottom {
+        position: absolute;
+        bottom: 5px;    /* 下から10pxの位置 */
+        right: 5px;     /* 右から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+    
+    /* ホバー時のエフェクト */
+    .profile-image-wrapper:hover .profile-bg-image {
+        transform: scale(1.10);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
+</style>
+<link href="{% static 'user/blog.css' %}" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock header %}
+
+{% block content %}
+<!--HEADER START-->  
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="50" height="50" src="{% static 'img/thread.png' %}" alt="Thread Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Thread</h3>
+    &nbsp;
+    <img class="bi" width="40" height="40" src="{% static 'img/list.png' %}" alt="Detail Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Detail</h3>
+</div></div>
+<!--HEADER END-->
+
+<!--MAIN START-->
+<main><div class="container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <br/>
+        <!--submit button-->
+        {% include 'includes/detail_staff_controled_buttons.html' with app_name='thread' %}
+        {% if object.is_user_member %}
+            <a>&nbsp;-&nbsp;</a>
+            <a href="{% url 'thread:leave' object.id %}" class="btn btn-danger">Leave from Thread</a>
+        {% endif %}
+        <br/><br/>
+
+        <div class="row g-5">
+            <div class="col-md-8"><div class="header-container align-items-start">
+
+                <!--hidden-->
+                <input type="hidden" id="id_thread_id" name="thread_id" value="{{ object.id }}">
+
+                <div style="min-width: 100px; width: 100%;">
+                    <a href="{% url 'thread:chat_create' object.id %}" class="btn btn-primary">Create Chat</a>
+                    <hr>
+                    <!-- START MAIN LIST BODY -->
+                    <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-2" data-masonry='{"percentPosition": true }'>
+                        {% for item in display_object_list %}
+                        <div class="col mb-0 g-2">
+                            <div class="card" style="margin-bottom:0px;">
+                                <div class="card-body" style="padding:8px;">
+                                    <p class="card-title" style="margin-bottom:0px;"><B>{{ item.title }}</B></p>
+                                    {% if item.context %}<small class="card-text">{{ item.context|safe|linebreaksbr }}</small><br>{% endif %}
+                                    <small class="text-body-secondary">{{ item.created_at|date:"'y/m/d H:i" }}</small><br>
+                                    {% if item.author and item.author != "None" %}
+                                        <small class="text-body-secondary">by {{ item.author }}</small>
+                                    {% else %}
+                                        <small class="text-body-secondary">by {{ item.profile.nick_name }}</small>
+                                    {% endif %}
+                                    
+                                    <div class="d-flex justify-content-between align-items-center mt-1">
+
+                                        <!--login check-->
+                                        {% if user.is_authenticated %}
+                                            <!--staff or its author-->
+                                            {% if user.is_staff or user.id == item.profile.user1.id %}
+                                                <a class="btn btn-outline-primary rounded-pill btn-sm" style="max-height:31px; padding:4px;" href="{% url 'thread:chat_detail' object.id item.id %}">Detail</a>
+                                            {% else %}
+                                                <div></div> <!-- 左側に空の要素を維持 -->
+                                            {% endif %}
+                                        {% else %}
+                                            <div></div> <!-- 左側に空の要素を維持 -->
+                                        {% endif %}
+
+                                        <!--age-->
+                                        <a class="btn btn-outline-secondary rounded-pill btn-sm age-btn" data-threadchat-id="{{ item.id }}" style="max-height:31px;">
+                                            <img witdh=20px height=20px src="{% static 'img/up.png' %}">
+                                        </a>
+
+                                        <!--likes-->
+                                        <a class="btn btn-outline-secondary rounded-pill btn-sm like-btn" data-threadchat-id="{{ item.id }}" style="max-height:31px; padding:4px;">
+                                            <img witdh=20px height=20px src="{% static 'img/good.png' %}"><span class="like-count" id="like-count-{{ item.id }}">({{ item.likes }})</span>
+                                        </a>
+
+                                    </div>
+
+                                    {% if item.images and item.images.url %}
+                                        <div class="mt-0 xy_center mt-1">
+                                            <div class="img-container"><img src="{{ item.images.url }}" class="preview-image" alt="Images"/></div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- END MAIN LIST BODY -->
+                <br/>
+                <!-- START BOTTOM PAGINATION -->
+                {% include 'includes/pagination.html' %}
+                <!-- END BOTTOM PAGINATION -->
+
+                <hr>
+                <!--Profiles-->
+                <div class="align-self-start" style="min-width: 100px; width: 100%;">
+                    <h5><B>&lt;&lt;[ Joined Profiles List ]&gt;&gt;</B></h5>
+                    <div class="container bg-body-tertiary"><div class="row row-cols-5 row-cols-sm-5 row-cols-md-4 row-cols-lg-6 row-cols-xl-6 row-cols-xxl-6 g-3">
+                      {% for item in joined_profiles %}
+                          <div class="col"><div class="card shadow-sm" style="margin-bottom:0px;">
+                              <!-- 画像ヘッダ -->
+                              <div class="profile-image-wrapper"><a href="{% url 'user:detail' item.pk %}">
+                                  <!-- 背景：themes -->
+                                  {% if item.themes %}
+                                  <img src="{{ item.themes.url }}" class="profile-bg-image" alt="User Themes"/>
+                                  {% else %}
+                                  <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
+                                  {% endif %}
+                          
+                                  <!-- 前面：images(circle切り取り) -->
+                                  <div class="profile-front-image">
+                                      {% if item.images %}
+                                      <img src="{{ item.images.url }}" class="rounded-circle" alt="User Images"/>
+                                      {% else %}
+                                      <img src="{% static 'img/user.png' %}" class="rounded-circle" alt="Default Images"/>
+                                      {% endif %}
+                                  </div>
+                              </a></div>
+                              <!-- テキストボディ -->
+                              <div class="card-body" style="padding:4px;">
+                                  <small class="card-text">{{ item.nick_name }}</small>
+                              </div>
+                          </div></div>
+                      {% empty %}
+                          <div>No joined profiles yet.</div>
+                      {% endfor %}
+                    </div></div>
+                </div>
+
+            </div></div>
+
+            <div class="col-md-4"><div class="position-sticky" style="top:5rem; min-width:340px;">
+                <div class="p-4 mb-3 bg-body-tertiary rounded">
+                    <div> Profile Card (public) </div>
+                    {% include 'includes/thread_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
+                </div>
+        
+                {% if object.categories %}
+                    <br/>
+                    <div>
+                        <h4 class="fst-italic">Categories</h4>
+                        {% for category in object.categories.all %}
+                            <div>{{ category.name }}</div>  <!-- カテゴリの名前を表示 -->
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% if object.overview %}
+                    <br/>
+                    <div>
+                        <h4 class="fst-italic">Overview</h4>
+                        <div>{{ object.overview }}</div>
+                    </div>
+                {% endif %}
+                {% if object.context %}
+                    <br/>
+                    <div>
+                        <h4 class="fst-italic">Context</h4>
+                        <div>{{ object.context }}</div>
+                    </div>
+                {% endif %}
+                {% if object.remarks %}
+                    <br/>
+                    <div>
+                        <h4 class="fst-italic">Remarks</h4>
+                        <div>{{ object.remarks }}</div>
+                    </div>
+                {% endif %}
+            </div></div>
+        </div>
+        <br/>
+        <!--submit button-->
+        {% include 'includes/detail_staff_controled_buttons.html' with app_name='thread' %}
+        {% if object.is_user_member %}
+            <a>&nbsp;-&nbsp;</a>
+            <a href="{% url 'thread:leave' object.id %}" class="btn btn-danger">Leave from Thread</a>
+        {% endif %}
+        <br/>
+
+        {% if user.is_staff or object.is_user_member %}
+        <hr class="featurette-divider">
+        <!--Display:QR for join Thread-->
+        <div class="align-self-start" style="min-width:100px; width:100%;">
+            <h5><B>&lt;&lt;[ Join this Thread QR Code ]&gt;&gt;</B></h5>
+            <div class="row g-0 flex-md-row mb-0 position-relative">
+                <div style="width:auto;"><img src="{% url 'thread:disp_qr' pk=object.id %}" alt="Thread QR Code" width="300" height="300"></div>
+            </div>
+        </div>
+        {% endif %}
+
+    </form>
+</div></main>
+<!--MAIN END-->
+{% endblock %}
+
+{% block footer %}
+<script>
+
+// likes post
+$(document).ready(function() {
+            $('.like-btn').click(function() {
+                const objectId = $(this).data('threadchat-id');
+
+                $.ajax({
+                    url: `/thread/chat_push-likes/${objectId}/`,
+                    type: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        // いいね数をリアルタイムで更新
+                        $(`#like-count-${objectId}`).text(response.likes);
+                    },
+                    error: function(xhr) {
+                        alert('エラーが発生しました。');
+                    }
+                });
+            });
+        });
+
+        // age post
+        $(document).ready(function() {
+            $('.age-btn').click(function() {
+                const objectId = $(this).data('threadchat-id');
+
+                $.ajax({
+                    url: `/thread/chat_age-order-by-at/${objectId}/`,
+                    type: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        // 成功後に画面をリロード
+                        location.reload();
+                    },
+                    error: function(xhr) {
+                        alert('エラーが発生しました。');
+                    }
+                });
+            });
+        });
+
+</script>
+{% endblock footer %}

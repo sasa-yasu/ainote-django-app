@@ -104,7 +104,10 @@ class Profile(models.Model):
     updated_pic = models.ForeignKey('Profile', on_delete=models.SET_NULL, null=True, blank=True, related_name='user_updated_pics')  # 紐づくProfileが削除されたらNULL設定
 
     """ グループモデル """
-    groups = models.ManyToManyField('group.Group', blank=True, related_name='profiles')  # 紐づくProfileが削除されてもChatは残る
+    groups = models.ManyToManyField('group.Group', blank=True, related_name='group_profiles')  # 紐づくProfileが削除されてもChatは残る
+
+    """ スレッドモデル """
+    threads = models.ManyToManyField('thread.Thread', blank=True, related_name='thread_profiles')  # 紐づくProfileが削除されてもChatは残る
 
     class Meta:
         constraints = [

@@ -79,7 +79,7 @@
   <div class="container marketing">
 
     <!-- Menu -->
-    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-3">
+    <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-3">
 
         <!-- Chat -->
          <div class="col"><a href="{% url 'chat:list' %}" class="text-decoration-none">
@@ -90,12 +90,54 @@
             </div></div>
         </a></div>
 
+        <!-- Thread -->
+        <div class="col"><a href="{% url 'thread:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/thread.png' %}" alt="Thread Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Thread</B></h4>
+                <small class="text-muted">The List of Threads which we have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- Matching -->
+        <div class="col"><a href="#" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/matching.png' %}" alt="Thread Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Matching</B></h4>
+                <small class="text-muted">The List of Profiles who want to match.</small>
+            </div></div>
+        </a></div>
+
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-3">
+
         <!-- Friend -->
         <div class="col"><a href="{% url 'friend:list' %}" class="text-decoration-none">
             <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
                 <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/friend.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
                 <h4 class="display-7 lh-1 fw-bold"><B>Friend</B></h4>
                 <small class="text-muted">The List of Friends which you have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- Event -->
+        <div class="col"><a href="{% url 'group:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/group.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Event</B></h4>
+                <small class="text-muted">The List of Event which we have.</small>
+            </div></div>
+        </a></div>
+
+        <!-- Place -->
+        <div class="col"><a href="{% url 'place:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/place.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Place</B></h4>
+                <small class="text-muted">The Place which we are.</small>
             </div></div>
         </a></div>
 
@@ -108,27 +150,11 @@
             </div></div>
         </a></div>
 
-        <!-- Place -->
-        <div class="col"><a href="{% url 'place:list' %}" class="text-decoration-none">
-            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
-                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/place.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
-                <h4 class="display-7 lh-1 fw-bold"><B>Place</B></h4>
-                <small class="text-muted">The Place which we are.</small>
-            </div></div>
-        </a></div>
     </div>
 
     <hr class="featurette-divider">
 
-    <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-3">
-        <!-- Group -->
-        <div class="col"><a href="{% url 'group:list' %}" class="text-decoration-none">
-            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
-                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/group.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
-                <h4 class="display-7 lh-1 fw-bold"><B>Group</B></h4>
-                <small class="text-muted">The List of Groups which we have.</small>
-            </div></div>
-        </a></div>
+    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 g-3">
 
         <!-- Room -->
         <div class="col"><a href="{% url 'room:list' %}" class="text-decoration-none">

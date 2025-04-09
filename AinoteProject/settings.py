@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'top.apps.TopConfig',
     'mycalendar.apps.MycalendarConfig',
     'chat.apps.ChatConfig',
+    'thread.apps.ThreadConfig',
     'friend.apps.FriendConfig',
     'group.apps.GroupConfig',
     'user.apps.UserConfig',

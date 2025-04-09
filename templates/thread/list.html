@@ -1,0 +1,152 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="'stylesheet" type="text/css" href="{% static 'list/style.css' %}">
+<style type="text/css">
+
+    /* 画像の重ね合わせコンテナ */
+    .profile-image-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;         /* 高さを自動調整 */
+        aspect-ratio: 16 / 9; /* 16:9を維持しつつ高さを可変に */
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* 境界線 */
+    }
+
+    /* 背景の themes 画像 */
+    .profile-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
+        z-index: 1;          /* 背景に表示 */
+        opacity: 1;         /* 透明度を設定しない */
+        transition: transform 0.3s ease;  /* ホバー時のアニメーション */
+    }
+
+    /* 前面の images 画像 */
+    .profile-front-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;       /* 幅自動調整でアスペクト比維持 */
+        height: 90%;      /* front-imageの高さを80%に */
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        overflow: hidden;         /* はみ出し防止 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 前面の images 画像 */
+    .profile-front-image img {
+        height: 90%;         /* 親要素に対して80%の高さで表示 */
+        width: auto;          /* アスペクト比維持 */
+        object-fit: contain;  /* はみ出し防止 */
+        margin: 2px;
+    }
+
+    /* ホバー時のエフェクト */
+    .profile-image-wrapper:hover .profile-bg-image {
+        transform: scale(1.10);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock header %}
+
+{% block content %}
+<!-- START TITLE -->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="60" height="60" src="{% static 'img/thread.png' %}" alt="Thread Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Thread</h1>
+    &nbsp;
+    <img class="bi" width="50" height="50" src="{% static 'img/list.png' %}" alt="List Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">List</h1>
+    </div>
+    <p class="col-lg-8 mx-auto lead fst-italic">The List of Threads which we have.</p>
+</div>
+<!-- END TITLE -->
+
+<main class="container">
+    <div class="d-flex align-items-center mb-3">
+        <form method="GET" class="d-flex flex-column align-items-start">
+            <div class="category-group">
+                <label>Category:</label>
+                {% for category in categories %}
+                    <label>
+                        <input type="checkbox" name="category" value="{{ category.name }}" {% if category.name in search_categories %}checked{% endif %}> {{ category.name }}
+                    </label>
+                {% endfor %}
+            </div>
+            <div class="d-flex flex-row align-items-center " style="gap: 8px;">
+                <!-- ソート条件（ラジオボタン） -->
+                <label>Sort by:</label>
+                <div class="d-flex flex-row" style="gap: 8px;">
+                    <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="name_asc"{% if sort_by == "name_asc" %}checked{% endif %}>Name asc</label>
+                    <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="name_desc"{% if sort_by == "name_desc" %}checked{% endif %}>Name desc</label>
+                    <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="created_asc"{% if sort_by == "created_asc" %}checked{% endif %}>Created asc</label>
+                    <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="created_desc"{% if sort_by == "created_desc" %}checked{% endif %}>Created desc</label>
+                    <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="updated_asc"{% if sort_by == "updated_asc" %}checked{% endif %}>Updated asc</label>
+                    <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="updated_desc"{% if sort_by == "updated_desc" %}checked{% endif %}>Updated desc</label>
+                </div>
+            </div>
+            <div class="d-flex flex-row align-items-center " style="gap: 8px;">
+                <label>Search:</label>
+                <input type="text" name="search_str" value="{{ search_str }}" class="form-control" maxlength="100" aria-describedby="id_search_str" id="id_search_str" style="width: 100px;">
+                <input type="submit" class="btn btn-primary" id="submit-button" value="Filter">
+                <span class="mx-3">|</span>
+                <a href="{% url 'thread:create' %}" class="btn btn-primary">Create Thread</a>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <!-- START MAIN LIST BODY -->
+    <div class="album py-5 bg-body-tertiary"><div class="container">
+        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-4 g-3">
+            {% for item in display_object_list %}
+                {% include 'includes/thread_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" %}
+            {% endfor %}
+        </div>
+    </div></div>
+    <!-- END MAIN LIST BODY -->
+    &nbsp;
+    <!-- START BOTTOM PAGINATION -->
+    {% include 'includes/pagination.html' %}
+    <!-- END BOTTOM PAGINATION -->
+
+</main>
+{% endblock content %}
+
+{% block footer %}
+<script>
+
+// likes post
+$(document).ready(function() {
+            $('.like-btn').click(function() {
+                const objectId = $(this).data('thread-id');
+
+                $.ajax({
+                    url: `/thread/push-likes/${objectId}/`,
+                    type: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        // いいね数をリアルタイムで更新
+                        $(`#like-count-${objectId}`).text(response.likes);
+                    },
+                    error: function(xhr) {
+                        alert('エラーが発生しました。');
+                    }
+                });
+            });
+        });
+</script>
+{% endblock footer %}
