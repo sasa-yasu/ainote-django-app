@@ -22,7 +22,6 @@ class Chat(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='chats')  # 紐づくProfileが削除されてもChatは残る
 
     class Meta:
-        abstract = True
         pass
 
     def __str__(self):
@@ -77,7 +76,3 @@ class Chat(models.Model):
             profile.increment_given_likes()
 
         return self.order_by_at
-
-# Create your models here.
-class GlobalChat(Chat):
-    pass

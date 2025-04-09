@@ -88,6 +88,7 @@ def list_view(request, page_cnt=1):
         'display_object_list': display_object_list,
         'link_object_list': link_object_list,
         'categories': categories,
+        'search_categories': search_categories,
         'search_str': search_str,
         'sort_by': sort_by,
     }

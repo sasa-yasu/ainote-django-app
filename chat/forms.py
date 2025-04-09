@@ -1,11 +1,5 @@
 from django import forms
-from .models import GlobalChat
-
-#CATEGORIES = (
-#    ('1', 'お仕事の依頼'),
-#    ('2', 'サイト内容に関する問い合わせ'),
-#)
-
+from .models import Chat
 
 class ChatForm(forms.ModelForm):
     """問い合わせ用フォーム"""
@@ -27,7 +21,7 @@ class ChatForm(forms.ModelForm):
     )
 
     class Meta:
-        model = GlobalChat
+        model = Chat
         fields = ("title", "context", "images", "author")
 
     def __init__(self, *args, **kwargs):
