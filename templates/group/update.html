@@ -11,6 +11,25 @@
         display: block;
         margin-top: 10px;
     }
+
+    .checkbox-row {
+        display: flex;
+        flex-wrap: wrap; /* 項目が多い場合に折り返す */
+        gap: 12px;        /* チェックボックス間の余白 */
+        align-items: center;
+    }
+
+    .checkbox-item {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+        margin-right: 6px;
+        transform: scale(1.2); /* チェックボックスを少し大きくする（任意） */
+    }
+
 </style>
 {% endblock header %}
 
