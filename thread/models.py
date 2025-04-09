@@ -141,10 +141,6 @@ class ThreadChat(models.Model):
         if self.images and self.images != self.__class__.objects.get(pk=self.pk).images: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
             self.images = crop_square_image(self.images, 300) # Update the images size
 
-        # 画像処理
-        if self.themes and self.themes != self.__class__.objects.get(pk=self.pk).themes: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
-            self.themes = crop_16_9_image(self.themes, 1500) # Update the themes size
-
         super().save(*args, **kwargs)
 
     def push_likes(self, request):
