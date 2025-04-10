@@ -111,8 +111,8 @@
 {% block content %}
 <!--HEADER START-->  
 <div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
-    <img class="bi" width="50" height="50" src="{% static 'img/group.png' %}" alt="Group Icon">
-    <h3 class="text-body-emphasis fst-italic mb-0">Group</h3>
+    <img class="bi" width="50" height="50" src="{% static 'img/group.png' %}" alt="Event Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Event</h3>
     &nbsp;
     <img class="bi" width="40" height="40" src="{% static 'img/list.png' %}" alt="Detail Icon">
     <h3 class="text-body-emphasis fst-italic mb-0">Detail</h3>
@@ -208,9 +208,9 @@
                 <!--Profiles-->
                 <div class="align-self-start" style="min-width: 100px; width: 900px; ">
                   <h5><B>&lt;&lt;[ Joined Profiles List ]&gt;&gt;</B></h5>
-                  <div class="container bg-body-tertiary"><div class="row row-cols-2 row-cols-sm-3 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-3">
+                  <div class="container bg-body-tertiary"><div class="row row-cols-5 row-cols-sm-5 row-cols-md-4 row-cols-lg-6 row-cols-xl-6 row-cols-xxl-6 g-3">
                     {% for item in joined_profiles %}
-                        {% include 'includes/profile_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" %}
+                        {% include 'includes/profile_item_simple.html' with item=item %}
                     {% empty %}
                         <div>No joined profiles yet.</div>
                     {% endfor %}

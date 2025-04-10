@@ -53,20 +53,22 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 40%;
-        min-width: 64px;  /* 最小サイズを設定 */
-        min-height: 64; /* 縦横比を維持 */
-        aspect-ratio: 1 / 1;  /* 正方形を維持 */
+        width: auto;       /* 幅自動調整でアスペクト比維持 */
+        height: 90%;      /* front-imageの高さを80%に */
         transform: translate(-50%, -50%);
         z-index: 2;          /* 前面に表示 */
-        border-radius: 50%;   /* 完全な円形に */
-        background-color: white;  /* 背景を白色に */
+        overflow: hidden;         /* はみ出し防止 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
+    /* 前面の images 画像 */
     .profile-front-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: 90%;         /* 親要素に対して80%の高さで表示 */
+        width: auto;          /* アスペクト比維持 */
+        object-fit: contain;  /* はみ出し防止 */
+        margin: 2px;
     }
 
     /* Profile画像の左上に配置 */
@@ -141,7 +143,15 @@
     {% csrf_token %}
     <br/>
     <!--submit button-->
-    {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='user' %}
+    <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+    {% if user.is_authenticated %}
+        {% if user.is_staff or user.profile.id == object.id %}
+            <a>&nbsp;</a>
+            <a href="{% url 'user:update' object.pk %}" class="btn btn-primary">Edit</a>
+            <a>&nbsp;</a>
+            <a href="{% url 'user:delete' object.pk %}" class="btn btn-danger">Delete</a>
+        {% endif %}
+    {% endif %}
     {% if object.get_friend_pk %}
       <a>&nbsp;-&nbsp;</a>
       <a href="{% url 'friend:delete' object.get_friend_pk %}" class="btn btn-danger">Leave from Friend</a>
@@ -209,9 +219,12 @@
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <table class="table profile-property-table">
-                <tr><th style="width:150px;">User Name</th><td>{{ object.user1.username }}</td></tr>
-                <tr><th>Member ID</th><td>{{ object.memberid }}</td></tr>
-                <tr><th>Nick Name</th><td>{{ object.nick_name }}</td></tr>
+                <!-- Only Display to Frind Profile -->
+                {% if user.is_staff or object.get_friend_pk %}
+                  <tr><th>User Name</th><td>{{ object.user1.username }}</td></tr>
+                  <tr><th>Member ID</th><td>{{ object.memberid }}</td></tr>
+                {% endif %}
+                <tr><th style="width:150px;">Nick Name</th><td>{{ object.nick_name }}</td></tr>
                 <tr>
                   <th>Badges</th>
                   <td>
@@ -223,7 +236,10 @@
                   </td>
                 </tr>
                 {% if user.is_staff %}<tr><th>Birthday(Y)</th><td>{{ object.birth_year}}</td></tr>{% endif %}
-                {% if object.birth_month_day %}<tr><th>Birthday(M/D)</th><td>{{object.birth_month_day|date:"m/d" }}</td></tr>{% endif %}
+                <!-- Only Display to Frind Profile -->
+                {% if user.is_staff or object.get_friend_pk %}
+                  {% if object.birth_month_day %}<tr><th>Birthday(M/D)</th><td>{{object.birth_month_day|date:"m/d" }}</td></tr>{% endif %}
+                {% endif %}
                 <tr>
                   <th>MBTI Type</th>
                   {% if object.mbti == '-' %}
@@ -238,7 +254,10 @@
                 </tr>
                 <tr><th>Likes Given</th><td>{{ object.given_likes|intcomma }}</td></tr>
                 <tr><th>Status Points</th><td>{{ object.status_points|intcomma }} &lt;&lt; {{ object.get_status_points_prize|default:"No Prize" }} &gt;&gt;</td></tr>
-                <tr><th>Available Points</th><td>{{ object.available_points|intcomma }}</td></tr>
+                <!-- Only Display to Frind Profile -->
+                {% if user.is_staff or object.get_friend_pk %}
+                  <tr><th>Available Points</th><td>{{ object.available_points|intcomma }}</td></tr>
+                {% endif %}
               </table>
             </div>
           </div>
@@ -349,9 +368,9 @@
         <!--Friends-->
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
           <h5><B>&lt;&lt;[ Friend List ]&gt;&gt;</B></h5>
-          <div class="container bg-body-tertiary"><div class="row row-cols-2 row-cols-sm-3 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-3">
+          <div class="container bg-body-tertiary"><div class="row row-cols-5 row-cols-sm-5 row-cols-md-4 row-cols-lg-6 row-cols-xl-6 row-cols-xxl-6 g-3">
             {% for item in friends %}
-              {% include 'includes/profile_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" %}
+            {% include 'includes/profile_item_simple.html' with item=item %}
             {% empty %}
               <div>No friends yet.</div>
             {% endfor %}
@@ -380,7 +399,7 @@
             {% endfor %}
           </div>
 
-          <!-- Only Display to Frind Profile -->
+          <!-- Only Display to Friend Profile -->
           {% if user.is_staff or object.get_friend_pk %}
             <div style="margin-top:16px;">
               <h4 class="fst-italic">Recent logins</h4>
@@ -404,7 +423,15 @@
     </div>
     <br/>
     <!--submit button-->
-    {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='user' %}
+    <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+    {% if user.is_authenticated %}
+        {% if user.is_staff or user.profile.id == object.id %}
+            <a>&nbsp;</a>
+            <a href="{% url 'user:update' object.pk %}" class="btn btn-primary">Edit</a>
+            <a>&nbsp;</a>
+            <a href="{% url 'user:delete' object.pk %}" class="btn btn-danger">Delete</a>
+        {% endif %}
+    {% endif %}
     {% if object.get_friend_pk %}
       <a>&nbsp;-&nbsp;</a>
       <a href="{% url 'friend:delete' object.get_friend_pk %}" class="btn btn-danger">Leave from Friend</a>

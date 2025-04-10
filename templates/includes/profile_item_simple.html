@@ -1,0 +1,28 @@
+{% load static %}
+{% load tz %}  <!-- タイムゾーンをロード -->
+{% now "Y-m-d" as today %}  <!-- 今日の日付を取得 -->
+
+<div class="col"><div class="card shadow-sm" style="margin-bottom:0px;">
+    <!-- 画像ヘッダ -->
+    <div class="profile-image-wrapper"><a href="{% url 'user:detail' item.pk %}">
+        <!-- 背景：themes -->
+        {% if item.themes %}
+        <img src="{{ item.themes.url }}" class="profile-bg-image" alt="User Themes"/>
+        {% else %}
+        <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
+        {% endif %}
+
+        <!-- 前面：images(circle切り取り) -->
+        <div class="profile-front-image">
+            {% if item.images %}
+            <img src="{{ item.images.url }}" class="rounded-circle" alt="User Images"/>
+            {% else %}
+            <img src="{% static 'img/user.png' %}" class="rounded-circle" alt="Default Images"/>
+            {% endif %}
+        </div>
+    </a></div>
+    <!-- テキストボディ -->
+    <div class="card-body" style="padding:4px;">
+        <small class="card-text">{{ item.nick_name }}</small>
+    </div>
+</div></div>

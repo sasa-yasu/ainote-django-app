@@ -36,8 +36,8 @@
 {% block content %}
 <!--HEADER START-->
 <div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
-    <img class="bi" width="50" height="50" src="{% static 'img/group.png' %}" alt="Group Icon">
-    <h3 class="text-body-emphasis fst-italic mb-0">Group</h3>
+    <img class="bi" width="50" height="50" src="{% static 'img/group.png' %}" alt="Event Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Event</h3>
     &nbsp;
     <img class="bi" width="40" height="40" src="{% static 'img/update.png' %}" alt="Update Icon">
     <h3 class="text-body-emphasis fst-italic mb-0">Update</h3>
@@ -51,7 +51,8 @@
 <main><div class="container">
     <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
         <!--login check-->
-        {% if user.is_authenticated and user.is_staff %}
+        {% if user.is_authenticated %}
+        {% if user.is_staff or object.is_user_member %}
 
             <!--form common errors-->
             {% if form.non_field_errors %}<div class="alert alert-danger"> {% for error in form.non_field_errors %} * {{ error }}<br/> {% endfor %} </div>{% endif %}
@@ -111,7 +112,12 @@
                 {% include 'includes/submit_button.html' with action="Update" %}
             </form>
         {% else %}
-            <label for="require_login" class="form-label">staffユーザでログインしてください</label>
+            <label for="require_login" class="form-label">更新権限がありません</label>
+            &nbsp;
+            <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+        {% endif %}
+        {% else %}
+            <label for="require_login" class="form-label">ログインしてください</label>
             &nbsp;
             <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
         {% endif %}

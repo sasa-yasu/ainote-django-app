@@ -19,7 +19,7 @@
         <!--HEADER START-->
         <div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
             <img class="bi" width="50" height="50" src="{% static 'img/chat.png' %}" alt="Chat Icon">
-            <h3 class="text-body-emphasis fst-italic mb-0">Chat</h3>
+            <h3 class="text-body-emphasis fst-italic mb-0">Thread Chat</h3>
             &nbsp;
             <img class="bi" width="40" height="40" src="{% static 'img/delete.png' %}" alt="Delete Icon">
             <h3 class="text-body-emphasis fst-italic mb-0">Delete</h3>
@@ -34,7 +34,8 @@
         <main><div class="container">
             <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
                 <!--login check-->
-                {% if user.is_authenticated and (user.is_staff or user.profile.id == object.profile.id) %}
+                {% if user.is_authenticated %}
+                {% if user.is_staff or user.profile.id == object.profile.id %}
                 
                     <form action='' method="POST">
                         {% csrf_token %}
@@ -72,9 +73,16 @@
                         </div>
                     </form>
                 {% else %}
+                    <label for="require_login" class="form-label">更新権限がありません</label>
+                    &nbsp;
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a><br/>
+                    &nbsp;
+                {% endif %}
+                {% else %}
                     <label for="require_login" class="form-label">ログインしてください</label>
                     &nbsp;
-                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a><br/>
+                    &nbsp;
                 {% endif %}
             </div></div>
         </div></main>

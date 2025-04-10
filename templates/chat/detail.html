@@ -32,7 +32,15 @@
             <form action='' method="POST">
                 {% csrf_token %}
                 <!--submit button-->
-                {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='chat' %}
+                <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+                {% if user.is_authenticated %}
+                    {% if user.is_staff or user.profile.id == object.profile.id %}
+                        <a>&nbsp;</a>
+                        <a href="{% url 'chat:update' object.pk %}" class="btn btn-primary">Edit</a>
+                        <a>&nbsp;</a>
+                        <a href="{% url 'chat:delete' object.pk %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
+                {% endif %}
                 <br/><br/>
                 
                 <!--Individual:id(auto:key)-->
@@ -57,7 +65,15 @@
                 {% include 'includes/bottom_dates.html' %}
                 <br/>
                 <!--submit button-->
-                {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='chat' %}
+                <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+                {% if user.is_authenticated %}
+                    {% if user.is_staff or user.profile.id == object.profile.id %}
+                        <a>&nbsp;</a>
+                        <a href="{% url 'chat:update' object.pk %}" class="btn btn-primary">Edit</a>
+                        <a>&nbsp;</a>
+                        <a href="{% url 'chat:delete' object.pk %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
+                {% endif %}
                 <br/>
             </form>
         </div>

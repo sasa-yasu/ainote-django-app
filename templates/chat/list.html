@@ -82,7 +82,7 @@
                         <!--login check-->
                         {% if user.is_authenticated %}
                             <!--staff or its author-->
-                            {% if user.is_staff or user.id == item.profile.user1.id %}
+                            {% if user.is_staff or user.profile.id == item.profile.id %}
                                 <a class="btn btn-outline-primary rounded-pill btn-sm" style="max-height:31px;" href="{% url 'chat:detail' item.id %}">Detail</a>
                             {% else %}
                                 <div></div> <!-- 左側に空の要素を維持 -->
@@ -93,12 +93,12 @@
 
                         <!--age-->
                         <a class="btn btn-outline-secondary rounded-pill btn-sm age-btn" data-chat-id="{{ item.id }}" style="max-height:31px;">
-                            <img witdh=20px height=20px src="{% static 'img/up.png' %}">
+                            <img width="20px" height="20px" src="{% static 'img/up.png' %}">
                         </a>
 
                         <!--likes-->
                         <a class="btn btn-outline-secondary rounded-pill btn-sm like-btn" data-chat-id="{{ item.id }}" style="max-height:31px;">
-                            <img witdh=20px height=20px src="{% static 'img/good.png' %}"><span class="like-count" id="like-count-{{ item.id }}">({{ item.likes }})</span>
+                            <img width="20px" height="20px" src="{% static 'img/good.png' %}"><span class="like-count" id="like-count-{{ item.id }}">({{ item.likes }})</span>
                         </a>
 
                     </div>

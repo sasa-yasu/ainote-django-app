@@ -75,12 +75,14 @@
                 {% else %}
                     <label for="require_login" class="form-label">更新権限がありません</label>
                     &nbsp;
-                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a><br/>
+                    &nbsp;
                 {% endif %}
                 {% else %}
                     <label for="require_login" class="form-label">ログインしてください</label>
                     &nbsp;
-                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a><br/>
+                    &nbsp;
                 {% endif %}
             </div></div>
         </div></main>

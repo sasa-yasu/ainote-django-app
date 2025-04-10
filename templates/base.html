@@ -103,7 +103,7 @@
                 <a class="nav-link" href="{% url 'thread:list' %}">Thread</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Matching</a>
+                <a class="nav-link" href="#">Find-Me</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'friend:list' %}">Friends</a>
@@ -177,16 +177,19 @@
               const menuEl = document.getElementById(menu);
               const submenuEl = document.getElementById(submenu);
 
-              menuEl.addEventListener('click', (event) => {
-                  event.preventDefault();
-                  submenuEl.classList.toggle('show');
-              });
+              // 要素が存在する場合のみ処理を実行
+              if (menuEl && submenuEl) {
+                  menuEl.addEventListener('click', (event) => {
+                      event.preventDefault();
+                      submenuEl.classList.toggle('show');
+                  });
 
-              document.addEventListener('click', (event) => {
-                  if (!menuEl.contains(event.target) && !submenuEl.contains(event.target)) {
-                      submenuEl.classList.remove('show');
-                  }
-              });
+                  document.addEventListener('click', (event) => {
+                      if (!menuEl.contains(event.target) && !submenuEl.contains(event.target)) {
+                          submenuEl.classList.remove('show');
+                      }
+                  });
+              }
           });
       });
     </script>

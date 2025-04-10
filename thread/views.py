@@ -117,7 +117,7 @@ def detail_view(request, pk):
         logger.debug('couldnt catch the page cnt')
         page_cnt = 1
     
-    object_list = ThreadChat.objects.order_by('-order_by_at').all()  # order_by_at の降順で取得
+    object_list = ThreadChat.objects.filter(thread=object).order_by('-order_by_at').all()  # order_by_at の降順で取得
     
     if object_list.exists():
         logger.debug('object_list exists')
@@ -393,8 +393,8 @@ def join_view(request):
         except Exception as e:
             logger.error(f'couldnt create thread-profile object thread_id={thread.id} profile_id={profile_own.id}: {e}')
 
-        logger.info('return redirect thread:list')
-        return redirect('thread:list')
+        logger.info('return redirect thread:detail')
+        return redirect('thread:detail', thread.id)
     else:
         logger.info('GET method')
         pass
@@ -574,7 +574,7 @@ def chat_create_view(request, thread_pk):
                     logger.error(f'couldnt save the images_data in ThreadChat object: {e}')
 
             logger.info('return redirect thread:detail')
-            return redirect('thread:detail', thread_pk )
+            return redirect('thread:detail', object.thread.id )
         else:
             logger.error('form is invalid.')
             print(form.errors)  # エラー内容をログに出力
@@ -593,6 +593,7 @@ def chat_update_view(request, pk):
 
     logger.debug('get ThreadChat object(pk)')
     object = get_object_or_404(ThreadChat, pk=pk)
+    callback_thread = object.thread
     
     if request.method == "POST":
         logger.info('POST method')
@@ -621,8 +622,8 @@ def chat_update_view(request, pk):
             except Exception as e:
                 logger.error(f'couldnt save the ThreadChat object: {e}')
 
-            logger.info('return redirect thread:chat_list')
-            return redirect('thread:chat_list')
+            logger.info('return redirect thread:detail')
+            return redirect('thread:detail', callback_thread.id )
         else:
             logger.error('form not is_valid.')
             print(form.errors)  # エラー内容をログに出力
@@ -641,6 +642,7 @@ def chat_delete_view(request, pk):
 
     logger.debug('get ThreadChat object(pk)')
     object = get_object_or_404(ThreadChat, pk=pk)
+    callback_thread = object.thread
     context = {'object': object}
 
     if request.method == "POST":
@@ -657,7 +659,7 @@ def chat_delete_view(request, pk):
             logger.error(f'couldnt delete ThreadChat object: {e}')
 
         logger.info('return redirect thread:chat_list')
-        return redirect('thread:chat_list')
+        return redirect('thread:detail', callback_thread.id )
     else:
         logger.info('GET method')
     

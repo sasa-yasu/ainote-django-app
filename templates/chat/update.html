@@ -32,7 +32,7 @@
     <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
         <!--login check-->
         {% if user.is_authenticated %}
-        {% if user.is_staff or user.profile.id == object.id %}
+        {% if user.is_staff or user.profile.id == object.profile.id %}
 
             <!--common error-->
             {% if form.non_field_errors %}<div class="alert alert-danger"> {% for error in form.non_field_errors %} * {{ error }}<br/> {% endfor %} </div>{% endif %}
@@ -58,9 +58,9 @@
 
                 <!--Input:author-->
                 <div class="mb-3">
-                    {% if form.author and form.author.value != "None" and request.user.is_superuser %} <!--Author is not null & superuser-->
+                    {% if form.author and form.author.value != "None" and user.is_superuser %} <!--Author is not null & superuser-->
                         {% include 'includes/input_field.html' with target=form.author %}
-                    {% elif form.author and form.author.value != "None" and not request.user.is_superuser %} <!--Author is not null & not superuser-->
+                    {% elif form.author and form.author.value != "None" and not user.is_superuser %} <!--Author is not null & not superuser-->
                         {% include 'includes/display_field.html' with target=object.author disp_name='Author' %}
                     {% else %} <!--Author is null-->
                         <label class="form-label btn btn-primary-input labeltext"><B>&lt;&lt;[ Author ]&gt;&gt;</B></label><br/>
@@ -76,7 +76,7 @@
                 {% include 'includes/submit_button.html' with action="Update" %}
             </form>
         {% else %}
-            <label for="require_login" class="form-label">変更権限がありません</label>
+            <label for="require_login" class="form-label">更新権限がありません</label>
             &nbsp;
             <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
         {% endif %}

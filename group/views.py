@@ -365,8 +365,8 @@ def join_view(request):
         except Exception as e:
             logger.error(f'couldnt create group-profile object group_id={group.id} profile_id={profile_own.id}: {e}')
 
-        logger.info('return redirect group:list')
-        return redirect('group:list')
+        logger.info('return redirect group:detail')
+        return redirect('group:detail', group.id)
     else:
         logger.info('GET method')
         pass

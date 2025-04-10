@@ -17,7 +17,7 @@
 <!--HEADER START-->    
 <div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
     <img class="bi" width="50" height="50" src="{% static 'img/chat.png' %}" alt="Chat Icon">
-    <h3 class="text-body-emphasis fst-italic mb-0">Chat</h3>
+    <h3 class="text-body-emphasis fst-italic mb-0">Thread Chat</h3>
     &nbsp;
     <img class="bi" width="40" height="40" src="{% static 'img/list.png' %}" alt="Detail Icon">
     <h3 class="text-body-emphasis fst-italic mb-0">Detail</h3>
@@ -32,7 +32,15 @@
             <form action='' method="POST">
                 {% csrf_token %}
                 <!--submit button-->
-                {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='chat' %}
+                <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+                {% if user.is_authenticated %}
+                    {% if user.is_staff or user.profile.id == object.profile.id %}
+                        <a>&nbsp;</a>
+                        <a href="{% url 'thread:chat_update' object.pk %}" class="btn btn-primary">Edit</a>
+                        <a>&nbsp;</a>
+                        <a href="{% url 'thread:chat_delete' object.pk %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
+                {% endif %}
                 <br/><br/>
                 
                 <!--Individual:id(auto:key)-->
@@ -57,7 +65,14 @@
                 {% include 'includes/bottom_dates.html' %}
                 <br/>
                 <!--submit button-->
-                {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='chat' %}
+                {% if user.is_authenticated %}
+                    {% if user.is_staff or user.profile.id == object.profile.id %}
+                        <a>&nbsp;</a>
+                        <a href="{% url 'thread:chat_update' object.pk %}" class="btn btn-primary">Edit</a>
+                        <a>&nbsp;</a>
+                        <a href="{% url 'thread:chat_delete' object.pk %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
+                {% endif %}
                 <br/>
             </form>
         </div>

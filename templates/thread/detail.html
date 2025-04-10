@@ -149,7 +149,17 @@
         {% csrf_token %}
         <br/>
         <!--submit button-->
-        {% include 'includes/detail_staff_controled_buttons.html' with app_name='thread' %}
+        <a href="{% url 'thread:list' %}" class="btn btn-secondary">Back</a>
+        {% if user.is_authenticated %}
+            {% if user.is_staff or object.is_user_member %}
+                <a>&nbsp;</a>
+                <a href="{% url 'thread:update' object.pk %}" class="btn btn-primary">Edit</a>
+            {% endif %}
+            {% if user.is_staff or user.profile.id == object.created_pic.id %}
+                <a>&nbsp;</a>
+                <a href="{% url 'thread:delete' object.pk %}" class="btn btn-danger">Delete</a>
+            {% endif %}
+        {% endif %}
         {% if object.is_user_member %}
             <a>&nbsp;-&nbsp;</a>
             <a href="{% url 'thread:leave' object.id %}" class="btn btn-danger">Leave from Thread</a>
@@ -157,13 +167,13 @@
         <br/><br/>
 
         <div class="row g-5">
-            <div class="col-md-8"><div class="header-container align-items-start">
+            <div class="col-md-8 masonry"><div class="header-container justify-content-start">
 
                 <!--hidden-->
                 <input type="hidden" id="id_thread_id" name="thread_id" value="{{ object.id }}">
 
                 <div style="min-width: 100px; width: 100%;">
-                    <a href="{% url 'thread:chat_create' object.id %}" class="btn btn-primary">Create Chat</a>
+                    {% if object.is_user_member %}<a href="{% url 'thread:chat_create' object.id %}" class="btn btn-primary">Create Chat</a>{% endif %}
                     <hr>
                     <!-- START MAIN LIST BODY -->
                     <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-2" data-masonry='{"percentPosition": true }'>
@@ -185,8 +195,8 @@
                                         <!--login check-->
                                         {% if user.is_authenticated %}
                                             <!--staff or its author-->
-                                            {% if user.is_staff or user.id == item.profile.user1.id %}
-                                                <a class="btn btn-outline-primary rounded-pill btn-sm" style="max-height:31px; padding:4px;" href="{% url 'thread:chat_detail' object.id item.id %}">Detail</a>
+                                            {% if user.is_staff or user.profile.id == item.profile.id %}
+                                                <a class="btn btn-outline-primary rounded-pill btn-sm" style="max-height:31px; padding:4px;" href="{% url 'thread:chat_detail' item.id %}">Detail</a>
                                             {% else %}
                                                 <div></div> <!-- 左側に空の要素を維持 -->
                                             {% endif %}
@@ -196,12 +206,12 @@
 
                                         <!--age-->
                                         <a class="btn btn-outline-secondary rounded-pill btn-sm age-btn" data-threadchat-id="{{ item.id }}" style="max-height:31px;">
-                                            <img witdh=20px height=20px src="{% static 'img/up.png' %}">
+                                            <img width="20px" height="20px" src="{% static 'img/up.png' %}">
                                         </a>
 
                                         <!--likes-->
                                         <a class="btn btn-outline-secondary rounded-pill btn-sm like-btn" data-threadchat-id="{{ item.id }}" style="max-height:31px; padding:4px;">
-                                            <img witdh=20px height=20px src="{% static 'img/good.png' %}"><span class="like-count" id="like-count-{{ item.id }}">({{ item.likes }})</span>
+                                            <img width="20px" height="20px" src="{% static 'img/good.png' %}"><span class="like-count" id="like-count-{{ item.id }}">({{ item.likes }})</span>
                                         </a>
 
                                     </div>
@@ -228,34 +238,11 @@
                 <div class="align-self-start" style="min-width: 100px; width: 100%;">
                     <h5><B>&lt;&lt;[ Joined Profiles List ]&gt;&gt;</B></h5>
                     <div class="container bg-body-tertiary"><div class="row row-cols-5 row-cols-sm-5 row-cols-md-4 row-cols-lg-6 row-cols-xl-6 row-cols-xxl-6 g-3">
-                      {% for item in joined_profiles %}
-                          <div class="col"><div class="card shadow-sm" style="margin-bottom:0px;">
-                              <!-- 画像ヘッダ -->
-                              <div class="profile-image-wrapper"><a href="{% url 'user:detail' item.pk %}">
-                                  <!-- 背景：themes -->
-                                  {% if item.themes %}
-                                  <img src="{{ item.themes.url }}" class="profile-bg-image" alt="User Themes"/>
-                                  {% else %}
-                                  <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
-                                  {% endif %}
-                          
-                                  <!-- 前面：images(circle切り取り) -->
-                                  <div class="profile-front-image">
-                                      {% if item.images %}
-                                      <img src="{{ item.images.url }}" class="rounded-circle" alt="User Images"/>
-                                      {% else %}
-                                      <img src="{% static 'img/user.png' %}" class="rounded-circle" alt="Default Images"/>
-                                      {% endif %}
-                                  </div>
-                              </a></div>
-                              <!-- テキストボディ -->
-                              <div class="card-body" style="padding:4px;">
-                                  <small class="card-text">{{ item.nick_name }}</small>
-                              </div>
-                          </div></div>
-                      {% empty %}
-                          <div>No joined profiles yet.</div>
-                      {% endfor %}
+                        {% for item in joined_profiles %}
+                            {% include 'includes/profile_item_simple.html' with item=item %}
+                        {% empty %}
+                            <div>No joined profiles yet.</div>
+                        {% endfor %}
                     </div></div>
                 </div>
 
@@ -301,7 +288,16 @@
         </div>
         <br/>
         <!--submit button-->
-        {% include 'includes/detail_staff_controled_buttons.html' with app_name='thread' %}
+        {% if user.is_authenticated %}
+            {% if user.is_staff or object.is_user_member %}
+                <a>&nbsp;</a>
+                <a href="{% url 'thread:update' object.pk %}" class="btn btn-primary">Edit</a>
+            {% endif %}
+            {% if user.is_staff or user.profile.id == object.created_pic.id %}
+                <a>&nbsp;</a>
+                <a href="{% url 'thread:delete' object.pk %}" class="btn btn-danger">Delete</a>
+            {% endif %}
+        {% endif %}
         {% if object.is_user_member %}
             <a>&nbsp;-&nbsp;</a>
             <a href="{% url 'thread:leave' object.id %}" class="btn btn-danger">Leave from Thread</a>
@@ -325,10 +321,17 @@
 {% endblock %}
 
 {% block footer %}
+<script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
 <script>
+//        window.onload = function() {
+//            var grid = document.querySelector('.row');
+//            var msnry = new Masonry(grid, {
+//                percentPosition: true,
+//            });
+//        };
 
-// likes post
-$(document).ready(function() {
+        // likes post
+        $(document).ready(function() {
             $('.like-btn').click(function() {
                 const objectId = $(this).data('threadchat-id');
 

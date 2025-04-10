@@ -5,7 +5,7 @@
     <div class="profile-image-wrapper"><a href="{% url 'group:detail' item.pk %}">
         <!-- 背景：themes -->
         {% if item.themes %}
-        <img src="{{ item.themes.url }}" class="profile-bg-image" alt="Group Themes"/>
+        <img src="{{ item.themes.url }}" class="profile-bg-image" alt="Event Themes"/>
         {% else %}
         <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
         {% endif %}
@@ -13,7 +13,7 @@
         <!-- 前面：images -->
         <div class="profile-front-image">
             {% if item.images %}
-            <img src="{{ item.images.url }}" style="border-radius: 50%;" alt="Group Images"/>
+            <img src="{{ item.images.url }}" style="border-radius: 50%;" alt="Event Images"/>
             {% else %}
             <img src="{% static 'img/group.png' %}" style="border-radius: 50%;" alt="Default Images"/>
             {% endif %}

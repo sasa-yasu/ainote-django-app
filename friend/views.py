@@ -122,8 +122,8 @@ def create_view(request):
         except Exception as e:
             logger.error(f'couldnt create friend object profile1={profile1} profile2={profile2}: {e}')
 
-        logger.info('return redirect friend:list')
-        return redirect('friend:list')
+        logger.info('return redirect user:detail')
+        return redirect('user:detail', profile_with.id)
     else:
         logger.info('GET method')
         pass

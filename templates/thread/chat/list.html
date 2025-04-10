@@ -36,12 +36,12 @@
 <div class="my-3 p-3 py-2 text-center bg-body-tertiary">
     <div class="d-flex justify-content-center align-items-center gap-2">
     <img class="bi" width="60" height="60" src="{% static 'img/chat.png' %}" alt="Chat Icon">
-    <h1 class="text-body-emphasis fst-italic mb-0">Chats</h1>
+    <h1 class="text-body-emphasis fst-italic mb-0">Thread_Chats</h1>
     &nbsp;
     <img class="bi" width="50" height="50" src="{% static 'img/list.png' %}" alt="List Icon">
     <h1 class="text-body-emphasis fst-italic mb-0">List</h1>
     </div>
-    <p class="col-lg-8 mx-auto lead fst-italic">The List of Chats which we have.</p>
+    <p class="col-lg-8 mx-auto lead fst-italic">The List of Thread Chats which we have.</p>
 </div>
 <!-- END TITLE -->
 
@@ -64,16 +64,8 @@
                             </small>
                         {% else %}
                             <small class="text-body-secondary">
-                                {{ item.created_at|date:"'y/m/d H:i" }}
+                                {{ item.created_at|date:"'y/m/d H:i" }} by {{ item.profile.nick_name }}
                             </small>
-                            &nbsp;
-                            <span class="profile-icon badge d-flex align-items-center p-0 pe-1 text-{{ item.profile.badges }}-emphasis bg-{{ item.profile.badges }}-subtle border border-{{ item.profile.badges }}-subtle rounded-pill">
-                                {% if item.profile.images %}
-                                    <img class="rounded-circle me-1" width="24" height="24" src="{{ item.profile.images.url }}" alt="Profile icon">{{ item.profile.nick_name }}
-                                {% else %}
-                                    <img class="rounded-circle me-1" width="24" height="24" src="{% static 'img/user.png' %}" alt="Profile icon">{{ item.profile.nick_name }}
-                                {% endif %}
-                            </span>
                         {% endif %}
                     </div>
 
@@ -82,8 +74,8 @@
                         <!--login check-->
                         {% if user.is_authenticated %}
                             <!--staff or its author-->
-                            {% if user.is_staff or user.id == item.profile.user1.id %}
-                                <a class="btn btn-outline-primary rounded-pill btn-sm" style="max-height:31px;" href="{% url 'chat:detail' item.id %}">Detail</a>
+                            {% if user.is_staff or user.profle.id == item.profle.id %}
+                                <a class="btn btn-outline-primary rounded-pill btn-sm" style="max-height:31px;" href="{% url 'thread:chat_detail' item.id %}">Detail</a>
                             {% else %}
                                 <div></div> <!-- 左側に空の要素を維持 -->
                             {% endif %}
