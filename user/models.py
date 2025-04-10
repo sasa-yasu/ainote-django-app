@@ -2,7 +2,7 @@ import logging
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.conf import settings
 from django.contrib.auth.signals import user_logged_in, user_logged_out
-from django.db.models import Q
+from django.db.models import Q, F
 from django.db import models
 from django.dispatch import receiver
 from datetime import date
@@ -35,9 +35,9 @@ class Profile(models.Model):
 
     default_year = timezone.now().year  # 当年を基準にして選択肢を作成
     years_choice = [(year, str(year)) for year in range(default_year - 130, default_year + 1)]  # 過去130年分の年をリストとして作成
-    birth_year = models.PositiveIntegerField('Year of Birth', choices=years_choice, null=True, blank=True)  # 年を保存
+    birth_year = models.PositiveIntegerField('Birthday(Y)', choices=years_choice, null=True, blank=True)  # 年を保存
 
-    birth_month_day = models.DateField('Birth Month/Day', null=True, blank=True)  # 月日を保存、デフォルトは12月31日
+    birth_month_day = models.DateField('Birth(M/D))', null=True, blank=True)  # 月日を保存、デフォルトは12月31日
 
     MBTI_CHOICES = [
         ('-', '-'),
@@ -97,6 +97,9 @@ class Profile(models.Model):
     caretaker03 = models.CharField('Caretaker03 email', max_length=255, null=True, blank=True)
     caretaker04 = models.CharField('Caretaker04 email', max_length=255, null=True, blank=True)
     caretaker05 = models.CharField('Caretaker05 email', max_length=255, null=True, blank=True)
+
+    status_points = models.IntegerField(null=True, blank=True, default=0)
+    available_points = models.IntegerField(null=True, blank=True, default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
     created_pic = models.ForeignKey('Profile', on_delete=models.SET_NULL, null=True, blank=True, related_name='user_created_pics')  # 紐づくProfileが削除されたらNULL設定
@@ -281,6 +284,27 @@ class Profile(models.Model):
 
         return self.given_likes
 
+    def got_points_for_checkin(self):
+        self.status_points += 1
+        self.available_points += 1
+        self.save()
+
+        return self.status_point
+
+    def got_points_for_make_friend(self):
+        self.status_points += 1
+        self.available_points += 1
+        self.save()
+
+        return self.status_points
+
+    def lost_points_for_remove_friend(self):
+        self.status_points -= 1
+        self.available_points -= 1
+        self.save()
+
+        return self.status_points
+
     def is_status_in(self):
         """
         このプロフィールの最新のチェックインレコードを取得し、
@@ -297,6 +321,164 @@ class Profile(models.Model):
                 return True
 
         return False
+
+    def get_classification_value(self):
+        """年齢に基づく世代分類値を返す"""
+        if not self.birth_year:
+            return 0 # if not register the birth year, can get NO point.
+
+        # 誕生日を考慮した実際の年齢（満年齢）を返す 月日が入っていない場合は12/31を採用
+        try:
+            month = self.birth_month_day.month
+            day = self.birth_month_day.day
+            birth_date = date(self.birth_year, month, day)
+        except ValueError:
+            # フォールバック：月日が不正なら12/31を仮定
+            birth_date = date(self.birth_year, 12, 31)
+
+        today = date.today()
+        age = today.year - birth_date.year
+
+        # 誕生日がまだ来ていなければ1歳引く
+        if (today.month, today.day) < (birth_date.month, birth_date.day):
+            age -= 1
+
+        if   age <=   5:    return 1
+        elif age <=   8:    return 2
+        elif age <=  11:    return 3
+        elif age <=  14:    return 4
+        elif age <=  17:    return 5
+        elif age <=  21:    return 6
+        elif age <=  29:    return 7
+        elif age <=  39:    return 8
+        elif age <=  49:    return 9
+        elif age <=  59:    return 10
+        elif age <=  69:    return 11
+        elif age <=  79:    return 12
+        elif age <=  89:    return 13
+        elif age <=  99:    return 14
+        elif age <= 109:    return 15
+        elif age <= 119:    return 16
+        else:               return 17
+
+    def get_earn_points_for_make_friend(self, friend):
+        """友達関係によりポイントを付与する（相手との世代差に応じて）"""
+
+        # 世代差を計算
+        my_value = self.get_classification_value()
+        friend_value = friend.get_classification_value()
+
+        if my_value == 0 or friend_value == 0: # if either one is 0(not register year). can get NO point.
+            return 0
+        
+        diff = abs(my_value - friend_value)
+
+        # ポイント決定
+        earn_points = diff
+    
+        return earn_points
+
+    def earn_points_for_make_friend(self, friend):
+
+        if not self.is_friends_with(friend):
+            return  0 # まだ友達でないなら何もしない
+
+        # profile1 < profile2 の順に並び替え
+        profile1, profile2 = sorted([self, friend], key=lambda p: p.id)
+
+        # すでにポイントが付与済みかチェック（重複防止）
+        if FriendshipPointLog.objects.filter(profile1=profile1, profile2=profile2, reward_returned=False).exists():
+            return 0 
+
+        earn_points = self.get_earn_points_for_make_friend(friend)
+        
+        # ポイント加算
+        self.status_points += earn_points
+        self.available_points += earn_points
+        self.save()
+        friend.status_points += earn_points
+        friend.available_points += earn_points
+        friend.save()
+
+        # ログ記録（重複加算防止）
+        FriendshipPointLog.objects.create(profile1=profile1, profile2=profile2, points_awarded=earn_points)
+
+        return self.status_points
+
+    def get_lose_points_for_remove_friend(self, friend):
+        """友達関係によりポイントを付与する（相手との世代差に応じて）"""
+
+        # profile1 < profile2 の順に並び替え
+        profile1, profile2 = sorted([self, friend], key=lambda p: p.id)
+
+        # すでにポイントが付与済みかチェック：ポイント付与履歴がなければ減算もなし
+        if not FriendshipPointLog.objects.filter(profile1=profile1, profile2=profile2, reward_returned=False).exists():
+            return 0
+
+        friendship_point_log = FriendshipPointLog.objects.filter(profile1=profile1, profile2=profile2, reward_returned=False).first()
+    
+        return friendship_point_log.points_awarded
+
+    def lose_points_for_remove_friend(self, friend):
+
+        if not self.is_friends_with(friend):
+            return  0 # まだ友達でないなら何もしない
+
+        # profile1 < profile2 の順に並び替え
+        profile1, profile2 = sorted([self, friend], key=lambda p: p.id)
+
+        # すでにポイントが付与済みかチェック：ポイント付与履歴がなければ減算もなし
+        if not FriendshipPointLog.objects.filter(profile1=self, profile2=friend, reward_returned=False).exists():
+            return 0
+
+        friendship_point_log = FriendshipPointLog.objects.filter(profile1=profile1, profile2=profile2, reward_returned=False).first()
+
+        lose_points = friendship_point_log.points_awarded
+
+        # ポイント減算
+        self.status_points -= lose_points
+        self.available_points -= lose_points
+        self.save()
+        friend.status_points -= lose_points
+        friend.available_points -= lose_points
+        friend.save()
+
+        # ログ記録（重複減算防止）
+        friendship_point_log.reward_returned = True
+        friendship_point_log.save()
+
+        return self.status_points
+
+    def is_friends_with(self, other):
+        """相互友達関係であるかどうかを判定"""
+        from friend.models import Friend
+        return Friend.objects.filter( Q(profile1=self, profile2=other) | Q(profile1=other, profile2=self) ).exists()
+
+    STATUS_POINTS_PRIZE_CHOICES = [
+        (50, 'Wood(木)', 'wood'),
+        (100, 'Bamboo(竹)', 'bamboo'),
+        (200, 'Iron(鉄)', 'iron'),
+        (350, 'Bronze(銅)', 'bronze'),
+        (600, 'Carbon(ｶｰﾎﾞﾝ)', 'carbon'),
+        (1000, 'Titan(ﾁﾀﾝ)', 'titan'),
+        (1800, 'Silver(ｼﾙﾊﾞｰ)', 'silver'),
+        (3000, 'Gold(ｺﾞｰﾙﾄﾞ)', 'gold'),
+        (9999, 'Platinum(ﾌﾟﾗﾁﾅ)', 'platinum'),
+    ]
+
+    def get_status_points_prize(self):
+        # status_pointsに基づいて該当する賞品を選択
+        for threshold, prize_name, prize_code in reversed(Profile.STATUS_POINTS_PRIZE_CHOICES):
+            if self.status_points >= threshold:
+                return prize_name
+        return 'Wood(ｳｯﾄﾞ)'  # デフォルトは 'Wood(ｳｯﾄﾞ)' としておく
+
+    def get_status_points_prize_code(self):
+        # status_pointsに基づいて該当する賞品を選択
+        for threshold, prize_name, prize_code in reversed(Profile.STATUS_POINTS_PRIZE_CHOICES):
+            if self.status_points >= threshold:
+                return prize_name
+        return 'wood'  # デフォルトは 'wood' としておく
 
 class LoginRecord(models.Model):
     """ログイン履歴"""
@@ -338,3 +520,24 @@ def user_logged_out_callback(sender, request, user, **kwargs):
         record.save()
     except LoginRecord.DoesNotExist:
         pass
+
+
+class FriendshipPointLog(models.Model):
+    profile1 = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='friend_point_logs1')
+    profile2 = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='friend_point_logs2')
+    points_awarded = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    reward_returned = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = ('profile1', 'profile2', 'created_at')  # 同時刻同じペアでの重複防止（必要に応じて）
+        constraints = [
+            models.CheckConstraint(
+                check = Q( profile1_id__lt=F('profile2_id') ),
+                name = 'check_profile_order_in_log'
+            )
+        ]
+
+    def __str__(self):
+        return f"<PointLog:{self.profile1} - {self.profile2} +{self.points_awarded}pt @ {self.created_at}>"
+

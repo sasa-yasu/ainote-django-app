@@ -319,6 +319,13 @@ def checkin_view(request):
     
     context = {'profile_own': profile_own, 'place_with': place_with, 'checkin_record': checkin_record}
 
+    if place_with.is_profile_not_checked_in_today(profile_own):
+        # 1日に1ポイント獲得のメッセージ表示
+        earn_points = place_with.get_earn_points_for_checkin(profile_own)
+        context.update({'points': f'1 day get {earn_points} points. Your [Status Point]: {profile_own.status_points:,} + {earn_points} pt'})
+    else:
+        context.update({'points': f'You already checked-in today. Your [Status Point]: {profile_own.status_points:,} pt'})
+    
     if request.method == "POST":
         logger.info('POST method')
 
@@ -350,6 +357,7 @@ def checkin_view(request):
         if not checkin_record:
             logger.info('First checkin: No previous record found.')
 
+
             try:
                 # 初回チェックインを作成
                 checkin_record = CheckinRecord.objects.create(
@@ -357,6 +365,9 @@ def checkin_view(request):
                     profile=profile_own,
                     checkin_time=now()
                 )
+                if place_with.is_profile_not_checked_in_today(profile_own):
+                    earn_points = place_with.earn_points_for_checkin(profile_own)
+                    context.update({'points': f'You got points for today checkin. Your [Status Point]: {profile_own.status_points:,}(+{earn_points}) pt'}) # 1日に1ポイント獲得後のメッセージ表示
                 context.update({'messages': f'Successfully Checked-In at {checkin_record.checkin_time.strftime("%Y/%m/%d %H:%M:%S")}'})
                 context.update({'checkin_record': checkin_record})
 
@@ -376,6 +387,9 @@ def checkin_view(request):
             # チェックアウト済みなら新規チェックイン作成
             else:
                 try:
+                    if place_with.is_profile_not_checked_in_today(profile_own):
+                        earn_points = place_with.earn_points_for_checkin(profile_own)
+                        context.update({'points': f'You got points for today checkin. Your [Status Point]: {profile_own.status_points:,}(+{earn_points}) pt'}) # 1日に1ポイント獲得後のメッセージ表示
                     new_checkin = CheckinRecord.objects.create(
                         place=place_with,
                         profile=profile_own,

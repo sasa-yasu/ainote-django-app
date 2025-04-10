@@ -52,12 +52,12 @@ class ProfileForm(forms.ModelForm):
     default_year = timezone.now().year  # 当年を基準にして選択肢を作成
     years_choice = [('', '----')] + [(year, str(year)) for year in range(default_year - 130, default_year + 1)]  # 過去130年分の年をリストとして作成
     birth_year = forms.ChoiceField(
-        label='Year of Birth', choices=years_choice, widget=forms.Select(attrs={'class': 'form-control'}),
+        label='Birthday(Y)', choices=years_choice, widget=forms.Select(attrs={'class': 'form-control'}),
         required=False, help_text='* If you input this, you can get the genaration-gap points.'
     )
     
     birth_month_day = forms.DateField(
-        label='Birth Month/Day', widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'min': f'2000-01-01', 'max': f'2000-12-31'}), input_formats=['%Y-%m-%d'],
+        label='Birthday(M/D)', widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'min': f'2000-01-01', 'max': f'2000-12-31'}), input_formats=['%Y-%m-%d'],
         required=False, help_text='* If you input this, you can get more accurate genaration-gap points.<br/>* bellow shows year 2000 but system ignore the year info.'
     )
 

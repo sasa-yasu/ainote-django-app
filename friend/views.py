@@ -74,17 +74,23 @@ def create_view(request):
     # profile_with = friend target
     try:
         profile_id = int(request.GET.get("profile_id", 1)) # get profile_id from URL query
-    except ValueError:
-        logger.debug('couldnt catch target profile_id')
-        profile_id = 1
-
-    try:
         profile_with = get_object_or_404(Profile, id=profile_id) # get target profile instance
         logger.debug(f'profile_with={profile_with}')
-    except Exception as e:
+    except ValueError:
+        logger.debug('couldnt catch target profile_id')
         logger.error(f'couldnt get target profile_with id={profile_id}: {e}')
+        profile_id = 1
 
     context = {'profile_own': profile_own, 'profile_with': profile_with}
+
+    # 既存Friendチェック
+    if Friend.objects.filter(profile1=profile_own, profile2=profile_with).exists() or Friend.objects.filter(profile1=profile_with, profile2=profile_own).exists():
+        context.update({'errors': f'You two are already friends'})
+        logger.info('friend already exists')
+        return render(request, 'friend/create.html', context)
+    else:
+        earn_points = profile_own.get_earn_points_for_make_friend(profile_with)
+        context.update({'points': f'You get points for this make-frined. Your [Status Point]: {profile_own.status_points:,} + {earn_points} pt'}) # 1日に1ポイント獲得後のメッセージ表示
 
     if request.method == "POST":
         logger.info('POST method')
@@ -109,6 +115,10 @@ def create_view(request):
             else:
                 friend = Friend.objects.create(profile1=profile2, profile2=profile1, created_pic = pic_data)
             logger.debug(f"{friend.profile1} - {friend.profile2}")
+
+            earn_points = profile1.earn_points_for_make_friend(profile2)
+            context.update({'points': f'You got points for make-frined. Your [Status Point]: {profile_own.status_points:,}(+{earn_points}) pt'}) # 1日に1ポイント獲得後のメッセージ表示
+
         except Exception as e:
             logger.error(f'couldnt create friend object profile1={profile1} profile2={profile2}: {e}')
 
@@ -143,6 +153,15 @@ def delete_view(request, pk):
     
     context = {'profile_own': profile_own, 'profile_with': profile_with}
 
+    # 既存Friendチェック
+    if Friend.objects.filter(profile1=profile_own, profile2=profile_with).exists() or Friend.objects.filter(profile1=profile_with, profile2=profile_own).exists():
+        lose_points = profile_own.get_lose_points_for_remove_friend(profile_with)
+        context.update({'points': f'You lose points for this remove-frined. Your [Status Point]: {profile_own.status_points:,} - {lose_points} pt'}) # 1日に1ポイント獲得後のメッセージ表示
+    else:
+        context.update({'errors': f'You two are already friends'})
+        logger.info('friend already exists')
+        return render(request, 'friend/create.html', context)
+
     if request.method == "POST":
         logger.info('POST method')
 
@@ -165,6 +184,10 @@ def delete_view(request, pk):
                 friend = Friend.objects.get(profile1=profile2, profile2=profile1)
             logger.debug(f"{friend.profile1} - {friend.profile2}")
             friend.delete()
+
+            lose_points = profile1.lose_points_for_remove_friend(profile2)
+            context.update({'points': f'You got points for make-frined. Your [Status Point]: {profile_own.status_points:,}(+{lose_points}) pt'}) # 1日に1ポイント獲得後のメッセージ表示
+
         except Exception as e:
             logger.error(f'couldnt delete friend object profile1={profile1} profile2={profile2}: {e}')
 

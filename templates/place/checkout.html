@@ -79,6 +79,8 @@
 <!--MAIN START-->
 <main class="container">
 
+    <!--points-->
+    {% if points %}<div class="alert alert-default">{{ points }}</div>{% endif %}
     <!--infos-->
     {% if infos %}<div class="alert alert-default">{{ infos }}</div>{% endif %}
     <!--messages-->
@@ -91,7 +93,7 @@
         <form method="POST">
             {% csrf_token %}
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3 justify-content-center">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-1 row-cols-xl-1 row-cols-xxl-1 g-3 justify-content-center">
                 <!--login check-->
                 {% if user.is_authenticated %}
 

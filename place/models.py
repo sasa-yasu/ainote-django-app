@@ -85,6 +85,33 @@ class Place(models.Model):
 
         return self.likes
 
+    def is_profile_not_checked_in_today(self, profile):
+        """
+        指定された profile がこの Place に本日チェックインしていない場合 True を返す。
+        """
+        today = timezone.localdate()
+        return not self.checkinrecord_set.filter(
+            profile=profile,
+            checkin_time__date=today
+        ).exists()
+
+    def get_earn_points_for_checkin(self):
+        """
+        指定された profile がCheck-Inする際に付与するPointを取得する。
+        """
+        earn_points = 1
+        return earn_points
+
+    def earn_points_for_checkin(self, profile):
+        """
+        指定された profile がCheck-Inする際にPointを付与する。
+        """
+        earn_points = self.get_earn_points_for_checkin()
+        profile.status_points += earn_points
+        profile.available_points += earn_points
+        profile.save()
+        return earn_points
+
     def get_checkin_records_by_count(self, count=1):
         """
         同じプロフィールで同日付(Y/M/D)のチェックインレコードは最終PKのみ取得。

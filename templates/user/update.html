@@ -147,7 +147,11 @@
                 </div>
 
                 <!--Input:birth_year-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.birth_year %}</div>
+                {% if user.is_staff %}
+                    <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.birth_year %}</div>
+                {% else %}
+                    <div class="mb-3">{% include 'includes/display_field.html' with target=object.birth_year disp_name='Birthday(Y)' %}</div>
+                {% endif %}
                 <!--Input:birth_month_day-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.birth_month_day %}</div>
 

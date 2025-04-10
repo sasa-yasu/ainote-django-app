@@ -130,11 +130,10 @@
 
               {% if user.is_authenticated and user.is_staff %}
               <li class="nav-item dropdown">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="admin-menu" role="button" aria-expanded="false">
-                    Admin
-                  </a>
-                <ul class="dropdown-menu" id="admin-submenu">
+                <a class="nav-link dropdown-toggle" href="#" id="administrator-menu" role="button" aria-expanded="false">
+                  Admin
+                </a>
+                <ul class="dropdown-menu" id="administrator-submenu">
                   <li><a class="dropdown-item" href="{% url 'headline:list' %}">Headline</a></li>
                   <li><a class="dropdown-item" href="{% url 'notice:list' %}">Notice</a></li>
                 </ul>
@@ -170,8 +169,8 @@
       document.addEventListener('DOMContentLoaded', () => {
           const menus = [
               { menu: 'reserv-menu', submenu: 'reserv-submenu' },
-              { menu: 'admin-menu', submenu: 'admin-submenu' },
-              { menu: 'session-menu', submenu: 'session-submenu' }
+              { menu: 'administrator-menu', submenu: 'administrator-submenu' },
+              { menu: 'session-menu', submenu: 'session-submenu' },
           ];
 
           menus.forEach(({ menu, submenu }) => {

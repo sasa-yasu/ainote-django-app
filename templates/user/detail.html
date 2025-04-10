@@ -222,7 +222,8 @@
                     {% endfor %}
                   </td>
                 </tr>
-                <tr><th>Birthday</th><td>{{ object.birth_year}}{% if object.birth_month_day %}/{{object.birth_month_day|date:"m/d" }}{% endif %}</td></tr>
+                {% if user.is_staff %}<tr><th>Birthday(Y)</th><td>{{ object.birth_year}}</td></tr>{% endif %}
+                {% if object.birth_month_day %}<tr><th>Birthday(M/D)</th><td>{{object.birth_month_day|date:"m/d" }}</td></tr>{% endif %}
                 <tr>
                   <th>MBTI Type</th>
                   {% if object.mbti == '-' %}
@@ -236,6 +237,8 @@
                   <td>{{ object.get_mbti_name_display }}</td>
                 </tr>
                 <tr><th>Likes Given</th><td>{{ object.given_likes|intcomma }}</td></tr>
+                <tr><th>Status Points</th><td>{{ object.status_points|intcomma }} &lt;&lt; {{ object.get_status_points_prize|default:"No Prize" }} &gt;&gt;</td></tr>
+                <tr><th>Available Points</th><td>{{ object.available_points|intcomma }}</td></tr>
               </table>
             </div>
           </div>

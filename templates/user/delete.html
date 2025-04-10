@@ -119,9 +119,9 @@
                         </div>
 
                         <!--Display:birth_year-->
-                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.birth_year disp_name='Year of Birth' %}</div>
+                        {% if user.is_staff %}<div class="mb-3">{% include 'includes/display_field.html' with target=object.birth_year disp_name='Birthday(Y)' %}</div>{% endif %}
                         <!--Display:birth_month_day-->
-                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.birth_month_day disp_name='Birth Month/Day' %}</div>
+                        <div class="mb-3">{% include 'includes/display_field.html' with target=object.birth_month_day disp_name='Birthday(M/D)' %}</div>
                         <!--Display[pulldown]:mbti-->
                         <div class="mb-3">{% include 'includes/display_pulldown.html' with target=object.mbti disp_name='MBTI Type' choices=object.MBTI_CHOICES %}</div>
 
