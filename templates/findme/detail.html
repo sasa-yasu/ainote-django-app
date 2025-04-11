@@ -1,0 +1,587 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load humanize %}  <!-- humanize を読み込む -->
+
+{% block header %}
+<style type="text/css">
+    /***** ページ全体 *****/
+    /* 画像とリストを横並びにするコンテナ */
+    .header-container {
+        display: flex;                /* 横並びに表示 */
+        flex-wrap: wrap;              /* 画面幅が狭くなったら折り返す */
+        align-items: center;          /* 垂直方向で中央揃え */
+        gap: 10px;                    /* 画像とリストの間隔 */
+        justify-content: space-between;
+    }
+
+    /* detailページのみ：背景の themes 画像 */
+    .bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
+        z-index: 1;          /* 背景に表示 */
+        opacity: 1;         /* 透明度を設定しない */
+    }
+
+    /***** profile card *****/
+    /* 画像の重ね合わせコンテナ */
+    .profile-image-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9; /* 16:9を維持しつつ高さを可変に */
+        overflow: hidden;  /* 画像が途中で切れないように変更 */
+    }
+
+    /* 背景の themes 画像 */
+    .profile-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
+        z-index: 1;          /* 背景に表示 */
+        opacity: 1;         /* 透明度を設定しない */
+    }
+
+    /* 前面の images 画像 */
+    .profile-front-image {
+        margin-top:0px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;       /* 幅自動調整でアスペクト比維持 */
+        aspect-ratio: 1 / 1;  /* 正方形を維持 */
+        transform: translate(-50%, -50%);
+        z-index: 2;          /* 前面に表示 */
+        border-radius: 50%;   /* 完全な円形に */
+        background-color: white;  /* 背景を白色に */
+    }
+
+    /* 前面の images 画像 */
+    .profile-front-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Profile画像の左上に配置 */
+    .profile-left-top {
+        position: absolute;
+        top: 5px;      /* 上から10pxの位置 */
+        left: 5px;     /* 左から10pxの位置 */
+        z-index: 3;     /* 前面に表示されるように設定 */
+    }
+
+    /* Profile画像の右上に配置 */
+    .profile-right-top {
+        position: absolute;
+        top: 5px;      /* 上から5pxの位置 */
+        right: 5px;     /* 右から5pxの位置 */
+        z-index: 3;     /* 前面に表示されるように設定 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+    /* Profile画像の左下に配置 */
+    .profile-left-bottom {
+        position: absolute;
+        bottom: 5px;    /* 下から10pxの位置 */
+        left: 5px;     /* 左から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+    }
+
+    /* Profile画像の右下に配置 */
+    .profile-right-bottom {
+        position: absolute;
+        bottom: 5px;    /* 下から10pxの位置 */
+        right: 5px;     /* 右から10pxの位置 */
+        z-index: 3;       /* 最前面に表示 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        border: 2px solid #ccc; /* 枠線 */
+    }
+
+    .profile-property-table {
+        width: 100%;
+        table-layout: fixed;  /* 固定レイアウトで表示崩れ防止 */
+    }
+
+    .profile-property-table th, .profile-property-table td {
+        word-wrap: break-word; /* 長い単語を折り返す */
+    }
+
+    /***** profile card : effect *****/
+    /* ホバー時のエフェクト */
+    .profile-image-wrapper:hover .profile-bg-image {
+        transform: scale(1.10);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
+    .profile-right-top:hover .profile-mbti-img {
+        transform: scale(1.10);
+        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
+    }
+
+
+</style>
+<link href="{% static 'user/blog.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<!--HEADER START-->  
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+  <img class="bi" width="50" height="50" src="{% static 'img/findme.png' %}" alt="Find-Me Icon">
+  <h3 class="text-body-emphasis fst-italic mb-0">Find-Me</h3>
+  &nbsp;
+  <img class="bi" width="40" height="40" src="{% static 'img/list.png' %}" alt="Detail Icon">
+  <h3 class="text-body-emphasis fst-italic mb-0">Detail</h3>
+</div></div>
+<!--HEADER END-->
+
+<!--MAIN START-->
+<main><div class="container">
+  <form method="POST">
+    {% csrf_token %}
+    <br/>
+    <!--submit button-->
+    <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+    {% if user.is_authenticated %}
+        {% if user.is_staff or user.profile.id == object.profile.id %}
+            <a>&nbsp;</a>
+            <a href="{% url 'findme:update' object.pk %}" class="btn btn-primary">Edit</a>
+            <a>&nbsp;</a>
+            <a href="{% url 'findme:delete' object.pk %}" class="btn btn-danger">Delete</a>
+        {% endif %}
+    {% endif %}
+    <br/><br/>
+
+    <div class="row g-5">
+      <div class="col-md-8"><div class="header-container align-items-start">
+
+        <!-- 画像ブロック -->
+        <div class="align-self-start" style="min-width: 300px;">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 flex-column position-static" style="width:900px;">
+              <div class="d-flex align-items-center"><h1 class="display-6">{{ object.name }}</h1></div>
+              <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
+                <div class="profile-image-wrapper" style="max-width:900px; ">
+                    <!-- 背景：themes -->
+                    {% if object.themes %}
+                    <img src="{{ object.themes.url }}" class="bg-image" alt="User Themes"/>
+                    {% else %}
+                    <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+                    {% endif %}
+                    <!-- 前面：images(circle切り取り) -->
+                    <div class="profile-front-image">
+                        {% if object.images %}
+                        <img src="{{ object.images.url }}" class="rounded-circle" alt="User Images"/>
+                        {% else %}
+                        <img src="{% static 'img/findme.png' %}" class="rounded-circle" alt="Default Images"/>
+                        {% endif %}
+                    </div>
+                    <!-- 右上：MBTI -->
+                    {% if object.mbti and object.mbti != '-' %}
+                      <span class="profile-right-top d-inline-flex align-items-center">
+                        <a href="{{ object.get_mbti_url }}" target="_blank">
+                          {% with mbti_image='img/mbti/'|add:object.mbti|add:'.png' %}
+                            <img src="{% static mbti_image %}" width="80" height="80" alt="MBTI" class="profile-mbti-img"/>
+                          {% endwith %}
+                        </a>
+                      </span>
+                    {% endif %}
+
+                    <!-- 左下：MBTI Compatibility -->
+                    {% if request.user.profile.id != object.id and request.user.profile.mbti and object.mbti %}
+                        {% with mbti_comp=object.get_mbti_comp %}
+                        {% if mbti_comp.pt > 0 %}
+                            {% with mbti_comp_pt=mbti_comp.pt|stringformat:"s" %}
+                            {% with mbti_pt_img='img/mbti/star_'|add:mbti_comp_pt|add:'.png' mbti_relation_img='img/mbti/'|add:mbti_comp.relation|add:'.png' %}
+                            <span class="profile-left-bottom d-inline-flex flex-column align-items-start rounded-1" style="background:white;">
+                              <span style="margin: 2px; padding: 0; text-align: left;"><img src="{% static mbti_pt_img %}" width="75" height=auto alt="MBTI Point" style="display: block;"/></span>
+                              <span style="margin: 0; padding: 0; text-align: left;"><img src="{% static mbti_relation_img %}" width="75" height=auto alt="MBTI Relation" style="display: block;"/></span>
+                              <span style="margin: 0; padding: 2px 4px; text-align: left;"><h7 class="display-9" style="margin:0px; font-family: var(--bs-body-font-family)"><B>{{ mbti_comp.description }}</B></h7></span>
+                            {% endwith %}{% endwith %}
+                        </span>
+                        {% endif %}
+                        {% endwith %}
+                    {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- プロパティブロック -->
+        <div class="align-self-start" style="min-width: 100px; max-width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <table class="table profile-property-table">
+                <!-- name -->
+                <tr><th style="width:150px;">Name</th><td>{{ object.name }}</td></tr>
+                <!-- gender -->
+                <tr>
+                  <th>Gender</th>
+                  <td>
+                    {% for value, label in object.GENDER_CHOICES %}
+                    {% if object.gender == value %}
+                      {{ label }}
+                    {% endif %}
+                    {% endfor %}
+                  </td>
+                </tr>
+                <!-- birth_year -->
+                {% if object.birth_year %}
+                <tr><th>Birthday(Y)</th><td>{{ object.birth_year }}</td></tr>
+                {% endif %}
+                <!-- birth_month_day -->
+                {% if object.birth_month_day %}
+                <tr><th>Birthday(M/D)</th><td>{{ object.birth_month_day|date:"m/d" }}</td></tr>
+                {% endif %}
+                <!-- living_area -->
+                {% if object.living_area %}
+                <tr><th>Living Area</th><td>{{ object.living_area }}</td></tr>
+                {% endif %}
+                <!-- mbti -->
+                <tr>
+                  <th>MBTI Type</th>
+                  {% if object.mbti == '-' %}
+                    <td>{{ object.get_mbti_display }}</td>
+                  {% else %}
+                    <td><a href="{{ object.get_mbti_url }}" target="_blank" class="btn btn-sm btn-outline-secondary me-2">{{ object.get_mbti_display }}</a></td>
+                  {% endif %}
+                </tr>
+                <!-- mbti_name -->
+                <tr>
+                  <th>MBTI Name</th>
+                  <td>{{ object.get_mbti_name_display }}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <br/>
+
+        <!-- overview -->
+        {% if object.overview %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Overview</h2>{{ object.overview|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- introduce -->
+        {% if object.introduce %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Introduce</h2>{{ object.introduce|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <br/>
+
+        <!-- hobby -->
+        {% if object.hobby %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Hobby</h2>{{ object.hobby|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- food -->
+        {% if object.food %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Food</h2>{{ object.food|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Music -->
+        {% if object.music %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Music</h2>{{ object.music|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Movie -->
+        {% if object.movie %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Movie</h2>{{ object.movie|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Book -->
+        {% if object.book %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Book</h2>{{ object.book|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <br/>
+
+        <!-- favorite_type -->
+        {% if object.event %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Favorite Type</h2>{{ object.favorite_type|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- favorite_date -->
+        {% if object.favorite_date %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Favorite Date</h2>{{ object.favorite_date|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- sense_of_values -->
+        {% if object.sense_of_values %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Sense of Values</h2>{{ object.sense_of_values|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <br/>
+
+        <!-- future_plan -->
+        {% if object.future_plan %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Future Plan</h2>{{ object.future_plan|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- request_for_partner -->
+        {% if object.request_for_partner %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Request for Partner</h2>{{ object.request_for_partner|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <br/>
+
+        <!-- weekend_activity -->
+        {% if object.weekend_activity %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Weekend Activity</h2>{{ object.weekend_activity|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- on_going_project -->
+        {% if object.on_going_project %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>On-Going Project</h2>{{ object.on_going_project|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- on_going_event -->
+        {% if object.on_going_event %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>On-Going Event</h2>{{ object.on_going_event|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <br/>
+
+        <!-- what_you_want_to_do -->
+        {% if object.what_you_want_to_do %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>What you want to do</h2>{{ object.what_you_want_to_do|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- most_proud_event -->
+        {% if object.most_proud_event %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Most proud Event</h2>{{ object.most_proud_event|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- what_you_value_most -->
+        {% if object.what_you_value_most %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>What you value most</h2>{{ object.what_you_value_most|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <br/>
+
+        <!-- contacts -->
+        {% if object.contacts %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Contacts</h2>{{ object.contacts|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Remarks -->
+        {% if object.remarks %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Remarks</h2>{{ object.remarks|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <br/>
+
+      </div></div>
+
+      <div class="col-md-4">
+        <div class="position-sticky" style="top: 5rem;">
+          <div class="p-4 mb-3 bg-body-tertiary rounded">
+            <div> Profile Card (public) </div>
+            {% include 'includes/findme_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
+          </div>
+
+          <div>
+            <h4 class="fst-italic">Recent chat</h4>
+            {% for chat in recent_chats %}
+              <div class="card" style="margin-bottom:4px;"><div class="card-body" style="padding:8px;">
+                <small class="card-text"><B>{{ chat.title }}</B></small><br/>
+                {% if chat.context %} <small class="text-muted">{{ chat.context }}</small><br/> {% endif %}
+                <small class="text-muted">{{ chat.created_at|date:"Y/m/d H:i" }}</small>
+              </div></div>
+            {% empty %}
+              <div>No recent chats.</div>
+            {% endfor %}
+          </div>
+
+          <!-- Only Display to Friend Profile -->
+          {% if user.is_staff or object.get_friend_pk %}
+            <div style="margin-top:16px;">
+              <h4 class="fst-italic">Recent logins</h4>
+              {% for login_record in recent_login_records %}
+                <div class="card" style="margin-bottom:2px;"><div class="card-body" style="padding:2px; padding-left:4px;">
+                  <small class="text-muted">{{ login_record.login_time|date:"'y/m/d H:i" }} - </small>
+                  <small class="text-muted">
+                    {% if login_record.logout_time and login_record.login_time|date:"Y/m/d" != login_record.logout_time|date:"Y/m/d" %}{{ login_record.logout_time|date:"m/d" }}{% endif %}
+                    {{ login_record.logout_time|date:"H:i" }}
+                  </small>
+                  <small class="text-muted">[{{ login_record.get_diff_time }}]</small>
+                </div></div>
+              {% empty %}
+                  <div>No recent logins.</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+    <br/>
+    <!--submit button-->
+    <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+    {% if user.is_authenticated %}
+        {% if user.is_staff or user.profile.id == object.profile.id %}
+            <a>&nbsp;</a>
+            <a href="{% url 'findme:update' object.pk %}" class="btn btn-primary">Edit</a>
+            <a>&nbsp;</a>
+            <a href="{% url 'findme:delete' object.pk %}" class="btn btn-danger">Delete</a>
+        {% endif %}
+    {% endif %}
+  </form>
+</div></main>
+<!--MAIN END-->
+{% endblock %}

@@ -105,7 +105,7 @@ class Thread(models.Model):
 class ThreadChat(models.Model):
     title = models.CharField(max_length=100, null=True, blank=True)
     context = models.TextField(null=True, blank=True)
-    images = models.ImageField(upload_to='thread_chat', null=True, blank=True)
+    images = models.ImageField(upload_to='thread/chat', null=True, blank=True)
     author = models.CharField(max_length=100, null=True, blank=True)
     likes = models.IntegerField(null=True, blank=True)
     likes_record =  models.TextField(null=True, blank=True, default = '|')

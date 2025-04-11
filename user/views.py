@@ -144,6 +144,7 @@ def create_view(request):
             nick_name_data = profile_form.cleaned_data["nick_name"]
             badges_data = profile_form.cleaned_data["badges"]
             birth_year_data = profile_form.cleaned_data["birth_year"]
+            if birth_year_data == '': birth_year_data = None
             birth_month_day_data = profile_form.cleaned_data["birth_month_day"]
             mbti_data = profile_form.cleaned_data["mbti"]
             mbti_name_data = profile_form.cleaned_data["mbti_name"]
@@ -255,6 +256,7 @@ def update_view(request, pk):
             object.nick_name = profile_form.cleaned_data["nick_name"]
             object.badges = profile_form.cleaned_data["badges"]
             object.birth_year = profile_form.cleaned_data["birth_year"]
+            if object.birth_year == '': object.birth_year = None
             object.birth_month_day = profile_form.cleaned_data["birth_month_day"]
             object.mbti = profile_form.cleaned_data["mbti"]
             object.mbti_name = profile_form.cleaned_data["mbti_name"]

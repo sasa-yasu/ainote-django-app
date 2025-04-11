@@ -34,7 +34,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 30%;
+        width: 50%;       /* 幅自動調整でアスペクト比維持 */
         aspect-ratio: 1 / 1;  /* 正方形を維持 */
         transform: translate(-50%, -50%);
         z-index: 2;          /* 前面に表示 */
@@ -42,11 +42,11 @@
         background-color: white;  /* 背景を白色に */
     }
 
+    /* 前面の images 画像 */
     .profile-front-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border: 2px solid #444040; /* 縁取り */
     }
 
     /* Profile画像の左上に配置 */

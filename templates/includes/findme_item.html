@@ -1,0 +1,52 @@
+{% load static %}
+
+<div class="col"><div class="card shadow-sm" style="margin-bottom:0px;">
+    <!-- 画像ヘッダ -->
+    <div class="profile-image-wrapper"><a href="{% url 'findme:detail' item.pk %}">
+        <!-- 背景：themes -->
+        {% if item.themes %}
+        <img src="{{ item.themes.url }}" class="profile-bg-image" alt="Find-Me Themes"/>
+        {% else %}
+        <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
+        {% endif %}
+
+        <!-- 前面：images(circle切り取り) -->
+        <div class="profile-front-image">
+            {% if item.images %}
+            <img src="{{ item.images.url }}" class="rounded-circle" alt="Find-Me Images"/>
+            {% else %}
+            <img src="{% static 'img/findme.png' %}" class="rounded-circle" alt="Default Images"/>
+            {% endif %}
+        </div>
+
+        <!-- 右上：MBTI -->
+        {% if item.mbti and item.mbti != '-' %}
+            <span class="profile-right-top d-inline-flex align-items-center">
+                {% with mbti_image='img/mbti/'|add:item.mbti|add:'.png' %}
+                <img src="{% static mbti_image %}" width="30px" height="30px" alt="MBTI"/>
+                {% endwith %}
+            </span>
+        {% endif %}    
+
+        <!-- 左下：MBTI Compatibility -->
+        {% if request.user.profile.id != item.id and request.user.profile.mbti and item.mbti %}
+            {% with mbti_comp=item.get_mbti_comp %}
+                {% if mbti_comp.pt > 0 %}
+                <span class="profile-left-bottom d-inline-flex flex-column align-items-center rounded-1" style="background:white;">
+                    {% with mbti_comp_pt=mbti_comp.pt|stringformat:"s" %}
+                    {% with mbti_pt_img='img/mbti/star_'|add:mbti_comp_pt|add:'.png' mbti_relation_img='img/mbti/'|add:mbti_comp.relation|add:'.png' %}
+                    <span style="margin: 2px; padding: 0;"><img src="{% static mbti_pt_img %}" width="50" height=auto alt="MBTI Point" style="display: block;"/></span>
+                    <span style="margin: 0; padding: 0;"><img src="{% static mbti_relation_img %}" width="50" height=auto alt="MBTI Relation" style="display: block;"/></span>
+                    {% endwith %}{% endwith %}
+                </span>
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+        
+    </a></div>
+    <!-- テキストボディ -->
+    <div class="card-body" style="padding:8px;">
+        <small class="card-text">{{ item.name }}</small><br/>
+        <small class="text-body-secondary">{{ disp_date }}</small>
+    </div>
+</div></div>

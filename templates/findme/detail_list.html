@@ -1,0 +1,187 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block header %}
+<style type="text/css">
+    .smoke {background-color: whitesmoke;}
+
+    .preview-image {
+        max-width: 300px;
+        max-height: 300px;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .badge-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 5;  /* アイコンとニックネームの間隔 */
+        padding: 10px 0;
+    }
+
+    .badge-wrapper img {
+        width: 32px;        /* アイコンサイズ */
+        height: 32px;       /* アイコンサイズ */
+        object-fit: cover;  /* アイコン比率維持 */
+        border-radius: 50%; /* 丸型アイコン */
+    }
+
+    .form-check {
+        display: flex;
+        align-items: center; 
+        gap: 10px;          /* ラジオボタンとアイコン間の間隔 */
+    }
+
+    .form-check-input {
+        transform: scale(1.2); /* ラジオボタンサイズ調整 */
+        margin: 0;
+    }
+
+    .form-check-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+    }
+
+    .profile-icon {
+        display: inline-flex;
+        align-items: center;
+        gap: 0px;
+        padding: 5px 10px;
+        border-radius: 12px;
+        white-space: nowrap;
+    }
+    
+</style>
+{% endblock %}
+
+{% block content %}
+<!--HEADER START-->  
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="50" height="50" src="{% static 'img/findme.png' %}" alt="Find-Me Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Find-Me</h3>
+    &nbsp;
+    <img class="bi" width="40" height="40" src="{% static 'img/list.png' %}" alt="Detail Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Detail</h3>
+</div></div>
+<!--HEADER END-->
+
+<!--MAIN START-->
+<main>
+    <div class="container">
+        <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
+            
+            <form method="POST">
+                {% csrf_token %}
+                <!--submit button-->
+                {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='user' %}
+                <br/><br/>
+
+                <!--Display:findme_id(auto:key)-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.id disp_name='ID' %}</div>
+                <!--Display:name-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.name disp_name='Name' %}</div>
+                <!--Display[radiobutton]:gender-->
+                <div class="mb-2">
+                    <label class="form-label btn btn-primary-input labeltext"><b>&lt;&lt;[ Gender ]&gt;&gt;</b></label><br/>
+                    <div class="form-check-group" style="padding:6px 12px;">
+                        {% for value, label in object.GENDER_CHOICES %}
+                        {% if value == object.gender %}
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio_{{ value }}" name="gender_choice" value="{{ value }}" checked>
+                            <label class="form-check-label" for="radio_{{ value }}">{{ label }}</label>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <!--Display[img]:images-->
+                <div class="mb-3">{% include 'includes/display_image.html' with target=object.images field_name='images' disp_name='Images' app_name='findme' %}</div>
+                <!--Display[img]:themes-->
+                <div class="mb-3">{% include 'includes/display_image.html' with target=object.themes field_name='themes' disp_name='Themes' app_name='findme' %}</div>
+
+                <!--Display:birth_year-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.birth_year disp_name='Birthday(Y)' %}</div>
+                <!--Display:birth_month_day-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.birth_month_day disp_name='Birthday(M/D)' %}</div>
+                <!--Display:living_area-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.living_area disp_name='Living Area' %}</div>
+                <!--Display[pulldown]:mbti-->
+                <div class="mb-3">{% include 'includes/display_pulldown.html' with target=object.mbti disp_name='MBTI Type' choices=object.MBTI_CHOICES %}</div>
+                <!--Display[pulldown]:mbti_name-->
+                <div class="mb-3">
+                    <label class="form-label btn btn-primary-input labeltext"><B>&lt;&lt;[ MBTI Name ]&gt;&gt;</B></label><br/>
+                    <select class="form-control smoke" disabled>
+                        <option value="{{ object.mbti_name }}" selected>
+                            {{ object.get_mbti_name_display }}
+                        </option>
+                    </select>
+                </div>
+
+                <!--Display:overview-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.overview disp_name='Overview' %}</div>
+                <!--Display:introduce-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.introduce disp_name='Introduce' %}</div>
+
+                <!--Display:hobby-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.hobby disp_name='Hobby' %}</div>
+                <!--Display:food-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.food disp_name='Food' %}</div>
+                <!--Display:music-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.music disp_name='Music' %}</div>
+                <!--Display:movie-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.movie disp_name='Movie' %}</div>
+                <!--Display:book-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.book disp_name='Book' %}</div>
+
+                <!--Display:favorite_type-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.favorite_type disp_name='Favorite Type' %}</div>
+                <!--Display:favorite_date-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.favorite_date disp_name='Favorite Date' %}</div>
+                <!--Display:sense_of_values-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.sense_of_values disp_name='Sense of Values' %}</div>
+
+                <!--Display:future_plan-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.future_plan disp_name='Future Plan' %}</div>
+                <!--Display:request_for_partner-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.request_for_partner disp_name='Request for Partner' %}</div>
+                
+                <!--Display:weekend_activity-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.weekend_activity disp_name='Weekend Activity' %}</div>
+                <!--Display:on_going_project-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.on_going_project disp_name='On-Going Project' %}</div>
+                <!--Display:on_going_event-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.on_going_event disp_name='On-Going Event' %}</div>
+
+                <!--Display:what_you_want_to_do-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.what_you_want_to_do disp_name='What you want to do' %}</div>
+                <!--Display:most_proud_event-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.most_proud_event disp_name='Most proud Event' %}</div>
+                <!--Display:what_you_value_most-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.what_you_value_most disp_name='What you value most' %}</div>
+
+                <!--Display:contacts-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.contacts disp_name='Contacts' %}</div>
+                <!--Display:remarks-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.remarks disp_name='Remarks' %}</div>
+
+                <!--Display:created_at/updated_at-->
+                {% include 'includes/bottom_dates.html' %}
+                <br/>
+
+                <!--Display:QR for Friendship-->
+                <h5><B>&lt;&lt;[ Show this QR code to build-up Friendship ]&gt;&gt;</B></h5>
+                <div class="text-center">
+                    <img src="{% url 'friend:disp_qr' profile_id=object.id %}" alt="Profile QR Code" width="300" height="300">
+                </div>
+                <br/>
+                <!--submit button-->
+                {% include 'includes/detail_ownuser_controled_buttons.html' with app_name='user' %}
+                <br/>
+            </form>
+        </div>
+    </div>
+</main>
+<!--MAIN END-->
+{% endblock %}

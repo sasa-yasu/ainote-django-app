@@ -19,8 +19,8 @@ class Profile(models.Model):
     """Profile"""
 
     user1 = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
-    memberid = models.CharField('Member Id', max_length=255, null=True, blank=True)
-    nick_name = models.CharField('Nick Name', max_length=255, null=True, blank=True)
+    memberid = models.CharField('Member Id', max_length=100, null=True, blank=True)
+    nick_name = models.CharField('Nick Name', max_length=10, null=True, blank=True)
     BADGES_CHOICES = [
         ('light', 'White'),
         ('primary', 'Blue'),
@@ -113,9 +113,7 @@ class Profile(models.Model):
     threads = models.ManyToManyField('thread.Thread', blank=True, related_name='thread_profiles')  # 紐づくProfileが削除されてもChatは残る
 
     class Meta:
-        constraints = [
-            models.UniqueConstraint(fields=['id'], name='profile_pk'),
-        ]
+        pass
 
     def __str__(self):
         return f'<User:id={self.memberid}, {self.nick_name}>'

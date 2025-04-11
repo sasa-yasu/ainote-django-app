@@ -31,6 +31,7 @@ urlpatterns = [
     path('headline/', include('headline.urls')),
     path('group/', include('group.urls')),
     path('user/', include('user.urls')),
+    path('findme/', include('findme.urls')),
     path('friend/', include('friend.urls')),
     path('chat/', include('chat.urls')),
     path('thread/', include('thread.urls')),

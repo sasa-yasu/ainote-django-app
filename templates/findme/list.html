@@ -54,8 +54,6 @@
         top: 5px;      /* 上から10pxの位置 */
         left: 5px;     /* 左から10pxの位置 */
         z-index: 3;     /* 前面に表示されるように設定 */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
-        border: 2px solid #ccc; /* 枠線 */
     }
 
     /* Profile画像の右上に配置 */
@@ -86,7 +84,6 @@
         border: 2px solid #ccc; /* 枠線 */
     }
 
-    
     /***** profile card : effect *****/
     /* ホバー時のエフェクト */
     .profile-image-wrapper:hover .profile-bg-image {
@@ -100,40 +97,55 @@
 {% block content %}
 <!-- START TITLE -->
 <div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
-    <img class="bi" width="60" height="60" src="{% static 'img/friend.png' %}" alt="Friend Icon">
-    <h1 class="text-body-emphasis fst-italic mb-0">Friends</h1>
+    <img class="bi" width="60" height="60" src="{% static 'img/findme.png' %}" alt="Find-Me Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Find-Me</h1>
     &nbsp;
     <img class="bi" width="50" height="50" src="{% static 'img/list.png' %}" alt="List Icon">
     <h1 class="text-body-emphasis fst-italic mb-0">List</h1>
     </div>
-    <p class="col-lg-8 mx-auto lead fst-italic">The List of Friends which you have.</p>
+    <p class="col-lg-8 mx-auto lead fst-italic">The List of Fine-Me Profiles which we have.</p>
 </div>
 <!-- END TITLE -->
 
 <!--MAIN START-->
 <main class="container">
-    <!--login check-->
-    {% if user.is_authenticated %}
-        <!-- START MAIN LIST BODY -->
-        <div class="container bg-body-tertiary"><div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 row-cols-xxl-7 g-3">
-                {% for item in display_object_list %}
-                    {% if item.profile1.id == user.profile.id %}
-                        {% include 'includes/profile_item.html' with item=item.profile2 disp_date=item.created_at|date:"'y/m/d H:i:s" %}
-                    {% else %}
-                        {% include 'includes/profile_item.html' with item=item.profile1 disp_date=item.created_at|date:"'y/m/d H:i:s" %}
-                    {% endif %}
-                {% endfor %}
-        </div></div>
-        <!-- END MAIN LIST BODY -->
-        <br/>
-        <!-- START BOTTOM PAGINATION -->
-        {% include 'includes/pagination.html' %}
-        <!-- END BOTTOM PAGINATION -->
-    {% else %}
-        <label for="require_login" class="form-label">ログインしてください</label>
-        &nbsp;
-        <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
-    {% endif %}
+    <div class="d-flex align-items-center mb-3">
+        <form method="GET" class="d-flex flex-column align-items-start">
+            <div class="d-flex flex-row align-items-center " style="gap: 8px;">
+                <!-- ソート条件（ラジオボタン） -->
+                <label>Sort by:</label>
+                <div class="d-flex flex-row" style="gap: 8px;">
+                    <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="name_asc"{% if sort_by == "name_asc" %}checked{% endif %}>Name asc</label>
+                    <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="name_desc"{% if sort_by == "name_desc" %}checked{% endif %}>Name desc</label>
+                    <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="created_asc"{% if sort_by == "created_asc" %}checked{% endif %}>Created asc</label>
+                    <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="created_desc"{% if sort_by == "created_desc" %}checked{% endif %}>Created desc</label>
+                    <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="updated_asc"{% if sort_by == "updated_asc" %}checked{% endif %}>Updated asc</label>
+                    <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="updated_desc"{% if sort_by == "updated_desc" %}checked{% endif %}>Updated desc</label>
+                </div>
+            </div>
+            <div class="d-flex flex-row align-items-center " style="gap: 8px;">
+                <label>Search:</label>
+                <input type="text" name="search_str" value="{{ search_str }}" class="form-control" maxlength="100" aria-describedby="id_search_str" id="id_search_str" style="width: 100px;">
+                <input type="submit" class="btn btn-primary" id="submit-button" value="Filter">
+                {% if user.is_authenticated and not findme_own %}
+                    <span class="mx-3">|</span>
+                    <a href="{% url 'findme:create' %}" class="btn btn-primary">Create Find-Me</a>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+    <hr>
+    <!-- START MAIN LIST BODY -->
+    <div class="container bg-body-tertiary"><div class="row row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 row-cols-xxl-7 g-3">
+        {% for item in display_object_list %}
+            {% include 'includes/findme_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" %}
+        {% endfor %}
+    </div></div>
+    <!-- END MAIN LIST BODY -->
+    <br/>
+    <!-- START BOTTOM PAGINATION -->
+    {% include 'includes/pagination.html' %}
+    <!-- END BOTTOM PAGINATION -->
 </main>
 <!--MAIN END-->
 {% endblock content %}

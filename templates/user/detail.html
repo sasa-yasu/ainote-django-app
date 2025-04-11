@@ -53,22 +53,19 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: auto;       /* 幅自動調整でアスペクト比維持 */
-        height: 90%;      /* front-imageの高さを80%に */
+        width: 50%;       /* 幅自動調整でアスペクト比維持 */
+        aspect-ratio: 1 / 1;  /* 正方形を維持 */
         transform: translate(-50%, -50%);
         z-index: 2;          /* 前面に表示 */
-        overflow: hidden;         /* はみ出し防止 */
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        border-radius: 50%;   /* 完全な円形に */
+        background-color: white;  /* 背景を白色に */
     }
 
     /* 前面の images 画像 */
     .profile-front-image img {
-        height: 90%;         /* 親要素に対して80%の高さで表示 */
-        width: auto;          /* アスペクト比維持 */
-        object-fit: contain;  /* はみ出し防止 */
-        margin: 2px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     /* Profile画像の左上に配置 */
@@ -135,6 +132,13 @@
 
 {% block content %}
 <!--HEADER START-->  
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+  <img class="bi" width="50" height="50" src="{% static 'img/user.png' %}" alt="Profile Icon">
+  <h3 class="text-body-emphasis fst-italic mb-0">Profile</h3>
+  &nbsp;
+  <img class="bi" width="40" height="40" src="{% static 'img/list.png' %}" alt="Detail Icon">
+  <h3 class="text-body-emphasis fst-italic mb-0">Detail</h3>
+</div></div>
 <!--HEADER END-->
 
 <!--MAIN START-->

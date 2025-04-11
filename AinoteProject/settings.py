@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'friend.apps.FriendConfig',
     'group.apps.GroupConfig',
     'user.apps.UserConfig',
+    'findme.apps.FindmeConfig',
     'room.apps.RoomConfig',
     'device.apps.DeviceConfig',
     'headline.apps.HeadlineConfig',
