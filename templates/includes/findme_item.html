@@ -47,6 +47,10 @@
     <!-- テキストボディ -->
     <div class="card-body" style="padding:8px;">
         <small class="card-text">{{ item.name }}</small><br/>
+        {% if item.birthday_year %}<small class="card-text">{{ item.birthday_year }}</small><br/>{% endif %}
+        <small class="card-text">{{ item.get_gender_display }}</small><br/>
+        {% if item.living_area %}<small class="card-text">{{ item.living_area }}</small><br/>{% endif %}
+        {% if item.overview %}<small class="card-text">{{ item.overview }}</small><br/>{% endif %}
         <small class="text-body-secondary">{{ disp_date }}</small>
     </div>
 </div></div>

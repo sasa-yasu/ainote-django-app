@@ -175,42 +175,74 @@
                 <!--Input:introduce-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.introduce %}</div>
 
+                <!--Input[checkbox]:hobby_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.hobby_choice choices=HOBBY_CHOICES %}</div>
                 <!--Input:hobby-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.hobby %}</div>
+                <!--Input[checkbox]:food_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.food_choice choices=FOOD_CHOICES %}</div>
                 <!--Input:food-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.food %}</div>
+                <!--Input[checkbox]:music_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.music_choice choices=MUSIC_CHOICES %}</div>
                 <!--Input:music-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.music %}</div>
+                <!--Input[checkbox]:movie_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.movie_choice choices=MOVIE_CHOICES %}</div>
                 <!--Input:movie-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.movie %}</div>
+                <!--Input[checkbox]:book_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.book_choice choices=BOOK_CHOICES %}</div>
                 <!--Input:book-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.book %}</div>
 
-                <!--Input:favorite_type-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.favorite_type %}</div>
+                <!--Input[checkbox]:personality_type_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.personality_type_choice choices=PERSONALITY_TYPE_CHOICES %}</div>
+                <!--Input:personality_type-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.personality_type %}</div>
+                <!--Input[checkbox]:favorite_date_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.favorite_date_choice choices=FAVORITE_DATE_CHOICES %}</div>
                 <!--Input:favorite_date-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.favorite_date %}</div>
+                <!--Input[checkbox]:sense_of_values_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.sense_of_values_choice choices=SENSE_OF_VALUES_CHOICES %}</div>
                 <!--Input:sense_of_values-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.sense_of_values %}</div>
 
+                <!--Input[checkbox]:future_plan_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.future_plan_choice choices=FUTURE_PLAN_CHOICES %}</div>
                 <!--Input:future_plan-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.future_plan %}</div>
+                <!--Input[checkbox]:request_for_partner_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.request_for_partner_choice choices=REQUEST_FOR_PARTNER_CHOICES %}</div>
                 <!--Input:request_for_partner-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.request_for_partner %}</div>
 
+                <!--Input[checkbox]:weekend_activity_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.weekend_activity_choice choices=WEEKEND_ACTIVITY_CHOICES %}</div>
                 <!--Input:weekend_activity-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.weekend_activity %}</div>
+                <!--Input[checkbox]:on_going_project_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.on_going_project_choice choices=ONGOING_PROJECT_CHOICES %}</div>
                 <!--Input:on_going_project-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.on_going_project %}</div>
-                <!--Input:on_going_event-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.on_going_event %}</div>
+                <!--Input[checkbox]:social_activity_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.social_activity_choice choices=SOCIAL_ACTIVITY_CHOICES %}</div>
+                <!--Input:social_activity-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.social_activity %}</div>
 
-                <!--Input:what_you_want_to_do-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.what_you_want_to_do %}</div>
-                <!--Input:most_proud_event-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.most_proud_event %}</div>
-                <!--Input:what_you_value_most-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.what_you_value_most %}</div>
+                <!--Input[checkbox]:free_day_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.free_day_choice choices=FREE_DAY_CHOICES %}</div>
+                <!--Input:free_day-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.free_day %}</div>
+                <!--Input[checkbox]:proudest_achievements_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.proudest_achievements_choice choices=PROUDEST_ACHIEVEMENTS_CHOICES %}</div>
+                <!--Input:proudest_achievements-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.proudest_achievements %}</div>
+                <!--Input[checkbox]:most_important_values_choice-->
+                <div class="mb-2">{% include 'includes/input_checkbox.html' with target=findme_form.most_important_values_choice choices=MOST_IMPORTANT_VALUES_CHOICES %}</div>
+                <!--Input:most_important_values-->
+                <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.most_important_values %}</div>
 
                 <!--Input:contacts-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.contacts %}</div>

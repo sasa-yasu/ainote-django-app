@@ -89,6 +89,9 @@ def list_view(request):
         'findme_own': findme_own,
     }
 
+    # add all CHOICES for input / display
+    context = FindMe.get_all_choices(context)
+
     logger.info('return render findme/list.html')
     return render(request, 'findme/list.html', context)
 
@@ -100,6 +103,9 @@ def detail_view(request, pk):
     object = get_object_or_404(FindMe, pk=pk)
 
     context = {'object': object}
+
+    # add all CHOICES for input / display
+    context = FindMe.get_all_choices(context)
 
     logger.debug('return render findme/detail.html')
     return render(request, 'findme/detail.html', context)
@@ -130,27 +136,51 @@ def create_view(request):
             birth_year_data = findme_form.cleaned_data["birth_year"]
             if birth_year_data == '': birth_year_data = None
             birth_month_day_data = findme_form.cleaned_data["birth_month_day"]
+            living_pref_data = findme_form.cleaned_data["living_pref"]
             living_area_data = findme_form.cleaned_data["living_area"]
             mbti_data = findme_form.cleaned_data["mbti"]
             mbti_name_data = findme_form.cleaned_data["mbti_name"]
+
             overview_data = findme_form.cleaned_data["overview"]
             introduce_data = findme_form.cleaned_data["introduce"]
+
+            hobby_choice_data = findme_form.cleaned_data["hobby_choice"]
             hobby_data = findme_form.cleaned_data["hobby"]
+            food_choice_data = findme_form.cleaned_data["food_choice"]
             food_data = findme_form.cleaned_data["food"]
+            music_choice_data = findme_form.cleaned_data["music_choice"]
             music_data = findme_form.cleaned_data["music"]
+            movie_choice_data = findme_form.cleaned_data["movie_choice"]
             movie_data = findme_form.cleaned_data["movie"]
+            book_choice_data = findme_form.cleaned_data["book_choice"]
             book_data = findme_form.cleaned_data["book"]
-            favorite_type_data = findme_form.cleaned_data["favorite_type"]
+
+            personality_type_choice_data = findme_form.cleaned_data["personality_type_choice"]
+            personality_type_data = findme_form.cleaned_data["personality_type"]
+            favorite_date_choice_data = findme_form.cleaned_data["favorite_date_choice"]
             favorite_date_data = findme_form.cleaned_data["favorite_date"]
+            sense_of_values_choice_data = findme_form.cleaned_data["sense_of_values_choice"]
             sense_of_values_data = findme_form.cleaned_data["sense_of_values"]
+
+            future_plan_choice_data = findme_form.cleaned_data["future_plan_choice"]
             future_plan_data = findme_form.cleaned_data["future_plan"]
+            request_for_partner_choice_data = findme_form.cleaned_data["request_for_partner_choice"]
             request_for_partner_data = findme_form.cleaned_data["request_for_partner"]
+
+            weekend_activity_choice_data = findme_form.cleaned_data["weekend_activity_choice"]
             weekend_activity_data = findme_form.cleaned_data["weekend_activity"]
+            on_going_project_choice_data = findme_form.cleaned_data["on_going_project_choice"]
             on_going_project_data = findme_form.cleaned_data["on_going_project"]
-            on_going_event_data = findme_form.cleaned_data["on_going_event"]
-            what_you_want_to_do_data = findme_form.cleaned_data["what_you_want_to_do"]
-            most_proud_event_data = findme_form.cleaned_data["most_proud_event"]
-            what_you_value_most_data = findme_form.cleaned_data["what_you_value_most"]
+            social_activity_choice_data = findme_form.cleaned_data["social_activity_choice"]
+            social_activity_data = findme_form.cleaned_data["social_activity"]
+
+            free_day_choice_data = findme_form.cleaned_data["free_day_choice"]
+            free_day_data = findme_form.cleaned_data["free_day"]
+            proudest_achievements_choice_data = findme_form.cleaned_data["proudest_achievements_choice"]
+            proudest_achievements_data = findme_form.cleaned_data["proudest_achievements"]
+            most_important_values_choice_data = findme_form.cleaned_data["most_important_values_choice"]
+            most_important_values_data = findme_form.cleaned_data["most_important_values"]
+
             contacts_data = findme_form.cleaned_data["contacts"]
             remarks_data = findme_form.cleaned_data["remarks"]
             pic_data = request.user.profile
@@ -165,29 +195,54 @@ def create_view(request):
                     gender = gender_data,
                     birth_year = birth_year_data,
                     birth_month_day = birth_month_day_data,
+                    living_pref = living_pref_data,
                     living_area = living_area_data,
                     mbti = mbti_data,
                     mbti_name = mbti_name_data,
+
                     overview = overview_data,
                     introduce = introduce_data,
+
+                    hobby_choice = hobby_choice_data,
                     hobby = hobby_data,
+                    food_choice = food_choice_data,
                     food = food_data,
+                    music_choice = music_choice_data,
                     music = music_data,
+                    movie_choice = movie_choice_data,
                     movie = movie_data,
+                    book_choice = book_choice_data,
                     book = book_data,
-                    favorite_type = favorite_type_data,
+
+                    personality_type_choice = personality_type_choice_data,
+                    personality_type = personality_type_data,
+                    favorite_date_choice = favorite_date_choice_data,
                     favorite_date = favorite_date_data,
+                    sense_of_values_choice = sense_of_values_choice_data,
                     sense_of_values = sense_of_values_data,
+
+                    future_plan_choice = future_plan_choice_data,
                     future_plan = future_plan_data,
+                    request_for_partner_choice = request_for_partner_choice_data,
                     request_for_partner = request_for_partner_data,
+
+                    weekend_activity_choice = weekend_activity_choice_data,
                     weekend_activity = weekend_activity_data,
+                    on_going_project_choice = on_going_project_choice_data,
                     on_going_project = on_going_project_data,
-                    on_going_event = on_going_event_data,
-                    what_you_want_to_do = what_you_want_to_do_data,
-                    most_proud_event = most_proud_event_data,
-                    what_you_value_most = what_you_value_most_data,
+                    social_activity_choice = social_activity_choice_data,
+                    social_activity = social_activity_data,
+
+                    free_day_choice = free_day_choice_data,
+                    free_day = free_day_data,
+                    proudest_achievements_choice = proudest_achievements_choice_data,
+                    proudest_achievements = proudest_achievements_data,
+                    most_important_values_choice = most_important_values_choice_data,
+                    most_important_values = most_important_values_data,
+
                     contacts = contacts_data,
                     remarks = remarks_data,
+
                     images = None, # 画像はまだ保存しない
                     themes = None, # 画像はまだ保存しない
                     created_pic = pic_data,
@@ -221,6 +276,9 @@ def create_view(request):
         findme_form = FindMeForm()
         context = {'findme_form': findme_form}
 
+    # add all CHOICES for input / display
+    context = FindMe.get_all_choices(context)
+
     logger.info('return render findme/create.html')
     return render(request, 'findme/create.html', context)
     
@@ -251,6 +309,7 @@ def update_view(request, pk):
             object.birth_year = findme_form.cleaned_data["birth_year"]
             if object.birth_year == '': object.birth_year = None
             object.birth_month_day = findme_form.cleaned_data["birth_month_day"]
+            object.living_pref = findme_form.cleaned_data["living_pref"]
             object.living_area = findme_form.cleaned_data["living_area"]
             object.mbti = findme_form.cleaned_data["mbti"]
             object.mbti_name = findme_form.cleaned_data["mbti_name"]
@@ -258,26 +317,42 @@ def update_view(request, pk):
             object.overview = findme_form.cleaned_data["overview"]
             object.introduce = findme_form.cleaned_data["introduce"]
 
+            object.hobby_choice = findme_form.cleaned_data["hobby_choice"]
             object.hobby = findme_form.cleaned_data["hobby"]
+            object.food_choice = findme_form.cleaned_data["food_choice"]
             object.food = findme_form.cleaned_data["food"]
+            object.music_choice = findme_form.cleaned_data["music_choice"]
             object.music = findme_form.cleaned_data["music"]
+            object.movie_choice = findme_form.cleaned_data["movie_choice"]
             object.movie = findme_form.cleaned_data["movie"]
+            object.book_choice = findme_form.cleaned_data["book_choice"]
             object.book = findme_form.cleaned_data["book"]
 
-            object.favorite_type = findme_form.cleaned_data["favorite_type"]
+            object.personality_type_choice = findme_form.cleaned_data["personality_type_choice"]
+            object.personality_type = findme_form.cleaned_data["personality_type"]
+            object.favorite_date_choice = findme_form.cleaned_data["favorite_date_choice"]
             object.favorite_date = findme_form.cleaned_data["favorite_date"]
+            object.sense_of_values_choice = findme_form.cleaned_data["sense_of_values_choice"]
             object.sense_of_values = findme_form.cleaned_data["sense_of_values"]
 
+            object.future_plan_choice = findme_form.cleaned_data["future_plan_choice"]
             object.future_plan = findme_form.cleaned_data["future_plan"]
+            object.request_for_partner_choice = findme_form.cleaned_data["request_for_partner_choice"]
             object.request_for_partner = findme_form.cleaned_data["request_for_partner"]
 
+            object.weekend_activity_choice = findme_form.cleaned_data["weekend_activity_choice"]
             object.weekend_activity = findme_form.cleaned_data["weekend_activity"]
+            object.on_going_project_choice = findme_form.cleaned_data["on_going_project_choice"]
             object.on_going_project = findme_form.cleaned_data["on_going_project"]
-            object.on_going_event = findme_form.cleaned_data["on_going_event"]
+            object.social_activity_choice = findme_form.cleaned_data["social_activity_choice"]
+            object.social_activity = findme_form.cleaned_data["social_activity"]
 
-            object.what_you_want_to_do = findme_form.cleaned_data["what_you_want_to_do"]
-            object.most_proud_event = findme_form.cleaned_data["most_proud_event"]
-            object.what_you_value_most = findme_form.cleaned_data["what_you_value_most"]
+            object.free_day_choice = findme_form.cleaned_data["free_day_choice"]
+            object.free_day = findme_form.cleaned_data["free_day"]
+            object.proudest_achievements_choice = findme_form.cleaned_data["proudest_achievements_choice"]
+            object.proudest_achievements = findme_form.cleaned_data["proudest_achievements"]
+            object.most_important_values_choice = findme_form.cleaned_data["most_important_values_choice"]
+            object.most_important_values = findme_form.cleaned_data["most_important_values"]
 
             object.contacts = findme_form.cleaned_data["contacts"]
             object.remarks = findme_form.cleaned_data["remarks"]
@@ -309,6 +384,9 @@ def update_view(request, pk):
         logger.info('GET method')  
         findme_form = FindMeForm(instance=object) # putback the form
         context = {'object': object, 'findme_form': findme_form}
+
+    # add all CHOICES for input / display
+    context = FindMe.get_all_choices(context)
 
     logger.info('return render findme/update.html')
     return render(request, 'findme/update.html', context)
@@ -346,6 +424,9 @@ def delete_view(request, pk):
         return redirect('findme:list')
     else:
         logger.info('GET method')
+
+    # add all CHOICES for input / display
+    context = FindMe.get_all_choices(context)
 
     logger.info('return render findme/delete.html')
     return render(request, 'findme/delete.html', context)

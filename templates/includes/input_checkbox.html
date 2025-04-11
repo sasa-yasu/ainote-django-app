@@ -1,0 +1,12 @@
+<label for="id_{{ target.name }}" class="form-label btn btn-primary-input labeltext"><b>&lt;&lt;[ {{ target.label|safe }} ]&gt;&gt;</b></label><br/>
+{% if target.help_text %}<span class="helptext" style="font-size:10pt">{{ target.help_text|safe }}</span>{% endif %}
+{% if target.errors %}<div class="errortext" style="font-size:10pt">{% for error in target.errors %} * {{ error }}<br/> {% endfor %} </div> {% endif %}
+<div class="form-check-group" style="padding:6px 12px;">
+    {% for value, label in choices %}                            
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="{{ target.name }}" value="{{ value }}" id="id_{{ target.name }}_{{ forloop.counter0 }}"
+            {% if value in target.value %}checked{% endif %}>
+            <label class="form-check-label" for="id_{{ target.name }}_{{ forloop.counter0 }}">{{ label }}</label>
+        </div>
+    {% endfor %}
+</div>

@@ -68,7 +68,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',  # humanizeを有効化
-
+    'multiselectfield',
+    
 #    'maintenance_mode', #メンテナンスモード
 
     'AinoteProject',

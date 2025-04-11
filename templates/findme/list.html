@@ -136,7 +136,7 @@
     </div>
     <hr>
     <!-- START MAIN LIST BODY -->
-    <div class="container bg-body-tertiary"><div class="row row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 row-cols-xxl-7 g-3">
+    <div class="container bg-body-tertiary masonry" ><div class="row row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 row-cols-xxl-7 g-3">
         {% for item in display_object_list %}
             {% include 'includes/findme_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" %}
         {% endfor %}
@@ -149,3 +149,7 @@
 </main>
 <!--MAIN END-->
 {% endblock content %}
+
+{% block footer %}
+<script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
+{% endblock footer %}

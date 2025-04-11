@@ -14,3 +14,7 @@ def url_replace(request, field, value):
 def getattr_custom(obj, attr_name):
     """ テンプレート内でオブジェクトの属性を取得するカスタムフィルター """
     return getattr(obj, attr_name, "")
+
+@register.filter
+def split_by_comma(value):
+    return value.split(',')

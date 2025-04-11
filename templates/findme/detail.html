@@ -240,6 +240,10 @@
                 {% if object.birth_month_day %}
                 <tr><th>Birthday(M/D)</th><td>{{ object.birth_month_day|date:"m/d" }}</td></tr>
                 {% endif %}
+                <!-- living_pref -->
+                {% if object.living_pref %}
+                <tr><th>Living Pref.</th><td>{{ object.get_living_pref_display }}</td></tr>
+                {% endif %}
                 <!-- living_area -->
                 {% if object.living_area %}
                 <tr><th>Living Area</th><td>{{ object.living_area }}</td></tr>
@@ -293,24 +297,47 @@
         <br/>
 
         <!-- hobby -->
-        {% if object.hobby %}
+        {% if object.hobby_choice or object.hobby %}
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>Hobby</h2>{{ object.hobby|safe|linebreaksbr }}
+                <h2>Hobby</h2>
+                {% if object.hobby_choice %}
+                  &lt;&lt;
+                  {% for hobby in object.hobby_choice %}
+                    {% for value, label in HOBBY_CHOICES %}
+                      {% if hobby == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.hobby %}{{ object.hobby|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
         </div>
         {% endif %}
+
         <!-- food -->
-        {% if object.food %}
+        {% if object.food_choice or object.food %}
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>Food</h2>{{ object.food|safe|linebreaksbr }}
+                <h2>Food</h2>
+                {% if object.food_choice %}
+                  &lt;&lt;
+                  {% for food in object.food_choice %}
+                    {% for value, label in FOOD_CHOICES %}
+                      {% if food == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.food %}{{ object.food|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
@@ -322,7 +349,18 @@
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>Music</h2>{{ object.music|safe|linebreaksbr }}
+                <h2>Music</h2>
+                {% if object.music_choice %}
+                  &lt;&lt;
+                  {% for music in object.music_choice %}
+                    {% for value, label in MUSIC_CHOICES %}
+                      {% if music == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.music %}{{ object.music|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
@@ -334,7 +372,18 @@
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>Movie</h2>{{ object.movie|safe|linebreaksbr }}
+                <h2>Movie</h2>
+                {% if object.movie_choice %}
+                  &lt;&lt;
+                  {% for movie in object.movie_choice %}
+                    {% for value, label in MOVIE_CHOICES %}
+                      {% if movie == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.movie %}{{ object.movie|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
@@ -346,7 +395,18 @@
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>Book</h2>{{ object.book|safe|linebreaksbr }}
+                <h2>Book</h2>
+                {% if object.book_choice %}
+                  &lt;&lt;
+                  {% for book in object.book_choice %}
+                    {% for value, label in BOOK_CHOICES %}
+                      {% if book == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.book %}{{ object.book|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
@@ -355,13 +415,24 @@
 
         <br/>
 
-        <!-- favorite_type -->
-        {% if object.event %}
+        <!-- personality_type -->
+        {% if object.personality_type %}
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>Favorite Type</h2>{{ object.favorite_type|safe|linebreaksbr }}
+                <h2>Personality Type</h2>
+                {% if object.personality_type_choice %}
+                  &lt;&lt;
+                  {% for personality_type in object.personality_type_choice %}
+                    {% for value, label in PERSONALITY_TYPE_CHOICES %}
+                      {% if personality_type == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.personality_type %}{{ object.personality_type|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
@@ -373,7 +444,18 @@
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>Favorite Date</h2>{{ object.favorite_date|safe|linebreaksbr }}
+                <h2>Favorite Date</h2>
+                {% if object.favorite_date_choice %}
+                  &lt;&lt;
+                  {% for favorite_date in object.favorite_date_choice %}
+                    {% for value, label in FAVORITE_DATE_CHOICES %}
+                      {% if favorite_date == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.favorite_date %}{{ object.favorite_date|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
@@ -385,7 +467,18 @@
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>Sense of Values</h2>{{ object.sense_of_values|safe|linebreaksbr }}
+                <h2>Sense of Values</h2>
+                {% if object.sense_of_values_choice %}
+                  &lt;&lt;
+                  {% for sense_of_values in object.sense_of_values_choice %}
+                    {% for value, label in SENSE_OF_VALUES_CHOICES %}
+                      {% if sense_of_values == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.sense_of_values %}{{ object.sense_of_values|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
@@ -400,7 +493,18 @@
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>Future Plan</h2>{{ object.future_plan|safe|linebreaksbr }}
+                <h2>Future Plan</h2>
+                {% if object.future_plan_choice %}
+                  &lt;&lt;
+                  {% for future_plan in object.future_plan_choice %}
+                    {% for value, label in FUTURE_PLAN_CHOICES %}
+                      {% if future_plan == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.future_plan %}{{ object.future_plan|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
@@ -412,7 +516,18 @@
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>Request for Partner</h2>{{ object.request_for_partner|safe|linebreaksbr }}
+                <h2>Request for Partner</h2>
+                {% if object.request_for_partner_choice %}
+                  &lt;&lt;
+                  {% for request_for_partner in object.request_for_partner_choice %}
+                    {% for value, label in REQUEST_FOR_PARTNER_CHOICES %}
+                      {% if request_for_partner == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.request_for_partner %}{{ object.request_for_partner|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
@@ -427,7 +542,18 @@
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>Weekend Activity</h2>{{ object.weekend_activity|safe|linebreaksbr }}
+                <h2>Weekend Activity</h2>
+                {% if object.weekend_activity_choice %}
+                  &lt;&lt;
+                  {% for weekend_activity in object.weekend_activity_choice %}
+                    {% for value, label in WEEKEND_ACTIVITY_CHOICES %}
+                      {% if weekend_activity == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.weekend_activity %}{{ object.weekend_activity|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
@@ -439,19 +565,41 @@
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>On-Going Project</h2>{{ object.on_going_project|safe|linebreaksbr }}
+                <h2>On-Going Project</h2>
+                {% if object.on_going_project_choice %}
+                  &lt;&lt;
+                  {% for on_going_project in object.on_going_project_choice %}
+                    {% for value, label in ONGOING_PROJECT_CHOICES %}
+                      {% if on_going_project == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.on_going_project %}{{ object.on_going_project|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
         </div>
         {% endif %}
-        <!-- on_going_event -->
-        {% if object.on_going_event %}
+        <!-- social_activity -->
+        {% if object.social_activity %}
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>On-Going Event</h2>{{ object.on_going_event|safe|linebreaksbr }}
+                <h2>Social Activity</h2>
+                {% if object.social_activity_choice %}
+                  &lt;&lt;
+                  {% for social_activity in object.social_activity_choice %}
+                    {% for value, label in SOCIAL_ACTIVITY_CHOICES %}
+                      {% if social_activity == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.social_activity %}{{ object.social_activity|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
@@ -460,37 +608,70 @@
 
         <br/>
 
-        <!-- what_you_want_to_do -->
-        {% if object.what_you_want_to_do %}
+        <!-- free_day -->
+        {% if object.free_day %}
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>What you want to do</h2>{{ object.what_you_want_to_do|safe|linebreaksbr }}
+                <h2>What if Free Day</h2>
+                {% if object.free_day_choice %}
+                  &lt;&lt;
+                  {% for free_day in object.free_day_choice %}
+                    {% for value, label in FREE_DAY_CHOICES %}
+                      {% if free_day == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.free_day %}{{ object.free_day|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
         </div>
         {% endif %}
-        <!-- most_proud_event -->
-        {% if object.most_proud_event %}
+        <!-- proudest_achievements -->
+        {% if object.proudest_achievements %}
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>Most proud Event</h2>{{ object.most_proud_event|safe|linebreaksbr }}
+                <h2>Proudest Achieve.</h2>
+                {% if object.proudest_achievements_choice %}
+                  &lt;&lt;
+                  {% for proudest_achievements in object.proudest_achievements_choice %}
+                    {% for value, label in PROUDEST_ACHIEVEMENTS_CHOICES %}
+                      {% if proudest_achievements == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.proudest_achievements %}{{ object.proudest_achievements|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
         </div>
         {% endif %}
-        <!-- what_you_value_most -->
-        {% if object.what_you_value_most %}
+        <!-- most_important_values -->
+        {% if object.most_important_values %}
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
               <article class="blog-post" style="margin:0px;">
-                <h2>What you value most</h2>{{ object.what_you_value_most|safe|linebreaksbr }}
+                <h2>Most important Values</h2>
+                {% if object.most_important_values_choice %}
+                  &lt;&lt;
+                  {% for most_important_values in object.most_important_values_choice %}
+                    {% for value, label in MOST_IMPORTANT_VALUES_CHOICES %}
+                      {% if most_important_values == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  &gt;&gt;
+                  <br/>
+                {% endif %}
+                {% if object.most_important_values %}{{ object.most_important_values|safe|linebreaksbr }}{% endif %}
               </article>
             </div>
           </div>
