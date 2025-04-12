@@ -49,6 +49,91 @@ def list_view(request):
     else:
         object_list = FindMe.objects.all()
 
+    # 性別フィルタ用
+    search_gender = request.GET.getlist("search_gender", "")
+    logger.debug(f'search_gender: {search_gender}')
+    if search_gender: object_list = FindMe.filter_findme_object(object_list, search_gender, 'gender', FindMe.GENDER_CHOICES)
+
+    # hobbyフィルタ用
+    search_hobby = request.GET.getlist("search_hobby", "")
+    logger.debug(f'search_hobby: {search_hobby}')
+    if search_hobby: object_list = FindMe.filter_findme_object(object_list, search_hobby, 'hobby', FindMe.HOBBY_CHOICES)
+
+    # foodフィルタ用
+    search_food = request.GET.getlist("search_food", "")
+    logger.debug(f'search_food: {search_food}')
+    if search_food: object_list = FindMe.filter_findme_object(object_list, search_food, 'food', FindMe.FOOD_CHOICES)
+
+    # musicフィルタ用
+    search_music = request.GET.getlist("search_music", "")
+    logger.debug(f'search_music: {search_music}')
+    if search_music: object_list = FindMe.filter_findme_object(object_list, search_music, 'music', FindMe.MUSIC_CHOICES)
+
+    # movieフィルタ用
+    search_movie = request.GET.getlist("search_movie", "")
+    logger.debug(f'search_movie: {search_movie}')
+    if search_movie: object_list = FindMe.filter_findme_object(object_list, search_movie, 'movie', FindMe.MOVIE_CHOICES)
+
+    # bookフィルタ用
+    search_book = request.GET.getlist("search_book", "")
+    logger.debug(f'search_book: {search_book}')
+    if search_book: object_list = FindMe.filter_findme_object(object_list, search_book, 'book', FindMe.BOOK_CHOICES)
+
+    # personality_typeフィルタ用
+    search_personality_type = request.GET.getlist("search_personality_type", "")
+    logger.debug(f'search_personality_type: {search_personality_type}')
+    if search_personality_type: object_list = FindMe.filter_findme_object(object_list, search_personality_type, 'personality_type', FindMe.PERSONALITY_TYPE_CHOICES)
+
+    # favorite_dateフィルタ用
+    search_favorite_date = request.GET.getlist("search_favorite_date", "")
+    logger.debug(f'search_favorite_date: {search_favorite_date}')
+    if search_favorite_date: object_list = FindMe.filter_findme_object(object_list, search_favorite_date, 'favorite_date', FindMe.FAVORITE_DATE_CHOICES)
+
+    # sense_of_valuesフィルタ用
+    search_sense_of_values = request.GET.getlist("search_sense_of_values", "")
+    logger.debug(f'search_sense_of_values: {search_sense_of_values}')
+    if search_sense_of_values: object_list = FindMe.filter_findme_object(object_list, search_sense_of_values, 'sense_of_values', FindMe.SENSE_OF_VALUES_CHOICES)
+
+    # future_planフィルタ用
+    search_future_plan = request.GET.getlist("search_future_plan", "")
+    logger.debug(f'search_future_plan: {search_future_plan}')
+    if search_future_plan: object_list = FindMe.filter_findme_object(object_list, search_future_plan, 'future_plan', FindMe.FUTURE_PLAN_CHOICES)
+
+    # request_for_partnerフィルタ用
+    search_request_for_partner = request.GET.getlist("search_request_for_partner", "")
+    logger.debug(f'search_request_for_partner: {search_request_for_partner}')
+    if search_request_for_partner: object_list = FindMe.filter_findme_object(object_list, search_request_for_partner, 'request_for_partner', FindMe.REQUEST_FOR_PARTNER_CHOICES)
+
+    # weekend_activityフィルタ用
+    search_weekend_activity = request.GET.getlist("search_weekend_activity", "")
+    logger.debug(f'search_weekend_activity: {search_weekend_activity}')
+    if search_weekend_activity: object_list = FindMe.filter_findme_object(object_list, search_weekend_activity, 'weekend_activity', FindMe.WEEKEND_ACTIVITY_CHOICES)
+
+    # ongoing_projectフィルタ用
+    search_ongoing_project = request.GET.getlist("search_ongoing_project", "")
+    logger.debug(f'search_ongoing_project: {search_ongoing_project}')
+    if search_ongoing_project: object_list = FindMe.filter_findme_object(object_list, search_ongoing_project, 'ongoing_project', FindMe.ONGOING_PROJECT_CHOICES)
+
+    # social_activityフィルタ用
+    search_social_activity = request.GET.getlist("search_social_activity", "")
+    logger.debug(f'search_social_activity: {search_social_activity}')
+    if search_social_activity: object_list = FindMe.filter_findme_object(object_list, search_social_activity, 'social_activity', FindMe.SOCIAL_ACTIVITY_CHOICES)
+
+    # free_dayフィルタ用
+    search_free_day = request.GET.getlist("search_free_day", "")
+    logger.debug(f'search_free_day: {search_free_day}')
+    if search_free_day: object_list = FindMe.filter_findme_object(object_list, search_free_day, 'free_day', FindMe.FREE_DAY_CHOICES)
+
+    # proudest_achievementsフィルタ用
+    search_proudest_achievements = request.GET.getlist("search_proudest_achievements", "")
+    logger.debug(f'search_proudest_achievements: {search_proudest_achievements}')
+    if search_proudest_achievements: object_list = FindMe.filter_findme_object(object_list, search_proudest_achievements, 'proudest_achievements', FindMe.PROUDEST_ACHIEVEMENTS_CHOICES)
+
+    # most_important_valuesフィルタ用
+    search_most_important_values = request.GET.getlist("search_most_important_values", "")
+    logger.debug(f'search_most_important_values: {search_most_important_values}')
+    if search_most_important_values: object_list = FindMe.filter_findme_object(object_list, search_most_important_values, 'most_important_values', FindMe.MOST_IMPORTANT_VALUES_CHOICES)
+
     # 並び替え処理
     sort_options = {
         "name_asc": "name",
@@ -84,6 +169,23 @@ def list_view(request):
     context = {
         'display_object_list': display_object_list,
         'link_object_list': link_object_list,
+        'search_gender': search_gender,
+        'search_hobby': search_hobby,
+        'search_food': search_food,
+        'search_music': search_music,
+        'search_movie': search_movie,
+        'search_book': search_book,
+        'search_personality_type': search_personality_type,
+        'search_favorite_date': search_favorite_date,
+        'search_sense_of_values': search_sense_of_values,
+        'search_future_plan': search_future_plan,
+        'search_request_for_partner': search_request_for_partner,
+        'search_weekend_activity': search_weekend_activity,
+        'search_ongoing_project': search_ongoing_project,
+        'search_social_activity': search_social_activity,
+        'search_free_day': search_free_day,
+        'search_proudest_achievements': search_proudest_achievements,
+        'search_most_important_values': search_most_important_values,
         'search_str': search_str,
         'sort_by': sort_by,
         'findme_own': findme_own,

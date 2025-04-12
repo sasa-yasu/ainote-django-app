@@ -157,7 +157,7 @@
 
                 <!--Input[pulldown]:mbti-->
                 <div class="mb-2">
-                    <label for="{{ profile_form.mbti.id_for_label }}" class="form-label btn btn-primary-input labeltext">
+                    <label for="id_{{ profile_form.mbti.name }}" class="form-label btn btn-primary-input labeltext">
                         <b>&lt;&lt;[ {{ profile_form.mbti.label|safe }} ]&gt;&gt;</b>
                     </label>
                     <br/>
@@ -165,7 +165,7 @@
                     {% if profile_form.mbti.help_text %} <span class="helptext" style="font-size:10pt">{{ profile_form.mbti.help_text|safe }}</span> {% endif %}
                     {% if profile_form.mbti.errors %} <div class="errortext" style="font-size:10pt"> {% for error in profile_form.mbti.errors %} * {{ error }}<br/> {% endfor %} </div> {% endif %}                    
                     <div class="form-group" style="padding:6px 12px;">
-                        <select class="form-select" id="id_mbti" name="{{ profile_form.mbti.name }}">
+                        <select class="form-select" id="id_{{ profile_form.mbti.name }}" name="{{ profile_form.mbti.name }}">
                             {% for choice in profile_form.mbti %}
                                 <option value="{{ choice.data.value }}" {% if choice.data.value == profile_form.mbti.value %}selected{% endif %}>
                                     {{ choice.choice_label }}
@@ -176,14 +176,14 @@
                 </div>
                 <!--Input[pulldown]:mbti_name-->
                 <div class="mb-2">
-                    <label for="{{ profile_form.mbti_name.id_for_label }}" class="form-label btn btn-primary-input labeltext">
+                    <label for="id_{{ profile_form.mbti_name.name }}" class="form-label btn btn-primary-input labeltext">
                         <b>&lt;&lt;[ {{ profile_form.mbti_name.label|safe }} ]&gt;&gt;</b>
                     </label>
                     <br/>
                     {% if profile_form.mbti_name.help_text %} <span class="helptext" style="font-size:10pt">{{ profile_form.mbti_name.help_text|safe }}</span> {% endif %}
                     {% if profile_form.mbti_name.errors %} <div class="errortext" style="font-size:10pt"> {% for error in profile_form.mbti_name.errors %} * {{ error }}<br/> {% endfor %} </div> {% endif %}                    
                     <div class="form-group" style="padding:6px 12px;">
-                        <select id="id_mbti_name" name="{{ profile_form.mbti_name.name }}" class="form-select" data-selected="{{ profile_form.mbti_name.value }}">
+                        <select id="id_{{ profile_form.mbti_name.name }}" name="{{ profile_form.mbti_name.name }}" class="form-select" data-selected="{{ profile_form.mbti_name.value }}">
                             <option value="">Select MBTI Type first</option>
                             {% for choice in profile_form.mbti_name %}
                                 <option value="{{ choice.0 }}" {% if choice.0 == profile_form.mbti_name.value %}selected{% endif %}>
@@ -244,39 +244,9 @@
 {% block footer %}
 <script src="{% static 'js/images_preview.js' %}"></script> <!-- for Image Preview -->
 <script src="{% static 'js/themes_preview.js' %}"></script> <!-- for Themes Preview --> 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var mbtiSelect = document.getElementById("id_mbti");
-        var mbtiNameSelect = document.getElementById("id_mbti_name");
 
-        function updateMbtiNameChoices(mbti, selectedValue) {
-            if (mbti) {
-                fetch(`/user/get_mbti_name_choices/?mbti=${mbti}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        mbtiNameSelect.innerHTML = "<option value=''>Select MBTI Name</option>";
-                        data.mbti_name_choices.forEach(choice => {
-                            var option = document.createElement("option");
-                            option.value = choice[0];
-                            option.textContent = choice[1];
-                            if (choice[0] === selectedValue) {
-                                option.selected = true;
-                            }
-                            mbtiNameSelect.appendChild(option);
-                        });
-                    });
-            } else {
-                mbtiNameSelect.innerHTML = "<option value=''>Select MBTI Type first</option>";
-            }
-        }
+<!-- get_mbti_name -->
+<script> const appName = "user"; </script>
+<script src="{% static 'js/get_mbti_name.js' %}"></script> <!-- for mbti_name --> 
 
-        // ページロード時に選択肢を更新
-        updateMbtiNameChoices(mbtiSelect.value, mbtiNameSelect.dataset.selected);
-
-        // `mbti` が変更されたときに `mbti_name` を更新
-        mbtiSelect.addEventListener("change", function() {
-            updateMbtiNameChoices(this.value, null);
-        });
-    });
-</script>
 {% endblock footer %}

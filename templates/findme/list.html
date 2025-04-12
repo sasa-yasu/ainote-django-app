@@ -25,21 +25,163 @@
 <main class="container">
     <div class="d-flex align-items-center mb-3">
         <form method="GET" class="d-flex flex-column align-items-start">
-            {% if CATEGORY_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap: 8px;">
-                <!-- カテゴリ検索（チェックボックス） -->
-                <label>Category:</label>
-                {% for category in CATEGORY_CHOICES %}
-                    <label>
-                        <input type="checkbox" name="category" value="{{ category.name }}" {% if category.name in search_categories %}checked{% endif %}> {{ category.name }}
-                    </label>
+            <!-- 性別検索（チェックボックス） -->
+            {% if GENDER_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Gender:</B></label>
+                {% for value, name in GENDER_CHOICES %}
+                    <label><input type="checkbox" name="search_gender" value="{{ value }}" {% if value in search_gender %}checked{% endif %}> {{ name }}</label>
                 {% endfor %}
             </div>
             {% endif %}
+            <!-- hobby検索（チェックボックス） -->
+            {% if HOBBY_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Hobby:</B></label>
+                {% for value, name in HOBBY_CHOICES %}
+                    <label><input type="checkbox" name="search_hobby" value="{{ value }}" {% if value in search_hobby %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- food検索（チェックボックス） -->
+            {% if FOOD_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Food:</B></label>
+                {% for value, name in FOOD_CHOICES %}
+                    <label><input type="checkbox" name="search_food" value="{{ value }}" {% if value in search_food %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- music検索（チェックボックス） -->
+            {% if MUSIC_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Music:</B></label>
+                {% for value, name in MUSIC_CHOICES %}
+                    <label><input type="checkbox" name="search_music" value="{{ value }}" {% if value in search_music %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- movie検索（チェックボックス） -->
+            {% if MOVIE_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Movie:</B></label>
+                {% for value, name in MOVIE_CHOICES %}
+                    <label><input type="checkbox" name="search_movie" value="{{ value }}" {% if value in search_movie %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- book検索（チェックボックス） -->
+            {% if BOOK_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Book:</B></label>
+                {% for value, name in BOOK_CHOICES %}
+                    <label><input type="checkbox" name="search_book" value="{{ value }}" {% if value in search_book %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- personality_type検索（チェックボックス） -->
+            {% if PERSONALITY_TYPE_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Personaly Type:</B></label>
+                {% for value, name in PERSONALITY_TYPE_CHOICES %}
+                    <label><input type="checkbox" name="search_personality_type" value="{{ value }}" {% if value in search_personality_type %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- favorite_date検索（チェックボックス） -->
+            {% if FAVORITE_DATE_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Favorite Date:</B></label>
+                {% for value, name in FAVORITE_DATE_CHOICES %}
+                    <label><input type="checkbox" name="search_favorite_date" value="{{ value }}" {% if value in search_favorite_date %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- sense_of_values検索（チェックボックス） -->
+            {% if SENSE_OF_VALUES_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Sense of Values:</B></label>
+                {% for value, name in SENSE_OF_VALUES_CHOICES %}
+                    <label><input type="checkbox" name="search_sense_of_values" value="{{ value }}" {% if value in search_sense_of_values %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- future_plan検索（チェックボックス） -->
+            {% if FUTURE_PLAN_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Future Plan:</B></label>
+                {% for value, name in FUTURE_PLAN_CHOICES %}
+                    <label><input type="checkbox" name="search_future_plan" value="{{ value }}" {% if value in search_future_plan %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- search_request_for_partner検索（チェックボックス） -->
+            {% if REQUEST_FOR_PARTNER_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Request for Partner:</B></label>
+                {% for value, name in REQUEST_FOR_PARTNER_CHOICES %}
+                    <label><input type="checkbox" name="search_request_for_partner" value="{{ value }}" {% if value in search_request_for_partner %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- weekend_activity検索（チェックボックス） -->
+            {% if WEEKEND_ACTIVITY_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Weekend Activity:</B></label>
+                {% for value, name in WEEKEND_ACTIVITY_CHOICES %}
+                    <label><input type="checkbox" name="search_weekend_activity" value="{{ value }}" {% if value in search_weekend_activity %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- ongoing_project検索（チェックボックス） -->
+            {% if ONGOING_PROJECT_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*On-Going Project:</B></label>
+                {% for value, name in ONGOING_PROJECT_CHOICES %}
+                    <label><input type="checkbox" name="search_ongoing_project" value="{{ value }}" {% if value in search_ongoing_project %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- social_activity検索（チェックボックス） -->
+            {% if SOCIAL_ACTIVITY_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Social Activity:</B></label>
+                {% for value, name in SOCIAL_ACTIVITY_CHOICES %}
+                    <label><input type="checkbox" name="search_social_activity" value="{{ value }}" {% if value in search_social_activity %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- free_day検索（チェックボックス） -->
+            {% if FREE_DAY_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Free Day:</B></label>
+                {% for value, name in FREE_DAY_CHOICES %}
+                    <label><input type="checkbox" name="search_free_day" value="{{ value }}" {% if value in search_free_day %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- proudest_achievements検索（チェックボックス） -->
+            {% if PROUDEST_ACHIEVEMENTS_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Proudest Achievements:</B></label>
+                {% for value, name in PROUDEST_ACHIEVEMENTS_CHOICES %}
+                    <label><input type="checkbox" name="search_proudest_achievements" value="{{ value }}" {% if value in search_proudest_achievements %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- most_important_values検索（チェックボックス） -->
+            {% if MOST_IMPORTANT_VALUES_CHOICES %}
+            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*Most important Values:</B></label>
+                {% for value, name in MOST_IMPORTANT_VALUES_CHOICES %}
+                    <label><input type="checkbox" name="search_most_important_values" value="{{ value }}" {% if value in search_most_important_values %}checked{% endif %}> {{ name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- ソート条件（ラジオボタン） -->
             <div class="d-flex flex-row align-items-center " style="gap: 8px;">
-                <!-- ソート条件（ラジオボタン） -->
-                <label>Sort by:</label>
-                <div class="d-flex flex-row" style="gap: 8px;">
+                <label><B style="color:blue;">*Sort by:</B></label>
+                <div class="d-flex flex-row" style="gap:8px; flex-wrap:wrap;">
                     <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="name_asc"{% if sort_by == "name_asc" %}checked{% endif %}>Name asc</label>
                     <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="name_desc"{% if sort_by == "name_desc" %}checked{% endif %}>Name desc</label>
                     <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="created_asc"{% if sort_by == "created_asc" %}checked{% endif %}>Created asc</label>
@@ -48,9 +190,9 @@
                     <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="updated_desc"{% if sort_by == "updated_desc" %}checked{% endif %}>Updated desc</label>
                 </div>
             </div>
+            <!-- フリーワード検索 -->
             <div class="d-flex flex-row align-items-center " style="gap: 8px;">
-                <!-- フリーワード検索 -->
-                <label>Search:</label>
+                <label><B style="color:blue;">*Search:</B></label>
                 <input type="text" name="search_str" value="{{ search_str }}" class="form-control" maxlength="100" aria-describedby="id_search_str" id="id_search_str" style="width: 100px;">
                 <input type="submit" class="btn btn-primary" id="submit-button" value="Filter">
                 {% if user.is_authenticated and not findme_own %}

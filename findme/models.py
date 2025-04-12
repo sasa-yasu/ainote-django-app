@@ -2,6 +2,7 @@ import logging
 from django.db import models
 from django.utils import timezone
 from multiselectfield import MultiSelectField
+from django.db.models import Q
 from user.models import Profile
 from middleware.current_request import get_current_request
 from AinoteProject.utils import crop_square_image, crop_16_9_image, get_mbti_compatibility, get_mbti_detail_url
@@ -382,8 +383,8 @@ class FindMe(models.Model):
         ('family', '家庭や育児に関連する活動'),
         ('other', 'その他'),
     ]
-    on_going_project_choice = MultiSelectField('On-Going Project Choice', max_length=200, choices=ONGOING_PROJECT_CHOICES, null=True, blank=True)
-    on_going_project = models.TextField('On-Going Project', null=True, blank=True)
+    ongoing_project_choice = MultiSelectField('On-Going Project Choice', max_length=200, choices=ONGOING_PROJECT_CHOICES, null=True, blank=True)
+    ongoing_project = models.TextField('On-Going Project', null=True, blank=True)
 
     ##### 社会的な活動・ボランティア #####
     # 参加している社会活動やボランティア：自分の社会貢献やコミュニティ活動を記載（相手に共感を呼びやすい）。
@@ -526,6 +527,7 @@ class FindMe(models.Model):
     
     @classmethod
     def get_all_choices(cls, context):
+        context.update({'GENDER_CHOICES': FindMe.GENDER_CHOICES})
         context.update({'HOBBY_CHOICES': FindMe.HOBBY_CHOICES})
         context.update({'FOOD_CHOICES': FindMe.FOOD_CHOICES})
         context.update({'MUSIC_CHOICES': FindMe.MUSIC_CHOICES})
@@ -545,6 +547,26 @@ class FindMe(models.Model):
 
         return context
     
+    @classmethod
+    def filter_findme_object(cls, object_list, object_field, field_name, choices):
+        
+        if not object_field: return object_list
+        # 選択肢のバリデーション
+        valid_choices = [choice[0] for choice in choices]
+        logger.debug(f'valid_choices: {valid_choices}')
+
+        object = [choice for choice in object_field if choice in valid_choices]
+        logger.debug(f'object: {object}')
+        # フィルタ処理
+        if object:
+            q = Q()
+            for choice in object:
+                logger.debug(f'field_name: {field_name} include choice={choice}')
+                q |= Q(**{f"{field_name}__icontains": choice})
+            logger.debug(f'object_list: {object_list}')
+            object_list = object_list.filter(q)
+        return object_list
+
     def save(self, *args, **kwargs):
         if self.images and self.images != self.__class__.objects.get(pk=self.pk).images: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
             self.images = crop_square_image(self.images, 300) # Update the images size

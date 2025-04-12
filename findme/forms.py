@@ -174,11 +174,11 @@ class FindMeForm(forms.ModelForm):
         required=False, help_text='* Recent Weekend Activity is...'
         )
 
-    on_going_project_choice = forms.MultipleChoiceField(
+    ongoing_project_choice = forms.MultipleChoiceField(
         label='On-Going Project Choice', choices=FindMe.ONGOING_PROJECT_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'}),
         required=False,
     )
-    on_going_project = forms.CharField(
+    ongoing_project = forms.CharField(
         label='On-Going Project', widget=forms.Textarea(attrs={'class': 'form-control'}),
         required=False, help_text='* Current proceeding my project is...'
         )
@@ -237,7 +237,7 @@ class FindMeForm(forms.ModelForm):
                   "hobby_choice", "hobby", "food_choice", "food_choice", "food", "music_choice", "music", "movie_choice", "movie", "book_choice", "book",
                   "personality_type_choice","personality_type","favorite_date_choice","favorite_date","sense_of_values_choice","sense_of_values",
                   "future_plan_choice","future_plan","request_for_partner_choice","request_for_partner",
-                  "weekend_activity_choice","weekend_activity","on_going_project_choice","on_going_project","social_activity_choice","social_activity",
+                  "weekend_activity_choice","weekend_activity","ongoing_project_choice","ongoing_project","social_activity_choice","social_activity",
                   "free_day_choice","free_day","proudest_achievements_choice","proudest_achievements","most_important_values_choice","most_important_values",
                   "contacts", "remarks", "images", "themes")
 
@@ -284,6 +284,9 @@ class FindMeForm(forms.ModelForm):
 
         return mbti_name_value
 
-    def clean_hobby_choice(self):
-        # リスト → カンマ区切り文字列に変換して保存
-        return ','.join(self.cleaned_data['hobby_choice'])
+    def clean_favorite_date_choice(self):
+        data = self.cleaned_data.get('favorite_date_choice', [])
+        if len(data) > 3:
+            raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+    

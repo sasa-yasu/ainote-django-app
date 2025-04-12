@@ -43,21 +43,19 @@ def list_view(request):
         q = Q()
         for category in category_choice:
             q |= Q(category_choice__icontains=category)
-        groups = Group.objects.filter(q)
+        object_list = Group.objects.filter(q)
     else:
-        groups = Group.objects.all()
+        object_list = Group.objects.all()
 
     # フリーワード検索用
     search_str = request.GET.get("search_str", "")
     logger.debug(f'Searching for: {search_str}')
     if search_str:
-        object_list = groups.filter(
+        object_list = object_list.filter(
             Q(name__icontains=search_str) |
             Q(context__icontains=search_str) |
             Q(remarks__icontains=search_str)
         )
-    else:
-        object_list = groups
 
     # 並び替え処理
     sort_options = {
