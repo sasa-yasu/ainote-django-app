@@ -24,13 +24,15 @@
 
 <main class="container">
     <form method="GET" class="d-flex flex-column align-items-start">
-        {% if categories %}
+        {% if CATEGORY_CHOICES %}
         <div class="category-group">
             <label>Category:</label>
-            {% for category in categories %}
-                <label>
-                    <input type="checkbox" name="category" value="{{ category.name }}" {% if category.name in search_categories %}checked{% endif %}> {{ category.name }}
-                </label>
+            {% for value, label in CATEGORY_CHOICES %}
+            <label>
+              <input type="checkbox" name="search_category_choice" value="{{ value }}"
+                     {% if value in search_category_choice %}checked{% endif %}>
+              {{ label }}
+            </label>
             {% endfor %}
         </div>
         {% endif %}

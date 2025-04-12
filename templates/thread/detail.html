@@ -157,13 +157,19 @@
                     {% include 'includes/thread_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
                 </div>
         
-                {% if object.categories.all %}
+                {% if object.category_choice %}
                     <br/>
                     <div>
                         <h4 class="fst-italic">Categories</h4>
-                        {% for category in object.categories.all %}
-                            <div>{{ category.name }}</div>  <!-- カテゴリの名前を表示 -->
+                        {% if object.category_choice %}
+                        <div>&lt;&lt;
+                        {% for category in object.category_choice %}
+                        {% for value, label in CATEGORY_CHOICES %}
+                            {% if category == value %}{{ label }}, {% endif %}
                         {% endfor %}
+                        {% endfor %}
+                        &gt;&gt;</div>
+                        {% endif %}
                     </div>
                 {% endif %}
                 {% if object.overview %}

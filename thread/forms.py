@@ -1,6 +1,6 @@
 from django import forms
 from chat.forms import ChatForm
-from .models import Thread, ThreadCategory, ThreadChat
+from .models import Thread, ThreadChat
 
 class ThreadForm(forms.ModelForm):
 
@@ -16,10 +16,9 @@ class ThreadForm(forms.ModelForm):
         label='Themes', widget=forms.FileInput(attrs={'class':'form-control'}),
         required=False, help_text='* Image file size will be adjusted to 1500px X 1500px.'
     )
-    categories = forms.ModelMultipleChoiceField(
-        queryset=ThreadCategory.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=False  # 必須でない場合
+    category_choice = forms.MultipleChoiceField(
+        label='Category Choice', choices=Thread.CATEGORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'}),
+        required=False,
     )
     overview = forms.CharField(
         label='Overview', max_length=100, widget=forms.TextInput(attrs={'class':'form-control'}),
@@ -36,7 +35,7 @@ class ThreadForm(forms.ModelForm):
 
     class Meta:
         model = Thread
-        fields = ("name", "images", "themes", "categories", "overview", "context", "remarks")
+        fields = ("name", "images", "themes", "category_choice", "overview", "context", "remarks")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

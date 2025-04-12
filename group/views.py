@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from AinoteProject.utils import disp_qr_code
 from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes
-from .models import Group, GroupCategory
+from .models import Group
 from .forms  import GroupForm
 from user.models import Profile
 
@@ -30,9 +30,20 @@ def list_view(request):
         page_cnt = 1
     
     # カテゴリ検索
-    search_categories = request.GET.getlist('category')  # 複数カテゴリで検索
-    if search_categories:
-        groups = Group.objects.filter(categories__name__in=search_categories).distinct()
+    search_category_choice = request.GET.getlist('search_category_choice')
+    logger.debug(f'search_category_choice: {search_category_choice}')
+    # 選択肢のバリデーション
+    valid_choices = [choice[0] for choice in Group.CATEGORY_CHOICES]
+    logger.debug(f'valid_choices: {valid_choices}')
+    category_choice = [choice for choice in search_category_choice if choice in valid_choices]
+    logger.debug(f'category_choice: {category_choice}')
+
+    # フィルタ処理
+    if category_choice:
+        q = Q()
+        for category in category_choice:
+            q |= Q(category_choice__icontains=category)
+        groups = Group.objects.filter(q)
     else:
         groups = Group.objects.all()
 
@@ -40,7 +51,7 @@ def list_view(request):
     search_str = request.GET.get("search_str", "")
     logger.debug(f'Searching for: {search_str}')
     if search_str:
-        object_list = groups.objects.filter(
+        object_list = groups.filter(
             Q(name__icontains=search_str) |
             Q(context__icontains=search_str) |
             Q(remarks__icontains=search_str)
@@ -78,15 +89,15 @@ def list_view(request):
         display_object_list = []
         link_object_list = []
 
-    categories = GroupCategory.objects.all()  # カテゴリのリストを取得
     context = {
         'display_object_list': display_object_list,
         'link_object_list': link_object_list,
-        'categories': categories,
-        'search_categories': search_categories,
+        'search_category_choice': search_category_choice,
         'search_str': search_str,
         'sort_by': sort_by,
     }
+
+    context.update({'CATEGORY_CHOICES': Group.CATEGORY_CHOICES})
 
     logger.info('return render group/list.html')
     return render(request, 'group/list.html', context)
@@ -102,6 +113,8 @@ def detail_view(request, pk):
     joined_profiles = object.get_profiles
 
     context = {'object': object, 'joined_profiles': joined_profiles}
+
+    context.update({'CATEGORY_CHOICES': Group.CATEGORY_CHOICES})
 
     logger.debug('return render group/detail.html')
     return render(request, 'group/detail.html', context)
@@ -175,6 +188,8 @@ def create_view(request):
         form = GroupForm()
         context = {'form': form}
     
+    context.update({'CATEGORY_CHOICES': Group.CATEGORY_CHOICES})
+
     logger.info('return render group/create.html')
     return render(request, 'group/create.html', context)
     
@@ -231,6 +246,8 @@ def update_view(request, pk):
         form = GroupForm(instance=object) # putback the form
         context = {'object': object, 'form': form}
     
+    context.update({'CATEGORY_CHOICES': Group.CATEGORY_CHOICES})
+
     logger.info('return render group/update.html')
     return render(request, 'group/update.html', context)
 
@@ -267,6 +284,8 @@ def delete_view(request, pk):
     else:
         logger.info('GET method')
     
+    context.update({'CATEGORY_CHOICES': Group.CATEGORY_CHOICES})
+
     logger.info('return render group/delete.html')
     return render(request, 'group/delete.html', context)
 

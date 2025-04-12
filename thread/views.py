@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from AinoteProject.utils import disp_qr_code
 from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes
-from .models import Thread, ThreadCategory, ThreadChat
+from .models import Thread, ThreadChat
 from .forms  import ThreadForm, ThreadChatForm
 from user.models import Profile
 
@@ -30,9 +30,20 @@ def list_view(request, page_cnt=1):
         page_cnt = 1
     
     # カテゴリ検索
-    search_categories = request.GET.getlist('category')  # 複数カテゴリで検索
-    if search_categories:
-        threads = Thread.objects.filter(categories__name__in=search_categories).distinct()
+    search_category_choice = request.GET.getlist('search_category_choice')
+    logger.debug(f'search_category_choice: {search_category_choice}')
+    # 選択肢のバリデーション
+    valid_choices = [choice[0] for choice in Thread.CATEGORY_CHOICES]
+    logger.debug(f'valid_choices: {valid_choices}')
+    category_choice = [choice for choice in search_category_choice if choice in valid_choices]
+    logger.debug(f'category_choice: {category_choice}')
+
+    # フィルタ処理
+    if category_choice:
+        q = Q()
+        for category in category_choice:
+            q |= Q(category_choice__icontains=category)
+        threads = Thread.objects.filter(q)
     else:
         threads = Thread.objects.all()
 
@@ -40,7 +51,7 @@ def list_view(request, page_cnt=1):
     search_str = request.GET.get("search_str", "")
     logger.debug(f'Searching for: {search_str}')
     if search_str:
-        object_list = threads.objects.filter(
+        object_list = threads.filter(
             Q(name__icontains=search_str) |
             Q(overview__icontains=search_str) |
             Q(context__icontains=search_str) |
@@ -79,15 +90,15 @@ def list_view(request, page_cnt=1):
         display_object_list = []
         link_object_list = []
 
-    categories = ThreadCategory.objects.all()  # カテゴリのリストを取得
     context = {
         'display_object_list': display_object_list,
         'link_object_list': link_object_list,
-        'categories': categories,
-        'search_categories': search_categories,
+        'search_category_choice': search_category_choice,
         'search_str': search_str,
         'sort_by': sort_by,
     }
+
+    context.update({'CATEGORY_CHOICES': Thread.CATEGORY_CHOICES})
 
     logger.info('return render thread/list.html')
     return render(request, 'thread/list.html', context)
@@ -137,6 +148,8 @@ def detail_view(request, pk):
     context = {'object': object, 'joined_profiles': joined_profiles,
                'display_object_list': display_object_list, 'link_object_list': link_object_list}
 
+    context.update({'CATEGORY_CHOICES': Thread.CATEGORY_CHOICES})
+
     logger.debug('return render thread/detail.html')
     return render(request, 'thread/detail.html', context)
 
@@ -158,8 +171,8 @@ def create_view(request):
 
             images_data = request.FILES.get("images")
             themes_data = request.FILES.get('themes')
-            categories_data = form.cleaned_data['categories']
-            
+
+            category_choice_data = form.cleaned_data['category_choice']            
             overview_data = form.cleaned_data['overview']
             context_data = form.cleaned_data['context']
             remarks_data = form.cleaned_data['remarks']
@@ -170,7 +183,7 @@ def create_view(request):
                     name = name_data,
                     images = None, # 画像はまだ保存しない
                     themes = None, # 画像はまだ保存しない
-                    # categories は指定しない
+                    category_choice = category_choice_data,
                     overview = overview_data,
                     context = context_data,
                     remarks = remarks_data,
@@ -190,14 +203,10 @@ def create_view(request):
                 logger.debug('themes_data exists')
                 object.themes = create_themes(object, themes_data)
 
-            if categories_data:
-                logger.debug('categories_data exists')
-                object.categories.set(categories_data)
-
             try:
                 object.save()
             except Exception as e:
-                logger.error(f'couldnt save the categories / images_data / themes_data in Thread object: {e}')
+                logger.error(f'couldnt save the images_data / themes_data in Thread object: {e}')
 
             logger.info('return redirect thread:list')
             return redirect('thread:list')
@@ -209,6 +218,8 @@ def create_view(request):
         form = ThreadForm()
         context = {'form': form}
     
+    context.update({'CATEGORY_CHOICES': Thread.CATEGORY_CHOICES})
+
     logger.info('return render thread/create.html')
     return render(request, 'thread/create.html', context)
     
@@ -230,6 +241,7 @@ def update_view(request, pk):
             logger.debug('form.is_valid')
 
             object.name = form.cleaned_data['name']
+            object.category_choice = form.cleaned_data['category_choice']
             object.overview = form.cleaned_data['overview']
             object.context = form.cleaned_data['context']
             object.remarks = form.cleaned_data['remarks']
@@ -237,7 +249,6 @@ def update_view(request, pk):
 
             images_data = request.FILES.get("images")
             themes_data = request.FILES.get('themes')
-            categories_data = form.cleaned_data['categories']
 
             if images_data: # File Selected
                 logger.debug('images_data exists')
@@ -246,10 +257,6 @@ def update_view(request, pk):
             if themes_data: # File Selected
                 logger.debug(f'themes_data exists={themes_data}')
                 object.themes = update_themes(object, themes_data)
-
-            if categories_data:
-                logger.debug('categories_data exists')
-                object.categories.set(categories_data)
 
             try:
                 logger.debug('save updated Thread object')
@@ -267,6 +274,8 @@ def update_view(request, pk):
         form = ThreadForm(instance=object) # putback the form
         context = {'object': object, 'form': form}
     
+    context.update({'CATEGORY_CHOICES': Thread.CATEGORY_CHOICES})
+
     logger.info('return render thread/update.html')
     return render(request, 'thread/update.html', context)
 
@@ -303,6 +312,8 @@ def delete_view(request, pk):
     else:
         logger.info('GET method')
     
+    context.update({'CATEGORY_CHOICES': Thread.CATEGORY_CHOICES})
+
     logger.info('return render thread/delete.html')
     return render(request, 'thread/delete.html', context)
 
