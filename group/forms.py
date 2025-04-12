@@ -1,5 +1,5 @@
 from django import forms
-from .models import Group, GroupCategory
+from .models import Group
 
 class GroupForm(forms.ModelForm):
     name = forms.CharField(
@@ -14,10 +14,9 @@ class GroupForm(forms.ModelForm):
         label='Themes', widget=forms.FileInput(attrs={'class':'form-control'}),
         required=False, help_text='* Image file size will be adjusted to 3000px X 3000px.'
     )
-    categories = forms.ModelMultipleChoiceField(
-        queryset=GroupCategory.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=False  # 必須でない場合
+    category_choice = forms.MultipleChoiceField(
+        label='Category Choice', choices=Group.CATEGORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'}),
+        required=False,
     )
     context = forms.CharField(
         label='Context', widget=forms.Textarea(attrs={'class':'form-control'}),
@@ -42,7 +41,7 @@ class GroupForm(forms.ModelForm):
 
     class Meta:
         model = Group
-        fields = ("name", "images", "themes", "categories", "context", "remarks", "schedule_monthly", "schedule_weekly", "task_control")
+        fields = ("name", "images", "themes", "category_choice", "context", "remarks", "schedule_monthly", "schedule_weekly", "task_control")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -5,38 +5,6 @@
 {% block header %}
 <style type="text/css">
     .smoke {background-color: whitesmoke;}
-    .preview-image {
-        max-width: 300px;
-        max-height: 300px;
-        display: block;
-        margin-top: 10px;
-    }
-
-    .xy_center {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-    
-    .img-container {
-        width: 128px; /* 親要素に対して100%の幅を持つ */
-        height: 128px; /* 必要に応じて高さを調整 */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden; /* 画像のはみ出しを防ぐ */
-    }
-    .preview-image {
-        max-width: 100%; /* カード内で画像がはみ出さないようにする */
-        max-height: 100%; /* 親要素を超えないように制限 */
-        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
-        border-radius: 5px; /* 角丸のデザイン */
-        display: block;
-        margin-top: 10px; 
-    }
 
     /* 画像とリストを横並びにするコンテナ */
     .header-container {
@@ -45,56 +13,6 @@
         align-items: center;          /* 垂直方向で中央揃え */
         gap: 10px;                    /* 画像とリストの間隔 */
         justify-content: space-between;
-    }
-
-    /* 画像の重ね合わせコンテナ */
-    .image-wrapper {
-        position: relative;
-        width: 100%;
-        height: auto;         /* 高さを自動調整 */
-        aspect-ratio: 16 / 9; /* 16:9を維持しつつ高さを可変に */
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* 境界線 */
-    }
-
-    /* 背景の themes 画像 */
-    .bg-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
-        z-index: 1;          /* 背景に表示 */
-        opacity: 1;         /* 透明度を設定しない */
-        transition: transform 0.3s ease;  /* ホバー時のアニメーション */
-    }
-
-    /* 前面の images 画像 */
-    .profile-front-image {
-        margin-top:0px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 50%;       /* 幅自動調整でアスペクト比維持 */
-        aspect-ratio: 1 / 1;  /* 正方形を維持 */
-        transform: translate(-50%, -50%);
-        z-index: 2;          /* 前面に表示 */
-        border-radius: 50%;   /* 完全な円形に */
-        background-color: white;  /* 背景を白色に */
-    }
-
-    /* 前面の images 画像 */
-    .profile-front-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* ホバー時のエフェクト */
-    .image-wrapper:hover .bg-image {
-        transform: scale(1.10);
-        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
     }
 
 </style>
@@ -134,15 +52,15 @@
                         <div class="d-flex align-items-center"><h2 class="display-7">{{ object.name }}</h2></div>
 
                         <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
-                            <div class="image-wrapper" style="max-width:900px; ">
+                            <div class="profile-image-wrapper" style="max-width:900px; ">
                                 <!-- 背景：themes -->
                                 {% if object.themes %}
-                                <img src="{{ object.themes.url }}" class="bg-image" alt="Room Themes"/>
+                                <img src="{{ object.themes.url }}" class="profile-bg-image" alt="Room Themes"/>
                                 {% else %}
-                                <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+                                <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
                                 {% endif %}
                                 <!-- 前面：images(circle切り取り) -->
-                                <div class="front-image">
+                                <div class="profile-front-image">
                                     {% if object.images %}
                                     <img src="{{ object.images.url }}" style="border-radius: 50%;" alt="Room Images"/>
                                     {% else %}

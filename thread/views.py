@@ -1,14 +1,12 @@
-import qrcode
-from io import BytesIO
-from PIL import Image
 from django.conf import settings
 import logging
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from AinoteProject.utils import disp_qr_code
 from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes
 from .models import Thread, ThreadCategory, ThreadChat
 from .forms  import ThreadForm, ThreadChatForm
@@ -313,46 +311,10 @@ def disp_qr_view(request, pk):
     logger.info('start Friend disp_qr_view')
 
     base_url = f"{settings.SITE_DOMAIN}/thread/join/?thread_id="  # 実際のドメインに要変更
-    thread_url = f"{base_url}{pk}"
-    logger.info(f'thread_url={ thread_url }')
+    url_for_qr = f"{base_url}{pk}"
+    logger.info(f'url_for_qr={ url_for_qr }')
     
-    qr = qrcode.QRCode(
-        version=4,  # サイズ (1～40, 数字が大きいほどサイズが大きい)
-        error_correction=qrcode.constants.ERROR_CORRECT_H,  # エラーレベル
-        box_size=10,  # 1セルあたりのピクセルサイズ
-        border=6,  # ボーダーサイズ
-    )
-    
-    qr.add_data(thread_url) # create QR code
-    qr.make(fit=True)
-
-    # QRコード生成
-    qr_img = qr.make_image(fill_color="black", back_color="white").convert("RGB")
-
-    logo_path = f"{settings.BASE_DIR}/static/img/ainote.png"
-
-    try:
-        logger.debug(f"Logo file load from: {logo_path}")
-        logo = Image.open(logo_path)
-
-        logo_size = (128, 128)
-        logo = logo.resize(logo_size) #  ロゴサイズ変更
-
-        pos = (
-            (qr_img.size[0] - logo.size[0]) // 2,
-            (qr_img.size[1] - logo.size[1]) // 2
-        )
-
-        qr_img.paste(logo, pos) # QRコード中央にロゴを貼り付け
-
-    except Exception as e:
-        logger.error(f"Failed to load logo: {e}")
-
-    img_io = BytesIO() # save QR code as binary image data
-    qr_img.save(img_io, format='PNG') # ext is PNG
-    img_io.seek(0)
-
-    return HttpResponse(img_io.getvalue(), content_type="image/png")
+    return disp_qr_code(url_for_qr)
 
 @login_required
 def join_view(request):

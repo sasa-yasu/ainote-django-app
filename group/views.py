@@ -1,14 +1,12 @@
-import qrcode
-from io import BytesIO
-from PIL import Image
 from django.conf import settings
 import logging
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from AinoteProject.utils import disp_qr_code
 from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes
 from .models import Group, GroupCategory
 from .forms  import GroupForm
@@ -126,8 +124,8 @@ def create_view(request):
 
             images_data = request.FILES.get("images")
             themes_data = request.FILES.get('themes')
-            categories_data = form.cleaned_data['categories']
-            
+
+            category_choice_data = form.cleaned_data['category_choice']
             context_data = form.cleaned_data['context']
             remarks_data = form.cleaned_data['remarks']
             schedule_monthly_data = form.cleaned_data['schedule_monthly']
@@ -140,7 +138,7 @@ def create_view(request):
                     name = name_data,
                     images = None, # 画像はまだ保存しない
                     themes = None, # 画像はまだ保存しない
-                    # categories は指定しない
+                    category_choice = category_choice_data,
                     context = context_data,
                     remarks = remarks_data,
                     schedule_monthly = schedule_monthly_data,
@@ -162,14 +160,10 @@ def create_view(request):
                 logger.debug('themes_data exists')
                 object.themes = create_themes(object, themes_data)
 
-            if categories_data:
-                logger.debug('categories_data exists')
-                object.categories.set(categories_data)
-
             try:
                 object.save()
             except Exception as e:
-                logger.error(f'couldnt save the categories / images_data / themes_data in Group object: {e}')
+                logger.error(f'couldnt save the images_data / themes_data in Group object: {e}')
 
             logger.info('return redirect group:list')
             return redirect('group:list')
@@ -202,6 +196,7 @@ def update_view(request, pk):
             logger.debug('form.is_valid')
 
             object.name = form.cleaned_data['name']
+            object.category_choice = form.cleaned_data['category_choice']
             object.context = form.cleaned_data['context']
             object.remarks = form.cleaned_data['remarks']
             object.schedule_monthly = form.cleaned_data['schedule_monthly']
@@ -211,7 +206,6 @@ def update_view(request, pk):
 
             images_data = request.FILES.get("images")
             themes_data = request.FILES.get('themes')
-            categories_data = form.cleaned_data['categories']
 
             if images_data: # File Selected
                 logger.debug('images_data exists')
@@ -220,10 +214,6 @@ def update_view(request, pk):
             if themes_data: # File Selected
                 logger.debug(f'themes_data exists={themes_data}')
                 object.themes = update_themes(object, themes_data)
-
-            if categories_data:
-                logger.debug('categories_data exists')
-                object.categories.set(categories_data)
 
             try:
                 logger.debug('save updated Group object')
@@ -282,49 +272,13 @@ def delete_view(request, pk):
 
 @login_required
 def disp_qr_view(request, pk):
-    logger.info('start Friend disp_qr_view')
+    logger.info('start Group join disp_qr_view')
 
     base_url = f"{settings.SITE_DOMAIN}/group/join/?group_id="  # 実際のドメインに要変更
-    group_url = f"{base_url}{pk}"
-    logger.info(f'group_url={ group_url }')
+    url_for_qr = f"{base_url}{pk}"
+    logger.info(f'url_for_qr={ url_for_qr }')
     
-    qr = qrcode.QRCode(
-        version=4,  # サイズ (1～40, 数字が大きいほどサイズが大きい)
-        error_correction=qrcode.constants.ERROR_CORRECT_H,  # エラーレベル
-        box_size=10,  # 1セルあたりのピクセルサイズ
-        border=6,  # ボーダーサイズ
-    )
-    
-    qr.add_data(group_url) # create QR code
-    qr.make(fit=True)
-
-    # QRコード生成
-    qr_img = qr.make_image(fill_color="black", back_color="white").convert("RGB")
-
-    logo_path = f"{settings.BASE_DIR}/static/img/ainote.png"
-
-    try:
-        logger.debug(f"Logo file load from: {logo_path}")
-        logo = Image.open(logo_path)
-
-        logo_size = (128, 128)
-        logo = logo.resize(logo_size) #  ロゴサイズ変更
-
-        pos = (
-            (qr_img.size[0] - logo.size[0]) // 2,
-            (qr_img.size[1] - logo.size[1]) // 2
-        )
-
-        qr_img.paste(logo, pos) # QRコード中央にロゴを貼り付け
-
-    except Exception as e:
-        logger.error(f"Failed to load logo: {e}")
-
-    img_io = BytesIO() # save QR code as binary image data
-    qr_img.save(img_io, format='PNG') # ext is PNG
-    img_io.seek(0)
-
-    return HttpResponse(img_io.getvalue(), content_type="image/png")
+    return disp_qr_code(url_for_qr)
 
 @login_required
 def join_view(request):

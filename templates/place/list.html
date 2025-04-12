@@ -5,63 +5,6 @@
 <link rel="'stylesheet" type="text/css" href="{% static 'list/style.css' %}">
 <style type="text/css">
 
-    /***** place card *****/
-    /* 画像の重ね合わせコンテナ */
-    .place-image-wrapper {
-        position: relative;
-        width: 100%;
-        height: auto;         /* 高さを自動調整 */
-        aspect-ratio: 16 / 9; /* 16:9を維持しつつ高さを可変に */
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* 境界線 */
-    }
-
-    /* 背景の themes 画像 */
-    .place-bg-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
-        z-index: 1;          /* 背景に表示 */
-        opacity: 1;         /* 透明度を設定しない */
-        transition: transform 0.3s ease;  /* ホバー時のアニメーション */
-    }
-
-    /* 前面の images 画像 */
-    .place-front-image {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: auto;       /* 幅自動調整でアスペクト比維持 */
-        height: 90%;      /* front-imageの高さを90%に */
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        overflow: hidden;         /* はみ出し防止 */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;   /* 完全な円形に */
-        background-color: white;  /* 背景を白色に */
-    }
-
-    /* 前面の images 画像 */
-    .place-front-image img {
-        height: 90%;         /* 親要素に対して80%の高さで表示 */
-        width: auto;          /* アスペクト比維持 */
-        object-fit: contain;  /* はみ出し防止 */
-        margin: 2px;
-    }
-
-    
-    /***** place card : effect *****/
-    /* ホバー時のエフェクト */
-    .place-image-wrapper:hover .place-bg-image {
-        transform: scale(1.10);
-        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
-    }
-
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% endblock header %}

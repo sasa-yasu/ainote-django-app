@@ -14,62 +14,6 @@
         justify-content: space-between;
     }
 
-    /***** place card *****/
-    /* 画像の重ね合わせコンテナ */
-    .place-image-wrapper {
-        position: relative;
-        width: 100%;
-        height: auto;         /* 高さを自動調整 */
-        aspect-ratio: 16 / 9; /* 16:9を維持しつつ高さを可変に */
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* 境界線 */
-    }
-
-    /* 背景の themes 画像 */
-    .place-bg-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;   /* アスペクト比を維持してカバー表示 */
-        z-index: 1;          /* 背景に表示 */
-        opacity: 1;         /* 透明度を設定しない */
-        transition: transform 0.3s ease;  /* ホバー時のアニメーション */
-    }
-
-    /* 前面の images 画像 */
-    .place-front-image {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: auto;       /* 幅自動調整でアスペクト比維持 */
-        height: 90%;      /* front-imageの高さを90%に */
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        overflow: hidden;         /* はみ出し防止 */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;   /* 完全な円形に */
-        background-color: white;  /* 背景を白色に */
-    }
-
-    /* 前面の images 画像 */
-    .place-front-image img {
-        height: 90%;         /* 親要素に対して80%の高さで表示 */
-        width: auto;          /* アスペクト比維持 */
-        object-fit: contain;  /* はみ出し防止 */
-        margin: 2px;
-    }
-
-    /***** place card : effect *****/
-    /* ホバー時のエフェクト */
-    .place-image-wrapper:hover .place-bg-image {
-        transform: scale(1.10);
-        transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
-    }
-
     /***** individual *****/
     /* GoogleMap用 */
     .map-container {
@@ -122,15 +66,15 @@
                         <div class="d-flex align-items-center"><h2 class="display-7">{{ object.place }}</h2></div>
 
                         <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
-                            <div class="place-image-wrapper" style="max-width:900px; ">
+                            <div class="profile-image-wrapper" style="max-width:900px; ">
                                 <!-- 背景：themes -->
                                 {% if object.themes %}
-                                <img src="{{ object.themes.url }}" class="place-bg-image" alt="Place Themes"/>
+                                <img src="{{ object.themes.url }}" class="profile-bg-image" alt="Place Themes"/>
                                 {% else %}
-                                <img src="{% static 'img/themes.png' %}" class="place-bg-image" alt="Default Themes"/>
+                                <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
                                 {% endif %}
                                 <!-- 前面：images(circle切り取り) -->
-                                <div class="place-front-image">
+                                <div class="profile-front-image">
                                     {% if object.images %}
                                     <img src="{{ object.images.url }}" style="border-radius: 50%;" alt="Place Images"/>
                                     {% else %}

@@ -5,31 +5,6 @@
 <link rel="'stylesheet" type="text/css" href="{% static 'list/style.css' %}">
 <style type="text/css">
     
-    /***** notice card *****/
-    .notice-xy_center {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-    .notice-img-container {
-        width: 100%; /* 親要素に対して100%の幅を持つ */
-        height: 100%; /* 必要に応じて高さを調整 */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden; /* 画像のはみ出しを防ぐ */
-    }
-    .notice-preview-image {
-        max-width: 100%; /* カード内で画像がはみ出さないようにする */
-        max-height: 100%; /* 親要素を超えないように制限 */
-        object-fit: cover; /* 画像のアスペクト比を維持しながら、親要素にフィット */
-        border-radius: 5px; /* 角丸のデザイン */
-        display: block;
-        margin-top: 10px;
-    }
 </style>
 {% endblock header %}
 

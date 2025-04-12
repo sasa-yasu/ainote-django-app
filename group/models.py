@@ -2,23 +2,29 @@ import random  # ← ランダム数生成用
 from django.db import models
 from django.utils import timezone
 from middleware.current_request import get_current_request
+from multiselectfield import MultiSelectField
 from AinoteProject.utils import crop_square_image, crop_16_9_image
 from user.models import Profile
 
-class GroupCategory(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField(blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)  # 作成日時
-    updated_at = models.DateTimeField(auto_now=True)  # 更新日時
-
-    def __str__(self):
-        return self.name
-    
 class Group(models.Model):
     """Group"""
     name = models.CharField('Name', max_length=255, null=True, blank=True)
     images = models.ImageField('Images', upload_to='group', null=True, blank=True)
     themes = models.ImageField('Themes', upload_to='group', null=True, blank=True)
+    CATEGORY_CHOICES = [
+        ('community', '地域活動'), 
+        ('sports', 'スポーツ'),
+        ('walking', '歩活（ウォーキング）'),
+        ('bbq', 'バーベキュー'),
+        ('volunteer', 'ボランティア'),
+        ('study', '勉強会・学習'),
+        ('intergenerational', '世代交流'),
+        ('childcare', '子育てサークル'),
+        ('hobby', '趣味・創作'),
+        ('music', '音楽・演奏'),
+        ('other', 'その他'),
+    ]
+    category_choice = MultiSelectField('Category Choice', max_length=200, choices=CATEGORY_CHOICES, null=True, blank=True) 
     context = models.TextField('Context', null=True, blank=True)
     remarks = models.TextField('Remarks', null=True, blank=True)
     schedule_monthly = models.CharField('Schedule Monthly', max_length=1028, null=True, blank=True)
@@ -30,8 +36,6 @@ class Group(models.Model):
     created_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='group_created_pics')  # 紐づくProfileが削除されたらNULL設定
     updated_at = models.DateTimeField('Updated at', auto_now=True)
     updated_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='group_updated_pics')  # 紐づくProfileが削除されたらNULL設定
-
-    categories = models.ManyToManyField(GroupCategory, related_name='groups', blank=True)
 
     class Meta:
         constraints = [

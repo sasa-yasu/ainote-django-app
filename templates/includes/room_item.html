@@ -2,16 +2,16 @@
 
 <div class="col"><div class="card shadow-sm">
     <!-- 画像ヘッダ -->
-    <div class="image-wrapper"><a href="{% url 'room:detail' item.pk %}">
+    <div class="profile-image-wrapper"><a href="{% url 'room:detail' item.pk %}">
         <!-- 背景：themes -->
         {% if item.themes %}
-        <img src="{{ item.themes.url }}" class="bg-image" alt="Room Themes"/>
+        <img src="{{ item.themes.url }}" class="profile-bg-image" alt="Room Themes"/>
         {% else %}
-        <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+        <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
         {% endif %}
 
         <!-- 前面：images -->
-        <div class="front-image">
+        <div class="profile-front-image">
             {% if item.images %}
             <img src="{{ item.images.url }}" style="border-radius: 50%;" alt="Room Images"/>
             {% else %}
