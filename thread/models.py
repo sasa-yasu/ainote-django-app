@@ -13,9 +13,9 @@ class Thread(models.Model):
     themes = models.ImageField('Themes', upload_to='thread', null=True, blank=True)
     CATEGORY_CHOICES = [
         ('general_gaming', 'ゲーム好き集合！'),
-        ('indie_games', 'インディーズゲーム発掘隊'),
         ('battle_gaming', 'バトル＆対戦好き集まれ'),
         ('thrill_games', 'ゾクゾクするゲーム体験'),
+        ('indie_games', 'インディーズゲーム発掘隊'),
         ('sports_fans', 'スポーツファン交流所'),
         ('oshi_talk', '推し活・アイドルトーク'),
         ('entertainment_talk', 'エンタメ雑談広場'),
