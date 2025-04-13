@@ -25,163 +25,264 @@
 <main class="container">
     <div class="d-flex align-items-center mb-3">
         <form method="GET" class="d-flex flex-column align-items-start">
+
+            <!-- 検索条件オープン状態保持向け -->
+            <input type="hidden" name="open_sections" id="openSectionsInput" value="{{ open_sections }}">
+
             <!-- 性別検索（チェックボックス） -->
             {% if GENDER_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
+            <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
                 <label><B style="color:blue;">*Gender:</B></label>
                 {% for value, name in GENDER_CHOICES %}
-                    <label><input type="checkbox" name="search_gender" value="{{ value }}" {% if value in search_gender %}checked{% endif %}> {{ name }}</label>
+                    <label><input class="form-check-input" type="checkbox" name="search_gender" value="{{ value }}" {% if value in search_gender %}checked{% endif %}>{{ name }}</label>
                 {% endfor %}
             </div>
             {% endif %}
-            <!-- hobby検索（チェックボックス） -->
-            {% if HOBBY_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Hobby:</B></label>
-                {% for value, name in HOBBY_CHOICES %}
-                    <label><input type="checkbox" name="search_hobby" value="{{ value }}" {% if value in search_hobby %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
+
+            <!-- ***** 趣味・興味(hobbies)グループ ***** -->
+            <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*** Hobbies/Interests ***</B></label>
+                <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchHobbiesOptions" aria-expanded="false" aria-controls="searchHobbiesOptions">表示</button>
             </div>
-            {% endif %}
-            <!-- food検索（チェックボックス） -->
-            {% if FOOD_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Food:</B></label>
-                {% for value, name in FOOD_CHOICES %}
-                    <label><input type="checkbox" name="search_food" value="{{ value }}" {% if value in search_food %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
+            <div class="collapse" id="searchHobbiesOptions">                
+
+                <!-- hobby検索（チェックボックス） -->
+                {% if HOBBY_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Hobby:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchHobbyOptions" aria-expanded="false" aria-controls="searchHobbyOptions">表示</button>
+                    <div class="collapse" id="searchHobbyOptions">                
+                    {% for value, name in HOBBY_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_hobby" value="{{ value }}" {% if value in search_hobby %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                <!-- food検索（チェックボックス） -->
+                {% if FOOD_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Food:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchFoodOptions" aria-expanded="false" aria-controls="searchFoodOptions">表示</button>
+                    <div class="collapse" id="searchFoodOptions">                
+                    {% for value, name in FOOD_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_food" value="{{ value }}" {% if value in search_food %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                <!-- music検索（チェックボックス） -->
+                {% if MUSIC_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Music:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchMusicOptions" aria-expanded="false" aria-controls="searchMusicOptions">表示</button>
+                    <div class="collapse" id="searchMusicOptions">                
+                    {% for value, name in MUSIC_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_music" value="{{ value }}" {% if value in search_music %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                <!-- movie検索（チェックボックス） -->
+                {% if MOVIE_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Movie:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchMovieOptions" aria-expanded="false" aria-controls="searchMovieOptions">表示</button>
+                    <div class="collapse" id="searchMovieOptions">                
+                    {% for value, name in MOVIE_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_movie" value="{{ value }}" {% if value in search_movie %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                <!-- book検索（チェックボックス） -->
+                {% if BOOK_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Book:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchBookOptions" aria-expanded="false" aria-controls="searchBookOptions">表示</button>
+                    <div class="collapse" id="searchBookOptions">                
+                    {% for value, name in BOOK_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_book" value="{{ value }}" {% if value in search_book %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-            <!-- music検索（チェックボックス） -->
-            {% if MUSIC_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Music:</B></label>
-                {% for value, name in MUSIC_CHOICES %}
-                    <label><input type="checkbox" name="search_music" value="{{ value }}" {% if value in search_music %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
+
+            <!-- ***** 性格や価値観(personality_traits)グループ ***** -->
+            <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*** Personality Traits ***</B></label>
+                <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchPersonalityTraitsOptions" aria-expanded="false" aria-controls="searchPersonalityTraitsOptions">表示</button>
             </div>
-            {% endif %}
-            <!-- movie検索（チェックボックス） -->
-            {% if MOVIE_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Movie:</B></label>
-                {% for value, name in MOVIE_CHOICES %}
-                    <label><input type="checkbox" name="search_movie" value="{{ value }}" {% if value in search_movie %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
+            <div class="collapse" id="searchPersonalityTraitsOptions">                
+
+                <!-- personality_type検索（チェックボックス） -->
+                {% if PERSONALITY_TYPE_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Personaly Type:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchPersonalityTypeOptions" aria-expanded="false" aria-controls="searchPersonalityTypeOptions">表示</button>
+                    <div class="collapse" id="searchPersonalityTypeOptions">                
+                    {% for value, name in PERSONALITY_TYPE_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_personality_type" value="{{ value }}" {% if value in search_personality_type %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                <!-- favorite_date検索（チェックボックス） -->
+                {% if FAVORITE_DATE_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Favorite Date:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchFavoriteDateOptions" aria-expanded="false" aria-controls="searchFavoriteDateOptions">表示</button>
+                    <div class="collapse" id="searchFavoriteDateOptions">                
+                    {% for value, name in FAVORITE_DATE_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_favorite_date" value="{{ value }}" {% if value in search_favorite_date %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                <!-- sense_of_values検索（チェックボックス） -->
+                {% if SENSE_OF_VALUES_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Sense of Values:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchSenseOfValuesOptions" aria-expanded="false" aria-controls="searchSenseOfValuesOptions">表示</button>
+                    <div class="collapse" id="searchSenseOfValuesOptions">                
+                    {% for value, name in SENSE_OF_VALUES_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_sense_of_values" value="{{ value }}" {% if value in search_sense_of_values %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-            <!-- book検索（チェックボックス） -->
-            {% if BOOK_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Book:</B></label>
-                {% for value, name in BOOK_CHOICES %}
-                    <label><input type="checkbox" name="search_book" value="{{ value }}" {% if value in search_book %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
+
+
+            <!-- ***** 目標・将来のビジョン(future_visions)グループ ***** -->
+            <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*** Future Visions ***</B></label>
+                <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchFutureVisionsOptions" aria-expanded="false" aria-controls="searchFutureVisionsOptions">表示</button>
             </div>
-            {% endif %}
-            <!-- personality_type検索（チェックボックス） -->
-            {% if PERSONALITY_TYPE_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Personaly Type:</B></label>
-                {% for value, name in PERSONALITY_TYPE_CHOICES %}
-                    <label><input type="checkbox" name="search_personality_type" value="{{ value }}" {% if value in search_personality_type %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
+            <div class="collapse" id="searchFutureVisionsOptions">                
+
+                <!-- future_plan検索（チェックボックス） -->
+                {% if FUTURE_PLAN_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Future Plan:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchFuturePlanOptions" aria-expanded="false" aria-controls="searchFuturePlanOptions">表示</button>
+                    <div class="collapse" id="searchFuturePlanOptions">                
+                    {% for value, name in FUTURE_PLAN_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_future_plan" value="{{ value }}" {% if value in search_future_plan %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                <!-- search_request_for_partner検索（チェックボックス） -->
+                {% if REQUEST_FOR_PARTNER_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Request for Partner:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchRequestForPartnerOptions" aria-expanded="false" aria-controls="searchRequestForPartnerOptions">表示</button>
+                    <div class="collapse" id="searchRequestForPartnerOptions">                
+                    {% for value, name in REQUEST_FOR_PARTNER_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_request_for_partner" value="{{ value }}" {% if value in search_request_for_partner %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-            <!-- favorite_date検索（チェックボックス） -->
-            {% if FAVORITE_DATE_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Favorite Date:</B></label>
-                {% for value, name in FAVORITE_DATE_CHOICES %}
-                    <label><input type="checkbox" name="search_favorite_date" value="{{ value }}" {% if value in search_favorite_date %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
+
+
+            <!-- ***** 興味のある活動(interested_activities)グループ ***** -->
+            <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*** Interested Activities ***</B></label>
+                <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchInterestedActivitiesOptions" aria-expanded="false" aria-controls="searchInterestedActivitiesOptions">表示</button>
             </div>
-            {% endif %}
-            <!-- sense_of_values検索（チェックボックス） -->
-            {% if SENSE_OF_VALUES_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Sense of Values:</B></label>
-                {% for value, name in SENSE_OF_VALUES_CHOICES %}
-                    <label><input type="checkbox" name="search_sense_of_values" value="{{ value }}" {% if value in search_sense_of_values %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
+            <div class="collapse" id="searchInterestedActivitiesOptions">                
+
+                <!-- weekend_activity検索（チェックボックス） -->
+                {% if WEEKEND_ACTIVITY_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Weekend Activity:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchWeekendActivityOptions" aria-expanded="false" aria-controls="searchWeekendActivityOptions">表示</button>
+                    <div class="collapse" id="searchWeekendActivityOptions">                
+                    {% for value, name in WEEKEND_ACTIVITY_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_weekend_activity" value="{{ value }}" {% if value in search_weekend_activity %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                <!-- ongoing_project検索（チェックボックス） -->
+                {% if ONGOING_PROJECT_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-On-Going Project:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchOngoingProjectOptions" aria-expanded="false" aria-controls="searchOngoingProjectOptions">表示</button>
+                    <div class="collapse" id="searchOngoingProjectOptions">                
+                    {% for value, name in ONGOING_PROJECT_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_ongoing_project" value="{{ value }}" {% if value in search_ongoing_project %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                <!-- social_activity検索（チェックボックス） -->
+                {% if SOCIAL_ACTIVITY_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Social Activity:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchSocialActivityOptions" aria-expanded="false" aria-controls="searchSocialActivityOptions">表示</button>
+                    <div class="collapse" id="searchSocialActivityOptions">                
+                    {% for value, name in SOCIAL_ACTIVITY_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_social_activity" value="{{ value }}" {% if value in search_social_activity %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-            <!-- future_plan検索（チェックボックス） -->
-            {% if FUTURE_PLAN_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Future Plan:</B></label>
-                {% for value, name in FUTURE_PLAN_CHOICES %}
-                    <label><input type="checkbox" name="search_future_plan" value="{{ value }}" {% if value in search_future_plan %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
+
+
+            <!-- ***** ユニークな質問(unique_questions)グループ ***** -->
+            <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                <label><B style="color:blue;">*** Unique Questions ***</B></label>
+                <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchUniqueQuestionsOptions" aria-expanded="false" aria-controls="searchUniqueQuestionsOptions">表示</button>
             </div>
-            {% endif %}
-            <!-- search_request_for_partner検索（チェックボックス） -->
-            {% if REQUEST_FOR_PARTNER_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Request for Partner:</B></label>
-                {% for value, name in REQUEST_FOR_PARTNER_CHOICES %}
-                    <label><input type="checkbox" name="search_request_for_partner" value="{{ value }}" {% if value in search_request_for_partner %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
+            <div class="collapse" id="searchUniqueQuestionsOptions">
+
+                <!-- free_day検索（チェックボックス） -->
+                {% if FREE_DAY_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Free Day:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchFreeDayOptions" aria-expanded="false" aria-controls="searchFreeDayOptions">表示</button>
+                    <div class="collapse" id="searchFreeDayOptions">                
+                    {% for value, name in FREE_DAY_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_free_day" value="{{ value }}" {% if value in search_free_day %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                <!-- proudest_achievements検索（チェックボックス） -->
+                {% if PROUDEST_ACHIEVEMENTS_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Proudest Achievements:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchProudestAchievementsOptions" aria-expanded="false" aria-controls="searchProudestAchievementsOptions">表示</button>
+                    <div class="collapse" id="searchProudestAchievementsOptions">                
+                    {% for value, name in PROUDEST_ACHIEVEMENTS_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_proudest_achievements" value="{{ value }}" {% if value in search_proudest_achievements %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                <!-- most_important_values検索（チェックボックス） -->
+                {% if MOST_IMPORTANT_VALUES_CHOICES %}
+                <div class="category-group d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+                    <label><B style="color:blue;">-Most important Values:</B></label>
+                    <button class="btn btn-outline-primary btn-sm toggle-collapse-btn" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchMostImportantValuesOptions" aria-expanded="false" aria-controls="searchMostImportantValuesOptions">表示</button>
+                    <div class="collapse" id="searchMostImportantValuesOptions">                
+                    {% for value, name in MOST_IMPORTANT_VALUES_CHOICES %}
+                        <label><input class="form-check-input" type="checkbox" name="search_most_important_values" value="{{ value }}" {% if value in search_most_important_values %}checked{% endif %}>{{ name }}</label>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-            <!-- weekend_activity検索（チェックボックス） -->
-            {% if WEEKEND_ACTIVITY_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Weekend Activity:</B></label>
-                {% for value, name in WEEKEND_ACTIVITY_CHOICES %}
-                    <label><input type="checkbox" name="search_weekend_activity" value="{{ value }}" {% if value in search_weekend_activity %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
-            </div>
-            {% endif %}
-            <!-- ongoing_project検索（チェックボックス） -->
-            {% if ONGOING_PROJECT_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*On-Going Project:</B></label>
-                {% for value, name in ONGOING_PROJECT_CHOICES %}
-                    <label><input type="checkbox" name="search_ongoing_project" value="{{ value }}" {% if value in search_ongoing_project %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
-            </div>
-            {% endif %}
-            <!-- social_activity検索（チェックボックス） -->
-            {% if SOCIAL_ACTIVITY_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Social Activity:</B></label>
-                {% for value, name in SOCIAL_ACTIVITY_CHOICES %}
-                    <label><input type="checkbox" name="search_social_activity" value="{{ value }}" {% if value in search_social_activity %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
-            </div>
-            {% endif %}
-            <!-- free_day検索（チェックボックス） -->
-            {% if FREE_DAY_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Free Day:</B></label>
-                {% for value, name in FREE_DAY_CHOICES %}
-                    <label><input type="checkbox" name="search_free_day" value="{{ value }}" {% if value in search_free_day %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
-            </div>
-            {% endif %}
-            <!-- proudest_achievements検索（チェックボックス） -->
-            {% if PROUDEST_ACHIEVEMENTS_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Proudest Achievements:</B></label>
-                {% for value, name in PROUDEST_ACHIEVEMENTS_CHOICES %}
-                    <label><input type="checkbox" name="search_proudest_achievements" value="{{ value }}" {% if value in search_proudest_achievements %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
-            </div>
-            {% endif %}
-            <!-- most_important_values検索（チェックボックス） -->
-            {% if MOST_IMPORTANT_VALUES_CHOICES %}
-            <div class="category-group d-flex flex-row align-items-center " style="gap:8px; flex-wrap:wrap;">
-                <label><B style="color:blue;">*Most important Values:</B></label>
-                {% for value, name in MOST_IMPORTANT_VALUES_CHOICES %}
-                    <label><input type="checkbox" name="search_most_important_values" value="{{ value }}" {% if value in search_most_important_values %}checked{% endif %}> {{ name }}</label>
-                {% endfor %}
-            </div>
-            {% endif %}
+
             <!-- ソート条件（ラジオボタン） -->
-            <div class="d-flex flex-row align-items-center " style="gap: 8px;">
+            <div class="d-flex flex-row align-items-center " style="gap: 0px 8px;">
                 <label><B style="color:blue;">*Sort by:</B></label>
-                <div class="d-flex flex-row" style="gap:8px; flex-wrap:wrap;">
+                <div class="d-flex flex-row" style="gap:0px 8px; flex-wrap:wrap;">
                     <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="name_asc"{% if sort_by == "name_asc" %}checked{% endif %}>Name asc</label>
                     <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="name_desc"{% if sort_by == "name_desc" %}checked{% endif %}>Name desc</label>
                     <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="created_asc"{% if sort_by == "created_asc" %}checked{% endif %}>Created asc</label>
@@ -191,10 +292,10 @@
                 </div>
             </div>
             <!-- フリーワード検索 -->
-            <div class="d-flex flex-row align-items-center " style="gap: 8px;">
-                <label><B style="color:blue;">*Search:</B></label>
+            <div class="d-flex flex-row align-items-center " style="gap: 0px 8px;">
+                <label><B style="color:blue;">*Filter:</B></label>
                 <input type="text" name="search_str" value="{{ search_str }}" class="form-control" maxlength="100" aria-describedby="id_search_str" id="id_search_str" style="width: 100px;">
-                <input type="submit" class="btn btn-primary" id="submit-button" value="Filter">
+                <input type="submit" class="btn btn-primary" id="submit-button" value="Search">
                 {% if user.is_authenticated and not findme_own %}
                     <span class="mx-3">|</span>
                     <a href="{% url 'findme:create' %}" class="btn btn-primary">Create Find-Me</a>
@@ -220,4 +321,7 @@
 
 {% block footer %}
 <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
+
+<script src="{% static 'js/choice_display_switch.js' %}"></script> <!-- for switch choice display or display-none --> 
+
 {% endblock footer %}

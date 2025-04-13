@@ -49,6 +49,10 @@ def list_view(request):
     else:
         object_list = FindMe.objects.all()
 
+    # 検索条件オープン状態保持向け
+    open_sections = request.GET.get("open_sections", "")
+    logger.debug(f'open_sections: {open_sections}')
+
     # 性別フィルタ用
     search_gender = request.GET.getlist("search_gender", "")
     logger.debug(f'search_gender: {search_gender}')
@@ -169,6 +173,7 @@ def list_view(request):
     context = {
         'display_object_list': display_object_list,
         'link_object_list': link_object_list,
+        'open_sections': open_sections,
         'search_gender': search_gender,
         'search_hobby': search_hobby,
         'search_food': search_food,
