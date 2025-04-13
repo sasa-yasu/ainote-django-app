@@ -284,9 +284,82 @@ class FindMeForm(forms.ModelForm):
 
         return mbti_name_value
 
+    def clean_hobby_choice(self):
+        data = self.cleaned_data.get('hobby_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_food_choice(self):
+        data = self.cleaned_data.get('food_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_music_choice(self):
+        data = self.cleaned_data.get('music_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_movie_choice(self):
+        data = self.cleaned_data.get('movie_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_book_choice(self):
+        data = self.cleaned_data.get('book_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_personality_type_choice(self):
+        data = self.cleaned_data.get('personality_type_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
     def clean_favorite_date_choice(self):
         data = self.cleaned_data.get('favorite_date_choice', [])
-        if len(data) > 3:
-            raise forms.ValidationError("最大3つまで選択できます。")
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
         return data
-    
+
+    def clean_sense_of_values_choice(self):
+        data = self.cleaned_data.get('sense_of_values_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_future_plan_choice(self):
+        data = self.cleaned_data.get('future_plan_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_request_for_partner_choice(self):
+        data = self.cleaned_data.get('request_for_partner_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_weekend_activity_choice(self):
+        data = self.cleaned_data.get('weekend_activity_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_ongoing_project_choice(self):
+        data = self.cleaned_data.get('ongoing_project_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_social_activity_choice(self):
+        data = self.cleaned_data.get('social_activity_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_free_day_choice(self):
+        data = self.cleaned_data.get('free_day_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_proudest_achievements_choice(self):
+        data = self.cleaned_data.get('proudest_achievements_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
+
+    def clean_most_important_values_choice(self):
+        data = self.cleaned_data.get('most_important_values_choice', [])
+        if len(data) > 3: raise forms.ValidationError("最大3つまで選択できます。")
+        return data
