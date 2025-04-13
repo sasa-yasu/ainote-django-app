@@ -2,12 +2,12 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.views.decorators.csrf import csrf_exempt
+from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes
 from user.models import Profile
 from .forms import FindMeForm
-from .models import FindMe
+from .models import FindMe, Poke, Notification
 
 import logging
 
@@ -168,8 +168,6 @@ def list_view(request):
         display_object_list = []
         link_object_list = []
 
-    findme_own = FindMe.objects.filter(profile=request.user.profile).first()
-
     context = {
         'display_object_list': display_object_list,
         'link_object_list': link_object_list,
@@ -193,7 +191,6 @@ def list_view(request):
         'search_most_important_values': search_most_important_values,
         'search_str': search_str,
         'sort_by': sort_by,
-        'findme_own': findme_own,
     }
 
     # add all CHOICES for input / display
@@ -213,6 +210,8 @@ def detail_view(request, pk):
 
     # add all CHOICES for input / display
     context = FindMe.get_all_choices(context)
+
+    context.update({'notifications': object.get_all_notifications})
 
     logger.debug('return render findme/detail.html')
     return render(request, 'findme/detail.html', context)
@@ -537,3 +536,38 @@ def delete_view(request, pk):
 
     logger.info('return render findme/delete.html')
     return render(request, 'findme/delete.html', context)
+
+
+def send_poke(request, pk):
+    logger.info('start FindMe send_poke')
+    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        sender = request.user.profile
+        receiver = get_object_or_404(FindMe, id=pk)
+
+        # 今日の日付の開始時間を取得（00:00）
+        today_start = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
+
+        # 今日poke済みか確認
+        already_poked_today = Poke.objects.filter(
+            sender=sender,
+            receiver=receiver,
+            created_at__gte=today_start
+        ).exists()
+
+#        if already_poked_today:
+        if 0>1:
+            logger.debug(f'今日はすでにPoke済です。')
+    #        messages.info(request, 'すでに Poke 済みです。')
+        else:
+            # 初めての poke
+            logger.debug(f'Pokeしました！')
+            Poke.objects.create(sender=sender, receiver=receiver)
+    #        messages.success(request, 'Poke を送りました！')
+            Notification.objects.create(
+                recipient=receiver,
+                sender=request.user.profile,
+                message=f"{request.user.profile.nick_name} さんからPokeされました！"
+            )
+
+    logger.info(f'JsonResponse:{receiver.poke_count}')
+    return JsonResponse({'poke_count': receiver.poke_count})

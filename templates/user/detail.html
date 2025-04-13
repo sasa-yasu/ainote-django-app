@@ -53,316 +53,316 @@
 <main><div class="container">
   <form method="POST">
     {% csrf_token %}
-    <br/>
     <!--submit button-->
-    <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+    <a href="javascript:history.back()" class="btn btn-secondary">⬅️Back</a>
     {% if user.is_authenticated %}
         {% if user.is_staff or user.profile.id == object.id %}
             <a>&nbsp;</a>
-            <a href="{% url 'user:update' object.pk %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'user:update' object.pk %}" class="btn btn-primary">🛠️Edit</a>
             <a>&nbsp;</a>
-            <a href="{% url 'user:delete' object.pk %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'user:delete' object.pk %}" class="btn btn-danger">🗑️Delete</a>
         {% endif %}
     {% endif %}
     {% if object.get_friend_pk %}
       <a>&nbsp;-&nbsp;</a>
-      <a href="{% url 'friend:delete' object.get_friend_pk %}" class="btn btn-danger">Leave from Friend</a>
+      <a href="{% url 'friend:delete' object.get_friend_pk %}" class="btn btn-danger">🚪Leave from Friend</a>
     {% endif %}
-    <br/><br/>
+  </form>
+  <br/>
 
-    <div class="row g-5">
-      <div class="col-md-8"><div class="header-container align-items-start">
+  <div class="row g-5">
+    <div class="col-md-8"><div class="header-container align-items-start">
 
-        <!-- 画像ブロック -->
-        <div class="align-self-start" style="min-width:300px;">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 flex-column position-static" style="width:900px;">
-              <div class="d-flex align-items-center"><h1 class="display-6">{{ object.nick_name }}</h1><p style="margin-top:auto; align-self:flex-end; margin-bottom:8px;">( {{ object.user1.username }} )</p></div>
-              <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
-                <div class="profile-image-wrapper" style="max-width:900px; ">
-                    <!-- 背景：themes -->
-                    {% if object.themes %}
-                    <img src="{{ object.themes.url }}" class="bg-image" alt="User Themes"/>
-                    {% else %}
-                    <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
-                    {% endif %}
-                    <!-- 前面：images(circle切り取り) -->
-                    <div class="profile-front-image">
-                        {% if object.images %}
-                        <img src="{{ object.images.url }}" class="rounded-circle" alt="User Images"/>
-                        {% else %}
-                        <img src="{% static 'img/user.png' %}" class="rounded-circle" alt="Default Images"/>
-                        {% endif %}
-                    </div>
-                    <!-- 右上：MBTI -->
-                    {% if object.mbti and object.mbti != '-' %}
-                      <span class="profile-right-top d-inline-flex align-items-center">
-                        <a href="{{ object.get_mbti_url }}" target="_blank">
-                          {% with mbti_image='img/mbti/'|add:object.mbti|add:'.png' %}
-                            <img src="{% static mbti_image %}" width="80" height="80" alt="MBTI" class="profile-mbti-img"/>
-                          {% endwith %}
-                        </a>
-                      </span>
-                    {% endif %}
-
-                    <!-- 左下：MBTI Compatibility -->
-                    {% if request.user.profile.id != object.id and request.user.profile.mbti and object.mbti %}
-                        {% with mbti_comp=object.get_mbti_comp %}
-                        {% if mbti_comp.pt > 0 %}
-                            {% with mbti_comp_pt=mbti_comp.pt|stringformat:"s" %}
-                            {% with mbti_pt_img='img/mbti/star_'|add:mbti_comp_pt|add:'.png' mbti_relation_img='img/mbti/'|add:mbti_comp.relation|add:'.png' %}
-                            <span class="profile-left-bottom d-inline-flex flex-column align-items-start rounded-1" style="background:white;">
-                              <span style="margin: 2px; padding: 0; text-align: left;"><img src="{% static mbti_pt_img %}" width="75" height=auto alt="MBTI Point" style="display: block;"/></span>
-                              <span style="margin: 0; padding: 0; text-align: left;"><img src="{% static mbti_relation_img %}" width="75" height=auto alt="MBTI Relation" style="display: block;"/></span>
-                              <span style="margin: 0; padding: 2px 4px; text-align: left;"><h7 class="display-9" style="margin:0px; font-family: var(--bs-body-font-family)"><B>{{ mbti_comp.description }}</B></h7></span>
-                            {% endwith %}{% endwith %}
-                        </span>
-                        {% endif %}
+      <!-- 画像ブロック -->
+      <div class="align-self-start" style="min-width:300px;">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 flex-column position-static" style="width:900px;">
+            <div class="d-flex align-items-center"><h1 class="display-6">{{ object.nick_name }}</h1><p style="margin-top:auto; align-self:flex-end; margin-bottom:8px;">( {{ object.user1.username }} )</p></div>
+            <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
+              <div class="profile-image-wrapper" style="max-width:900px; ">
+                  <!-- 背景：themes -->
+                  {% if object.themes %}
+                  <img src="{{ object.themes.url }}" class="bg-image" alt="User Themes"/>
+                  {% else %}
+                  <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+                  {% endif %}
+                  <!-- 前面：images(circle切り取り) -->
+                  <div class="profile-front-image">
+                      {% if object.images %}
+                      <img src="{{ object.images.url }}" class="rounded-circle" alt="User Images"/>
+                      {% else %}
+                      <img src="{% static 'img/user.png' %}" class="rounded-circle" alt="Default Images"/>
+                      {% endif %}
+                  </div>
+                  <!-- 右上：MBTI -->
+                  {% if object.mbti and object.mbti != '-' %}
+                    <span class="profile-right-top d-inline-flex align-items-center">
+                      <a href="{{ object.get_mbti_url }}" target="_blank">
+                        {% with mbti_image='img/mbti/'|add:object.mbti|add:'.png' %}
+                          <img src="{% static mbti_image %}" width="80" height="80" alt="MBTI" class="profile-mbti-img"/>
                         {% endwith %}
-                    {% endif %}
-                </div>
+                      </a>
+                    </span>
+                  {% endif %}
+
+                  <!-- 左下：MBTI Compatibility -->
+                  {% if request.user.profile.id != object.id and request.user.profile.mbti and object.mbti %}
+                      {% with mbti_comp=object.get_mbti_comp %}
+                      {% if mbti_comp.pt > 0 %}
+                          {% with mbti_comp_pt=mbti_comp.pt|stringformat:"s" %}
+                          {% with mbti_pt_img='img/mbti/star_'|add:mbti_comp_pt|add:'.png' mbti_relation_img='img/mbti/'|add:mbti_comp.relation|add:'.png' %}
+                          <span class="profile-left-bottom d-inline-flex flex-column align-items-start rounded-1" style="background:white;">
+                            <span style="margin: 2px; padding: 0; text-align: left;"><img src="{% static mbti_pt_img %}" width="75" height=auto alt="MBTI Point" style="display: block;"/></span>
+                            <span style="margin: 0; padding: 0; text-align: left;"><img src="{% static mbti_relation_img %}" width="75" height=auto alt="MBTI Relation" style="display: block;"/></span>
+                            <span style="margin: 0; padding: 2px 4px; text-align: left;"><h7 class="display-9" style="margin:0px; font-family: var(--bs-body-font-family)"><B>{{ mbti_comp.description }}</B></h7></span>
+                          {% endwith %}{% endwith %}
+                      </span>
+                      {% endif %}
+                      {% endwith %}
+                  {% endif %}
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- プロパティブロック -->
-        <div class="align-self-start" style="min-width:100px; width:100%; ">
+      <!-- プロパティブロック -->
+      <div class="align-self-start" style="min-width:100px; width:100%; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <table class="table profile-property-table">
+              <!-- Only Display to Frind Profile -->
+              {% if user.is_staff or object.get_friend_pk %}
+                <tr><th>User Name</th><td>{{ object.user1.username }}</td></tr>
+                <tr><th>Member ID</th><td>{{ object.memberid }}</td></tr>
+              {% endif %}
+              <tr><th style="width:150px;">Nick Name</th><td>{{ object.nick_name }}</td></tr>
+              <tr>
+                <th>Badges</th>
+                <td>
+                  {% for value, label in object.BADGES_CHOICES %}
+                  {% if object.badges == value %}
+                    {{ label }}
+                  {% endif %}
+                  {% endfor %}
+                </td>
+              </tr>
+              {% if user.is_staff %}<tr><th>Birthday(Y)</th><td>{{ object.birth_year}}</td></tr>{% endif %}
+              <!-- Only Display to Frind Profile -->
+              {% if user.is_staff or object.get_friend_pk %}
+                {% if object.birth_month_day %}<tr><th>Birthday(M/D)</th><td>{{object.birth_month_day|date:"m/d" }}</td></tr>{% endif %}
+              {% endif %}
+              <tr>
+                <th>MBTI Type</th>
+                {% if object.mbti == '-' %}
+                  <td>{{ object.get_mbti_display }}</td>
+                {% else %}
+                  <td><a href="{{ object.get_mbti_url }}" target="_blank" class="btn btn-sm btn-outline-secondary me-2">{{ object.get_mbti_display }}</a></td>
+                {% endif %}
+              </tr>
+              <tr>
+                <th>MBTI Name</th>
+                <td>{{ object.get_mbti_name_display }}</td>
+              </tr>
+              <tr><th>Likes Given</th><td>{{ object.given_likes|intcomma }}</td></tr>
+              <tr><th>Status Points</th><td>{{ object.status_points|intcomma }} &lt;&lt; {{ object.get_status_points_prize|default:"No Prize" }} &gt;&gt;</td></tr>
+              <!-- Only Display to Frind Profile -->
+              {% if user.is_staff or object.get_friend_pk %}
+                <tr><th>Available Points</th><td>{{ object.available_points|intcomma }}</td></tr>
+              {% endif %}
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Only Display if Frind Profile -->
+      {% if user.is_staff or object.get_friend_pk %}
+        <!-- Hobby -->
+        {% if object.hobby %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
             <div class="col p-4 d-flex flex-column position-static">
-              <table class="table profile-property-table">
-                <!-- Only Display to Frind Profile -->
-                {% if user.is_staff or object.get_friend_pk %}
-                  <tr><th>User Name</th><td>{{ object.user1.username }}</td></tr>
-                  <tr><th>Member ID</th><td>{{ object.memberid }}</td></tr>
-                {% endif %}
-                <tr><th style="width:150px;">Nick Name</th><td>{{ object.nick_name }}</td></tr>
-                <tr>
-                  <th>Badges</th>
-                  <td>
-                    {% for value, label in object.BADGES_CHOICES %}
-                    {% if object.badges == value %}
-                      {{ label }}
-                    {% endif %}
-                    {% endfor %}
-                  </td>
-                </tr>
-                {% if user.is_staff %}<tr><th>Birthday(Y)</th><td>{{ object.birth_year}}</td></tr>{% endif %}
-                <!-- Only Display to Frind Profile -->
-                {% if user.is_staff or object.get_friend_pk %}
-                  {% if object.birth_month_day %}<tr><th>Birthday(M/D)</th><td>{{object.birth_month_day|date:"m/d" }}</td></tr>{% endif %}
-                {% endif %}
-                <tr>
-                  <th>MBTI Type</th>
-                  {% if object.mbti == '-' %}
-                    <td>{{ object.get_mbti_display }}</td>
-                  {% else %}
-                    <td><a href="{{ object.get_mbti_url }}" target="_blank" class="btn btn-sm btn-outline-secondary me-2">{{ object.get_mbti_display }}</a></td>
-                  {% endif %}
-                </tr>
-                <tr>
-                  <th>MBTI Name</th>
-                  <td>{{ object.get_mbti_name_display }}</td>
-                </tr>
-                <tr><th>Likes Given</th><td>{{ object.given_likes|intcomma }}</td></tr>
-                <tr><th>Status Points</th><td>{{ object.status_points|intcomma }} &lt;&lt; {{ object.get_status_points_prize|default:"No Prize" }} &gt;&gt;</td></tr>
-                <!-- Only Display to Frind Profile -->
-                {% if user.is_staff or object.get_friend_pk %}
-                  <tr><th>Available Points</th><td>{{ object.available_points|intcomma }}</td></tr>
-                {% endif %}
-              </table>
+              <article class="blog-post" style="margin:0px;">
+                <h2>Hobby</h2>{{ object.hobby|safe|linebreaksbr }}
+              </article>
             </div>
           </div>
         </div>
-
-        <!-- Only Display to Frind Profile -->
-        {% if user.is_staff or object.get_friend_pk %}
-
-          <!-- Hobby -->
-          {% if object.hobby %}
-          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-              <div class="col p-4 d-flex flex-column position-static">
-                <article class="blog-post" style="margin:0px;">
-                  <h2>Hobby</h2>{{ object.hobby|safe|linebreaksbr }}
-                </article>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-          <!-- Sports -->
-          {% if object.sports %}
-          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-              <div class="col p-4 d-flex flex-column position-static">
-                <article class="blog-post" style="margin:0px;">
-                  <h2>Sports</h2>{{ object.sports|safe|linebreaksbr }}
-                </article>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-          <!-- Movie -->
-          {% if object.movie %}
-          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-              <div class="col p-4 d-flex flex-column position-static">
-                <article class="blog-post" style="margin:0px;">
-                  <h2>Movie</h2>{{ object.movie|safe|linebreaksbr }}
-                </article>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-          <!-- Music -->
-          {% if object.music %}
-          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-              <div class="col p-4 d-flex flex-column position-static">
-                <article class="blog-post" style="margin:0px;">
-                  <h2>Music</h2>{{ object.music|safe|linebreaksbr }}
-                </article>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-          <!-- Book -->
-          {% if object.book %}
-          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-              <div class="col p-4 d-flex flex-column position-static">
-                <article class="blog-post" style="margin:0px;">
-                  <h2>Book</h2>{{ object.book|safe|linebreaksbr }}
-                </article>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-          <!-- Event -->
-          {% if object.event %}
-          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-              <div class="col p-4 d-flex flex-column position-static">
-                <article class="blog-post" style="margin:0px;">
-                  <h2>Event</h2>{{ object.event|safe|linebreaksbr }}
-                </article>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-          <!-- Remarks -->
-          {% if object.remarks %}
-          <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-              <div class="col p-4 d-flex flex-column position-static">
-                <article class="blog-post" style="margin:0px;">
-                  <h2>Remarks</h2>{{ object.remarks|safe|linebreaksbr }}
-                </article>
-              </div>
-            </div>
-          </div>
-          {% endif %}
         {% endif %}
-
-        <br/>
-        <!--joined Group-->
+        <!-- Sports -->
+        {% if object.sports %}
         <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <h5><B>&lt;&lt;[ Joined Group List ]&gt;&gt;</B></h5>
-          <div class="row row-cols-2 row-cols-sm-3 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-3">
-            {% for item in joined_groups %}
-              {% include 'includes/group_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" disp_like='none' %}
-            {% empty %}
-              <div>No joined groups yet.</div>
-            {% endfor %}
-          </div>
-        </div>
-        <br/>
-        <!--Friends-->
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <h5><B>&lt;&lt;[ Friend List ]&gt;&gt;</B></h5>
-          <div class="container bg-body-tertiary"><div class="row row-cols-5 row-cols-sm-5 row-cols-md-4 row-cols-lg-6 row-cols-xl-6 row-cols-xxl-6 g-3">
-            {% for item in friends %}
-            {% include 'includes/profile_item_simple.html' with item=item %}
-            {% empty %}
-              <div>No friends yet.</div>
-            {% endfor %}
-          </div></div>
-        </div>
-
-      </div></div>
-
-      <div class="col-md-4">
-        <div class="position-sticky" style="top: 5rem;">
-          <div class="p-4 mb-3 bg-body-tertiary rounded">
-            <div> Profile Card (public) </div>
-            {% include 'includes/profile_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
-          </div>
-
-          <div>
-            <h4 class="fst-italic">Recent chat</h4>
-            {% for chat in recent_chats %}
-              <div class="card" style="margin-bottom:4px;"><div class="card-body" style="padding:8px;">
-                <small class="card-text"><B>{{ chat.title }}</B></small><br/>
-                {% if chat.context %} <small class="text-muted">{{ chat.context }}</small><br/> {% endif %}
-                <small class="text-muted">{{ chat.created_at|date:"Y/m/d H:i" }}</small>
-              </div></div>
-            {% empty %}
-              <div>No recent chats.</div>
-            {% endfor %}
-          </div>
-
-          <!-- Only Display to Friend Profile -->
-          {% if user.is_staff or object.get_friend_pk %}
-            <div style="margin-top:16px;">
-              <h4 class="fst-italic">Recent logins</h4>
-              {% for login_record in recent_login_records %}
-                <div class="card" style="margin-bottom:2px;"><div class="card-body" style="padding:2px; padding-left:4px;">
-                  <small class="text-muted">{{ login_record.login_time|date:"'y/m/d H:i" }} - </small>
-                  <small class="text-muted">
-                    {% if login_record.logout_time and login_record.login_time|date:"Y/m/d" != login_record.logout_time|date:"Y/m/d" %}{{ login_record.logout_time|date:"m/d" }}{% endif %}
-                    {{ login_record.logout_time|date:"H:i" }}
-                  </small>
-                  <small class="text-muted">[{{ login_record.get_diff_time }}]</small>
-                </div></div>
-              {% empty %}
-                  <div>No recent logins.</div>
-              {% endfor %}
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Sports</h2>{{ object.sports|safe|linebreaksbr }}
+              </article>
             </div>
-          {% endif %}
-
+          </div>
+        </div>
+        {% endif %}
+        <!-- Movie -->
+        {% if object.movie %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Movie</h2>{{ object.movie|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Music -->
+        {% if object.music %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Music</h2>{{ object.music|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Book -->
+        {% if object.book %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Book</h2>{{ object.book|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Event -->
+        {% if object.event %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Event</h2>{{ object.event|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Remarks -->
+        {% if object.remarks %}
+        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <article class="blog-post" style="margin:0px;">
+                <h2>Remarks</h2>{{ object.remarks|safe|linebreaksbr }}
+              </article>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endif %}
+      <br/>
+      <!--joined Group-->
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <h5><B>&lt;&lt;[ Joined Group List ]&gt;&gt;</B></h5>
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-3">
+          {% for item in joined_groups %}
+            {% include 'includes/group_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" disp_like='none' %}
+          {% empty %}
+            <div>No joined groups yet.</div>
+          {% endfor %}
         </div>
       </div>
+      <br/>
+      <!--Friends-->
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <h5><B>&lt;&lt;[ Friend List ]&gt;&gt;</B></h5>
+        <div class="container bg-body-tertiary"><div class="row row-cols-5 row-cols-sm-5 row-cols-md-4 row-cols-lg-6 row-cols-xl-6 row-cols-xxl-6 g-3">
+          {% for item in friends %}
+          {% include 'includes/profile_item_simple.html' with item=item %}
+          {% empty %}
+            <div>No friends yet.</div>
+          {% endfor %}
+        </div></div>
+      </div>
+
+    </div></div>
+
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 5rem;">
+        <div class="p-4 mb-3 bg-body-tertiary rounded">
+          <div> Profile Card (public) </div>
+          {% include 'includes/profile_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
+        </div>
+
+        <div>
+          <h4 class="fst-italic">Recent chat</h4>
+          {% for chat in recent_chats %}
+            <div class="card" style="margin-bottom:4px;"><div class="card-body" style="padding:8px;">
+              <small class="card-text"><B>{{ chat.title }}</B></small><br/>
+              {% if chat.context %} <small class="text-muted">{{ chat.context }}</small><br/> {% endif %}
+              <small class="text-muted">{{ chat.created_at|date:"Y/m/d H:i" }}</small>
+            </div></div>
+          {% empty %}
+            <div>No recent chats.</div>
+          {% endfor %}
+        </div>
+
+        <!-- Only Display to Friend Profile -->
+        {% if user.is_staff or object.get_friend_pk %}
+          <div style="margin-top:16px;">
+            <h4 class="fst-italic">Recent logins</h4>
+            {% for login_record in recent_login_records %}
+              <div class="card" style="margin-bottom:2px;"><div class="card-body" style="padding:2px; padding-left:4px;">
+                <small class="text-muted">{{ login_record.login_time|date:"'y/m/d H:i" }} - </small>
+                <small class="text-muted">
+                  {% if login_record.logout_time and login_record.login_time|date:"Y/m/d" != login_record.logout_time|date:"Y/m/d" %}{{ login_record.logout_time|date:"m/d" }}{% endif %}
+                  {{ login_record.logout_time|date:"H:i" }}
+                </small>
+                <small class="text-muted">[{{ login_record.get_diff_time }}]</small>
+              </div></div>
+            {% empty %}
+                <div>No recent logins.</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+      </div>
     </div>
-    <br/>
+  </div>
+
+  <br/>
+  <form method="POST">
+    {% csrf_token %}
     <!--submit button-->
-    <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+    <a href="javascript:history.back()" class="btn btn-secondary">⬅️Back</a>
     {% if user.is_authenticated %}
         {% if user.is_staff or user.profile.id == object.id %}
             <a>&nbsp;</a>
-            <a href="{% url 'user:update' object.pk %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'user:update' object.pk %}" class="btn btn-primary">🛠️Edit</a>
             <a>&nbsp;</a>
-            <a href="{% url 'user:delete' object.pk %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'user:delete' object.pk %}" class="btn btn-danger">🗑️Delete</a>
         {% endif %}
     {% endif %}
     {% if object.get_friend_pk %}
       <a>&nbsp;-&nbsp;</a>
-      <a href="{% url 'friend:delete' object.get_friend_pk %}" class="btn btn-danger">Leave from Friend</a>
+      <a href="{% url 'friend:delete' object.get_friend_pk %}" class="btn btn-danger">🚪Leave from Friend</a>
     {% endif %}
-    <br/>
-
-    {% if user.is_authenticated %}
-    {% if user.is_staff or user.profile.id == object.id %}
-    <hr class="featurette-divider">
-    <!--Display:QR for Friendship-->
-    <div class="align-self-start" style="min-width:100px; width:100%;">
-      <h5><B>&lt;&lt;[ Make Friend QR Code ]&gt;&gt;</B></h5>
-      <div class="row g-0 flex-md-row mb-0 position-relative">
-        <div style="width:auto;"><img src="{% url 'friend:disp_qr' %}?profile_id={{ object.id }}" alt="Profile QR Code" width="300" height="300"></div>
-      </div>
-    </div>
-    {% endif %}{% endif %}
-
   </form>
+
+  {% if user.is_authenticated %}
+  {% if user.is_staff or user.profile.id == object.id %}
+  <hr class="featurette-divider">
+  <!--Display:QR for Friendship-->
+  <div class="align-self-start" style="min-width:100px; width:100%;">
+    <h5><B>&lt;&lt;[ Make Friend QR Code ]&gt;&gt;</B></h5>
+    <div class="row g-0 flex-md-row mb-0 position-relative">
+      <div style="width:auto;"><img src="{% url 'friend:disp_qr' %}?profile_id={{ object.id }}" alt="Profile QR Code" width="300" height="300"></div>
+    </div>
+  </div>
+  {% endif %}{% endif %}
+
 </div></main>
 <!--MAIN END-->
 {% endblock %}

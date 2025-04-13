@@ -46,7 +46,7 @@
 <!-- END TITLE -->
 
 <main class="container">
-    <a href="{% url 'chat:create' %}" class="btn btn-primary">Create Chat</a>
+    <a href="{% url 'chat:create' %}" class="btn btn-primary">✏️Create Chat</a>
     <hr>
 
     <!-- START MAIN LIST BODY -->
@@ -75,7 +75,7 @@
                         {% if user.is_authenticated %}
                             <!--staff or its author-->
                             {% if user.is_staff or user.profle.id == item.profle.id %}
-                                <a class="btn btn-outline-primary rounded-pill btn-sm" style="max-height:31px;" href="{% url 'thread:chat_detail' item.id %}">Detail</a>
+                                <a class="btn btn-outline-primary rounded-pill btn-sm" style="max-height:31px;" href="{% url 'thread:chat_detail' item.id %}">🔍Detail</a>
                             {% else %}
                                 <div></div> <!-- 左側に空の要素を維持 -->
                             {% endif %}

@@ -52,624 +52,661 @@
 <main><div class="container">
   <form method="POST">
     {% csrf_token %}
-    <br/>
     <!--submit button-->
-    <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+    <a href="javascript:history.back()" class="btn btn-secondary">⬅️Back</a>
     {% if user.is_authenticated %}
         {% if user.is_staff or user.profile.id == object.profile.id %}
             <a>&nbsp;</a>
-            <a href="{% url 'findme:update' object.pk %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'findme:update' object.pk %}" class="btn btn-primary">🛠️Edit</a>
             <a>&nbsp;</a>
-            <a href="{% url 'findme:delete' object.pk %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'findme:delete' object.pk %}" class="btn btn-danger">🗑️Delete</a>
         {% endif %}
     {% endif %}
-    <br/><br/>
+  </form>
+  <br/>
 
-    <div class="row g-5">
-      <div class="col-md-8"><div class="header-container align-items-start">
+  <div class="row g-5">
+    <div class="col-md-8"><div class="header-container align-items-start">
 
-        <!-- 画像ブロック -->
-        <div class="align-self-start" style="min-width: 300px;">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 flex-column position-static" style="width:900px;">
-              <div class="d-flex align-items-center"><h1 class="display-6">{{ object.name }}</h1></div>
-              <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
-                <div class="profile-image-wrapper" style="max-width:900px; ">
-                    <!-- 背景：themes -->
-                    {% if object.themes %}
-                    <img src="{{ object.themes.url }}" class="bg-image" alt="User Themes"/>
-                    {% else %}
-                    <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
-                    {% endif %}
-                    <!-- 前面：images(circle切り取り) -->
-                    <div class="profile-front-image">
-                        {% if object.images %}
-                        <img src="{{ object.images.url }}" class="rounded-circle" alt="User Images"/>
-                        {% else %}
-                        <img src="{% static 'img/findme.png' %}" class="rounded-circle" alt="Default Images"/>
-                        {% endif %}
-                    </div>
-                    <!-- 右上：MBTI -->
-                    {% if object.mbti and object.mbti != '-' %}
-                      <span class="profile-right-top d-inline-flex align-items-center">
-                        <a href="{{ object.get_mbti_url }}" target="_blank">
-                          {% with mbti_image='img/mbti/'|add:object.mbti|add:'.png' %}
-                            <img src="{% static mbti_image %}" width="80" height="80" alt="MBTI" class="profile-mbti-img"/>
-                          {% endwith %}
-                        </a>
-                      </span>
-                    {% endif %}
-
-                    <!-- 左下：MBTI Compatibility -->
-                    {% if request.user.profile.id != object.id and request.user.profile.mbti and object.mbti %}
-                        {% with mbti_comp=object.get_mbti_comp %}
-                        {% if mbti_comp.pt > 0 %}
-                            {% with mbti_comp_pt=mbti_comp.pt|stringformat:"s" %}
-                            {% with mbti_pt_img='img/mbti/star_'|add:mbti_comp_pt|add:'.png' mbti_relation_img='img/mbti/'|add:mbti_comp.relation|add:'.png' %}
-                            <span class="profile-left-bottom d-inline-flex flex-column align-items-start rounded-1" style="background:white;">
-                              <span style="margin: 2px; padding: 0; text-align: left;"><img src="{% static mbti_pt_img %}" width="75" height=auto alt="MBTI Point" style="display: block;"/></span>
-                              <span style="margin: 0; padding: 0; text-align: left;"><img src="{% static mbti_relation_img %}" width="75" height=auto alt="MBTI Relation" style="display: block;"/></span>
-                              <span style="margin: 0; padding: 2px 4px; text-align: left;"><h7 class="display-9" style="margin:0px; font-family: var(--bs-body-font-family)"><B>{{ mbti_comp.description }}</B></h7></span>
-                            {% endwith %}{% endwith %}
-                        </span>
-                        {% endif %}
+      <!-- 画像ブロック -->
+      <div class="align-self-start" style="min-width: 300px;">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 flex-column position-static" style="width:900px;">
+            <div class="d-flex align-items-center"><h1 class="display-6">{{ object.name }}</h1></div>
+            <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
+              <div class="profile-image-wrapper" style="max-width:900px; ">
+                  <!-- 背景：themes -->
+                  {% if object.themes %}
+                  <img src="{{ object.themes.url }}" class="bg-image" alt="User Themes"/>
+                  {% else %}
+                  <img src="{% static 'img/themes.png' %}" class="bg-image" alt="Default Themes"/>
+                  {% endif %}
+                  <!-- 前面：images(circle切り取り) -->
+                  <div class="profile-front-image">
+                      {% if object.images %}
+                      <img src="{{ object.images.url }}" class="rounded-circle" alt="User Images"/>
+                      {% else %}
+                      <img src="{% static 'img/findme.png' %}" class="rounded-circle" alt="Default Images"/>
+                      {% endif %}
+                  </div>
+                  <!-- 右上：MBTI -->
+                  {% if object.mbti and object.mbti != '-' %}
+                    <span class="profile-right-top d-inline-flex align-items-center">
+                      <a href="{{ object.get_mbti_url }}" target="_blank">
+                        {% with mbti_image='img/mbti/'|add:object.mbti|add:'.png' %}
+                          <img src="{% static mbti_image %}" width="80" height="80" alt="MBTI" class="profile-mbti-img"/>
                         {% endwith %}
-                    {% endif %}
-                </div>
+                      </a>
+                    </span>
+                  {% endif %}
+
+                  <!-- 左下：MBTI Compatibility -->
+                  {% if request.user.profile.id != object.id and request.user.profile.mbti and object.mbti %}
+                      {% with mbti_comp=object.get_mbti_comp %}
+                      {% if mbti_comp.pt > 0 %}
+                          {% with mbti_comp_pt=mbti_comp.pt|stringformat:"s" %}
+                          {% with mbti_pt_img='img/mbti/star_'|add:mbti_comp_pt|add:'.png' mbti_relation_img='img/mbti/'|add:mbti_comp.relation|add:'.png' %}
+                          <span class="profile-left-bottom d-inline-flex flex-column align-items-start rounded-1" style="background:white;">
+                            <span style="margin: 2px; padding: 0; text-align: left;"><img src="{% static mbti_pt_img %}" width="75" height=auto alt="MBTI Point" style="display: block;"/></span>
+                            <span style="margin: 0; padding: 0; text-align: left;"><img src="{% static mbti_relation_img %}" width="75" height=auto alt="MBTI Relation" style="display: block;"/></span>
+                            <span style="margin: 0; padding: 2px 4px; text-align: left;"><h7 class="display-9" style="margin:0px; font-family: var(--bs-body-font-family)"><B>{{ mbti_comp.description }}</B></h7></span>
+                          {% endwith %}{% endwith %}
+                      </span>
+                      {% endif %}
+                      {% endwith %}
+                  {% endif %}
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- プロパティブロック -->
-        <div class="align-self-start" style="min-width:100px; width:100%;">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <table class="table profile-property-table">
-                <!-- name -->
-                <tr><th style="width:150px;">Name</th><td>{{ object.name }}</td></tr>
-                <!-- gender -->
-                <tr>
-                  <th>Gender</th>
-                  <td>
-                    {% for value, label in object.GENDER_CHOICES %}
-                    {% if object.gender == value %}
-                      {{ label }}
-                    {% endif %}
-                    {% endfor %}
-                  </td>
-                </tr>
-                <!-- birth_year -->
-                {% if object.birth_year %}
-                <tr><th>Birthday(Y)</th><td>{{ object.birth_year }}</td></tr>
-                {% endif %}
-                <!-- birth_month_day -->
-                {% if object.birth_month_day %}
-                <tr><th>Birthday(M/D)</th><td>{{ object.birth_month_day|date:"m/d" }}</td></tr>
-                {% endif %}
-                <!-- living_pref -->
-                {% if object.living_pref %}
-                <tr><th>Living Pref.</th><td>{{ object.get_living_pref_display }}</td></tr>
-                {% endif %}
-                <!-- living_area -->
-                {% if object.living_area %}
-                <tr><th>Living Area</th><td>{{ object.living_area }}</td></tr>
-                {% endif %}
-                <!-- mbti -->
-                <tr>
-                  <th>MBTI Type</th>
-                  {% if object.mbti == '-' %}
-                    <td>{{ object.get_mbti_display }}</td>
-                  {% else %}
-                    <td><a href="{{ object.get_mbti_url }}" target="_blank" class="btn btn-sm btn-outline-secondary me-2">{{ object.get_mbti_display }}</a></td>
+      <!-- プロパティブロック -->
+      <div class="align-self-start" style="min-width:100px; width:100%;">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <table class="table profile-property-table">
+              <!-- name -->
+              <tr><th style="width:150px;">Name</th><td>{{ object.name }}</td></tr>
+              <!-- gender -->
+              <tr>
+                <th>Gender</th>
+                <td>
+                  {% for value, label in object.GENDER_CHOICES %}
+                  {% if object.gender == value %}
+                    {{ label }}
                   {% endif %}
-                </tr>
-                <!-- mbti_name -->
-                <tr>
-                  <th>MBTI Name</th>
-                  <td>{{ object.get_mbti_name_display }}</td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <br/>
-
-        <!-- overview -->
-        {% if object.overview %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Overview</h2>{{ object.overview|safe|linebreaksbr }}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <!-- introduce -->
-        {% if object.introduce %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Introduce</h2>{{ object.introduce|safe|linebreaksbr }}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-
-        <br/>
-
-        <!-- hobby -->
-        {% if object.hobby_choice or object.hobby %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Hobby</h2>
-                {% if object.hobby_choice %}
-                  &lt;&lt;
-                  {% for hobby in object.hobby_choice %}
-                    {% for value, label in HOBBY_CHOICES %}
-                      {% if hobby == value %}{{ label }}, {% endif %}
-                    {% endfor %}
                   {% endfor %}
-                  &gt;&gt;
-                  <br/>
+                </td>
+              </tr>
+              <!-- birth_year -->
+              {% if object.birth_year %}
+              <tr><th>Birthday(Y)</th><td>{{ object.birth_year }}</td></tr>
+              {% endif %}
+              <!-- birth_month_day -->
+              {% if object.birth_month_day %}
+              <tr><th>Birthday(M/D)</th><td>{{ object.birth_month_day|date:"m/d" }}</td></tr>
+              {% endif %}
+              <!-- living_pref -->
+              {% if object.living_pref %}
+              <tr><th>Living Pref.</th><td>{{ object.get_living_pref_display }}</td></tr>
+              {% endif %}
+              <!-- living_area -->
+              {% if object.living_area %}
+              <tr><th>Living Area</th><td>{{ object.living_area }}</td></tr>
+              {% endif %}
+              <!-- mbti -->
+              <tr>
+                <th>MBTI Type</th>
+                {% if object.mbti == '-' %}
+                  <td>{{ object.get_mbti_display }}</td>
+                {% else %}
+                  <td><a href="{{ object.get_mbti_url }}" target="_blank" class="btn btn-sm btn-outline-secondary me-2">{{ object.get_mbti_display }}</a></td>
                 {% endif %}
-                {% if object.hobby %}{{ object.hobby|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
+              </tr>
+              <!-- mbti_name -->
+              <tr>
+                <th>MBTI Name</th>
+                <td>{{ object.get_mbti_name_display }}</td>
+              </tr>
+            </table>
           </div>
-        </div>
-        {% endif %}
-
-        <!-- food -->
-        {% if object.food_choice or object.food %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Food</h2>
-                {% if object.food_choice %}
-                  &lt;&lt;
-                  {% for food in object.food_choice %}
-                    {% for value, label in FOOD_CHOICES %}
-                      {% if food == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.food %}{{ object.food|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <!-- Music -->
-        {% if object.music %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Music</h2>
-                {% if object.music_choice %}
-                  &lt;&lt;
-                  {% for music in object.music_choice %}
-                    {% for value, label in MUSIC_CHOICES %}
-                      {% if music == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.music %}{{ object.music|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <!-- Movie -->
-        {% if object.movie %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Movie</h2>
-                {% if object.movie_choice %}
-                  &lt;&lt;
-                  {% for movie in object.movie_choice %}
-                    {% for value, label in MOVIE_CHOICES %}
-                      {% if movie == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.movie %}{{ object.movie|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <!-- Book -->
-        {% if object.book %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Book</h2>
-                {% if object.book_choice %}
-                  &lt;&lt;
-                  {% for book in object.book_choice %}
-                    {% for value, label in BOOK_CHOICES %}
-                      {% if book == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.book %}{{ object.book|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-
-        <br/>
-
-        <!-- personality_type -->
-        {% if object.personality_type %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Personality Type</h2>
-                {% if object.personality_type_choice %}
-                  &lt;&lt;
-                  {% for personality_type in object.personality_type_choice %}
-                    {% for value, label in PERSONALITY_TYPE_CHOICES %}
-                      {% if personality_type == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.personality_type %}{{ object.personality_type|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <!-- favorite_date -->
-        {% if object.favorite_date %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Favorite Date</h2>
-                {% if object.favorite_date_choice %}
-                  &lt;&lt;
-                  {% for favorite_date in object.favorite_date_choice %}
-                    {% for value, label in FAVORITE_DATE_CHOICES %}
-                      {% if favorite_date == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.favorite_date %}{{ object.favorite_date|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <!-- sense_of_values -->
-        {% if object.sense_of_values %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Sense of Values</h2>
-                {% if object.sense_of_values_choice %}
-                  &lt;&lt;
-                  {% for sense_of_values in object.sense_of_values_choice %}
-                    {% for value, label in SENSE_OF_VALUES_CHOICES %}
-                      {% if sense_of_values == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.sense_of_values %}{{ object.sense_of_values|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-
-        <br/>
-
-        <!-- future_plan -->
-        {% if object.future_plan %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Future Plan</h2>
-                {% if object.future_plan_choice %}
-                  &lt;&lt;
-                  {% for future_plan in object.future_plan_choice %}
-                    {% for value, label in FUTURE_PLAN_CHOICES %}
-                      {% if future_plan == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.future_plan %}{{ object.future_plan|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <!-- request_for_partner -->
-        {% if object.request_for_partner %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Request for Partner</h2>
-                {% if object.request_for_partner_choice %}
-                  &lt;&lt;
-                  {% for request_for_partner in object.request_for_partner_choice %}
-                    {% for value, label in REQUEST_FOR_PARTNER_CHOICES %}
-                      {% if request_for_partner == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.request_for_partner %}{{ object.request_for_partner|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-
-        <br/>
-
-        <!-- weekend_activity -->
-        {% if object.weekend_activity %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Weekend Activity</h2>
-                {% if object.weekend_activity_choice %}
-                  &lt;&lt;
-                  {% for weekend_activity in object.weekend_activity_choice %}
-                    {% for value, label in WEEKEND_ACTIVITY_CHOICES %}
-                      {% if weekend_activity == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.weekend_activity %}{{ object.weekend_activity|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <!-- on_going_project -->
-        {% if object.on_going_project %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>On-Going Project</h2>
-                {% if object.on_going_project_choice %}
-                  &lt;&lt;
-                  {% for on_going_project in object.on_going_project_choice %}
-                    {% for value, label in ONGOING_PROJECT_CHOICES %}
-                      {% if on_going_project == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.on_going_project %}{{ object.on_going_project|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <!-- social_activity -->
-        {% if object.social_activity %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Social Activity</h2>
-                {% if object.social_activity_choice %}
-                  &lt;&lt;
-                  {% for social_activity in object.social_activity_choice %}
-                    {% for value, label in SOCIAL_ACTIVITY_CHOICES %}
-                      {% if social_activity == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.social_activity %}{{ object.social_activity|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-
-        <br/>
-
-        <!-- free_day -->
-        {% if object.free_day %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>What if Free Day</h2>
-                {% if object.free_day_choice %}
-                  &lt;&lt;
-                  {% for free_day in object.free_day_choice %}
-                    {% for value, label in FREE_DAY_CHOICES %}
-                      {% if free_day == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.free_day %}{{ object.free_day|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <!-- proudest_achievements -->
-        {% if object.proudest_achievements %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Proudest Achieve.</h2>
-                {% if object.proudest_achievements_choice %}
-                  &lt;&lt;
-                  {% for proudest_achievements in object.proudest_achievements_choice %}
-                    {% for value, label in PROUDEST_ACHIEVEMENTS_CHOICES %}
-                      {% if proudest_achievements == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.proudest_achievements %}{{ object.proudest_achievements|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <!-- most_important_values -->
-        {% if object.most_important_values %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Most important Values</h2>
-                {% if object.most_important_values_choice %}
-                  &lt;&lt;
-                  {% for most_important_values in object.most_important_values_choice %}
-                    {% for value, label in MOST_IMPORTANT_VALUES_CHOICES %}
-                      {% if most_important_values == value %}{{ label }}, {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  &gt;&gt;
-                  <br/>
-                {% endif %}
-                {% if object.most_important_values %}{{ object.most_important_values|safe|linebreaksbr }}{% endif %}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-
-        <br/>
-
-        <!-- contacts -->
-        {% if object.contacts %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Contacts</h2>{{ object.contacts|safe|linebreaksbr }}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        <!-- Remarks -->
-        {% if object.remarks %}
-        <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
-              <article class="blog-post" style="margin:0px;">
-                <h2>Remarks</h2>{{ object.remarks|safe|linebreaksbr }}
-              </article>
-            </div>
-          </div>
-        </div>
-        {% endif %}
-
-        <br/>
-
-      </div></div>
-
-      <div class="col-md-4">
-        <div class="position-sticky" style="top: 5rem;">
-          <div class="p-4 mb-3 bg-body-tertiary rounded">
-            <div> Profile Card (public) </div>
-            {% include 'includes/findme_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
-          </div>
-
-          <div>
-            <h4 class="fst-italic">Recent chat</h4>
-            {% for chat in recent_chats %}
-              <div class="card" style="margin-bottom:4px;"><div class="card-body" style="padding:8px;">
-                <small class="card-text"><B>{{ chat.title }}</B></small><br/>
-                {% if chat.context %} <small class="text-muted">{{ chat.context }}</small><br/> {% endif %}
-                <small class="text-muted">{{ chat.created_at|date:"Y/m/d H:i" }}</small>
-              </div></div>
-            {% empty %}
-              <div>No recent chats.</div>
-            {% endfor %}
-          </div>
-
-          <!-- Only Display to Friend Profile -->
-          {% if user.is_staff or object.get_friend_pk %}
-            <div style="margin-top:16px;">
-              <h4 class="fst-italic">Recent logins</h4>
-              {% for login_record in recent_login_records %}
-                <div class="card" style="margin-bottom:2px;"><div class="card-body" style="padding:2px; padding-left:4px;">
-                  <small class="text-muted">{{ login_record.login_time|date:"'y/m/d H:i" }} - </small>
-                  <small class="text-muted">
-                    {% if login_record.logout_time and login_record.login_time|date:"Y/m/d" != login_record.logout_time|date:"Y/m/d" %}{{ login_record.logout_time|date:"m/d" }}{% endif %}
-                    {{ login_record.logout_time|date:"H:i" }}
-                  </small>
-                  <small class="text-muted">[{{ login_record.get_diff_time }}]</small>
-                </div></div>
-              {% empty %}
-                  <div>No recent logins.</div>
-              {% endfor %}
-            </div>
-          {% endif %}
-
         </div>
       </div>
+
+      <br/>
+
+      <!-- overview -->
+      {% if object.overview %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Overview</h2>{{ object.overview|safe|linebreaksbr }}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- introduce -->
+      {% if object.introduce %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Introduce</h2>{{ object.introduce|safe|linebreaksbr }}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <br/>
+
+      <!-- hobby -->
+      {% if object.hobby_choice or object.hobby %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Hobby</h2>
+              {% if object.hobby_choice %}
+                &lt;&lt;
+                {% for hobby in object.hobby_choice %}
+                  {% for value, label in HOBBY_CHOICES %}
+                    {% if hobby == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.hobby %}{{ object.hobby|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- food -->
+      {% if object.food_choice or object.food %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Food</h2>
+              {% if object.food_choice %}
+                &lt;&lt;
+                {% for food in object.food_choice %}
+                  {% for value, label in FOOD_CHOICES %}
+                    {% if food == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.food %}{{ object.food|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- Music -->
+      {% if object.music %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Music</h2>
+              {% if object.music_choice %}
+                &lt;&lt;
+                {% for music in object.music_choice %}
+                  {% for value, label in MUSIC_CHOICES %}
+                    {% if music == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.music %}{{ object.music|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- Movie -->
+      {% if object.movie %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Movie</h2>
+              {% if object.movie_choice %}
+                &lt;&lt;
+                {% for movie in object.movie_choice %}
+                  {% for value, label in MOVIE_CHOICES %}
+                    {% if movie == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.movie %}{{ object.movie|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- Book -->
+      {% if object.book %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Book</h2>
+              {% if object.book_choice %}
+                &lt;&lt;
+                {% for book in object.book_choice %}
+                  {% for value, label in BOOK_CHOICES %}
+                    {% if book == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.book %}{{ object.book|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <br/>
+
+      <!-- personality_type -->
+      {% if object.personality_type %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Personality Type</h2>
+              {% if object.personality_type_choice %}
+                &lt;&lt;
+                {% for personality_type in object.personality_type_choice %}
+                  {% for value, label in PERSONALITY_TYPE_CHOICES %}
+                    {% if personality_type == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.personality_type %}{{ object.personality_type|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- favorite_date -->
+      {% if object.favorite_date %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Favorite Date</h2>
+              {% if object.favorite_date_choice %}
+                &lt;&lt;
+                {% for favorite_date in object.favorite_date_choice %}
+                  {% for value, label in FAVORITE_DATE_CHOICES %}
+                    {% if favorite_date == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.favorite_date %}{{ object.favorite_date|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- sense_of_values -->
+      {% if object.sense_of_values %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Sense of Values</h2>
+              {% if object.sense_of_values_choice %}
+                &lt;&lt;
+                {% for sense_of_values in object.sense_of_values_choice %}
+                  {% for value, label in SENSE_OF_VALUES_CHOICES %}
+                    {% if sense_of_values == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.sense_of_values %}{{ object.sense_of_values|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <br/>
+
+      <!-- future_plan -->
+      {% if object.future_plan %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Future Plan</h2>
+              {% if object.future_plan_choice %}
+                &lt;&lt;
+                {% for future_plan in object.future_plan_choice %}
+                  {% for value, label in FUTURE_PLAN_CHOICES %}
+                    {% if future_plan == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.future_plan %}{{ object.future_plan|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- request_for_partner -->
+      {% if object.request_for_partner %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Request for Partner</h2>
+              {% if object.request_for_partner_choice %}
+                &lt;&lt;
+                {% for request_for_partner in object.request_for_partner_choice %}
+                  {% for value, label in REQUEST_FOR_PARTNER_CHOICES %}
+                    {% if request_for_partner == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.request_for_partner %}{{ object.request_for_partner|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <br/>
+
+      <!-- weekend_activity -->
+      {% if object.weekend_activity %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Weekend Activity</h2>
+              {% if object.weekend_activity_choice %}
+                &lt;&lt;
+                {% for weekend_activity in object.weekend_activity_choice %}
+                  {% for value, label in WEEKEND_ACTIVITY_CHOICES %}
+                    {% if weekend_activity == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.weekend_activity %}{{ object.weekend_activity|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- on_going_project -->
+      {% if object.on_going_project %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>On-Going Project</h2>
+              {% if object.on_going_project_choice %}
+                &lt;&lt;
+                {% for on_going_project in object.on_going_project_choice %}
+                  {% for value, label in ONGOING_PROJECT_CHOICES %}
+                    {% if on_going_project == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.on_going_project %}{{ object.on_going_project|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- social_activity -->
+      {% if object.social_activity %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Social Activity</h2>
+              {% if object.social_activity_choice %}
+                &lt;&lt;
+                {% for social_activity in object.social_activity_choice %}
+                  {% for value, label in SOCIAL_ACTIVITY_CHOICES %}
+                    {% if social_activity == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.social_activity %}{{ object.social_activity|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <br/>
+
+      <!-- free_day -->
+      {% if object.free_day %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>What if Free Day</h2>
+              {% if object.free_day_choice %}
+                &lt;&lt;
+                {% for free_day in object.free_day_choice %}
+                  {% for value, label in FREE_DAY_CHOICES %}
+                    {% if free_day == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.free_day %}{{ object.free_day|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- proudest_achievements -->
+      {% if object.proudest_achievements %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Proudest Achieve.</h2>
+              {% if object.proudest_achievements_choice %}
+                &lt;&lt;
+                {% for proudest_achievements in object.proudest_achievements_choice %}
+                  {% for value, label in PROUDEST_ACHIEVEMENTS_CHOICES %}
+                    {% if proudest_achievements == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.proudest_achievements %}{{ object.proudest_achievements|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- most_important_values -->
+      {% if object.most_important_values %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Most important Values</h2>
+              {% if object.most_important_values_choice %}
+                &lt;&lt;
+                {% for most_important_values in object.most_important_values_choice %}
+                  {% for value, label in MOST_IMPORTANT_VALUES_CHOICES %}
+                    {% if most_important_values == value %}{{ label }}, {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                &gt;&gt;
+                <br/>
+              {% endif %}
+              {% if object.most_important_values %}{{ object.most_important_values|safe|linebreaksbr }}{% endif %}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <br/>
+
+      <!-- contacts -->
+      {% if object.contacts %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Contacts</h2>{{ object.contacts|safe|linebreaksbr }}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- Remarks -->
+      {% if object.remarks %}
+      <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+          <div class="col p-4 d-flex flex-column position-static">
+            <article class="blog-post" style="margin:0px;">
+              <h2>Remarks</h2>{{ object.remarks|safe|linebreaksbr }}
+            </article>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <br/>
+
+    </div></div>
+
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 5rem;">
+        <div class="p-4 mb-3 bg-body-tertiary rounded">
+          <div> Profile Card (public) </div>
+          {% include 'includes/findme_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
+        </div>
+        <div class="d-flex align-items-center mt-2 mb-1">
+          <p id="poke-count" style="margin:0px;">Total {{ object.poke_count|intcomma }} Pokes</p>
+          <button id="poke-btn" data-url="{% url 'findme:send_poke' object.id %}" class="btn btn-outline-primary btn-sm" style="margin:0pt 4pt;">Poke!</button>
+        </div>
+        {% for n in notifications %}
+          <div class="alert alert-info" style="margin:0px; padding:0px 4px;">
+            {{ n.message }} <small>{{ n.created_at|date:"'y/m/d H:i" }}</small>
+          </div>
+        {% empty %}
+          <p>通知はありません。</p>
+        {% endfor %}
+        <div class="mt-2">
+          <h4 class="fst-italic">Recent chat</h4>
+          {% for chat in recent_chats %}
+            <div class="card" style="margin-bottom:4px;"><div class="card-body" style="padding:8px;">
+              <small class="card-text"><B>{{ chat.title }}</B></small><br/>
+              {% if chat.context %} <small class="text-muted">{{ chat.context }}</small><br/> {% endif %}
+              <small class="text-muted">{{ chat.created_at|date:"Y/m/d H:i" }}</small>
+            </div></div>
+          {% empty %}
+            <div>No recent chats.</div>
+          {% endfor %}
+        </div>
+
+        <!-- Only Display to Friend Profile -->
+        {% if user.is_staff or object.get_friend_pk %}
+          <div style="margin-top:16px;">
+            <h4 class="fst-italic">Recent logins</h4>
+            {% for login_record in recent_login_records %}
+              <div class="card" style="margin-bottom:2px;"><div class="card-body" style="padding:2px; padding-left:4px;">
+                <small class="text-muted">{{ login_record.login_time|date:"'y/m/d H:i" }} - </small>
+                <small class="text-muted">
+                  {% if login_record.logout_time and login_record.login_time|date:"Y/m/d" != login_record.logout_time|date:"Y/m/d" %}{{ login_record.logout_time|date:"m/d" }}{% endif %}
+                  {{ login_record.logout_time|date:"H:i" }}
+                </small>
+                <small class="text-muted">[{{ login_record.get_diff_time }}]</small>
+              </div></div>
+            {% empty %}
+                <div>No recent logins.</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+      </div>
     </div>
-    <br/>
+  </div>
+
+  <br/>
+  <form method="POST">
+    {% csrf_token %}
     <!--submit button-->
-    <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+    <a href="javascript:history.back()" class="btn btn-secondary">⬅️Back</a>
     {% if user.is_authenticated %}
         {% if user.is_staff or user.profile.id == object.profile.id %}
             <a>&nbsp;</a>
-            <a href="{% url 'findme:update' object.pk %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'findme:update' object.pk %}" class="btn btn-primary">🛠️Edit</a>
             <a>&nbsp;</a>
-            <a href="{% url 'findme:delete' object.pk %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'findme:delete' object.pk %}" class="btn btn-danger">🗑️Delete</a>
         {% endif %}
     {% endif %}
   </form>
 </div></main>
 <!--MAIN END-->
 {% endblock %}
+
+{% block footer %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('poke-btn');
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      fetch(btn.dataset.url, {
+        method: 'POST',
+        headers: {
+          'X-CSRFToken': '{{ csrf_token }}',
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('poke-count').textContent = `${data.poke_count} 回 Poke されています。`;
+        btn.classList.add('btn-success');
+        btn.disabled = true;
+      });
+    });
+  });
+</script>
+{% endblock footer %}

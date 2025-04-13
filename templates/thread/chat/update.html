@@ -40,7 +40,7 @@
             <form action='' method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <!--submit button-->
-                {% include 'includes/submit_button.html' with action="Update" %}
+                {% include 'includes/submit_button.html' with action="🛠️Update" %}
                 <br/><br/>
 
                 <!--Display:id(auto:key)-->
@@ -73,17 +73,17 @@
                 {% include 'includes/bottom_dates.html' %}
                 <br/>
                 <!--submit button-->
-                {% include 'includes/submit_button.html' with action="Update" %}
+                {% include 'includes/submit_button.html' with action="🛠️Update" %}
             </form>
         {% else %}
-            <label for="require_login" class="form-label">変更権限がありません</label>
+            <label for="require_login" class="form-label">🚫変更権限がありません</label>
             &nbsp;
-            <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+            <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">🔓Login</a>
         {% endif %}
         {% else %}
-            <label for="require_login" class="form-label">ログインしてください</label>
+            <label for="require_login" class="form-label">🔓ログインしてください</label>
             &nbsp;
-            <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+            <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">🔓Login</a>
         {% endif %}
     </div></div>
 </div></main>

@@ -69,19 +69,19 @@
                         <br/>
                         <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
                             <!--submit button-->
-                            {% include 'includes/submit_button_danger.html' with action="Delete" %}
+                            {% include 'includes/submit_button_danger.html' with action="🗑️Delete" %}
                         </div>
                     </form>
                 {% else %}
-                    <label for="require_login" class="form-label">更新権限がありません</label>
+                    <label for="require_login" class="form-label">🚫更新権限がありません</label>
                     &nbsp;
-                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a><br/>
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">🔓Login</a><br/>
                     &nbsp;
                 {% endif %}
                 {% else %}
-                    <label for="require_login" class="form-label">ログインしてください</label>
+                    <label for="require_login" class="form-label">🔓ログインしてください</label>
                     &nbsp;
-                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a><br/>
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">🔓Login</a><br/>
                     &nbsp;
                 {% endif %}
             </div></div>

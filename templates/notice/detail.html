@@ -28,38 +28,40 @@
 <main>
     <div class="container">
         <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
-            
             <form method="POST">
                 {% csrf_token %}
                 <!--submit button-->
                 {% include 'includes/detail_staff_controled_buttons.html' with app_name='notice' %}
-                <br/><br/>
+            </form>
+            <br/>
 
-                <!--Display:id(auto:key)-->
-                <div class="mb-3">{% include 'includes/display_field.html' with target=object.id disp_name='ID' %}</div>
+            <!--Display:id(auto:key)-->
+            <div class="mb-3">{% include 'includes/display_field.html' with target=object.id disp_name='ID' %}</div>
 
-                <!--Display[img]:images-->
-                <div class="mb-3">{% include 'includes/display_image.html' with target=object.images field_name='images' disp_name='Images' app_name='notice' %}</div>
+            <!--Display[img]:images-->
+            <div class="mb-3">{% include 'includes/display_image.html' with target=object.images field_name='images' disp_name='Images' app_name='notice' %}</div>
 
-                <!--Display:title-->
-                <div class="mb-3">{% include 'includes/display_field.html' with target=object.title disp_name='Title' %}</div>
-                <!--Display:period-->
-                <div class="mb-3">{% include 'includes/display_field.html' with target=object.period disp_name='Period' %}</div>
-                <!--Display:overview-->
-                <div class="mb-3">{% include 'includes/display_field.html' with target=object.overview disp_name='Overview' %}</div>
-                <!--Display:context-->
-                <div class="mb-3">{% include 'includes/display_field.html' with target=object.context disp_name='Context' %}</div>
-                <!--Display:published_at-->
-                <div class="mb-3">{% include 'includes/display_field.html' with target=object.published_at disp_name='Published at' %}</div>
-                <!--Display:remarks-->
-                <div class="mb-3">{% include 'includes/display_field.html' with target=object.remarks disp_name='Remarks' %}</div>
+            <!--Display:title-->
+            <div class="mb-3">{% include 'includes/display_field.html' with target=object.title disp_name='Title' %}</div>
+            <!--Display:period-->
+            <div class="mb-3">{% include 'includes/display_field.html' with target=object.period disp_name='Period' %}</div>
+            <!--Display:overview-->
+            <div class="mb-3">{% include 'includes/display_field.html' with target=object.overview disp_name='Overview' %}</div>
+            <!--Display:context-->
+            <div class="mb-3">{% include 'includes/display_field.html' with target=object.context disp_name='Context' %}</div>
+            <!--Display:published_at-->
+            <div class="mb-3">{% include 'includes/display_field.html' with target=object.published_at disp_name='Published at' %}</div>
+            <!--Display:remarks-->
+            <div class="mb-3">{% include 'includes/display_field.html' with target=object.remarks disp_name='Remarks' %}</div>
 
-                <!--Display:created_at/updated_at-->
-                {% include 'includes/bottom_dates.html' %}
-                <br/>
+            <!--Display:created_at/updated_at-->
+            {% include 'includes/bottom_dates.html' %}
+
+            <br/>
+            <form method="POST">
+                {% csrf_token %}
                 <!--submit button-->
                 {% include 'includes/detail_staff_controled_buttons.html' with app_name='notice' %}
-                <br/>
             </form>
         </div>
     </div>

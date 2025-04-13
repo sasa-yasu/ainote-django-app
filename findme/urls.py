@@ -13,6 +13,7 @@ urlpatterns = [
     path('update/<int:pk>/', views.update_view, name='update'),
     path('delete/<int:pk>/', views.delete_view, name='delete'),
     path('get_mbti_name_choices/', views.get_mbti_name_choices, name='get_mbti_name_choices'),
+    path('poke/<int:pk>/', views.send_poke, name='send_poke'),
 ]
 
 if settings.DEBUG:

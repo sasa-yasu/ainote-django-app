@@ -34,142 +34,145 @@
 <main><div class="container">
     <form method="POST">
         {% csrf_token %}
-        <br/>
         <!--submit button-->
         {% include 'includes/detail_staff_controled_buttons.html' with app_name='device' %}
-        <br/><br/>
+    </form>
+    <br/>
 
-        <div class="row g-5">
-            <div class="col-md-8"><div class="header-container align-items-start">
+    <div class="row g-5">
+        <div class="col-md-8"><div class="header-container align-items-start">
 
-                <!-- 画像ブロック -->
-                <div class="align-self-start" style="min-width: 300px;">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-                    <div class="col p-4 flex-column position-static" style="width:900px;">
+            <!-- 画像ブロック -->
+            <div class="align-self-start" style="min-width: 300px;">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                <div class="col p-4 flex-column position-static" style="width:900px;">
 
-                        <!-- name -->
-                        <div class="d-flex align-items-center"><h2 class="display-7">{{ object.name }}</h2></div>
+                    <!-- name -->
+                    <div class="d-flex align-items-center"><h2 class="display-7">{{ object.name }}</h2></div>
 
-                        <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
-                            <div class="profile-image-wrapper" style="max-width:900px; ">
-                                <!-- 背景：themes -->
-                                {% if object.themes %}
-                                <img src="{{ object.themes.url }}" class="profile-bg-image" alt="Device Themes"/>
+                    <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
+                        <div class="profile-image-wrapper" style="max-width:900px; ">
+                            <!-- 背景：themes -->
+                            {% if object.themes %}
+                            <img src="{{ object.themes.url }}" class="profile-bg-image" alt="Device Themes"/>
+                            {% else %}
+                            <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
+                            {% endif %}
+                            <!-- 前面：images(circle切り取り) -->
+                            <div class="profile-front-image">
+                                {% if object.images %}
+                                <img src="{{ object.images.url }}" style="border-radius: 50%;" alt="Device Images"/>
                                 {% else %}
-                                <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
+                                <img src="{% static 'img/device.png' %}" style="border-radius: 50%;" alt="Default Images"/>
                                 {% endif %}
-                                <!-- 前面：images(circle切り取り) -->
-                                <div class="profile-front-image">
-                                    {% if object.images %}
-                                    <img src="{{ object.images.url }}" style="border-radius: 50%;" alt="Device Images"/>
-                                    {% else %}
-                                    <img src="{% static 'img/device.png' %}" style="border-radius: 50%;" alt="Default Images"/>
-                                    {% endif %}
-                                </div>
                             </div>
                         </div>
                     </div>
-                    </div>
                 </div>
+                </div>
+            </div>
 
-                <!-- maker -->
-                {% if object.maker %}
-                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-                    <div class="col p-4 d-flex flex-column position-static">
-                    <article class="blog-post" style="margin:0px;">
-                        <h2>Maker</h2>{{ object.maker|safe|linebreaksbr }}
-                    </article>
-                    </div>
+            <!-- maker -->
+            {% if object.maker %}
+            <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                    <h2>Maker</h2>{{ object.maker|safe|linebreaksbr }}
+                </article>
                 </div>
-                </div>
-                {% endif %}
+            </div>
+            </div>
+            {% endif %}
 
-                <!-- productno -->
-                {% if object.productno %}
-                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-                    <div class="col p-4 d-flex flex-column position-static">
-                    <article class="blog-post" style="margin:0px;">
-                        <h2>Product NO</h2>{{ object.productno|safe|linebreaksbr }}
-                    </article>
-                    </div>
+            <!-- productno -->
+            {% if object.productno %}
+            <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                    <h2>Product NO</h2>{{ object.productno|safe|linebreaksbr }}
+                </article>
                 </div>
-                </div>
-                {% endif %}
+            </div>
+            </div>
+            {% endif %}
 
-                <!-- context -->
-                {% if object.context %}
-                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-                    <div class="col p-4 d-flex flex-column position-static">
-                    <article class="blog-post" style="margin:0px;">
-                        <h2>Context</h2>{{ object.context|safe|linebreaksbr }}
-                    </article>
-                    </div>
+            <!-- context -->
+            {% if object.context %}
+            <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                    <h2>Context</h2>{{ object.context|safe|linebreaksbr }}
+                </article>
                 </div>
-                </div>
-                {% endif %}
+            </div>
+            </div>
+            {% endif %}
 
-                <!-- remarks -->
-                {% if object.remarks %}
-                <div class="align-self-start" style="min-width: 100px; width: 900px; ">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
-                    <div class="col p-4 d-flex flex-column position-static">
-                    <article class="blog-post" style="margin:0px;">
-                        <h2>Remarks</h2>{{ object.remarks|safe|linebreaksbr }}
-                    </article>
-                    </div>
+            <!-- remarks -->
+            {% if object.remarks %}
+            <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                    <h2>Remarks</h2>{{ object.remarks|safe|linebreaksbr }}
+                </article>
                 </div>
+            </div>
+            </div>
+            {% endif %}
+
+            <br/>
+        </div></div>
+
+        <div class="col-md-4"><div class="position-sticky" style="top:5rem; min-width:340px;">
+                <div class="p-4 mb-3 bg-body-tertiary rounded">
+                <div> Profile Card (public) </div>
+                {% include 'includes/device_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
                 </div>
-                {% endif %}
+    
+                <div style="margin-top:16px;">
+                <h4 class="fst-italic">Recent logins</h4>
+                {% for login_record in recent_login_records %}
+                    <div class="card" style="margin-bottom:2px;"><div class="card-body" style="padding:2px; padding-left:4px;">
+                    <small class="text-muted">{{ login_record.login_time|date:"'y/m/d h:m" }} - </small>
+                    <small class="text-muted">
+                        {% if login_record.logout_time and login_record.login_time|date:"Y/m/d" != login_record.logout_time|date:"Y/m/d" %}<br/>{{ login_record.logout_time|date:"'y/m/d" }}{% endif %}
+                        {{ login_record.logout_time|date:"h:m" }}
+                    </small>
+                    <small class="text-muted">[{{ login_record.get_diff_time }}]</small>
+                    </div></div>
+                {% empty %}
+                    <div>No recent logins.</div>
+                {% endfor %}
+                </div>
+    
+        </div></div>
+    </div>
 
-                <br/>
-            </div></div>
-
-            <div class="col-md-4"><div class="position-sticky" style="top:5rem; min-width:340px;">
-                  <div class="p-4 mb-3 bg-body-tertiary rounded">
-                    <div> Profile Card (public) </div>
-                    {% include 'includes/device_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
-                  </div>
-        
-                  <div style="margin-top:16px;">
-                    <h4 class="fst-italic">Recent logins</h4>
-                    {% for login_record in recent_login_records %}
-                      <div class="card" style="margin-bottom:2px;"><div class="card-body" style="padding:2px; padding-left:4px;">
-                        <small class="text-muted">{{ login_record.login_time|date:"'y/m/d h:m" }} - </small>
-                        <small class="text-muted">
-                          {% if login_record.logout_time and login_record.login_time|date:"Y/m/d" != login_record.logout_time|date:"Y/m/d" %}<br/>{{ login_record.logout_time|date:"'y/m/d" }}{% endif %}
-                          {{ login_record.logout_time|date:"h:m" }}
-                        </small>
-                        <small class="text-muted">[{{ login_record.get_diff_time }}]</small>
-                      </div></div>
-                    {% empty %}
-                        <div>No recent logins.</div>
-                    {% endfor %}
-                  </div>
-        
-            </div></div>
-        </div>
-        <br/>
+    <br/>
+    <form method="POST">
+        {% csrf_token %}
         <!--submit button-->
         {% include 'includes/detail_staff_controled_buttons.html' with app_name='device' %}
-
-        {% if object.schedule_monthly and object.schedule_weekly %}
-        <hr class="featurette-divider">
-
-        <!-- Calendar -->
-        <div class="row">
-            <div class="col-md-5">
-                {{ object.schedule_monthly|safe }}
-            </div>
-            <div class="col-md-7">
-                {{ object.schedule_weekly|safe }}
-            </div>
-        </div>
-        {% endif %}
-                
     </form>
+
+    {% if object.schedule_monthly and object.schedule_weekly %}
+    <hr class="featurette-divider">
+
+    <!-- Calendar -->
+    <div class="row">
+        <div class="col-md-5">
+            {{ object.schedule_monthly|safe }}
+        </div>
+        <div class="col-md-7">
+            {{ object.schedule_weekly|safe }}
+        </div>
+    </div>
+    {% endif %}
+                
 </div></main>
 <!--MAIN END-->
 {% endblock %}

@@ -48,7 +48,7 @@
 <!-- END TITLE -->
 
 <main class="container">
-    <a href="{% url 'headline:create' %}" class="btn btn-primary">Create Headline</a>
+    <a href="{% url 'headline:create' %}" class="btn btn-primary">✏️Create Headline</a>
     <hr>
     <!-- START MAIN LIST BODY -->
     <div class="album py-5 bg-body-tertiary"><div class="container">
@@ -68,7 +68,7 @@
                     <small class="card-text">{{ item.overview|linebreaksbr|safe }}</small>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'headline:detail' item.pk %}">Detail</a>
+                            <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'headline:detail' item.pk %}">🔍Detail</a>
                         </div>
                         <small class="text-body-secondary">{{ item.published_at|date:"Y/m/d" }}</small>
                     </div>

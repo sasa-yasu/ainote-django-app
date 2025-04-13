@@ -1,9 +1,9 @@
-<a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+<a href="javascript:history.back()" class="btn btn-secondary">⬅️Back</a>
 {% if user.is_authenticated %}
     {% if user.is_staff %}
         <a>&nbsp;</a>
-        <a href="{% url app_name|add:':update' object.pk %}" class="btn btn-primary">Edit</a>
+        <a href="{% url app_name|add:':update' object.pk %}" class="btn btn-primary">🛠️Edit</a>
         <a>&nbsp;</a>
-        <a href="{% url app_name|add:':delete' object.pk %}" class="btn btn-danger">Delete</a>
+        <a href="{% url app_name|add:':delete' object.pk %}" class="btn btn-danger">🗑️Delete</a>
     {% endif %}
 {% endif %}

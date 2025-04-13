@@ -16,9 +16,9 @@
     <h1 class="text-body-emphasis fst-italic mb-0">Friend</h1>
     &nbsp;
     <img class="bi" width="50" height="50" src="{% static 'img/delete.png' %}" alt="List Icon">
-    <h1 class="text-body-emphasis fst-italic mb-0">Remove</h1>
+    <h1 class="text-body-emphasis fst-italic mb-0">Leave</h1>
     </div>
-    <p class="col-lg-8 mx-auto lead fst-italic">Break-up this Friendship</p>
+    <p class="col-lg-8 mx-auto lead fst-italic">Leave from this Friendship</p>
 </div>
 <!-- END TITLE -->
 
@@ -57,12 +57,12 @@
 
                     <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
                         <!--submit button-->
-                        {% include 'includes/submit_button_danger.html' with action="Remove" %}
+                        {% include 'includes/submit_button_danger.html' with action="🚪Leave" %}
                     </div>
                 {% else %}
-                    <label for="require_login" class="form-label">ログインしてください</label>
+                    <label for="require_login" class="form-label">🔓ログインしてください</label>
                     &nbsp;
-                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">🔓Login</a>
                 {% endif %}
             </div>
         </form>

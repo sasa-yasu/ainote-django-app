@@ -59,12 +59,12 @@
 
                     <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
                         <!--submit button-->
-                        {% include 'includes/submit_button.html' with action="Check-In" %}
+                        {% include 'includes/submit_button.html' with action="✅Check-In" %}
                     </div>
                 {% else %}
-                    <label for="require_login" class="form-label">ログインしてください</label>
+                    <label for="require_login" class="form-label">🔓ログインしてください</label>
                     &nbsp;
-                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+                    <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">🔓Login</a>
                 {% endif %}
             </div>
         </form>

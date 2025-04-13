@@ -582,10 +582,32 @@ class FindMe(models.Model):
 
         super().save(*args, **kwargs)
 
+    # 受け取った Poke数 を表示
+    @property
+    def poke_count(self):
+        return self.received_pokes.count()
+    
+    @property
+    def get_all_notifications(self):
+        """ すべての通知を取得 """
+        return self.recipient_notifications.all().order_by("-created_at")
 
 class FindMeImage(models.Model):
     """FindMe に紐づく画像（複数可）"""
     findme = models.ForeignKey('FindMe', on_delete=models.CASCADE, related_name='findme_images')
+    IMAGE_CATEGORY_CHOICES = [
+        ('smile', '😊笑顔😄'),
+        ('fashion', '👗オシャレ🕶️'),
+        ('hobby_action', '🎨趣味🎸'),
+        ('pet_love', '🐶ペット🐱'),
+        ('outdoor', '🌄自然・お出かけ🚴'),
+        ('sports_pose', '🏋️‍♂️スポーツ・健康美💪'),
+        ('foodie', '🍳手料理・グルメ🍰'),
+        ('culture', '📚知的・文化的🧠'),
+        ('mystery', '🎭ミステリアス🌙'),
+        ('funny', '😂ユーモア🤪'),
+    ]
+    image_category_choice = models.CharField('Image Category', max_length=100, choices=IMAGE_CATEGORY_CHOICES, null=True, blank=True)
     image = models.ImageField(upload_to='findme/images')
     caption = models.CharField(max_length=255, blank=True, null=True)  # 任意のキャプション
 
@@ -595,3 +617,22 @@ class FindMeImage(models.Model):
 
     def __str__(self):
         return f'Image for {self.findme.name or "Unknown"} (Theme: {self.is_theme})'
+
+
+class Poke(models.Model):
+    sender = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='sent_pokes')
+    receiver = models.ForeignKey(FindMe, on_delete=models.CASCADE, related_name='received_pokes')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        pass
+
+    def __str__(self):
+        return f'{self.sender} poked {self.receiver} on {self.created_at}'
+
+class Notification(models.Model):
+    recipient = models.ForeignKey(FindMe, on_delete=models.CASCADE, related_name='recipient_notifications')
+    sender = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='sender_notifications')
+    message = models.CharField(max_length=255)
+    is_read = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)

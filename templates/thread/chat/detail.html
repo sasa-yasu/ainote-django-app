@@ -32,48 +32,52 @@
             <form action='' method="POST">
                 {% csrf_token %}
                 <!--submit button-->
-                <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+                <a href="javascript:history.back()" class="btn btn-secondary">⬅️Back</a>
                 {% if user.is_authenticated %}
                     {% if user.is_staff or user.profile.id == object.profile.id %}
                         <a>&nbsp;</a>
-                        <a href="{% url 'thread:chat_update' object.pk %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'thread:chat_update' object.pk %}" class="btn btn-primary">🛠️Edit</a>
                         <a>&nbsp;</a>
-                        <a href="{% url 'thread:chat_delete' object.pk %}" class="btn btn-danger">Delete</a>
+                        <a href="{% url 'thread:chat_delete' object.pk %}" class="btn btn-danger">🗑️Delete</a>
                     {% endif %}
                 {% endif %}
-                <br/><br/>
+            </form>
+            <br/>
                 
-                <!--Individual:id(auto:key)-->
-                <div class="mb-3">{% include 'includes/display_field.html' with target=object.id disp_name='ID' %}</div>
-                <!--Display:title-->
-                <div class="mb-3">{% include 'includes/display_field.html' with target=object.title disp_name='Title' %}</div>
-                <!--Display:context-->
-                <div class="mb-3">{% include 'includes/display_field.html' with target=object.context disp_name='Context' %}</div>
+            <!--Individual:id(auto:key)-->
+            <div class="mb-3">{% include 'includes/display_field.html' with target=object.id disp_name='ID' %}</div>
+            <!--Display:title-->
+            <div class="mb-3">{% include 'includes/display_field.html' with target=object.title disp_name='Title' %}</div>
+            <!--Display:context-->
+            <div class="mb-3">{% include 'includes/display_field.html' with target=object.context disp_name='Context' %}</div>
 
-                <!--Display[img]:images-->
-                <div class="mb-3">{% include 'includes/display_image.html' with target=object.images field_name='images' disp_name='Images' app_name='chat' %}</div>
+            <!--Display[img]:images-->
+            <div class="mb-3">{% include 'includes/display_image.html' with target=object.images field_name='images' disp_name='Images' app_name='chat' %}</div>
 
-                <!--Display:author-->
-                {% if object.author and object.author != "None" %} <!-- Author is not null-->
-                    <div class="mb-3">{% include 'includes/display_field.html' with target=object.author disp_name='Author' %}</div>
-                <!--Display:profile.nick_name-->
-                {% else %} <!-- Author is null-->
-                    <div class="mb-3">{% include 'includes/display_field.html' with target=object.profile.nick_name disp_name='Author' %}</div>
-                {% endif %}
+            <!--Display:author-->
+            {% if object.author and object.author != "None" %} <!-- Author is not null-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.author disp_name='Author' %}</div>
+            <!--Display:profile.nick_name-->
+            {% else %} <!-- Author is null-->
+                <div class="mb-3">{% include 'includes/display_field.html' with target=object.profile.nick_name disp_name='Author' %}</div>
+            {% endif %}
 
-                <!--Display:created_at/updated_at-->
-                {% include 'includes/bottom_dates.html' %}
-                <br/>
+            <!--Display:created_at/updated_at-->
+            {% include 'includes/bottom_dates.html' %}
+
+            <br/>
+            <form action='' method="POST">
+                {% csrf_token %}
                 <!--submit button-->
+                <a href="javascript:history.back()" class="btn btn-secondary">⬅️Back</a>
                 {% if user.is_authenticated %}
                     {% if user.is_staff or user.profile.id == object.profile.id %}
                         <a>&nbsp;</a>
-                        <a href="{% url 'thread:chat_update' object.pk %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'thread:chat_update' object.pk %}" class="btn btn-primary">🛠️Edit</a>
                         <a>&nbsp;</a>
-                        <a href="{% url 'thread:chat_delete' object.pk %}" class="btn btn-danger">Delete</a>
+                        <a href="{% url 'thread:chat_delete' object.pk %}" class="btn btn-danger">🗑️Delete</a>
                     {% endif %}
                 {% endif %}
-                <br/>
             </form>
         </div>
     </div>

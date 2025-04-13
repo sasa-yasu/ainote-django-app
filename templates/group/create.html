@@ -58,7 +58,7 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <!--submit button-->
-                {% include 'includes/submit_button.html' with action="Create" %}
+                {% include 'includes/submit_button.html' with action="✏️Create" %}
                 <br/><br/>
 
                 <!--Input:name-->
@@ -91,12 +91,12 @@
                 {% include 'includes/bottom_dates.html' %}
                 <br/>
                 <!--submit button-->
-                {% include 'includes/submit_button.html' with action="Create" %}
+                {% include 'includes/submit_button.html' with action="✏️Create" %}
             </form>
         {% else %}
-            <label for="require_login" class="form-label">staffユーザでログインしてください</label>
+            <label for="require_login" class="form-label">🔓staffユーザでログインしてください</label>
             &nbsp;
-            <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+            <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">🔓Login</a>
         {% endif %}
     </div></div>
 </div></main>

@@ -39,15 +39,15 @@
                                 <input type="password" class="form-control" id="password2" name="password_verify" required>
                             </div>
 
-                            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                            <button type="submit" class="btn btn-primary w-100">✏️Sign Up</button>
                         </form>
                         <div class="text-center mt-3">
-                            <small>Already have an account? <a href="{% url 'top:login' %}">Login</a></small>
+                            <small>Already have an account? <a href="{% url 'top:login' %}">🔓Login</a></small>
                         </div>
                     {% else %}
-                        <label for="require_login" class="form-label">superuserでユーザでログインしてください</label>
+                        <label for="require_login" class="form-label">🔓superuserでユーザでログインしてください</label>
                         &nbsp;
-                        <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
+                        <a href="{% url 'top:login' %}" class="btn btn-primary" role="button" aria-pressed="true">🔓Login</a>
                     {% endif %}
 
                 </div>

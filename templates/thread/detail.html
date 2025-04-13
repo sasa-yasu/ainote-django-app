@@ -50,181 +50,183 @@
 <main><div class="container">
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <br/>
         <!--submit button-->
-        <a href="{% url 'thread:list' %}" class="btn btn-secondary">Back</a>
+        <a href="{% url 'thread:list' %}" class="btn btn-secondary">⬅️Back</a>
         {% if user.is_authenticated %}
             {% if user.is_staff or object.is_user_member %}
                 <a>&nbsp;</a>
-                <a href="{% url 'thread:update' object.pk %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'thread:update' object.pk %}" class="btn btn-primary">🛠️Edit</a>
             {% endif %}
             {% if user.is_staff or user.profile.id == object.created_pic.id %}
                 <a>&nbsp;</a>
-                <a href="{% url 'thread:delete' object.pk %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'thread:delete' object.pk %}" class="btn btn-danger">🗑️Delete</a>
             {% endif %}
         {% endif %}
         {% if object.is_user_member %}
             <a>&nbsp;-&nbsp;</a>
-            <a href="{% url 'thread:leave' object.id %}" class="btn btn-danger">Leave from Thread</a>
+            <a href="{% url 'thread:leave' object.id %}" class="btn btn-danger">🚪Leave from Thread</a>
         {% endif %}
-        <br/><br/>
+    </form>
+    <br/>
 
-        <div class="row g-5">
-            <div class="col-md-8 masonry"><div class="header-container justify-content-start">
+    <div class="row g-5">
+        <div class="col-md-8 masonry"><div class="header-container justify-content-start">
 
-                <!--hidden-->
-                <input type="hidden" id="id_thread_id" name="thread_id" value="{{ object.id }}">
+            <!--hidden-->
+            <input type="hidden" id="id_thread_id" name="thread_id" value="{{ object.id }}">
 
-                <div style="min-width: 100px; width: 100%;">
-                    {% if object.is_user_member %}<a href="{% url 'thread:chat_create' object.id %}" class="btn btn-primary">Create Chat</a>{% endif %}
-                    <hr>
-                    <!-- START MAIN LIST BODY -->
-                    <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-2" data-masonry='{"percentPosition": true }'>
-                        {% for item in display_object_list %}
-                        <div class="col mb-0 g-2">
-                            <div class="card" style="margin-bottom:0px;">
-                                <div class="card-body" style="padding:8px;">
-                                    <p class="card-title" style="margin-bottom:0px;"><B>{{ item.title }}</B></p>
-                                    {% if item.context %}<small class="card-text">{{ item.context|safe|linebreaksbr }}</small><br>{% endif %}
-                                    <small class="text-body-secondary">{{ item.created_at|date:"'y/m/d H:i" }}</small><br>
-                                    {% if item.author and item.author != "None" %}
-                                        <small class="text-body-secondary">by {{ item.author }}</small>
-                                    {% else %}
-                                        <small class="text-body-secondary">by {{ item.profile.nick_name }}</small>
-                                    {% endif %}
-                                    
-                                    <div class="d-flex justify-content-between align-items-center mt-1">
+            <div style="min-width: 100px; width: 100%;">
+                {% if object.is_user_member %}<a href="{% url 'thread:chat_create' object.id %}" class="btn btn-primary">✏️Create Chat</a>{% endif %}
+                <hr>
+                <!-- START MAIN LIST BODY -->
+                <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-2" data-masonry='{"percentPosition": true }'>
+                    {% for item in display_object_list %}
+                    <div class="col mb-0 g-2">
+                        <div class="card" style="margin-bottom:0px;">
+                            <div class="card-body" style="padding:8px;">
+                                <p class="card-title" style="margin-bottom:0px;"><B>{{ item.title }}</B></p>
+                                {% if item.context %}<small class="card-text">{{ item.context|safe|linebreaksbr }}</small><br>{% endif %}
+                                <small class="text-body-secondary">{{ item.created_at|date:"'y/m/d H:i" }}</small><br>
+                                {% if item.author and item.author != "None" %}
+                                    <small class="text-body-secondary">by {{ item.author }}</small>
+                                {% else %}
+                                    <small class="text-body-secondary">by {{ item.profile.nick_name }}</small>
+                                {% endif %}
+                                
+                                <div class="d-flex justify-content-between align-items-center mt-1">
 
-                                        <!--login check-->
-                                        {% if user.is_authenticated %}
-                                            <!--staff or its author-->
-                                            {% if user.is_staff or user.profile.id == item.profile.id %}
-                                                <a class="btn btn-outline-primary rounded-pill btn-sm" style="max-height:31px; padding:4px;" href="{% url 'thread:chat_detail' item.id %}">Detail</a>
-                                            {% else %}
-                                                <div></div> <!-- 左側に空の要素を維持 -->
-                                            {% endif %}
+                                    <!--login check-->
+                                    {% if user.is_authenticated %}
+                                        <!--staff or its author-->
+                                        {% if user.is_staff or user.profile.id == item.profile.id %}
+                                            <a class="btn btn-outline-primary rounded-pill btn-sm" style="max-height:31px; padding:4px;" href="{% url 'thread:chat_detail' item.id %}">Detail</a>
                                         {% else %}
                                             <div></div> <!-- 左側に空の要素を維持 -->
                                         {% endif %}
-
-                                        <!--age-->
-                                        <a class="btn btn-outline-secondary rounded-pill btn-sm age-btn" data-threadchat-id="{{ item.id }}" style="max-height:31px;">
-                                            <img width="20px" height="20px" src="{% static 'img/up.png' %}">
-                                        </a>
-
-                                        <!--likes-->
-                                        <a class="btn btn-outline-secondary rounded-pill btn-sm like-btn" data-threadchat-id="{{ item.id }}" style="max-height:31px; padding:4px;">
-                                            <img width="20px" height="20px" src="{% static 'img/good.png' %}"><span class="like-count" id="like-count-{{ item.id }}">({{ item.likes }})</span>
-                                        </a>
-
-                                    </div>
-
-                                    {% if item.images and item.images.url %}
-                                        <div class="mt-0 xy_center mt-1">
-                                            <div class="img-container"><img src="{{ item.images.url }}" class="preview-image" alt="Images"/></div>
-                                        </div>
+                                    {% else %}
+                                        <div></div> <!-- 左側に空の要素を維持 -->
                                     {% endif %}
+
+                                    <!--age-->
+                                    <a class="btn btn-outline-secondary rounded-pill btn-sm age-btn" data-threadchat-id="{{ item.id }}" style="max-height:31px;">
+                                        <img width="20px" height="20px" src="{% static 'img/up.png' %}">
+                                    </a>
+
+                                    <!--likes-->
+                                    <a class="btn btn-outline-secondary rounded-pill btn-sm like-btn" data-threadchat-id="{{ item.id }}" style="max-height:31px; padding:4px;">
+                                        <img width="20px" height="20px" src="{% static 'img/good.png' %}"><span class="like-count" id="like-count-{{ item.id }}">({{ item.likes }})</span>
+                                    </a>
+
                                 </div>
+
+                                {% if item.images and item.images.url %}
+                                    <div class="mt-0 xy_center mt-1">
+                                        <div class="img-container"><img src="{{ item.images.url }}" class="preview-image" alt="Images"/></div>
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
-                        {% endfor %}
                     </div>
+                    {% endfor %}
                 </div>
-                <!-- END MAIN LIST BODY -->
+            </div>
+            <!-- END MAIN LIST BODY -->
+            <br/>
+            <!-- START BOTTOM PAGINATION -->
+            {% include 'includes/pagination.html' %}
+            <!-- END BOTTOM PAGINATION -->
+
+            <hr>
+            <!--Profiles-->
+            <div class="align-self-start" style="min-width: 100px; width: 100%;">
+                <h5><B>&lt;&lt;[ Joined Profiles List ]&gt;&gt;</B></h5>
+                <div class="container bg-body-tertiary"><div class="row row-cols-5 row-cols-sm-5 row-cols-md-4 row-cols-lg-6 row-cols-xl-6 row-cols-xxl-6 g-3">
+                    {% for item in joined_profiles %}
+                        {% include 'includes/profile_item_simple.html' with item=item %}
+                    {% empty %}
+                        <div>No joined profiles yet.</div>
+                    {% endfor %}
+                </div></div>
+            </div>
+
+        </div></div>
+
+        <div class="col-md-4"><div class="position-sticky" style="top:5rem; min-width:340px;">
+            <div class="p-4 mb-3 bg-body-tertiary rounded">
+                <div> Profile Card (public) </div>
+                {% include 'includes/thread_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
+            </div>
+    
+            {% if object.category_choice %}
                 <br/>
-                <!-- START BOTTOM PAGINATION -->
-                {% include 'includes/pagination.html' %}
-                <!-- END BOTTOM PAGINATION -->
-
-                <hr>
-                <!--Profiles-->
-                <div class="align-self-start" style="min-width: 100px; width: 100%;">
-                    <h5><B>&lt;&lt;[ Joined Profiles List ]&gt;&gt;</B></h5>
-                    <div class="container bg-body-tertiary"><div class="row row-cols-5 row-cols-sm-5 row-cols-md-4 row-cols-lg-6 row-cols-xl-6 row-cols-xxl-6 g-3">
-                        {% for item in joined_profiles %}
-                            {% include 'includes/profile_item_simple.html' with item=item %}
-                        {% empty %}
-                            <div>No joined profiles yet.</div>
-                        {% endfor %}
-                    </div></div>
+                <div>
+                    <h4 class="fst-italic">Categories</h4>
+                    {% if object.category_choice %}
+                    <div>&lt;&lt;
+                    {% for category in object.category_choice %}
+                    {% for value, label in CATEGORY_CHOICES %}
+                        {% if category == value %}{{ label }}, {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                    &gt;&gt;</div>
+                    {% endif %}
                 </div>
-
-            </div></div>
-
-            <div class="col-md-4"><div class="position-sticky" style="top:5rem; min-width:340px;">
-                <div class="p-4 mb-3 bg-body-tertiary rounded">
-                    <div> Profile Card (public) </div>
-                    {% include 'includes/thread_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
+            {% endif %}
+            {% if object.overview %}
+                <br/>
+                <div>
+                    <h4 class="fst-italic">Overview</h4>
+                    <div>{{ object.overview }}</div>
                 </div>
-        
-                {% if object.category_choice %}
-                    <br/>
-                    <div>
-                        <h4 class="fst-italic">Categories</h4>
-                        {% if object.category_choice %}
-                        <div>&lt;&lt;
-                        {% for category in object.category_choice %}
-                        {% for value, label in CATEGORY_CHOICES %}
-                            {% if category == value %}{{ label }}, {% endif %}
-                        {% endfor %}
-                        {% endfor %}
-                        &gt;&gt;</div>
-                        {% endif %}
-                    </div>
-                {% endif %}
-                {% if object.overview %}
-                    <br/>
-                    <div>
-                        <h4 class="fst-italic">Overview</h4>
-                        <div>{{ object.overview }}</div>
-                    </div>
-                {% endif %}
-                {% if object.context %}
-                    <br/>
-                    <div>
-                        <h4 class="fst-italic">Context</h4>
-                        <div>{{ object.context }}</div>
-                    </div>
-                {% endif %}
-                {% if object.remarks %}
-                    <br/>
-                    <div>
-                        <h4 class="fst-italic">Remarks</h4>
-                        <div>{{ object.remarks }}</div>
-                    </div>
-                {% endif %}
-            </div></div>
-        </div>
-        <br/>
+            {% endif %}
+            {% if object.context %}
+                <br/>
+                <div>
+                    <h4 class="fst-italic">Context</h4>
+                    <div>{{ object.context }}</div>
+                </div>
+            {% endif %}
+            {% if object.remarks %}
+                <br/>
+                <div>
+                    <h4 class="fst-italic">Remarks</h4>
+                    <div>{{ object.remarks }}</div>
+                </div>
+            {% endif %}
+        </div></div>
+    </div>
+
+    <br/>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <!--submit button-->
         {% if user.is_authenticated %}
             {% if user.is_staff or object.is_user_member %}
                 <a>&nbsp;</a>
-                <a href="{% url 'thread:update' object.pk %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'thread:update' object.pk %}" class="btn btn-primary">🛠️Edit</a>
             {% endif %}
             {% if user.is_staff or user.profile.id == object.created_pic.id %}
                 <a>&nbsp;</a>
-                <a href="{% url 'thread:delete' object.pk %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'thread:delete' object.pk %}" class="btn btn-danger">🗑️Delete</a>
             {% endif %}
         {% endif %}
         {% if object.is_user_member %}
             <a>&nbsp;-&nbsp;</a>
-            <a href="{% url 'thread:leave' object.id %}" class="btn btn-danger">Leave from Thread</a>
+            <a href="{% url 'thread:leave' object.id %}" class="btn btn-danger">🚪Leave from Thread</a>
         {% endif %}
-        <br/>
-
-        {% if user.is_staff or object.is_user_member %}
-        <hr class="featurette-divider">
-        <!--Display:QR for join Thread-->
-        <div class="align-self-start" style="min-width:100px; width:100%;">
-            <h5><B>&lt;&lt;[ Join this Thread QR Code ]&gt;&gt;</B></h5>
-            <div class="row g-0 flex-md-row mb-0 position-relative">
-                <div style="width:auto;"><img src="{% url 'thread:disp_qr' pk=object.id %}" alt="Thread QR Code" width="300" height="300"></div>
-            </div>
-        </div>
-        {% endif %}
-
     </form>
+
+    {% if user.is_staff or object.is_user_member %}
+    <hr class="featurette-divider">
+    <!--Display:QR for join Thread-->
+    <div class="align-self-start" style="min-width:100px; width:100%;">
+        <h5><B>&lt;&lt;[ Join this Thread QR Code ]&gt;&gt;</B></h5>
+        <div class="row g-0 flex-md-row mb-0 position-relative">
+            <div style="width:auto;"><img src="{% url 'thread:disp_qr' pk=object.id %}" alt="Thread QR Code" width="300" height="300"></div>
+        </div>
+    </div>
+    {% endif %}
+
 </div></main>
 <!--MAIN END-->
 {% endblock %}
