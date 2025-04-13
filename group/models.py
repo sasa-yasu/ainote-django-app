@@ -12,17 +12,17 @@ class Group(models.Model):
     images = models.ImageField('Images', upload_to='group', null=True, blank=True)
     themes = models.ImageField('Themes', upload_to='group', null=True, blank=True)
     CATEGORY_CHOICES = [
-        ('community', '地域活動'), 
-        ('sports', 'スポーツ'),
-        ('walking', '歩活（ウォーキング）'),
-        ('bbq', 'バーベキュー'),
-        ('volunteer', 'ボランティア'),
-        ('study', '勉強会・学習'),
-        ('intergenerational', '世代交流'),
-        ('childcare', '子育てサークル'),
-        ('hobby', '趣味・創作'),
-        ('music', '音楽・演奏'),
-        ('other', 'その他'),
+        ('sports', '⚽スポーツ🏃‍♀️'),
+        ('walking', '🚶‍♂️歩活（ウォーキング）🌳'),
+        ('bbq', '🍖バーベキュー🔥'),
+        ('music', '🎵音楽・演奏🎸'),
+        ('study', '📚勉強会・学習🧠'),
+        ('hobby', '🎨趣味・創作✂️'),
+        ('childcare', '🍼子育てサークル👶'),
+        ('volunteer', '🤝ボランティア👐'),
+        ('intergenerational', '👨‍👩‍👧‍👦世代交流🕊️'),
+        ('community', '🏘️地域活動👫'),
+        ('other', '🧩その他🗂️'),
     ]
     category_choice = MultiSelectField('Category Choice', max_length=200, choices=CATEGORY_CHOICES, null=True, blank=True) 
     context = models.TextField('Context', null=True, blank=True)

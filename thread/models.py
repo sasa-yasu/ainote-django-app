@@ -12,17 +12,17 @@ class Thread(models.Model):
     images = models.ImageField('Images', upload_to='thread', null=True, blank=True)
     themes = models.ImageField('Themes', upload_to='thread', null=True, blank=True)
     CATEGORY_CHOICES = [
-        ('general_gaming', 'ゲーム好き集合！'),
-        ('battle_gaming', 'バトル＆対戦好き集まれ'),
-        ('thrill_games', 'ゾクゾクするゲーム体験'),
-        ('indie_games', 'インディーズゲーム発掘隊'),
-        ('sports_fans', 'スポーツファン交流所'),
-        ('oshi_talk', '推し活・アイドルトーク'),
-        ('entertainment_talk', 'エンタメ雑談広場'),
-        ('story_world', '創作・物語・世界観好き'),
-        ('philosophy_talk', '知的＆哲学系トーク'),
-        ('recommendations', 'みんなのおすすめ紹介所'),
-        ('free_talk', 'なんでも雑談ルーム'),
+        ('general_gaming', '🎮ゲーム好き集合！🧑‍💻'),
+        ('battle_gaming', '⚔️バトル＆対戦好き集まれ🔥'),
+        ('thrill_games', '👻ゾクゾクするゲーム体験🎢'),
+        ('indie_games', '🕹️インディーズゲーム発掘隊🔍'),
+        ('sports_fans', '🏀スポーツファン交流所🏃‍♂️'),
+        ('oshi_talk', '🌟推し活・アイドルトーク💖'),
+        ('entertainment_talk', '🎬エンタメ雑談広場🎉'),
+        ('story_world', '📚創作・物語・世界観好き🌌'),
+        ('philosophy_talk', '🧠知的＆哲学系トーク📖'),
+        ('recommendations', '📢みんなのおすすめ紹介所📝'),
+        ('free_talk', '💬なんでも雑談ルーム🕊️'),
     ]
     category_choice = MultiSelectField('Category Choice', max_length=200, choices=CATEGORY_CHOICES, null=True, blank=True) 
     overview = models.TextField('Overview', null=True, blank=True)
