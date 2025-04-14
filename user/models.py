@@ -1,4 +1,5 @@
 import logging
+from dateutil.relativedelta import relativedelta
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.conf import settings
 from django.contrib.auth.signals import user_logged_in, user_logged_out
@@ -11,6 +12,7 @@ from django.utils import timezone
 from datetime import timedelta
 from middleware.current_request import get_current_request
 from AinoteProject.utils import crop_square_image, crop_16_9_image, get_mbti_compatibility, get_mbti_detail_url, get_contract_course_info  # utils.pyの関数をインポート
+
 
 # ロガー取得
 logger = logging.getLogger('app')
@@ -251,6 +253,60 @@ class Profile(models.Model):
         # 指定件数でスライス（多すぎる場合に備えて）
         return result[:count]
 
+
+    def get_recent_checkins(self, limit=5):
+        """
+        直近1ヶ月以内ののチェックイン履歴を指定件数分取得する。
+
+        :param limit: 取得する件数（デフォルトは5件）
+        :return: CheckinRecordのクエリセット
+        """
+        from place.models import CheckinRecord
+
+        # 現在時刻から1ヶ月前の日時を取得
+        one_month_ago = timezone.now() - relativedelta(months=1)
+
+        return (
+            CheckinRecord.objects
+            .filter(profile=self, checkin_time__gte=one_month_ago,)
+            .exclude(checkin_time__isnull=True)
+            .order_by('-checkin_time')[:limit]
+        )
+    
+    def get_checkins_last_month(self):
+        """
+        過去1ヶ月間の CheckinRecord のうち、
+        checkin_time と checkout_time が同じ年月日のものだけを取得。
+        """
+        one_month_ago = timezone.now() - relativedelta(months=1)
+
+        return (
+            self.checkinrecord_set
+            .filter(checkin_time__gte=one_month_ago)
+            .exclude(checkout_time__isnull=True)
+            .annotate(
+                checkin_date=TruncDate('checkin_time'),
+                checkout_date=TruncDate('checkout_time'),
+            )
+            .filter(checkin_date=F('checkout_date'))
+        )
+
+    def get_checkin_summary_last_month(self):
+        """
+        過去1ヶ月のチェックイン回数と累積滞在時間（分単位）
+        """
+        records = self.get_checkins_last_month()
+        logger.debug(f'records={records}')
+
+        total_duration_minutes = 0
+        for record in records:
+            if record.checkin_time and record.checkout_time:
+                total_duration_minutes += (record.checkout_time - record.checkin_time).total_seconds() // 60
+        return {
+            "checkin_count": records.count(),
+            "total_minutes": total_duration_minutes
+        }
+        
     def get_friend_profiles(self):
         """
         自分の友達の Profile オブジェクトを取得。自分自身を除外。

@@ -1,3 +1,5 @@
+import json
+from django.utils import timezone
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
@@ -94,11 +96,54 @@ def detail_view(request, pk):
     logger.debug('get Profile object(pk)')
     object = get_object_or_404(Profile, pk=pk)
 
-    # 最新の5件のチャットを取得
-    recent_chats = object.get_chats_by_count(5)
+    # 最新の30件のチャットを取得
+    recent_chats = object.get_chats_by_count(30)
 
-    # 最新の5件のログイン情報を取得
-    recent_login_records = object.get_login_records(5)
+    # 最新の30件のチェックイン情報を取得
+    recent_checkin_records = object.get_recent_checkins(30)
+
+    # 直近1ヶ月間のチェックインサマリを取得
+    month_checkins = object.get_checkins_last_month()
+
+    # 直近1ヶ月間のチェックイン情報を取得
+    month_checkin_summary = object.get_checkin_summary_last_month()
+    total_minutes = sum([
+        int((c.checkout_time - c.checkin_time).total_seconds() / 60)
+        for c in month_checkins if c.checkout_time
+    ])
+    total_hours = total_minutes // 60
+
+    checkin_data = [
+        {
+            "title": f"{checkin.place.place}",
+            "start": checkin.checkin_time.isoformat(),
+            "end": checkin.checkout_time.isoformat() if checkin.checkout_time else None,
+        }
+        for checkin in month_checkins if checkin.checkin_time
+    ]
+    logger.debug(f'checkin_data={checkin_data}')
+
+    checkin_data_json = json.dumps(checkin_data, default=str)
+    logger.debug(f'checkin_data_json={checkin_data_json}')
+
+    # チャート用データを整形
+    gantt_data = []
+    for i, record in enumerate(month_checkins):
+        if record.checkout_time and record.checkin_time:
+            gantt_data.append([
+                f"Task{i}",  # ID
+                record.place.place,  # タスク名
+                None,
+                record.checkin_time.strftime('%Y-%m-%dT%H:%M:%S'),
+                record.checkout_time.strftime('%Y-%m-%dT%H:%M:%S'),
+                None, None, None
+            ])
+
+    gantt_json = json.dumps(gantt_data)
+    logger.debug(f'gantt_json={gantt_json}')
+
+    # 最新の30件のログイン情報を取得
+    recent_login_records = object.get_login_records(30)
 
     # 所属しているすべてのグループを取得
     joined_groups = object.get_all_groups
@@ -106,7 +151,9 @@ def detail_view(request, pk):
     # すべてのFriendを取得
     friends = object.get_friend_profiles
 
-    context = {'object': object, 'recent_chats': recent_chats, 'recent_login_records': recent_login_records, 'joined_groups': joined_groups, 'friends': friends}
+    context = {'object': object, 'recent_chats': recent_chats, 'recent_checkin_records': recent_checkin_records, 
+               'month_checkin_summary':{ 'total_minutes': total_minutes, 'total_hours': total_hours}, 
+               'checkin_data_json': checkin_data_json, 'gantt_json': gantt_json, 'recent_login_records': recent_login_records, 'joined_groups': joined_groups, 'friends': friends}
 
     logger.debug('return render user/detail.html')
     return render(request, 'user/detail.html', context)
@@ -364,3 +411,31 @@ def given_likes(request, pk):
 
     logger.info(f'return Invalid request:status=400')
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+def checkin_calendar_view(request):
+    from place.models import CheckinRecord
+
+    profile = request.user.profile
+    now = timezone.now()
+    one_month_ago = now - timezone.timedelta(days=30)
+
+    # チェックイン履歴を取得
+    records = (
+        CheckinRecord.objects
+        .filter(profile=profile, checkin_time__gte=one_month_ago)
+        .order_by('checkin_time')
+    )
+
+    events = []
+    for record in records:
+        checkin = record.checkin_time
+        checkout = record.checkout_time or now
+        events.append({
+            "title": f"Check-in at {record.place.place}",
+            "start": checkin.isoformat(),
+            "end": checkout.isoformat()
+        })
+
+    return render(request, "profile/checkin_visual.html", {
+        "events_json": json.dumps(events)
+    })

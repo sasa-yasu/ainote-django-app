@@ -33,6 +33,14 @@
         transition: transform 0.2s ease-in-out;  /* ゆっくり拡大 */
     }
 
+    /***** checkin calendar / gantchart *****/
+    #calendar {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1em;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
 
 </style>
 <link href="{% static 'user/blog.css' %}" rel="stylesheet">
@@ -325,7 +333,22 @@
         </div>
 
         <!-- Only Display to Friend Profile -->
-        {% if user.is_staff or object.get_friend_pk %}
+        {% if user.is_staff or user.profile.id == object.id or object.get_friend_pk %}
+          <div style="margin-top:16px;">
+            <h4 class="fst-italic">Recent checkins</h4>
+            {% for checkin_record in recent_checkin_records %}
+              <div class="card" style="margin-bottom:2px;"><div class="card-body" style="padding:2px; padding-left:4px;">
+                <small class="text-muted">{{ checkin_record.checkin_time|date:"'y/m/d H:i" }} - </small>
+                <small class="text-muted">
+                  {% if checkin_record.checkout_time and checkin_record.checkin_time|date:"Y/m/d" != checkin_record.checkout_time|date:"Y/m/d" %}{{ checkin_record.checkout_time|date:"m/d" }}{% endif %}
+                  {{ checkin_record.checkout_time|date:"H:i" }}
+                </small>
+                <small class="text-muted">[{{ checkin_record.get_diff_time }}]</small>
+              </div></div>
+            {% empty %}
+                <div>No recent checkins.</div>
+            {% endfor %}
+          </div>
           <div style="margin-top:16px;">
             <h4 class="fst-italic">Recent logins</h4>
             {% for login_record in recent_login_records %}
@@ -378,6 +401,77 @@
   </div>
   {% endif %}{% endif %}
 
+  <p>チェックイン回数: {{ month_checkin_summary.checkin_count }}回</p>
+  <p>累積滞在時間: {{ month_checkin_summary.total_minutes|floatformat:0 }} 分（{{ month_checkin_summary.total_hours }} 時間）</p>
+  
+  <div id="checkin_calendar"></div>
+  <div id="checkin_ganttChart" style="width: 100%; height: 500px;"></div>
+
 </div></main>
 <!--MAIN END-->
-{% endblock %}
+{% endblock content %}
+
+{% block footer %}
+<!-- CheckIn Calendar -->
+<!-- FullCalendarのCSSとJS読み込み -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const calendarEl = document.getElementById('checkin_calendar');
+      // Djangoテンプレート変数をJavaScriptの変数に変換
+      const eventsData = JSON.parse('{{ checkin_data_json|escapejs }}');
+
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          locale: 'ja',  // 日本語
+          height: 'auto',
+          events: eventsData
+      });
+
+      calendar.render();
+  });
+</script>
+
+<!-- CheckIn Gantchart -->
+<!-- Google Chartsの読み込み -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+  google.charts.load('current', {'packages':['gantt']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    const data = new google.visualization.DataTable();
+    data.addColumn('string', 'Task ID');
+    data.addColumn('string', 'Task Name');
+    data.addColumn('string', 'Resource');
+    data.addColumn('date', 'Start');
+    data.addColumn('date', 'End');
+    data.addColumn('number', 'Duration');
+    data.addColumn('number', 'Percent Complete');
+    data.addColumn('string', 'Dependencies');
+
+    const rawData = JSON.parse('{{ gantt_json|safe }}');
+    const formattedData = rawData.map(row => [
+      row[0],
+      row[1],
+      row[2],
+      new Date(row[3]),
+      new Date(row[4]),
+      row[5],
+      row[6],
+      row[7]
+    ]);
+
+    data.addRows(formattedData);
+
+    const chart = new google.visualization.Gantt(document.getElementById('checkin_ganttChart'));
+    chart.draw(data, {
+      height: 400,
+      gantt: {
+        trackHeight: 30
+      }
+    });
+  }
+</script>
+{% endblock footer %}
