@@ -112,6 +112,16 @@ class Place(models.Model):
         profile.save()
         return earn_points
 
+    def deduct_points_for_checkin(self, profile):
+        """
+        指定された profile が、前回当日にCheck-Outしていなかった場合にCheck-Outする際にPointを控除する。
+        """
+        deduct_points = self.get_earn_points_for_checkin()
+        profile.status_points -= deduct_points
+        profile.available_points -= deduct_points
+        profile.save()
+        return deduct_points
+
     def get_checkin_records_by_count(self, count=1):
         """
         同じプロフィールで同日付(Y/M/D)のチェックインレコードは最終PKのみ取得。

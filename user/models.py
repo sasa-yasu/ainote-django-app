@@ -2,14 +2,15 @@ import logging
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.conf import settings
 from django.contrib.auth.signals import user_logged_in, user_logged_out
-from django.db.models import Q, F
 from django.db import models
+from django.db.models import Q, F
+from django.db.models.functions import TruncDate
 from django.dispatch import receiver
 from datetime import date
 from django.utils import timezone
 from datetime import timedelta
 from middleware.current_request import get_current_request
-from AinoteProject.utils import crop_square_image, crop_16_9_image, get_mbti_compatibility, get_mbti_detail_url
+from AinoteProject.utils import crop_square_image, crop_16_9_image, get_mbti_compatibility, get_mbti_detail_url, get_contract_course_info  # utils.pyの関数をインポート
 
 # ロガー取得
 logger = logging.getLogger('app')
@@ -487,6 +488,34 @@ class Profile(models.Model):
             if self.status_points >= threshold:
                 return prize_name
         return 'wood'  # デフォルトは 'wood' としておく
+
+
+    def get_total_checkin_days_this_month(self):
+        """
+        このProfileが今月チェックインしたユニークな日数を取得（今日を含まない）。
+        場所は問わず、同じ日に複数回チェックインしても1日とカウントする。
+        """
+        from place.models import CheckinRecord
+
+        now = timezone.now()
+        start_of_month = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+        start_of_today = now.replace(hour=0, minute=0, second=0, microsecond=0)
+
+        return (
+            CheckinRecord.objects
+            .filter(profile=self, checkin_time__gte=start_of_month, checkin_time__lt=start_of_today)
+            .annotate(day=TruncDate('checkin_time'))
+            .values('day')
+            .distinct()
+            .count()
+        )
+    
+    def get_contract_pt(self):
+        """
+        このプロフィールに設定されている契約コースに応じたcontract_ptを返す。
+        """
+        info = get_contract_course_info(self.contract_course)
+        return info.get("contract_pt", 0)    
 
 class LoginRecord(models.Model):
     """ログイン履歴"""

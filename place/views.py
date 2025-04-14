@@ -319,13 +319,6 @@ def checkin_view(request):
     
     context = {'profile_own': profile_own, 'place_with': place_with, 'checkin_record': checkin_record}
 
-    if place_with.is_profile_not_checked_in_today(profile_own):
-        # 1日に1ポイント獲得のメッセージ表示
-        earn_points = place_with.get_earn_points_for_checkin(profile_own)
-        context.update({'points': f'1 day get {earn_points} points. Your [Status Point]: {profile_own.status_points:,} + {earn_points} pt'})
-    else:
-        context.update({'points': f'You already checked-in today. Your [Status Point]: {profile_own.status_points:,} pt'})
-    
     if request.method == "POST":
         logger.info('POST method')
 
@@ -387,14 +380,14 @@ def checkin_view(request):
             # チェックアウト済みなら新規チェックイン作成
             else:
                 try:
-                    if place_with.is_profile_not_checked_in_today(profile_own):
-                        earn_points = place_with.earn_points_for_checkin(profile_own)
-                        context.update({'points': f'You got points for today checkin. Your [Status Point]: {profile_own.status_points:,}(+{earn_points}) pt'}) # 1日に1ポイント獲得後のメッセージ表示
                     new_checkin = CheckinRecord.objects.create(
                         place=place_with,
                         profile=profile_own,
                         checkin_time=now()
                     )
+                    if place_with.is_profile_not_checked_in_today(profile_own):
+                        earn_points = place_with.earn_points_for_checkin(profile_own)
+                        context.update({'points': f'You got points for today checkin. Your [Status Point]: {profile_own.status_points:,}(+{earn_points}) pt'}) # 1日に1ポイント獲得後のメッセージ表示
                     context.update({'messages': f'Successfully Checked-In at {new_checkin.checkin_time.strftime("%Y/%m/%d %H:%M:%S")}'})
                     context.update({'checkin_record': new_checkin})
 
@@ -412,7 +405,21 @@ def checkin_view(request):
         if checkin_record and checkin_record.checkin_time and not checkin_record.checkout_time:
             context.update({'errors': f'Already Checked-In at {checkin_record.checkin_time.strftime("%Y/%m/%d %H:%M:%S")}'})
 
-
+        else:
+            if place_with.is_profile_not_checked_in_today(profile_own):
+                # 1日に1ポイント獲得のメッセージ表示
+                earn_points = place_with.get_earn_points_for_checkin()
+                contract_pt = profile_own.get_contract_pt()
+                used_pt = profile_own.get_total_checkin_days_this_month()
+                remain_points = contract_pt - used_pt
+                context.update({'points': f'1 day get {earn_points} points. Your [Status Point]: {profile_own.status_points:,} + {earn_points} pt'})
+                if 0 < remain_points:
+                    context.update({'infos': f'You have still {remain_points:,} points as of yesterday. [contact: {contract_pt:,},  used: {used_pt:,} pt]'})
+                else:
+                    context.update({'errors': f'Your available credit is {remain_points:,} points as of yesterday. [contact: {contract_pt:,},  used: {used_pt:,} pt]'})
+            else:
+                context.update({'points': f'You already checked-in today. Your [Status Point]: {profile_own.status_points:,} pt'})
+        
     logger.info('return render place/checkin.html')
     return render(request, 'place/checkin.html', context)
 
@@ -471,6 +478,9 @@ def checkout_view(request):
                 try:
                     checkin_record.checkout_time = now()
                     checkin_record.save()
+                    if checkin_record.checkin_time.strftime("%Y/%m/%d") < now().strftime("%Y/%m/%d"):
+                        deduct_points = place_with.deduct_points_for_checkin(profile_own)
+                        context.update({'errors': f'We deducted {deduct_points} points from your Status and Available.'})
                     context.update({'messages': f'Successfully Checked-Out at {checkin_record.checkout_time.strftime("%Y/%m/%d %H:%M:%S")}.'})
 
                     # send the checkout email to parents
@@ -494,6 +504,9 @@ def checkout_view(request):
                 context.update({'errors': f'Already Checked-Out at {checkin_record.checkout_time.strftime("%Y/%m/%d %H:%M:%S")}.'})
         elif checkin_record:
                 context.update({'infos': f'Check-Out for Last Checked-In at {checkin_record.checkin_time.strftime("%Y/%m/%d %H:%M:%S")}.'} )
+                if checkin_record.checkin_time.strftime("%Y/%m/%d") < now().strftime("%Y/%m/%d"):
+                    reduce_points = place_with.earn_points_for_checkin(profile_own)
+                    context.update({'errors': f'Last Check-In doesnt have Check-Out record. After Check-Out, we deduct {reduce_points:,} points.'} )                
         else:
             context.update({'errors': 'No previous check-in records found. Please check-in first.'})
 

@@ -296,7 +296,22 @@
           {% include 'includes/profile_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
         </div>
 
-        <div>
+        {% if user.is_staff or user.profile.id == object.id %}
+        <!-- プロパティブロック -->
+        <div class="align-self-start" style="min-width:100px; width:100%; ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+            <div class="col d-flex flex-column position-static">
+              <table class="table profile-property-table">
+                <tr><th>Contract</th><td>{{ object.get_contract_course_display }}</td></tr>
+                <tr><th>Credit Points</th><td>{{ object.get_contract_pt|intcomma }} points</td></tr>
+                <tr><th>Used Points</th><td>{{ object.get_total_checkin_days_this_month|intcomma }} points</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <div style="margin-top:16px;">
           <h4 class="fst-italic">Recent chat</h4>
           {% for chat in recent_chats %}
             <div class="card" style="margin-bottom:4px;"><div class="card-body" style="padding:8px;">

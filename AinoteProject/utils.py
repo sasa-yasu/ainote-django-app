@@ -477,7 +477,14 @@ contract_course_matrix = {
 # Contract Course系
 def get_contract_course_info(contract_course):
     """
-    ユーザーのMBTIを基準に、プロフィールのMBTIとの相性スコアと関係名称を取得
+    指定されたコントラクトコース（例: 'trial', 'gold' など）に対応する
+    契約ポイント（contract_pt）と付与ポイント（give_course_pt）を辞書で返す。
+    
+    Args:
+        contract_course (str): コントラクトコース名。
+
+    Returns:
+        dict: {'contract_pt': int, 'give_course_pt': int}
     """
     info = contract_course_matrix.get(contract_course, {"contract_pt": 0, "give_course_pt": 0})
     return info  # {"contract_pt": 10, "give_course_pt": 0} のような辞書を返す
