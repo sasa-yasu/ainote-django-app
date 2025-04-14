@@ -92,6 +92,16 @@ class Profile(models.Model):
     images = models.ImageField('Images', upload_to='user', null=True, blank=True)
     themes = models.ImageField('Themes', upload_to='user', null=True, blank=True)
 
+    CONTRACT_COURSE_CHOICES = [
+        ('-', '-'),
+        ('trial', 'トライアル会員(1ヶ月2日間のみ)'),
+        ('bronze', 'ブロンズ会員(1ヶ月5日間のみ)'),
+        ('gold', 'ゴールド会員(1ヶ月10日間のみ)'),
+        ('platinum', 'プラチナ会員(1ヶ月何度でも利用可能)'),
+        ('premium', 'プレミアム会員(ゴールド会員特典＋全コース受講可)'),
+    ]
+    contract_course = models.CharField('Contract Course', max_length=100, choices=CONTRACT_COURSE_CHOICES, null=True, blank=True)
+
     caretaker01 = models.CharField('Caretaker01 email', max_length=255, null=True, blank=True)
     caretaker02 = models.CharField('Caretaker02 email', max_length=255, null=True, blank=True)
     caretaker03 = models.CharField('Caretaker03 email', max_length=255, null=True, blank=True)

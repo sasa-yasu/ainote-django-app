@@ -13,6 +13,18 @@ import logging
 logger = logging.getLogger('app')
 error_logger = logging.getLogger('error')
 
+# Send Mail
+from django.core.mail import EmailMessage
+def send_email_smtp(to_email, subject, body):
+    email = EmailMessage(
+        from_email=None, # settings.DEFAULT_FROM_EMAIL が使われる
+        to=to_email, # 複数のメールアドレスをリストで渡す
+        subject=subject,
+        body=body
+    )
+    # email.content_subtype = "html"  # HTMLメールにする場合
+    email.send()
+
 # 画像ハンドリング系[images]
 def create_images(object, images_data):
     ext = os.path.splitext(images_data.name)[1]  # 拡張子を取得
@@ -255,7 +267,7 @@ def disp_qr_code(url_for_qr):
     return HttpResponse(img_io.getvalue(), content_type="image/png")
 
 
-# MBTI相性データを辞書として定義（もしくはDBから取得）
+# MBTI相性データを辞書として定義
 mbti_matrix = {
     "INTJ": {
         "ESFJ": {"pt": 5, "relation": "opposite", "description": "表裏一体な最高の相性◎"},
@@ -417,7 +429,6 @@ mbti_matrix = {
         "ESFP": {"pt": 1, "relation": "same", "description": "理解し合えるが助け合いが難しい"},
         "ESFJ": {"pt": 1, "relation": "same_sub", "description": "似てるようで似てない波ある関係"},
     },
-    # 他のMBTIタイプも同様に記述
 }
 
 # MBTI系
@@ -425,8 +436,8 @@ def get_mbti_compatibility(user_mbti, profile_mbti):
     """
     ユーザーのMBTIを基準に、プロフィールのMBTIとの相性スコアと関係名称を取得
     """
-    compatibility = mbti_matrix.get(user_mbti, {}).get(profile_mbti, {"pt": 0, "name": "不明"})
-    return compatibility  # {"pt": 5, "name": "双対関係"} のような辞書を返す
+    compatibility = mbti_matrix.get(user_mbti, {}).get(profile_mbti, {"pt": 0, "relation": "不明"})
+    return compatibility  # {"pt": 5, "relation": "双対関係"} のような辞書を返す
 
 # MBTIベースの詳細説明画面への誘導URL
 mbti_links = {
@@ -454,13 +465,19 @@ def get_mbti_detail_url(mbti):
     """
     return mbti_links.get(mbti, []) # mbtiに該当するURLを返す
 
-from django.core.mail import EmailMessage
-def send_email_smtp(to_email, subject, body):
-    email = EmailMessage(
-        from_email=None, # settings.DEFAULT_FROM_EMAIL が使われる
-        to=to_email, # 複数のメールアドレスをリストで渡す
-        subject=subject,
-        body=body
-    )
-    # email.content_subtype = "html"  # HTMLメールにする場合
-    email.send()
+# Contract Courseデータを辞書として定義
+contract_course_matrix = {
+    "trial": {"contract_pt":2, "give_course_pt":0},
+    "bronze": {"contract_pt":5, "give_course_pt":0},
+    "gold": {"contract_pt":10, "give_course_pt":0},
+    "platinum": {"contract_pt":99, "give_course_pt":5},
+    "premium": {"contract_pt":99, "give_course_pt":99},
+}
+
+# Contract Course系
+def get_contract_course_info(contract_course):
+    """
+    ユーザーのMBTIを基準に、プロフィールのMBTIとの相性スコアと関係名称を取得
+    """
+    info = contract_course_matrix.get(contract_course, {"contract_pt": 0, "give_course_pt": 0})
+    return info  # {"contract_pt": 10, "give_course_pt": 0} のような辞書を返す

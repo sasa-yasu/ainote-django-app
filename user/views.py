@@ -155,6 +155,7 @@ def create_view(request):
             book_data = profile_form.cleaned_data["book"]
             event_data = profile_form.cleaned_data["event"]
             remarks_data = profile_form.cleaned_data["remarks"]
+            contract_course_data = profile_form.cleaned_data["contract_course"]
             caretaker01_data = profile_form.cleaned_data["caretaker01"]
             caretaker02_data = profile_form.cleaned_data["caretaker02"]
             caretaker03_data = profile_form.cleaned_data["caretaker03"]
@@ -184,6 +185,7 @@ def create_view(request):
                     remarks = remarks_data,
                     images = None, # 画像はまだ保存しない
                     themes = None, # 画像はまだ保存しない
+                    contract_course = contract_course_data,
                     caretaker01 = caretaker01_data,
                     caretaker02 = caretaker02_data,
                     caretaker03 = caretaker03_data,
@@ -267,6 +269,7 @@ def update_view(request, pk):
             object.book = profile_form.cleaned_data["book"]
             object.event = profile_form.cleaned_data["event"]
             object.remarks = profile_form.cleaned_data["remarks"]
+            object.contract_course = profile_form.cleaned_data["contract_course"]
             object.caretaker01 = profile_form.cleaned_data["caretaker01"]
             object.caretaker02 = profile_form.cleaned_data["caretaker02"]
             object.caretaker03 = profile_form.cleaned_data["caretaker03"]
@@ -297,7 +300,7 @@ def update_view(request, pk):
             logger.error('form not is_valid')
             print(profile_form.errors)  # エラー内容をログに出力
     else:
-        logger.info('GET method')  
+        logger.info('GET method') 
         profile_form = ProfileForm(instance=object) # putback the form
         context = {'object': object, 'user_form': user_form, 'profile_form': profile_form}
 

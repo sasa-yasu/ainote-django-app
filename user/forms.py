@@ -43,9 +43,8 @@ class ProfileForm(forms.ModelForm):
         required=True, help_text='* Nick Name should be max 10 characters.'
         )
 
-    BADGES_CHOICES = Profile.BADGES_CHOICES
     badges = forms.ChoiceField(
-        label='Badges', choices=BADGES_CHOICES, widget=forms.RadioSelect(attrs={'class': 'form-check-input'}),
+        label='Badges', choices=Profile.BADGES_CHOICES, widget=forms.RadioSelect(attrs={'class': 'form-check-input'}),
         required=True, initial='light', help_text='* Select your personal color.'
     )
     
@@ -61,15 +60,13 @@ class ProfileForm(forms.ModelForm):
         required=False, help_text='* If you input this, you can get more accurate genaration-gap points.<br/>* bellow shows year 2000 but system ignore the year info.'
     )
 
-    MBTI_CHOICES = Profile.MBTI_CHOICES
     mbti = forms.ChoiceField(
-        label='MBTI Type', choices=MBTI_CHOICES, widget=forms.RadioSelect(attrs={'class': 'form-check-input', 'id': 'id_mbti'}),
+        label='MBTI Type', choices=Profile.MBTI_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}),
         required=False, initial='-', help_text='* Select your personal MBTI type.'
         )
 
-    MBTI_NAME_CHOICES = Profile.MBTI_NAME_CHOICES
     mbti_name = forms.ChoiceField(
-        label='MBTI Display Name', choices=[], widget=forms.Select(attrs={'class': 'form-control', 'id': 'id_mbti_name'}),
+        label='MBTI Display Name', choices=[], widget=forms.Select(attrs={'class': 'form-control'}),
         required=False, help_text='* Choose a specific name.'
         )
     
@@ -118,6 +115,10 @@ class ProfileForm(forms.ModelForm):
         required=False, help_text='* Your personal theme in your profile page.'
         )
 
+    contract_course = forms.ChoiceField(
+        label='Contract Course', choices=Profile.CONTRACT_COURSE_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}),
+        required=False, initial='-', help_text='* Select your contract course.'
+        )
     caretaker01 = forms.CharField(
         label='Caretaker01 email', max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}),
         required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
@@ -143,7 +144,7 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ("memberid", "nick_name", "badges", "birth_year", "birth_month_day",
                   "mbti", "mbti_name", "hobby", "sports", "movie", "music", "book", "event", "remarks", "images", "themes",
-                  "caretaker01", "caretaker02", "caretaker03", "caretaker04", "caretaker05")
+                  "contract_course", "caretaker01", "caretaker02", "caretaker03", "caretaker04", "caretaker05")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

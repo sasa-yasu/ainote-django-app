@@ -209,17 +209,44 @@
                 <!--Input:remarks-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.remarks %}</div>
 
-                <!--Input:caretaker01-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker01 %}</div>
-                <!--Input:caretaker02-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker02 %}</div>
-                <!--Input:caretaker03-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker03 %}</div>
-                <!--Input:caretaker04-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker04 %}</div>
-                <!--Input:caretaker05-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker05 %}</div>
-                
+                {% if user.is_staff %}
+                    <!--Input:contract_course-->
+                    <div class="mb-2">
+                        <label for="id_{{ profile_form.contract_course.name }}" class="form-label btn btn-primary-input labeltext">
+                            <b>&lt;&lt;[ {{ profile_form.contract_course.label|safe }} ]&gt;&gt;</b>
+                        </label>
+                        <br/>
+                        {% if profile_form.contract_course.help_text %} <span class="helptext" style="font-size:10pt">{{ profile_form.contract_course.help_text|safe }}</span> {% endif %}
+                        {% if profile_form.contract_course.errors %} <div class="errortext" style="font-size:10pt"> {% for error in profile_form.contract_course.errors %} * {{ error }}<br/> {% endfor %} </div> {% endif %}                    
+                        <div class="form-group" style="padding:6px 12px;">
+                            <select class="form-select" id="id_{{ profile_form.contract_course.name }}" name="{{ profile_form.contract_course.name }}">
+                                {% for choice in profile_form.contract_course %}
+                                    <option value="{{ choice.data.value }}" {% if choice.data.value == profile_form.contract_course.value %}selected{% endif %}>
+                                        {{ choice.choice_label }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <!--Input:caretaker01-->
+                    <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker01 %}</div>
+                    <!--Input:caretaker02-->
+                    <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker02 %}</div>
+                    <!--Input:caretaker03-->
+                    <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker03 %}</div>
+                    <!--Input:caretaker04-->
+                    <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker04 %}</div>
+                    <!--Input:caretaker05-->
+                    <div class="mb-3">{% include 'includes/input_field.html' with target=profile_form.caretaker05 %}</div>
+                {% else %}
+                    <input type="hidden" id="id_contract_course" name="contract_course" value="{{ profile_form.contract_course.value }}">
+                    <input type="hidden" id="id_caretaker01" name="caretaker01" value="{{ profile_form.caretaker01.value }}">
+                    <input type="hidden" id="id_caretaker02" name="caretaker02" value="{{ profile_form.caretaker02.value }}">
+                    <input type="hidden" id="id_caretaker03" name="caretaker03" value="{{ profile_form.caretaker03.value }}">
+                    <input type="hidden" id="id_caretaker04" name="caretaker04" value="{{ profile_form.caretaker04.value }}">
+                    <input type="hidden" id="id_caretaker05" name="caretaker05" value="{{ profile_form.caretaker05.value }}">
+                {% endif %}
+
                 <!--Display:created_at/updated_at-->
                 {% include 'includes/bottom_dates.html' %}
                 <br/>
