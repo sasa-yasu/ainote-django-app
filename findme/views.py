@@ -275,8 +275,8 @@ def create_view(request):
 
             weekend_activity_choice_data = findme_form.cleaned_data["weekend_activity_choice"]
             weekend_activity_data = findme_form.cleaned_data["weekend_activity"]
-            on_going_project_choice_data = findme_form.cleaned_data["on_going_project_choice"]
-            on_going_project_data = findme_form.cleaned_data["on_going_project"]
+            ongoing_project_choice_data = findme_form.cleaned_data["ongoing_project_choice"]
+            ongoing_project_data = findme_form.cleaned_data["ongoing_project"]
             social_activity_choice_data = findme_form.cleaned_data["social_activity_choice"]
             social_activity_data = findme_form.cleaned_data["social_activity"]
 
@@ -334,8 +334,8 @@ def create_view(request):
 
                     weekend_activity_choice = weekend_activity_choice_data,
                     weekend_activity = weekend_activity_data,
-                    on_going_project_choice = on_going_project_choice_data,
-                    on_going_project = on_going_project_data,
+                    ongoing_project_choice = ongoing_project_choice_data,
+                    ongoing_project = ongoing_project_data,
                     social_activity_choice = social_activity_choice_data,
                     social_activity = social_activity_data,
 
@@ -448,8 +448,8 @@ def update_view(request, pk):
 
             object.weekend_activity_choice = findme_form.cleaned_data["weekend_activity_choice"]
             object.weekend_activity = findme_form.cleaned_data["weekend_activity"]
-            object.on_going_project_choice = findme_form.cleaned_data["on_going_project_choice"]
-            object.on_going_project = findme_form.cleaned_data["on_going_project"]
+            object.ongoing_project_choice = findme_form.cleaned_data["ongoing_project_choice"]
+            object.ongoing_project = findme_form.cleaned_data["ongoing_project"]
             object.social_activity_choice = findme_form.cleaned_data["social_activity_choice"]
             object.social_activity = findme_form.cleaned_data["social_activity"]
 
