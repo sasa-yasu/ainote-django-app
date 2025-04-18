@@ -1,0 +1,192 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block header %}
+<style type="text/css">
+
+    /***** ページ全体 *****/
+    /* 画像とリストを横並びにするコンテナ */
+    .header-container {
+        display: flex;                /* 横並びに表示 */
+        flex-wrap: wrap;              /* 画面幅が狭くなったら折り返す */
+        align-items: center;          /* 垂直方向で中央揃え */
+        gap: 10px;                    /* 画像とリストの間隔 */
+        justify-content: space-between;
+    }
+
+</style>
+<link href="{% static 'user/blog.css' %}" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock header %}
+
+{% block content %}
+<!--HEADER START-->  
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="50" height="50" src="{% static 'img/sharedfile.png' %}" alt="Shared File Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Event</h3>
+    &nbsp;
+    <img class="bi" width="40" height="40" src="{% static 'img/list.png' %}" alt="Detail Icon">
+    <h3 class="text-body-emphasis fst-italic mb-0">Detail</h3>
+</div></div>
+<!--HEADER END-->
+
+<!--MAIN START-->
+<main><div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <!--submit button-->
+        {% include 'includes/detail_staff_controled_buttons.html' with app_name='sharedfile' %}
+    </form>
+    <br/>
+
+    <div class="row g-5">
+        <div class="col-md-8"><div class="header-container align-items-start">
+
+            <!-- 画像ブロック -->
+            <div class="align-self-start" style="min-width: 300px;">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                <div class="col p-4 flex-column position-static" style="width:900px;">
+
+                    <!-- title -->
+                    <div class="d-flex align-items-center"><h2 class="display-7">{{ object.title }}</h2></div>
+
+                    <div class="mb-2 d-flex flex-wrap align-items-center gap-2 justify-content-between" style="width:100%;">
+                        <div class="profile-image-wrapper" style="max-width:900px; ">
+                            <!-- 背景：themes -->
+                            {% if object.themes %}
+                            <img src="{{ object.themes.url }}" class="profile-bg-image" alt="Shared File Themes"/>
+                            {% else %}
+                            <img src="{% static 'img/themes.png' %}" class="profile-bg-image" alt="Default Themes"/>
+                            {% endif %}
+                            <!-- 前面：images(circle切り取り) -->
+                            <div class="profile-front-image">
+                                {% if object.images %}
+                                <img src="{{ object.images.url }}" style="border-radius: 50%;" alt="Shared File Images"/>
+                                {% else %}
+                                <img src="{% static 'img/sharedfile.png' %}" style="border-radius: 50%;" alt="Default Images"/>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            {% if object.category_choice %}
+            <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                    <div class="col p-4 d-flex flex-column position-static">
+                    <article class="blog-post" style="margin:0px;">
+                        <h2>Categories</h2>
+                        {% if object.category_choice %}
+                        <div>&lt;&lt;
+                        {% for category in object.category_choice %}
+                        {% for value, label in CATEGORY_CHOICES %}
+                            {% if category == value %}{{ label }}, {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        &gt;&gt;</div>
+                        {% endif %}
+                    </article>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- files -->
+            {% if object.files %}
+            <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                    <h2>Files</h2><div><a href="{{ object.files.url }}" download><img src="{% static 'img/sharedfile.png' %}" alt="Default Images" style="width:50px;height:50px;"/>{{ object.files.url }}</a></div>
+                </article>
+                </div>
+            </div>
+            </div>
+            {% endif %}
+
+            <!-- overview -->
+            {% if object.overview %}
+            <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                    <h2>Overview</h2><div>{{ object.overview|linebreaksbr }}</div>
+                </article>
+                </div>
+            </div>
+            </div>
+            {% endif %}
+
+            <!-- context -->
+            {% if object.context %}
+            <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                    <h2>Context</h2><div>{{ object.context|linebreaksbr }}</div>
+                </article>
+                </div>
+            </div>
+            </div>
+            {% endif %}
+
+            <!-- remarks -->
+            {% if object.remarks %}
+            <div class="align-self-start" style="min-width: 100px; width: 900px; ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-0 shadow-sm position-relative bg-white">
+                <div class="col p-4 d-flex flex-column position-static">
+                <article class="blog-post" style="margin:0px;">
+                    <h2>Remarks</h2><div>{{ object.remarks|linebreaksbr }}</div>
+                </article>
+                </div>
+            </div>
+            </div>
+            {% endif %}
+        </div></div>
+
+        <div class="col-md-4"><div class="position-sticky" style="top:5rem; min-width:340px;">
+            <div class="p-4 mb-3 bg-body-tertiary rounded">
+            <div> Profile Card (public) </div>
+            {% include 'includes/sharedfile_item.html' with item=object disp_date=object.updated_at|date:"'y/m/d H:i:s" %}
+            </div>
+        </div></div>
+    </div>
+
+    <br/>
+    <form method="POST">
+        {% csrf_token %}
+        <!--submit button-->
+        {% include 'includes/detail_staff_controled_buttons.html' with app_name='sharedfile' %}
+    </form>
+</div></main>
+<!--MAIN END-->
+{% endblock %}
+
+{% block footer %}
+<script>
+
+// likes post
+$(document).ready(function() {
+            $('.like-btn').click(function() {
+                const objectId = $(this).data('sharedfile-id');
+
+                $.ajax({
+                    url: `/sharedfile/push-likes/${objectId}/`,
+                    type: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        // いいね数をリアルタイムで更新
+                        $(`#like-count-${objectId}`).text(response.likes);
+                    },
+                    error: function(xhr) {
+                        alert('エラーが発生しました。');
+                    }
+                });
+            });
+        });
+</script>
+{% endblock footer %}

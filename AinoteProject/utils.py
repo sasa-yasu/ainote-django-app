@@ -24,6 +24,7 @@ def send_email_smtp(to_email, subject, body):
     )
     # email.content_subtype = "html"  # HTMLメールにする場合
     email.send()
+    
 
 # 画像ハンドリング系[images]
 def create_images(object, images_data):
@@ -60,6 +61,7 @@ def update_images(object, images_data):
 
     return images_data
 
+
 # 画像ハンドリング系[themes]
 def create_themes(object, themes_data):
     ext = os.path.splitext(themes_data.name)[1]  # 拡張子を取得
@@ -95,6 +97,7 @@ def update_themes(object, themes_data):
 
     return themes_data
 
+
 # 画像サイズ調整系
 def resize_image(p_images, p_size):
     """
@@ -126,7 +129,6 @@ def resize_image(p_images, p_size):
 
     return p_images
 
-
 def crop_square_image(p_images, p_size):
     img = Image.open(p_images)
     format = img.format if img.format else "JPEG" # フォーマットがない場合はJPEGで保存
@@ -149,7 +151,6 @@ def crop_square_image(p_images, p_size):
     p_images = ContentFile(img_io.getvalue(), name=p_images.name) # Update the images size
 
     return p_images
-
 
 def crop_16_9_image(p_themes, p_size):
     img = Image.open(p_themes)
@@ -191,6 +192,42 @@ def crop_16_9_image(p_themes, p_size):
     p_themes = ContentFile(img_io.getvalue(), name=p_themes.name) # Update the themes size
     
     return p_themes
+
+
+# ファイルハンドリング系[files]
+def create_files(object, files_data):
+    ext = os.path.splitext(files_data.name)[1]  # 拡張子を取得
+    timestamp = now().strftime('%y%m%d%H%M')  # タイムスタンプ生成 (yyMMddHHmm)
+    files_data.name = f"{object.id}_files_{timestamp}{ext}"  # 例: "12_2503201935.jpg"
+    logger.debug(f'files_data={files_data}')
+
+    return files_data
+
+def delete_files(object):
+    old_file_path = object.files.path  # 旧ファイルのパス
+    logger.debug(f'old files_data={old_file_path}')
+    if default_storage.exists(old_file_path):
+        logger.debug('old files_data file exists')
+        try:
+            logger.debug('delete old files_data')
+            default_storage.delete(old_file_path)  # 削除
+        except Exception as e:
+            logger.error(f'couldnt delete old files_data={old_file_path}: {e}')
+    else:
+        logger.debug('old files_data file not exists')
+
+    return object
+
+def update_files(object, files_data):
+    if object.files:
+        logger.debug('old files_data exists')
+        # **古いファイルを削除**
+        delete_files(object)
+
+    # **新しいファイルを保存**
+    files_data = create_files(object, files_data)
+
+    return files_data
 
 
 # GPS座標系

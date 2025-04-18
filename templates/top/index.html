@@ -199,9 +199,9 @@
 
     <hr class="featurette-divider">
 
-    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 g-3">
+    <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 g-3">
 
-        <!-- [for superuser] Headline -->
+        <!-- [for staff] Headline -->
         <div class="col"><a href="{% url 'headline:list' %}" class="text-decoration-none">
             <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
                 <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/headline.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
@@ -210,7 +210,7 @@
             </div></div>
         </a></div>
 
-        <!-- [for superuser] Notice -->
+        <!-- [for staff] Notice -->
         <div class="col"><a href="{% url 'notice:list' %}" class="text-decoration-none">
             <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
                 <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/notice.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
@@ -219,6 +219,15 @@
             </div></div>
         </a></div>
 
+        <!-- [for staff] Shared Files -->
+        <div class="col"><a href="{% url 'sharedfile:list' %}" class="text-decoration-none">
+            <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg"><div class="d-flex flex-column align-items-center gap-1 p-3">
+                <img class="bd-placeholder-img" width="140" height="140" src="{% static 'img/sharedfile.png' %}" alt="Chat Icon" role="img" aria-label="Placeholder" focusable="false"/>
+                <h4 class="display-7 lh-1 fw-bold"><B>Shared File</B></h4>
+                <small class="text-muted">The List of Shared Files which we have.</small>
+            </div></div>
+        </a></div>
+        
     </div>
 {% endif %}
 

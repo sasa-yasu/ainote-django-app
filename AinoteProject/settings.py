@@ -86,6 +86,7 @@ INSTALLED_APPS = [
     'headline.apps.HeadlineConfig',
     'notice.apps.NoticeConfig',
     'place.apps.PlaceConfig',
+    'sharedfile.apps.SharedfileConfig',
 ]
 
 MIDDLEWARE = [

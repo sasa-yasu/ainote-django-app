@@ -1,0 +1,108 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="'stylesheet" type="text/css" href="{% static 'list/style.css' %}">
+<style type="text/css">
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock header %}
+
+{% block content %}
+<!-- START TITLE -->
+<div class="my-3 p-3 py-2 text-center bg-body-tertiary"><div class="d-flex justify-content-center align-items-center gap-2">
+    <img class="bi" width="60" height="60" src="{% static 'img/sharedfile.png' %}" alt="Shared File Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">Shared File</h1>
+    &nbsp;
+    <img class="bi" width="50" height="50" src="{% static 'img/list.png' %}" alt="List Icon">
+    <h1 class="text-body-emphasis fst-italic mb-0">List</h1>
+    </div>
+    <p class="col-lg-8 mx-auto lead fst-italic">The List of Shared Files which we have.</p>
+</div>
+<!-- END TITLE -->
+
+<main class="container">
+    <form method="GET" class="d-flex flex-column align-items-start">
+        {% if CATEGORY_CHOICES %}
+        <div class="category-sharedfile d-flex flex-row align-items-center " style="gap:0px 8px; flex-wrap:wrap;">
+            <label><B style="color:blue;">*Category:</B></label>
+            <!-- <button class="btn btn-info btn-sm" style="padding:0px 4px;" type="button" data-bs-toggle="collapse" data-bs-target="#searchCategoryChoiceOptions" aria-expanded="false" aria-controls="searchCategoryChoiceOptions">表示</button> -->
+            <!-- <div class="collapse" id="searchCategoryChoiceOptions">  -->
+            {% for value, label in CATEGORY_CHOICES %}
+            <label>
+              <input type="checkbox" class="form-check-input" name="search_category_choice" value="{{ value }}"
+                     {% if value in search_category_choice %}checked{% endif %}>
+              {{ label }}
+            </label>
+            {% endfor %}
+            <!-- </div> -->
+        </div>
+        {% endif %}
+        <div class="d-flex flex-row align-items-center " style="gap:0px 8px;">
+            <!-- ソート条件（ラジオボタン） -->
+            <label><B style="color:blue;">*Sort by:</B></label>
+            <div class="d-flex flex-row" style="gap: 8px;">
+                <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="title_asc"{% if sort_by == "title_asc" %}checked{% endif %}>Title asc</label>
+                <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="title_desc"{% if sort_by == "title_desc" %}checked{% endif %}>Title desc</label>
+                <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="created_asc"{% if sort_by == "created_asc" %}checked{% endif %}>Created asc</label>
+                <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="created_desc"{% if sort_by == "created_desc" %}checked{% endif %}>Created desc</label>
+                <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="updated_asc"{% if sort_by == "updated_asc" %}checked{% endif %}>Updated asc</label>
+                <label class="form-check"><input class="form-check-input" type="radio" name="sort_by" value="updated_desc"{% if sort_by == "updated_desc" %}checked{% endif %}>Updated desc</label>
+            </div>
+        </div>
+        <div class="d-flex flex-row align-items-center " style="gap:0px 8px;">
+            <label><B style="color:blue;">*Filter:</B></label>
+            <input type="text" name="search_str" value="{{ search_str }}" class="form-control" maxlength="100" aria-describedby="id_search_str" id="id_search_str" style="width: 100px;">
+            <input type="submit" class="btn btn-primary" id="submit-button" value="🔍Search">
+            <span class="mx-3">|</span>
+            <a href="{% url 'sharedfile:create' %}" class="btn btn-primary">✏️Create Shared File</a>
+        </div>
+    </form>
+    <hr>
+    <!-- START MAIN LIST BODY -->
+    <div class="album py-5 bg-body-tertiary"><div class="container">
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-5 row-cols-xxl-6 g-3">
+            {% for item in display_object_list %}
+                {% include 'includes/sharedfile_item.html' with item=item disp_date=item.updated_at|date:"'y/m/d H:i:s" %}
+            {% endfor %}
+        </div>
+    </div></div>
+    <!-- END MAIN LIST BODY -->
+    &nbsp;
+    <!-- START BOTTOM PAGINATION -->
+    {% include 'includes/pagination.html' %}
+    <!-- END BOTTOM PAGINATION -->
+
+</main>
+{% endblock content %}
+
+{% block footer %}
+<script>
+
+// likes post
+$(document).ready(function() {
+            $('.like-btn').click(function() {
+                const objectId = $(this).data('sharedfile-id');
+
+                $.ajax({
+                    url: `/sharedfile/push-likes/${objectId}/`,
+                    type: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        // いいね数をリアルタイムで更新
+                        $(`#like-count-${objectId}`).text(response.likes);
+                    },
+                    error: function(xhr) {
+                        alert('エラーが発生しました。');
+                    }
+                });
+            });
+        });
+</script>
+
+<script src="{% static 'js/choice_display_switch.js' %}"></script> <!-- for switch choice display or display-none --> 
+
+{% endblock footer %}

@@ -39,6 +39,7 @@ urlpatterns = [
     path('room/', include('room.urls')),
     path('device/', include('device.urls')),
     path('place/', include('place.urls')),
+    path('sharedfile/', include('sharedfile.urls')),
 ]
 
 if settings.DEBUG:
