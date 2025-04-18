@@ -401,12 +401,23 @@
   </div>
   {% endif %}{% endif %}
 
-  <p>チェックイン回数: {{ month_checkin_summary.checkin_count }}回、
-    チェックイン日数: {{ month_checkin_summary.checkin_days }}日、
-    累積滞在時間: {{ month_checkin_summary.total_minutes|floatformat:0 }} 分（{{ month_checkin_summary.total_hours }} 時間）</p>
-  
-  <div id="checkin_calendar"></div>
-  <div id="checkin_ganttChart" style="width: 100%; height: 500px;"></div>
+  {% if month_checkin_summary.checkin_count > 0 %}
+    <p style="margin:0px;"><B>
+      *****
+      Check-In times: {{ month_checkin_summary.checkin_count }} times, 
+      Check-In days: {{ month_checkin_summary.checkin_days }} days, 
+      Total Stay-time: {{ month_checkin_summary.total_minutes|floatformat:0|intcomma }} minutes（{{ month_checkin_summary.total_hours }} hours)
+      *****
+    </B></p>
+  {% endif %}  
+
+  {% if checkin_data_json|length > 2 %}
+    <div id="checkin_calendar"></div>
+  {% endif %}
+
+  {% if bar_data_values_json|length > 2 %}
+    <div id="checkin_barChart" style="width: 100%; height: 500px;"></div>
+  {% endif %}
 
 </div></main>
 <!--MAIN END-->
@@ -438,41 +449,42 @@
 <!-- Google Chartsの読み込み -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
-  google.charts.load('current', {'packages':['gantt']});
+  google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawChart);
 
   function drawChart() {
+    const labels = JSON.parse('{{ bar_data_labels_json|escapejs }}');
+    const values = JSON.parse('{{ bar_data_values_json|escapejs }}');
+
     const data = new google.visualization.DataTable();
-    data.addColumn('string', 'Task ID');
-    data.addColumn('string', 'Task Name');
-    data.addColumn('string', 'Resource');
-    data.addColumn('date', 'Start Date');
-    data.addColumn('date', 'End Date');
-    data.addColumn('number', 'Duration');
-    data.addColumn('number', 'Percent Complete');
-    data.addColumn('string', 'Dependencies');
+    data.addColumn('string', 'Check-In Date');
+    data.addColumn('number', 'Stay-time(h)');
 
-    const rawData = JSON.parse('{{ gantt_json|safe }}');
-    const formattedData = rawData.map(row => [
-      row[0],
-      row[1],
-      row[2],
-      new Date(row[3]),
-      row[4],
-      row[5],
-      row[6],
-      row[7],
-    ]);
+    for (let i = 0; i < labels.length; i++) {
+      data.addRow([labels[i], values[i]]);
+    }
 
-    data.addRows(formattedData);
+    const options = {
+      title: 'Stay-time by day in recent one month',
+      hAxis: {
+        title: 'Stay-time(h)',
+        format: 'decimal',
+        viewWindow: {
+          max: 12  // 最大値を12時間に固定
+        }
+      },
+      vAxis: {
+        title: 'Check-In Date'
+      },
+      bars: 'horizontal',
+      height: labels.length * 30 + 50,  // データ数に応じて高さ調整
+    };
 
-    const chart = new google.visualization.Gantt(document.getElementById('checkin_ganttChart'));
-    chart.draw(data, {
-      height: 400,
-      gantt: {
-        trackHeight: 30
-      }
-    });
-}    
+    const chart = new google.visualization.BarChart(
+      document.getElementById('checkin_barChart')  // 同じdivを使ってOK
+    );
+
+    chart.draw(data, options);
+  }
 </script>
 {% endblock footer %}

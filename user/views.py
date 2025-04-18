@@ -124,21 +124,13 @@ def detail_view(request, pk):
     # 直近1ヶ月間の日別チェックイン時間を取得
     daily_checkins = object.get_daily_checkin_summary_last_month()
 
-    # チャート用データを整形
-    gantt_data = []
-    for i, record in enumerate(daily_checkins):
-        gantt_data.append([
-            f"Task{i}",  # ID
-            record[0].strftime('%m/%d') + '[' + format_millis_to_hhmm(record[1]) + ']',  # Task name
-            None,  # Resource（今回は使わない）
-            record[0].strftime('%Y-%m-%dT00:00:00'),  # Start
-            None,  # End
-            int(record[1])*2,  # Duration（12時間をMAXとして換算するために2倍する）
-            100,  # 完了度（今回は常に100%）
-            None  # 依存関係
-        ])
-    gantt_json = json.dumps(gantt_data)
-    logger.debug(f'gantt_json={gantt_json}')
+    # Chart用データ作成
+    bar_data_labels = []
+    bar_data_values = []
+
+    for date, duration_msec in daily_checkins:
+        bar_data_labels.append(date.strftime('%m/%d'))  # X軸（日付）
+        bar_data_values.append(round(duration_msec / 3600000, 2))  # Y軸（滞在時間（h））
 
     # 最新の30件のログイン情報を取得
     recent_login_records = object.get_login_records(30)
@@ -149,11 +141,14 @@ def detail_view(request, pk):
     # すべてのFriendを取得
     friends = object.get_friend_profiles
 
-    context = {'object': object, 'recent_chats': recent_chats, 'recent_checkin_records': recent_checkin_records, 
-               'month_checkin_summary': month_checkin_summary, 'month_checkins': month_checkins, 
-               'checkin_data_json': checkin_data_json,
-               'gantt_json': gantt_json,
-               'recent_login_records': recent_login_records, 'joined_groups': joined_groups, 'friends': friends}
+    context = {
+                'object': object, 'recent_chats': recent_chats, 'recent_checkin_records': recent_checkin_records, 
+                'month_checkin_summary': month_checkin_summary, 'month_checkins': month_checkins, 
+                'checkin_data_json': checkin_data_json,
+                'bar_data_labels_json': json.dumps(bar_data_labels),
+                'bar_data_values_json': json.dumps(bar_data_values),
+                'recent_login_records': recent_login_records, 'joined_groups': joined_groups, 'friends': friends
+    }
 
     logger.debug('return render user/detail.html')
     return render(request, 'user/detail.html', context)

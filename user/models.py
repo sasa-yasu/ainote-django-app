@@ -661,9 +661,10 @@ class LoginRecord(models.Model):
             return 'In'
         else:
             td = self.logout_time - self.login_time
-            hours, remainder = divmod(td.seconds, 3600)
+            total_seconds = td.total_seconds()
+            hours, remainder = divmod(int(total_seconds), 3600)
             minutes, seconds = divmod(remainder, 60)
-            return f'{hours:02}:{minutes:02}'
+            return f'{hours:02}\'{minutes:02}"'
                 
 
 @receiver(user_logged_in)

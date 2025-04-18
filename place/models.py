@@ -261,6 +261,7 @@ class CheckinRecord(models.Model):
             return 'In'
         else:
             td = self.checkout_time - self.checkin_time
-            hours, remainder = divmod(td.seconds, 3600)
+            total_seconds = td.total_seconds()
+            hours, remainder = divmod(int(total_seconds), 3600)
             minutes, seconds = divmod(remainder, 60)
-            return f'{hours:02}:{minutes:02}'
+            return f'{hours:02}\'{minutes:02}"'
