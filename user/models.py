@@ -4,8 +4,8 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.conf import settings
 from django.contrib.auth.signals import user_logged_in, user_logged_out
 from django.db import models
-from django.db.models import Q, F
-from django.db.models.functions import TruncDate
+from django.db.models import Q, F, Sum, ExpressionWrapper, DurationField
+from django.db.models.functions import TruncDate, Cast
 from django.dispatch import receiver
 from datetime import date
 from django.utils import timezone
@@ -261,6 +261,7 @@ class Profile(models.Model):
         :param limit: 取得する件数（デフォルトは5件）
         :return: CheckinRecordのクエリセット
         """
+        logger.info(f'start get_recent_checkins')
         from place.models import CheckinRecord
 
         # 現在時刻から1ヶ月前の日時を取得
@@ -278,11 +279,12 @@ class Profile(models.Model):
         過去1ヶ月間の CheckinRecord のうち、
         checkin_time と checkout_time が同じ年月日のものだけを取得。
         """
+        logger.info(f'start get_checkins_last_month')
         one_month_ago = timezone.now() - relativedelta(months=1)
 
         return (
             self.checkinrecord_set
-            .filter(checkin_time__gte=one_month_ago)
+            .filter(profile=self, checkin_time__gte=one_month_ago)
             .exclude(checkout_time__isnull=True)
             .annotate(
                 checkin_date=TruncDate('checkin_time'),
@@ -295,18 +297,84 @@ class Profile(models.Model):
         """
         過去1ヶ月のチェックイン回数と累積滞在時間（分単位）
         """
+        logger.info(f'start get_checkin_summary_last_month')
         records = self.get_checkins_last_month()
         logger.debug(f'records={records}')
 
         total_duration_minutes = 0
+        checkin_dates = set()
+
         for record in records:
+            if record.checkin_time:
+                checkin_dates.add(record.checkin_time.date())
             if record.checkin_time and record.checkout_time:
                 total_duration_minutes += (record.checkout_time - record.checkin_time).total_seconds() // 60
+        total_hours = total_duration_minutes // 60
         return {
             "checkin_count": records.count(),
-            "total_minutes": total_duration_minutes
+            "total_minutes": total_duration_minutes,
+            "total_hours": total_hours,
+            "checkin_days": len(checkin_dates),
         }
         
+    def get_daily_checkin_summary_last_month(self):
+        """
+        過去1ヶ月間のチェックイン記録を日別にグループ化し、
+        各日のトータル滞在時間（分）を算出する。
+        checkout_time がない場合は仮に1時間滞在したとみなす。
+        """
+        logger.info(f'start get_daily_checkin_summary_last_month')
+        one_month_ago = timezone.now() - relativedelta(months=1)
+
+        records = (
+            self.checkinrecord_set
+            .filter(profile=self, checkin_time__gte=one_month_ago)
+            .exclude(checkout_time__isnull=True)
+            .annotate(
+                checkin_date=TruncDate('checkin_time'),
+                checkout_date=TruncDate('checkout_time'),
+            )
+            .filter(checkin_date=F('checkout_date'))
+            .annotate(duration=ExpressionWrapper(
+                F('checkout_time') - F('checkin_time'),
+                output_field=DurationField()
+            ))
+        )
+        logger.debug(f'records={records}')
+
+        daily_summary = {}
+        for rec in records:
+            day = rec.checkin_date
+            duration_msec = (rec.checkout_time - rec.checkin_time).total_seconds() * 1000
+            daily_summary.setdefault(day, 0)
+            daily_summary[day] += duration_msec
+
+        # 日付順に並べて返す（リスト形式で必要ならこのように）
+        return sorted(daily_summary.items())
+
+    def get_daily_durations(self):
+        """
+        過去1ヶ月の日別滞在時間（分）をリストで返す
+        """
+        one_month_ago = timezone.now() - relativedelta(months=1)
+
+        records = (
+            self.checkinrecord_set
+            .filter(profile=self, checkin_time__gte=one_month_ago, checkout_time__isnull=False)
+            .annotate(date=TruncDate('checkin_time'), checkout_date=TruncDate('checkout_time'))
+            .filter(date=F('checkout_date'))
+            .values('date')
+            .annotate(total_duration=Sum(F('checkout_time') - F('checkin_time')))
+            .order_by('date')
+        )
+
+        daily_data = []
+        for r in records:
+            total_minutes = r['total_duration'].total_seconds() // 60
+            daily_data.append([r['date'].strftime('%Y-%m-%d'), total_minutes])
+
+        return daily_data
+    
     def get_friend_profiles(self):
         """
         自分の友達の Profile オブジェクトを取得。自分自身を除外。

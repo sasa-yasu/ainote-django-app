@@ -488,3 +488,11 @@ def get_contract_course_info(contract_course):
     """
     info = contract_course_matrix.get(contract_course, {"contract_pt": 0, "give_course_pt": 0})
     return info  # {"contract_pt": 10, "give_course_pt": 0} のような辞書を返す
+
+
+# 日付変換系
+def format_millis_to_hhmm(millis):
+    total_minutes = int(millis) // 60000
+    hours = total_minutes // 60
+    minutes = total_minutes % 60
+    return f"{hours:02}:{minutes:02}"

@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes
+from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes, format_millis_to_hhmm
 from .forms import ProfileForm, UserCreateForm
 from .models import Profile
 
@@ -102,20 +102,15 @@ def detail_view(request, pk):
     # 最新の30件のチェックイン情報を取得
     recent_checkin_records = object.get_recent_checkins(30)
 
+    # 直近1ヶ月間のチェックイン情報を取得
+    month_checkin_summary = object.get_checkin_summary_last_month()
+
     # 直近1ヶ月間のチェックインサマリを取得
     month_checkins = object.get_checkins_last_month()
 
-    # 直近1ヶ月間のチェックイン情報を取得
-    month_checkin_summary = object.get_checkin_summary_last_month()
-    total_minutes = sum([
-        int((c.checkout_time - c.checkin_time).total_seconds() / 60)
-        for c in month_checkins if c.checkout_time
-    ])
-    total_hours = total_minutes // 60
-
     checkin_data = [
         {
-            "title": f"{checkin.place.place}",
+            "title": f"[{checkin.get_diff_time()}]:{checkin.place.place}",
             "start": checkin.checkin_time.isoformat(),
             "end": checkin.checkout_time.isoformat() if checkin.checkout_time else None,
         }
@@ -126,19 +121,22 @@ def detail_view(request, pk):
     checkin_data_json = json.dumps(checkin_data, default=str)
     logger.debug(f'checkin_data_json={checkin_data_json}')
 
+    # 直近1ヶ月間の日別チェックイン時間を取得
+    daily_checkins = object.get_daily_checkin_summary_last_month()
+
     # チャート用データを整形
     gantt_data = []
-    for i, record in enumerate(month_checkins):
-        if record.checkout_time and record.checkin_time:
-            gantt_data.append([
-                f"Task{i}",  # ID
-                record.place.place,  # タスク名
-                None,
-                record.checkin_time.strftime('%Y-%m-%dT%H:%M:%S'),
-                record.checkout_time.strftime('%Y-%m-%dT%H:%M:%S'),
-                None, None, None
-            ])
-
+    for i, record in enumerate(daily_checkins):
+        gantt_data.append([
+            f"Task{i}",  # ID
+            record[0].strftime('%m/%d') + '[' + format_millis_to_hhmm(record[1]) + ']',  # Task name
+            None,  # Resource（今回は使わない）
+            record[0].strftime('%Y-%m-%dT00:00:00'),  # Start
+            None,  # End
+            int(record[1])*2,  # Duration（12時間をMAXとして換算するために2倍する）
+            100,  # 完了度（今回は常に100%）
+            None  # 依存関係
+        ])
     gantt_json = json.dumps(gantt_data)
     logger.debug(f'gantt_json={gantt_json}')
 
@@ -152,8 +150,10 @@ def detail_view(request, pk):
     friends = object.get_friend_profiles
 
     context = {'object': object, 'recent_chats': recent_chats, 'recent_checkin_records': recent_checkin_records, 
-               'month_checkin_summary':{ 'total_minutes': total_minutes, 'total_hours': total_hours}, 
-               'checkin_data_json': checkin_data_json, 'gantt_json': gantt_json, 'recent_login_records': recent_login_records, 'joined_groups': joined_groups, 'friends': friends}
+               'month_checkin_summary': month_checkin_summary, 'month_checkins': month_checkins, 
+               'checkin_data_json': checkin_data_json,
+               'gantt_json': gantt_json,
+               'recent_login_records': recent_login_records, 'joined_groups': joined_groups, 'friends': friends}
 
     logger.debug('return render user/detail.html')
     return render(request, 'user/detail.html', context)

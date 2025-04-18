@@ -401,8 +401,9 @@
   </div>
   {% endif %}{% endif %}
 
-  <p>チェックイン回数: {{ month_checkin_summary.checkin_count }}回</p>
-  <p>累積滞在時間: {{ month_checkin_summary.total_minutes|floatformat:0 }} 分（{{ month_checkin_summary.total_hours }} 時間）</p>
+  <p>チェックイン回数: {{ month_checkin_summary.checkin_count }}回、
+    チェックイン日数: {{ month_checkin_summary.checkin_days }}日、
+    累積滞在時間: {{ month_checkin_summary.total_minutes|floatformat:0 }} 分（{{ month_checkin_summary.total_hours }} 時間）</p>
   
   <div id="checkin_calendar"></div>
   <div id="checkin_ganttChart" style="width: 100%; height: 500px;"></div>
@@ -445,8 +446,8 @@
     data.addColumn('string', 'Task ID');
     data.addColumn('string', 'Task Name');
     data.addColumn('string', 'Resource');
-    data.addColumn('date', 'Start');
-    data.addColumn('date', 'End');
+    data.addColumn('date', 'Start Date');
+    data.addColumn('date', 'End Date');
     data.addColumn('number', 'Duration');
     data.addColumn('number', 'Percent Complete');
     data.addColumn('string', 'Dependencies');
@@ -457,10 +458,10 @@
       row[1],
       row[2],
       new Date(row[3]),
-      new Date(row[4]),
+      row[4],
       row[5],
       row[6],
-      row[7]
+      row[7],
     ]);
 
     data.addRows(formattedData);
@@ -472,6 +473,6 @@
         trackHeight: 30
       }
     });
-  }
+}    
 </script>
 {% endblock footer %}
