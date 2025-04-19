@@ -2,7 +2,7 @@ from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
+from django.db.models import Q, Value, CharField, Case, When, F
 from user.models import Profile
 from .models import Friend
 from AinoteProject.utils import disp_qr_code
@@ -13,47 +13,79 @@ logger = logging.getLogger('app')
 error_logger = logging.getLogger('error')
 
 @login_required
-def list_view(request, page_cnt=1):
+def list_view(request, page=1):
     logger.debug('start Friend list_view')
 
-    page_size = 15 # disply page size
-    onEachSide = 2 # display how many pages around current page
-    onEnds = 2 # display how many pages on first/last edge
+    PAGE_SIZE = 48 # disply page size
+    PAGINATION_ON_EACH_SIDE = 2 # display how many pages around current page
+    PAGINATION_ON_ENDS = 2 # display how many pages on first/last edge
  
     try:
-        page_cnt = int(request.GET.get("page_cnt", 1))
+        page = int(request.GET.get("page", 1))
     except ValueError:
         logger.debug('couldnt catch the page cnt')
-        page_cnt = 1
+        page = 1
     
     try:
         login_profile = Profile.objects.get(user1=request.user)
         logger.debug(f'login_profile={login_profile}')
-        object_list = Friend.objects.filter( Q(profile1=login_profile) | Q(profile2=login_profile) ).order_by('-created_at')
-
+        object_list = Friend.objects.filter(
+            Q(profile1=login_profile) | Q(profile2=login_profile)
+        ).annotate(
+            nick_name=Case(
+                When(profile1=login_profile, then=F('profile2__nick_name')),
+                When(profile2=login_profile, then=F('profile1__nick_name')),
+                default=Value(''),  # 念のため
+                output_field=CharField()
+            )
+        )
         logger.debug(f'object_list={object_list}')
     except Profile.DoesNotExist:
         logger.warning(f'Profile not found for user: {request.user}')
         login_profile = None
         object_list = Friend.objects.none()
 
+     # フリーワード検索用
+    search_str = request.GET.get("search_str", "")
+    logger.debug(f'Searching for: {search_str}')
+    if search_str:
+        object_list = object_list.filter(nick_name__icontains=search_str)
+
+    # 並び替え処理
+    sort_options = {
+        "created_desc": "-created_at",
+        "created_asc": "created_at",
+        "nick_name_asc": "nick_name",
+        "nick_name_desc": "-nick_name",
+    }
+    sort_by = request.GET.get("sort_by", "created_desc")
+    logger.debug(f'Sort by: {sort_by}')
+    sort_field = sort_options.get(sort_by, "-id")  # デフォルトは -id
+    object_list = object_list.order_by(sort_field)
+
     if object_list.exists():
         logger.debug('object_list exists')
-        paginator = Paginator(object_list, page_size)
+        paginator = Paginator(object_list, PAGE_SIZE)
         try:
-            display_object_list = paginator.page(page_cnt)
-        except:
-            logger.warning('couldnt catch the display_object_list page_cnt=', page_cnt)
+            display_object_list = paginator.page(page)
+        except Exception as e:
+            logger.warning(f'couldnt catch the display_object_list page={page}, error={e}')
             display_object_list = paginator.page(1)        
         link_object_list = display_object_list.paginator.get_elided_page_range(
-            page_cnt, on_each_side=onEachSide, on_ends=onEnds
+            page, on_each_side=PAGINATION_ON_EACH_SIDE, on_ends=PAGINATION_ON_ENDS
         )
     else:
         logger.debug('object_list not exists')
         display_object_list = []
         link_object_list = []
 
-    context = {'display_object_list': display_object_list, 'link_object_list': link_object_list, 'login_profile': login_profile}
+    context = {
+        'display_object_list': display_object_list,
+        'link_object_list': link_object_list,
+        'login_profile': login_profile,
+        'search_str': search_str,
+        'sort_by': sort_by,
+    }
 
     logger.info('return render friend/list.html')
     return render(request, 'friend/list.html', context)
@@ -136,13 +168,13 @@ def delete_view(request, pk):
     logger.info('start Friend delete_view')
 
     logger.debug('get Friend object(pk)')
-    object = get_object_or_404(Friend, pk=pk)
+    friend = get_object_or_404(Friend, pk=pk)
     profile_own = request.user.profile
 
-    if object.profile1 == profile_own:
-        profile_with = object.profile2
-    elif object.profile2 == profile_own:
-        profile_with = object.profile1
+    if friend.profile1 == profile_own:
+        profile_with = friend.profile2
+    elif friend.profile2 == profile_own:
+        profile_with = friend.profile1
     else:
         logger.info('not include request user.')
 

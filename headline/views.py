@@ -10,31 +10,31 @@ from .forms  import HeadlineForm
 logger = logging.getLogger('app')
 error_logger = logging.getLogger('error')
 
-def list_view(request, page_cnt=1):
+def list_view(request, page=1):
     logger.debug('start Headline list_view')
 
-    page_size = 12 # disply page size
-    onEachSide = 2 # display how many pages around current page
-    onEnds = 2 # display how many pages on first/last edge
+    PAGE_SIZE = 12 # disply page size
+    PAGINATION_ON_EACH_SIDE = 2 # display how many pages around current page
+    PAGINATION_ON_ENDS = 2 # display how many pages on first/last edge
  
     try:
-        page_cnt = int(request.GET.get("page_cnt", 1))
+        page = int(request.GET.get("page", 1))
     except ValueError:
         logger.debug('couldnt catch the page cnt')
-        page_cnt = 1
+        page = 1
     
-    object_list = Headline.objects.order_by('published_at').all() 
+    object_list = Headline.objects.order_by('published_at')
 
     if object_list.exists():
         logger.debug('object_list exists')
-        paginator = Paginator(object_list, page_size)
+        paginator = Paginator(object_list, PAGE_SIZE)
         try:
-            display_object_list = paginator.page(page_cnt)
-        except:
-            logger.warning('couldnt catch the display_object_list page_cnt=', page_cnt)
+            display_object_list = paginator.page(page)
+        except Exception as e:
+            logger.warning(f'couldnt catch the display_object_list page={page}, error={e}')
             display_object_list = paginator.page(1)        
         link_object_list = display_object_list.paginator.get_elided_page_range(
-            page_cnt, on_each_side=onEachSide, on_ends=onEnds
+            page, on_each_side=PAGINATION_ON_EACH_SIDE, on_ends=PAGINATION_ON_ENDS
         )
     else:
         logger.debug('object_list not exists')
@@ -51,9 +51,9 @@ def detail_view(request, pk):
     logger.info('start Headline detail_view')
 
     logger.debug('get Headline object(pk)')
-    object = get_object_or_404(Headline, pk=pk)
+    headline = get_object_or_404(Headline, pk=pk)
 
-    context = {'object': object}
+    context = {'object': headline}
 
     logger.debug('return render headline/detail.html')
     return render(request, 'headline/detail.html', context)
@@ -84,7 +84,7 @@ def create_view(request):
             pic_data = request.user.profile
 
             try:
-                object = Headline.objects.create(
+                headline = Headline.objects.create(
                     title = title_data,
                     period = period_data,
                     overview = overview_data,
@@ -102,10 +102,10 @@ def create_view(request):
 
             if images_data:
                 logger.debug('images_data exists')
-                object.images = create_images(object, images_data)
+                headline.images = create_images(headline, images_data)
 
                 try:
-                    object.save()
+                    headline.save()
                 except:
                     logger.error(f'couldnt save the images_data in Headline object: {e}')
 
@@ -113,7 +113,7 @@ def create_view(request):
             return redirect('headline:list')
         else:
             logger.error('form is invalid.')
-            print(form.errors)  # エラー内容をログに出力
+            logger.error(form.errors)
     else:
         logger.info('GET method')
         form = HeadlineForm()
@@ -128,34 +128,34 @@ def update_view(request, pk):
     logger.info('start Headline update_view')
 
     logger.debug('get Headline object(pk)')
-    object = get_object_or_404(Headline, pk=pk)
+    headline = get_object_or_404(Headline, pk=pk)
     
     if request.method == "POST":
         logger.info('POST method')
 
         form = HeadlineForm(request.POST, request.FILES)
-        context = {'object': object, 'form': form}
+        context = {'object': headline, 'form': form}
 
         if form.is_valid():
             logger.debug('form.is_valid')
 
-            object.title = form.cleaned_data['title']
-            object.period = form.cleaned_data['period']
-            object.overview = form.cleaned_data['overview']
-            object.context = form.cleaned_data['context']
-            object.published_at = form.cleaned_data['published_at']
-            object.remarks = form.cleaned_data['remarks']
-            object.updated_pic = request.user.profile
+            headline.title = form.cleaned_data['title']
+            headline.period = form.cleaned_data['period']
+            headline.overview = form.cleaned_data['overview']
+            headline.context = form.cleaned_data['context']
+            headline.published_at = form.cleaned_data['published_at']
+            headline.remarks = form.cleaned_data['remarks']
+            headline.updated_pic = request.user.profile
 
             images_data = request.FILES.get("images")
             
             if images_data: # File Selected
                 logger.debug('images_data exists')                
-                object.images = update_images(object, images_data)
+                headline.images = update_images(headline, images_data)
 
             try:
                 logger.debug('save updated Headline object')
-                object.save()
+                headline.save()
             except Exception as e:
                 logger.error(f'couldnt save the Headline object: {e}')
 
@@ -163,11 +163,11 @@ def update_view(request, pk):
             return redirect('headline:list')
         else:
             logger.error('form not is_valid.')
-            print(form.errors)  # エラー内容をログに出力
+            logger.error(form.errors)
     else:
         logger.info('GET method')
-        form = HeadlineForm(instance=object) # putback the form
-        context = {'object': object, 'form': form}
+        form = HeadlineForm(instance=headline) # putback the form
+        context = {'object': headline, 'form': form}
     
     logger.info('return render headline/update.html')
     return render(request, 'headline/update.html', context)
@@ -178,19 +178,19 @@ def delete_view(request, pk):
     logger.info('start Headline delete_view')
 
     logger.debug('get Headline object(pk)')
-    object = get_object_or_404(Headline, pk=pk)
-    context = {'object': object}
+    headline = get_object_or_404(Headline, pk=pk)
+    context = {'object': headline}
 
     if request.method == "POST":
         logger.info('POST method')
 
         # **古いファイルを削除**
-        if object.images:
-            delete_images(object)
+        if headline.images:
+            delete_images(headline)
 
         try:
             logger.debug('delete old Headline object')
-            object.delete()
+            headline.delete()
         except Exception as e:
             logger.error(f'couldnt delete Headline object: {e}')
 

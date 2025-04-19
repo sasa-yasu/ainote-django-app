@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from AinoteProject.utils import haversine, disp_qr_code
-from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes
+from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes, safe_json_post
 from user.models import Profile
 from .forms import PlaceForm
 from .models import Place, CheckinRecord
@@ -18,31 +18,31 @@ logger = logging.getLogger('app')
 error_logger = logging.getLogger('error')
 
 
-def list_view(request, page_cnt=1):
+def list_view(request, page=1):
     logger.debug('start Place list_view')
 
-    page_size = 15 # disply page size
-    onEachSide = 2 # display how many pages around current page
-    onEnds = 2 # display how many pages on first/last edge
+    PAGE_SIZE = 15 # disply page size
+    PAGINATION_ON_EACH_SIDE = 2 # display how many pages around current page
+    PAGINATION_ON_ENDS = 2 # display how many pages on first/last edge
  
     try:
-        page_cnt = int(request.GET.get("page_cnt", 1))
+        page = int(request.GET.get("page", 1))
     except ValueError:
         logger.debug('couldnt catch the page cnt')
-        page_cnt = 1
+        page = 1
     
-    object_list = Place.objects.order_by('-id').all() 
+    object_list = Place.objects.order_by('-id')
 
     if object_list.exists():
         logger.debug('object_list exists')
-        paginator = Paginator(object_list, page_size)
+        paginator = Paginator(object_list, PAGE_SIZE)
         try:
-            display_object_list = paginator.page(page_cnt)
-        except:
-            logger.warning('couldnt catch the display_object_list page_cnt=', page_cnt)
+            display_object_list = paginator.page(page)
+        except Exception as e:
+            logger.warning(f'couldnt catch the display_object_list page={page}, error={e}')
             display_object_list = paginator.page(1)        
         link_object_list = display_object_list.paginator.get_elided_page_range(
-            page_cnt, on_each_side=onEachSide, on_ends=onEnds
+            page, on_each_side=PAGINATION_ON_EACH_SIDE, on_ends=PAGINATION_ON_ENDS
         )
     else:
         logger.debug('object_list not exists')
@@ -59,15 +59,15 @@ def detail_view(request, pk):
     logger.info('start detail_view')
 
     logger.debug('get Place object(pk)')
-    object = get_object_or_404(Place, pk=pk)
+    place = get_object_or_404(Place, pk=pk)
 
     # 現座のログイン状態ログインを取得
-    recent_checkin_statuses = object.get_checkin_status
+    recent_checkin_statuses = place.get_checkin_status
 
     # 最新の100件のログインを取得
-    recent_checkin_records = object.get_checkin_records_by_count(100)
+    recent_checkin_records = place.get_checkin_records_by_count(100)
 
-    context = {'object': object, 'recent_checkin_statuses': recent_checkin_statuses, 'recent_checkin_records': recent_checkin_records}
+    context = {'object': place, 'recent_checkin_statuses': recent_checkin_statuses, 'recent_checkin_records': recent_checkin_records}
 
     logger.debug('return render place/detail.html')
     return render(request, 'place/detail.html', context)
@@ -105,7 +105,7 @@ def create_view(request):
             pic_data = request.user.profile
 
             try:
-                object = Place.objects.create(
+                place = Place.objects.create(
                     place = place_data,
                     images = None, # 画像はまだ保存しない
                     themes = None, # 画像はまだ保存しない
@@ -131,14 +131,14 @@ def create_view(request):
 
             if images_data:
                 logger.debug('images_data exists')
-                object.images = create_images(object, images_data)
+                place.images = create_images(place, images_data)
 
             if themes_data:
                 logger.debug('themes_data exists')
-                object.themes = create_themes(object, themes_data)
+                place.themes = create_themes(place, themes_data)
 
             try:
-                object.save()
+                place.save()
             except Exception as e:
                 logger.error(f'couldnt save the images_data / themes_data in Place object: {e}')
             
@@ -146,7 +146,7 @@ def create_view(request):
             return redirect('place:list')
         else:
             logger.error('form is invalid.')
-            print(form.errors)  # エラー内容をログに出力
+            logger.error(form.errors)
     else:
         logger.info('GET method')
         form = PlaceForm()
@@ -161,46 +161,56 @@ def update_view(request, pk):
     logger.info('start Place update_view')
 
     logger.debug('get Place object(pk)')
-    object = get_object_or_404(Place, pk=pk)
+    place = get_object_or_404(Place, pk=pk)
 
     if request.method == "POST":
         logger.info('POST method')
 
         form = PlaceForm(request.POST, request.FILES)
-        context = {'object': object, 'form': form}
+        context = {'object': place, 'form': form}
 
         if form.is_valid():
             logger.debug('form.is_valid')
 
-            object.place = form.cleaned_data["place"]
-            object.area = form.cleaned_data["area"]
-            object.overview = form.cleaned_data["overview"]
-            object.address = form.cleaned_data["address"]
-            object.tel = form.cleaned_data["tel"]
-            object.url = form.cleaned_data["url"]
-            object.context = form.cleaned_data["context"]
-            object.remarks = form.cleaned_data["remarks"]
-            object.schedule_monthly = form.cleaned_data['schedule_monthly']
-            object.schedule_weekly = form.cleaned_data['schedule_weekly']
-            object.latitude = form.cleaned_data["latitude"]
-            object.longitude = form.cleaned_data["longitude"]
-            object.googlemap_url = form.cleaned_data["googlemap_url"]
-            object.updated_pic = request.user.profile
+            place.place = form.cleaned_data["place"]
+            place.area = form.cleaned_data["area"]
+            place.overview = form.cleaned_data["overview"]
+            place.address = form.cleaned_data["address"]
+            place.tel = form.cleaned_data["tel"]
+            place.url = form.cleaned_data["url"]
+            place.context = form.cleaned_data["context"]
+            place.remarks = form.cleaned_data["remarks"]
+            place.schedule_monthly = form.cleaned_data['schedule_monthly']
+            place.schedule_weekly = form.cleaned_data['schedule_weekly']
+            place.latitude = form.cleaned_data["latitude"]
+            place.longitude = form.cleaned_data["longitude"]
+            place.googlemap_url = form.cleaned_data["googlemap_url"]
+            place.updated_pic = request.user.profile
 
             images_data = request.FILES.get("images")
+            delete_images_flg = form.cleaned_data.get('delete_images_flg')
             themes_data = request.FILES.get('themes')
+            delete_themes_flg = form.cleaned_data.get('delete_themes_flg')
             
             if images_data: # File Selected
                 logger.debug('images_data exists')
-                object.images = update_images(object, images_data)
-
+                place.images = update_images(place, images_data)
+            elif delete_images_flg and place.images:
+                logger.debug('delete_images exists')
+                delete_images(place)
+                place.images = None
+            
             if themes_data: # File Selected
                 logger.debug('themes_data exists')
-                object.themes = update_themes(object, themes_data)
+                place.themes = update_themes(place, themes_data)
+            elif delete_themes_flg and place.themes:
+                logger.debug('delete_themes exists')
+                delete_themes(place)
+                place.themes = None
 
             try:
                 logger.debug('save updated Place object')
-                object.save()
+                place.save()
             except Exception as e:
                 logger.error(f'couldnt save the Place object: {e}')
 
@@ -208,11 +218,11 @@ def update_view(request, pk):
             return redirect('place:list')
         else:
             logger.error('form not is_valid')
-            print(form.errors)  # エラー内容をログに出力
+            logger.error(form.errors)
     else:
         logger.info('GET method')  
-        form = PlaceForm(instance=object) # putback the form
-        context = {'object': object, 'form': form}
+        form = PlaceForm(instance=place) # putback the form
+        context = {'object': place, 'form': form}
 
     logger.info('return render place/update.html')
     return render(request, 'place/update.html', context)
@@ -223,26 +233,26 @@ def delete_view(request, pk):
     logger.info('start Place delete_view')
     
     logger.debug('get Place object(pk)')
-    object = get_object_or_404(Place, pk=pk)
+    place = get_object_or_404(Place, pk=pk)
 
-    context = {'object': object}
+    context = {'object': place}
 
     if request.method == "POST":
         logger.info('POST method')
 
         # **古いファイルを削除**
-        if object.images:
+        if place.images:
             logger.debug('old images_data exists')
-            object = delete_images(object)
+            place = delete_images(place)
 
         # **古いファイルを削除**
-        if object.themes:
+        if place.themes:
             logger.debug('old themes_data exists')
-            object = delete_themes(object)
+            place = delete_themes(place)
 
         try:
             logger.debug('delete old Place object')
-            object.delete()
+            place.delete()
         except Exception as e:
             logger.error(f'couldnt delete Place object: {e}')
 
@@ -254,26 +264,19 @@ def delete_view(request, pk):
     logger.info('return render place/delete.html')
     return render(request, 'place/delete.html', context)
 
-@csrf_exempt  # 関数デコレータに変更
 @login_required
 def push_likes(request, pk):
     logger.info('start Place push_likes')
+    return safe_json_post(request, lambda: _push_likes_logic(request, pk))
 
-    if request.method == 'POST':
-        logger.info('POST method')
+def _push_likes_logic(request, pk):
+    place = get_object_or_404(Place, id=pk)
+    logger.debug(f'get Place object(pk)={place}')
 
-        place = get_object_or_404(Place, id=pk)
-        logger.debug(f'get Place object(pk)={place}')
+    place.push_likes(request)
 
-        # いいね処理を実行
-        place.push_likes(request)
-
-        # Ajaxにいいね数を返す
-        logger.info(f'return likes:({place.likes})')
-        return JsonResponse({'likes': f'({place.likes})'})
-
-    logger.info(f'return Invalid request:status=400')
-    return JsonResponse({'error': 'Invalid request'}, status=400)
+    logger.info(f'return likes:{place.likes}')
+    return JsonResponse({'likes': f'({place.likes})'})
 
 
 @login_required

@@ -1,7 +1,5 @@
 from django.db import models
-from PIL import Image
-from io import BytesIO
-from django.core.files.base import ContentFile
+from AinoteProject.utils import crop_square_image, crop_16_9_image
 from user.models import Profile
 
 class Headline(models.Model):
@@ -18,27 +16,15 @@ class Headline(models.Model):
     updated_at = models.DateTimeField('Updated at', auto_now=True)
     updated_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='headline_updated_pics')  # 紐づくProfileが削除されたらNULL設定
 
-    class Meta:
-        constraints = [
-            models.UniqueConstraint(fields=['id'], name='headline_pk'),
-        ]
-
     def __str__(self):
         return f'<Headline:id={self.id}, {self.name}>'
 
     def save(self, *args, **kwargs):
-        if self.images and self.images != self.__class__.objects.get(pk=self.pk).images: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
-            img = Image.open(self.images)
-            format = img.format if img.format else "JPEG" # フォーマットがない場合はJPEGで保存
 
-            max_size = (1500, 1500)
-            img.thumbnail(max_size)  # keep height x width shape
-
-            img_io = BytesIO() # prepare buffer area
-            print(f'images img.format={img.format}')
-            img.save(img_io, format=format) # save to buffer area
-
-            self.images = ContentFile(img_io.getvalue(), name=self.images.name) # Update the images size
+        if self.pk:
+            orig = self.__class__.objects.filter(pk=self.pk).first()
+            if self.images and orig and self.images != orig.images: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
+                self.images = crop_16_9_image(self.images, 1500) # Update the themes size
 
         super().save(*args, **kwargs)
     

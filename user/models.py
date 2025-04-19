@@ -125,9 +125,6 @@ class Profile(models.Model):
     """ スレッドモデル """
     threads = models.ManyToManyField('thread.Thread', blank=True, related_name='thread_profiles')  # 紐づくProfileが削除されてもChatは残る
 
-    class Meta:
-        pass
-
     def __str__(self):
         return f'<User:id={self.memberid}, {self.nick_name}>'
 
@@ -188,13 +185,17 @@ class Profile(models.Model):
         return html
     
     def save(self, *args, **kwargs):
-        if self.images and self.images != self.__class__.objects.get(pk=self.pk).images: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
-            self.images = crop_square_image(self.images, 300) # Update the images size
 
-        if self.themes and self.themes != self.__class__.objects.get(pk=self.pk).themes: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
-            self.themes = crop_16_9_image(self.themes, 1500) # Update the themes size
+        # 画像処理
+        if self.pk:
+            orig = self.__class__.objects.filter(pk=self.pk).first()
+            if self.images and orig and self.images != orig.images: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
+                self.images = crop_square_image(self.images, 300) # Update the images size
 
-        """mbti_name が現在の mbti に対応しているかチェック"""
+            if self.themes and orig and self.themes != orig.themes: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
+                self.themes = crop_16_9_image(self.themes, 1500) # Update the themes size
+
+        # mbti_name が現在の mbti に対応しているかチェック
         if self.mbti and self.mbti_name:
             valid_choices = dict(self.MBTI_NAME_CHOICES.get(self.mbti, []))
             if self.mbti_name not in valid_choices:

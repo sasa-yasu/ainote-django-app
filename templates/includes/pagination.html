@@ -4,10 +4,10 @@
 
             {% if display_object_list.has_previous %}
             <li class="page-item">
-                <a class="page-link" href="?{% url_replace request 'page_cnt' 1 %}">&laquo;&laquo;</a>
+                <a class="page-link" href="?{% url_replace request 'page' 1 %}">&laquo;&laquo;</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="?{% url_replace request 'page_cnt' display_object_list.previous_page_number %}">&laquo; Previous</a>
+                <a class="page-link" href="?{% url_replace request 'page' display_object_list.previous_page_number %}">&laquo; Previous</a>
             </li>
             {% else %}
             <li class="page-item disabled">
@@ -21,20 +21,20 @@
             {% for i in link_object_list %} <!-- not list for data, list for pagenation -->
                 <!-- 選択ページならば、activeにする -->
                 {% if  display_object_list.number == i %} <!-- active when current page -->
-                    <li class="page-item active"><a class="page-link" href="?{% url_replace request 'page_cnt' i %}">{{ i }}</a></li>
+                    <li class="page-item active"><a class="page-link" href="?{% url_replace request 'page' i %}">{{ i }}</a></li>
                 {% elif i == ... %}
                     <li class="page-item disabled"><a class="page-link" href='#'>{{ i }}</a></li> <!-- if ELLIPSIS, no link -->
                 {% else %}
-                    <li class="page-item"><a class="page-link" href="?{% url_replace request 'page_cnt' i %}">{{ i }}</a></li> <!-- actual link -->
+                    <li class="page-item"><a class="page-link" href="?{% url_replace request 'page' i %}">{{ i }}</a></li> <!-- actual link -->
                 {% endif %}
             {% endfor %}
 
             {% if display_object_list.has_next %}
             <li class="page-item">
-              <a class="page-link" href="?{% url_replace request 'page_cnt' display_object_list.next_page_number %}">Next &raquo;</a>
+              <a class="page-link" href="?{% url_replace request 'page' display_object_list.next_page_number %}">Next &raquo;</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="?{% url_replace request 'page_cnt' display_object_list.paginator.num_pages %}">&raquo;&raquo;</a>
+                <a class="page-link" href="?{% url_replace request 'page' display_object_list.paginator.num_pages %}">&raquo;&raquo;</a>
             </li>
             {% else %}
             <li class="page-item disabled">

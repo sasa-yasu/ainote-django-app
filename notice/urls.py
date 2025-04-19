@@ -7,7 +7,6 @@ app_name = 'notice'
 
 urlpatterns = [
     path('', views.list_view, name='list'),
-    path('list/', views.list_view, name='list'),
     path('detail/<int:pk>/', views.detail_view, name='detail'),
     path('create/', views.create_view, name='create'),
     path('update/<int:pk>/', views.update_view, name='update'),

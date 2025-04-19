@@ -2,9 +2,8 @@ import logging
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
-from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-from AinoteProject.utils import create_images, update_images, delete_images
+from AinoteProject.utils import create_images, update_images, delete_images, safe_json_post
 from .models import Chat
 from .forms  import ChatForm
 from user.models import Profile
@@ -13,31 +12,31 @@ from user.models import Profile
 logger = logging.getLogger('app')
 error_logger = logging.getLogger('error')
 
-def list_view(request, page_cnt=1):
+def list_view(request, page=1):
     logger.debug('start Chat list_view')
 
-    page_size = 40 # disply page size
-    onEachSide = 2 # display how many pages around current page
-    onEnds = 2 # display how many pages on first/last edge
+    PAGE_SIZE = 40 # disply page size
+    PAGINATION_ON_EACH_SIDE = 2 # display how many pages around current page
+    PAGINATION_ON_ENDS = 2 # display how many pages on first/last edge
  
     try:
-        page_cnt = int(request.GET.get("page_cnt", 1))
+        page = int(request.GET.get("page", 1))
     except ValueError:
         logger.debug('couldnt catch the page cnt')
-        page_cnt = 1
+        page = 1
     
-    object_list = Chat.objects.order_by('-order_by_at').all()  # order_by_at の降順で取得
+    object_list = Chat.objects.select_related('profile').order_by('-order_by_at')  # order_by_at の降順で取得
     
     if object_list.exists():
         logger.debug('object_list exists')
-        paginator = Paginator(object_list, page_size)
+        paginator = Paginator(object_list, PAGE_SIZE)
         try:
-            display_object_list = paginator.page(page_cnt)
-        except:
-            logger.warning('couldnt catch the display_object_list page_cnt=', page_cnt)
+            display_object_list = paginator.page(page)
+        except Exception as e:
+            logger.warning(f'couldnt catch the display_object_list page={page}, error={e}')
             display_object_list = paginator.page(1)        
         link_object_list = display_object_list.paginator.get_elided_page_range(
-            page_cnt, on_each_side=onEachSide, on_ends=onEnds
+            page, on_each_side=PAGINATION_ON_EACH_SIDE, on_ends=PAGINATION_ON_ENDS
         )
     else:
         logger.debug('object_list not exists')
@@ -54,9 +53,9 @@ def detail_view(request, pk):
     logger.info('start Chat detail_view')
 
     logger.debug('get Chat object(pk)')
-    object = get_object_or_404(Chat, pk=pk)
+    chat = get_object_or_404(Chat, pk=pk)
 
-    context = {'object': object}
+    context = {'object': chat}
 
     logger.debug('return render chat/detail.html')
     return render(request, 'chat/detail.html', context)
@@ -81,6 +80,7 @@ def create_view(request):
             profile_data = None # initial setting
             pic_data = request.user.profile
             
+            # "None"と入力されていたら入力者がAuthor(=Profile)で"author"項目はNone設定
             if author_data != "None":
                 pass
             else:
@@ -88,7 +88,7 @@ def create_view(request):
                 profile_data = get_object_or_404(Profile, user1=request.user)
 
             try:
-                object = Chat.objects.create(
+                chat = Chat.objects.create(
                     title = title_data,
                     context = context_data,
                     images = None, # 画像はまだ保存しない
@@ -104,19 +104,19 @@ def create_view(request):
 
             if images_data:
                 logger.debug('images_data exists')
-                object.images = create_images(object, images_data)
+                chat.images = create_images(chat, images_data)
 
                 try:
                     logger.debug('save new images_data')
-                    object.save()
-                except:
+                    chat.save()
+                except Exception as e:
                     logger.error(f'couldnt save the images_data in Chat object: {e}')
 
             logger.info('return redirect chat:list')
             return redirect('chat:list')
         else:
             logger.error('form is invalid.')
-            print(form.errors)  # エラー内容をログに出力
+            logger.error(form.errors)
     else:
         logger.info('GET method')
         form = ChatForm()
@@ -131,37 +131,36 @@ def update_view(request, pk):
     logger.info('start Chat update_view')
 
     logger.debug('get Chat object(pk)')
-    object = get_object_or_404(Chat, pk=pk)
+    chat = get_object_or_404(Chat, pk=pk)
     
     if request.method == "POST":
         logger.info('POST method')
 
         form = ChatForm(request.POST, request.FILES)
-        context = {'object': object, 'form': form}
+        context = {'object': chat, 'form': form}
 
         if form.is_valid():
             logger.debug('form.is_valid')
 
-            object.title = form.cleaned_data['title']
-            object.context = form.cleaned_data['context']
-            object.author = form.cleaned_data['author']
-            object.author = form.cleaned_data['author']
-            object.updated_pic = request.user.profile
+            chat.title = form.cleaned_data['title']
+            chat.context = form.cleaned_data['context']
+            chat.author = form.cleaned_data['author']
+            chat.updated_pic = request.user.profile
 
             images_data = form.cleaned_data.get('images')
             delete_images_flg = form.cleaned_data.get('delete_images_flg')
 
             if images_data: # File Selected
                 logger.debug('images_data exists')
-                object.images = update_images(object, images_data)
-            elif delete_images_flg and object.images:
+                chat.images = update_images(chat, images_data)
+            elif delete_images_flg and chat.images:
                 logger.debug('delete_images exists')
-                delete_images(object)
-                object.images = None
+                delete_images(chat)
+                chat.images = None
                 
             try:
                 logger.debug('save updated Chat object')
-                object.save()
+                chat.save()
             except Exception as e:
                 logger.error(f'couldnt save the Chat object: {e}')
 
@@ -169,11 +168,11 @@ def update_view(request, pk):
             return redirect('chat:list')
         else:
             logger.error('form not is_valid.')
-            print(form.errors)  # エラー内容をログに出力
+            logger.error(form.errors)  # エラー内容をログに出力
     else:
         logger.info('GET method')
-        form = ChatForm(instance=object) # putback the form
-        context = {'object': object, 'form': form}
+        form = ChatForm(instance=chat) # putback the form
+        context = {'object': chat, 'form': form}
     
     logger.info('return render chat/update.html')
     return render(request, 'chat/update.html', context)
@@ -184,19 +183,19 @@ def delete_view(request, pk):
     logger.info('start Chat delete_view')
 
     logger.debug('get Chat object(pk)')
-    object = get_object_or_404(Chat, pk=pk)
-    context = {'object': object}
+    chat = get_object_or_404(Chat, pk=pk)
+    context = {'object': chat}
 
     if request.method == "POST":
         logger.info('POST method')
 
         # **古いファイルを削除**
-        if object.images:
-            delete_images(object)
+        if chat.images:
+            delete_images(chat)
         
         try:
             logger.debug('delete old Chat object')
-            object.delete()
+            chat.delete()
         except Exception as e:
             logger.error(f'couldnt delete Chat object: {e}')
 
@@ -208,45 +207,30 @@ def delete_view(request, pk):
     logger.info('return render chat/delete.html')
     return render(request, 'chat/delete.html', context)
 
-@csrf_exempt  # 関数デコレータに変更
 @login_required
 def push_likes(request, pk):
     logger.info('start Chat push_likes')
+    return safe_json_post(request, lambda: _push_likes_logic(request, pk))
 
-    if request.method == 'POST':
-        logger.info('POST method')
+def _push_likes_logic(request, pk):
+    chat = get_object_or_404(Chat, id=pk)
+    logger.debug(f'get Chat object(pk)={chat}')
 
-        chat = get_object_or_404(Chat, id=pk)
-        logger.debug(f'get Chat object(pk)={chat}')
+    chat.push_likes(request)
 
-        # いいね処理を実行
-        chat.push_likes(request)
+    logger.info(f'return likes:{chat.likes}')
+    return JsonResponse({'likes': f'({chat.likes})'})
 
-        # Ajaxにいいね数を返す
-        logger.info(f'return likes:({chat.likes})')
-        return JsonResponse({'likes': f'({chat.likes})'})
-
-    logger.info(f'return Invalid request:status=400')
-    return JsonResponse({'error': 'Invalid request'}, status=400)
-
-@csrf_exempt  # 関数デコレータに変更
 @login_required
 def age_order_by_at(request, pk):
     logger.info('start Chat age_order_by_at')
+    return safe_json_post(request, lambda: _age_order_by_at_logic(request, pk))
 
-    if request.method == 'POST':
-        logger.info('POST method')
+def _age_order_by_at_logic(request, pk):
+    chat = get_object_or_404(Chat, id=pk)
+    logger.debug(f'get Chat object(pk)={chat}')
 
-        chat = get_object_or_404(Chat, id=pk)
-        logger.debug(f'get Chat object(pk)={chat}')
+    chat.age_order_by_at(request)
 
-        # アゲ処理を実行
-        chat.age_order_by_at(request)
-
-        # Ajaxにいいね数を返す
-        logger.info('return True')
-        return JsonResponse({'status': 'True'})
-
-    logger.info(f'return Invalid request:status=400')
-    return JsonResponse({'error': 'Invalid request'}, status=400)
-
+    logger.info('return True')
+    return JsonResponse({'status': 'success'})

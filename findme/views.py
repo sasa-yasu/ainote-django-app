@@ -27,15 +27,15 @@ def get_mbti_name_choices(request):
 def list_view(request):
     logger.debug('start FindMe list_view')
 
-    page_size = 48 # disply page size
-    onEachSide = 2 # display how many pages around current page
-    onEnds = 2 # display how many pages on first/last edge
+    PAGE_SIZE = 48 # disply page size
+    PAGINATION_ON_EACH_SIDE = 2 # display how many pages around current page
+    PAGINATION_ON_ENDS = 2 # display how many pages on first/last edge
  
     try:
-        page_cnt = int(request.GET.get("page_cnt", 1))
+        page = int(request.GET.get("page", 1))
     except ValueError:
         logger.debug('couldnt catch the page cnt')
-        page_cnt = 1
+        page = 1
     
     # フリーワード検索用
     search_str = request.GET.get("search_str", "")
@@ -140,28 +140,28 @@ def list_view(request):
 
     # 並び替え処理
     sort_options = {
+        "updated_desc": "-updated_at",
+        "updated_asc": "updated_at",
         "name_asc": "name",
         "name_desc": "-name",
-        "created_asc": "created_at",
         "created_desc": "-created_at",
-        "updated_asc": "updated_at",
-        "updated_desc": "-updated_at",
+        "created_asc": "created_at",
     }
-    sort_by = request.GET.get("sort_by", "name_asc")
+    sort_by = request.GET.get("sort_by", "updated_desc")
     logger.debug(f'Sort by: {sort_by}')
     sort_field = sort_options.get(sort_by, "-id")  # デフォルトは -id
     object_list = object_list.order_by(sort_field)
 
     if object_list.exists():
         logger.debug('object_list exists')
-        paginator = Paginator(object_list, page_size)
+        paginator = Paginator(object_list, PAGE_SIZE)
         try:
-            display_object_list = paginator.page(page_cnt)
-        except:
-            logger.warning('couldnt catch the display_object_list page_cnt=', page_cnt)
+            display_object_list = paginator.page(page)
+        except Exception as e:
+            logger.warning(f'couldnt catch the display_object_list page={page}, error={e}')
             display_object_list = paginator.page(1)        
         link_object_list = display_object_list.paginator.get_elided_page_range(
-            page_cnt, on_each_side=onEachSide, on_ends=onEnds
+            page, on_each_side=PAGINATION_ON_EACH_SIDE, on_ends=PAGINATION_ON_ENDS
         )
     else:
         logger.debug('object_list not exists')
@@ -204,14 +204,14 @@ def detail_view(request, pk):
     logger.info('start detail_view')
 
     logger.debug('get FindMe object(pk)')
-    object = get_object_or_404(FindMe, pk=pk)
+    findme = get_object_or_404(FindMe, pk=pk)
 
-    context = {'object': object}
+    context = {'object': findme}
 
     # add all CHOICES for input / display
     context = FindMe.get_all_choices(context)
 
-    context.update({'notifications': object.get_all_notifications})
+    context.update({'notifications': findme.get_all_notifications})
 
     logger.debug('return render findme/detail.html')
     return render(request, 'findme/detail.html', context)
@@ -295,7 +295,7 @@ def create_view(request):
             themes_data = request.FILES.get("themes")
 
             try:
-                object = FindMe.objects.create(
+                findme = FindMe.objects.create(
                     profile = login_profile,
                     name = name_data,
                     gender = gender_data,
@@ -361,14 +361,14 @@ def create_view(request):
 
             if images_data:
                 logger.debug('images_data exists')
-                object.images = create_images(object, images_data)
+                findme.images = create_images(findme, images_data)
 
             if themes_data:
                 logger.debug('themes_data exists')
-                object.themes = create_themes(object, themes_data)
+                findme.themes = create_themes(findme, themes_data)
 
             try:
-                object.save()
+                findme.save()
             except Exception as e:
                 logger.error(f'couldnt save the images_data / themes_data in FindMe object: {e}')
             
@@ -376,7 +376,7 @@ def create_view(request):
             return redirect('findme:list')
         else:
             logger.error('findme_form is invalid.')
-            print(findme_form.errors)  # エラー内容をログに出力
+            logger.error(findme_form.errors)
     else:
         logger.info('GET method')
         findme_form = FindMeForm()
@@ -394,90 +394,100 @@ def update_view(request, pk):
     logger.info('start FindMe update_view')
 
     logger.debug('get FindMe object(pk)')
-    object = get_object_or_404(FindMe, pk=pk)
+    findme = get_object_or_404(FindMe, pk=pk)
 
     if request.method == "POST":
         logger.info('POST method')
 
         # POSTデータから `mbti` を取得
-        mbti_value = request.POST.get('mbti', object.mbti)
+        mbti_value = request.POST.get('mbti', findme.mbti)
         
         findme_form = FindMeForm(request.POST, request.FILES)
         findme_form.fields['mbti_name'].choices = Profile.MBTI_NAME_CHOICES.get(mbti_value, [("", "---------")])
         
-        context = {'object': object, 'findme_form': findme_form}
+        context = {'object': findme, 'findme_form': findme_form}
 
         if findme_form.is_valid():
             logger.debug('form.is_valid')
 
-            object.name = findme_form.cleaned_data["name"]
-            object.gender = findme_form.cleaned_data["gender"]
-            object.birth_year = findme_form.cleaned_data["birth_year"]
-            if object.birth_year == '': object.birth_year = None
-            object.birth_month_day = findme_form.cleaned_data["birth_month_day"]
-            object.living_pref = findme_form.cleaned_data["living_pref"]
-            object.living_area = findme_form.cleaned_data["living_area"]
-            object.mbti = findme_form.cleaned_data["mbti"]
-            object.mbti_name = findme_form.cleaned_data["mbti_name"]
+            findme.name = findme_form.cleaned_data["name"]
+            findme.gender = findme_form.cleaned_data["gender"]
+            findme.birth_year = findme_form.cleaned_data["birth_year"]
+            if findme.birth_year == '': findme.birth_year = None
+            findme.birth_month_day = findme_form.cleaned_data["birth_month_day"]
+            findme.living_pref = findme_form.cleaned_data["living_pref"]
+            findme.living_area = findme_form.cleaned_data["living_area"]
+            findme.mbti = findme_form.cleaned_data["mbti"]
+            findme.mbti_name = findme_form.cleaned_data["mbti_name"]
 
-            object.overview = findme_form.cleaned_data["overview"]
-            object.introduce = findme_form.cleaned_data["introduce"]
+            findme.overview = findme_form.cleaned_data["overview"]
+            findme.introduce = findme_form.cleaned_data["introduce"]
 
-            object.hobby_choice = findme_form.cleaned_data["hobby_choice"]
-            object.hobby = findme_form.cleaned_data["hobby"]
-            object.food_choice = findme_form.cleaned_data["food_choice"]
-            object.food = findme_form.cleaned_data["food"]
-            object.music_choice = findme_form.cleaned_data["music_choice"]
-            object.music = findme_form.cleaned_data["music"]
-            object.movie_choice = findme_form.cleaned_data["movie_choice"]
-            object.movie = findme_form.cleaned_data["movie"]
-            object.book_choice = findme_form.cleaned_data["book_choice"]
-            object.book = findme_form.cleaned_data["book"]
+            findme.hobby_choice = findme_form.cleaned_data["hobby_choice"]
+            findme.hobby = findme_form.cleaned_data["hobby"]
+            findme.food_choice = findme_form.cleaned_data["food_choice"]
+            findme.food = findme_form.cleaned_data["food"]
+            findme.music_choice = findme_form.cleaned_data["music_choice"]
+            findme.music = findme_form.cleaned_data["music"]
+            findme.movie_choice = findme_form.cleaned_data["movie_choice"]
+            findme.movie = findme_form.cleaned_data["movie"]
+            findme.book_choice = findme_form.cleaned_data["book_choice"]
+            findme.book = findme_form.cleaned_data["book"]
 
-            object.personality_type_choice = findme_form.cleaned_data["personality_type_choice"]
-            object.personality_type = findme_form.cleaned_data["personality_type"]
-            object.favorite_date_choice = findme_form.cleaned_data["favorite_date_choice"]
-            object.favorite_date = findme_form.cleaned_data["favorite_date"]
-            object.sense_of_values_choice = findme_form.cleaned_data["sense_of_values_choice"]
-            object.sense_of_values = findme_form.cleaned_data["sense_of_values"]
+            findme.personality_type_choice = findme_form.cleaned_data["personality_type_choice"]
+            findme.personality_type = findme_form.cleaned_data["personality_type"]
+            findme.favorite_date_choice = findme_form.cleaned_data["favorite_date_choice"]
+            findme.favorite_date = findme_form.cleaned_data["favorite_date"]
+            findme.sense_of_values_choice = findme_form.cleaned_data["sense_of_values_choice"]
+            findme.sense_of_values = findme_form.cleaned_data["sense_of_values"]
 
-            object.future_plan_choice = findme_form.cleaned_data["future_plan_choice"]
-            object.future_plan = findme_form.cleaned_data["future_plan"]
-            object.request_for_partner_choice = findme_form.cleaned_data["request_for_partner_choice"]
-            object.request_for_partner = findme_form.cleaned_data["request_for_partner"]
+            findme.future_plan_choice = findme_form.cleaned_data["future_plan_choice"]
+            findme.future_plan = findme_form.cleaned_data["future_plan"]
+            findme.request_for_partner_choice = findme_form.cleaned_data["request_for_partner_choice"]
+            findme.request_for_partner = findme_form.cleaned_data["request_for_partner"]
 
-            object.weekend_activity_choice = findme_form.cleaned_data["weekend_activity_choice"]
-            object.weekend_activity = findme_form.cleaned_data["weekend_activity"]
-            object.ongoing_project_choice = findme_form.cleaned_data["ongoing_project_choice"]
-            object.ongoing_project = findme_form.cleaned_data["ongoing_project"]
-            object.social_activity_choice = findme_form.cleaned_data["social_activity_choice"]
-            object.social_activity = findme_form.cleaned_data["social_activity"]
+            findme.weekend_activity_choice = findme_form.cleaned_data["weekend_activity_choice"]
+            findme.weekend_activity = findme_form.cleaned_data["weekend_activity"]
+            findme.ongoing_project_choice = findme_form.cleaned_data["ongoing_project_choice"]
+            findme.ongoing_project = findme_form.cleaned_data["ongoing_project"]
+            findme.social_activity_choice = findme_form.cleaned_data["social_activity_choice"]
+            findme.social_activity = findme_form.cleaned_data["social_activity"]
 
-            object.free_day_choice = findme_form.cleaned_data["free_day_choice"]
-            object.free_day = findme_form.cleaned_data["free_day"]
-            object.proudest_achievements_choice = findme_form.cleaned_data["proudest_achievements_choice"]
-            object.proudest_achievements = findme_form.cleaned_data["proudest_achievements"]
-            object.most_important_values_choice = findme_form.cleaned_data["most_important_values_choice"]
-            object.most_important_values = findme_form.cleaned_data["most_important_values"]
+            findme.free_day_choice = findme_form.cleaned_data["free_day_choice"]
+            findme.free_day = findme_form.cleaned_data["free_day"]
+            findme.proudest_achievements_choice = findme_form.cleaned_data["proudest_achievements_choice"]
+            findme.proudest_achievements = findme_form.cleaned_data["proudest_achievements"]
+            findme.most_important_values_choice = findme_form.cleaned_data["most_important_values_choice"]
+            findme.most_important_values = findme_form.cleaned_data["most_important_values"]
 
-            object.contacts = findme_form.cleaned_data["contacts"]
-            object.remarks = findme_form.cleaned_data["remarks"]
-            object.updated_pic = request.user.profile
+            findme.contacts = findme_form.cleaned_data["contacts"]
+            findme.remarks = findme_form.cleaned_data["remarks"]
+            findme.updated_pic = request.user.profile
 
             images_data = request.FILES.get("images")
+            delete_images_flg = findme_form.cleaned_data.get('delete_images_flg')
             themes_data = request.FILES.get("themes")
+            delete_themes_flg = findme_form.cleaned_data.get('delete_themes_flg')
 
             if images_data: # File Selected
                 logger.debug('images_data exists')
-                object.images = update_images(object, images_data)
+                findme.images = update_images(findme, images_data)
+            elif delete_images_flg and findme.images:
+                logger.debug('delete_images exists')
+                delete_images(findme)
+                findme.images = None
 
             if themes_data: # File Selected
                 logger.debug(f'themes_data exists={themes_data}')
-                object.themes = update_themes(object, themes_data)
+                findme.themes = update_themes(findme, themes_data)
+            elif delete_themes_flg and findme.themes:
+                logger.debug('delete_themes exists')
+                delete_themes(findme)
+                findme.themes = None
 
             try:
                 logger.debug('save updated FindMe object')
-                object.save()
+                findme.save()
             except Exception as e:
                 logger.error(f'couldnt save the FindMe object: {e}')
 
@@ -485,11 +495,11 @@ def update_view(request, pk):
             return redirect('findme:list')
         else:
             logger.error('form not is_valid')
-            print(findme_form.errors)  # エラー内容をログに出力
+            logger.error(findme_form.errors)
     else:
         logger.info('GET method')  
-        findme_form = FindMeForm(instance=object) # putback the form
-        context = {'object': object, 'findme_form': findme_form}
+        findme_form = FindMeForm(instance=findme) # putback the form
+        context = {'object': findme, 'findme_form': findme_form}
 
     # add all CHOICES for input / display
     context = FindMe.get_all_choices(context)
@@ -503,26 +513,26 @@ def delete_view(request, pk):
     logger.info('start FindMe delete_view')
     
     logger.debug('get FindMe object(pk)')
-    object = get_object_or_404(FindMe, pk=pk)
+    findme = get_object_or_404(FindMe, pk=pk)
 
-    context = {'object': object}
+    context = {'object': findme}
 
     if request.method == "POST":
         logger.info('POST method')
 
         # **古いファイルを削除**
-        if object.images:
+        if findme.images:
             logger.debug('old images_data exists')
-            object = delete_images(object)
+            findme = delete_images(findme)
 
         # **古いファイルを削除**
-        if object.themes:
+        if findme.themes:
             logger.debug('old themes_data exists')
-            object = delete_themes(object)
+            findme = delete_themes(findme)
 
         try:
             logger.debug('delete old FindMe object')
-            object.delete()
+            findme.delete()
         except Exception as e:
             logger.error(f'couldnt delete FindMe object: {e}')
 
@@ -557,16 +567,14 @@ def send_poke(request, pk):
 #        if already_poked_today:
         if 0>1:
             logger.debug(f'今日はすでにPoke済です。')
-    #        messages.info(request, 'すでに Poke 済みです。')
         else:
             # 初めての poke
-            logger.debug(f'Pokeしました！')
+            logger.debug(f'Pokeしました!!')
             Poke.objects.create(sender=sender, receiver=receiver)
-    #        messages.success(request, 'Poke を送りました！')
             Notification.objects.create(
                 recipient=receiver,
                 sender=request.user.profile,
-                message=f"{request.user.profile.nick_name} さんからPokeされました！"
+                message=f"{request.user.profile.nick_name} さんからPokeされました!!"
             )
 
     logger.info(f'JsonResponse:{receiver.poke_count}')

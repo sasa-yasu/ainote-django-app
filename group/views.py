@@ -7,7 +7,7 @@ from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from AinoteProject.utils import disp_qr_code
-from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes
+from AinoteProject.utils import create_images, update_images, delete_images, create_themes, update_themes, delete_themes, safe_json_post
 from .models import Group
 from .forms  import GroupForm
 from user.models import Profile
@@ -19,15 +19,15 @@ error_logger = logging.getLogger('error')
 def list_view(request):
     logger.debug('start Group list_view')
 
-    page_size = 12 # disply page size
-    onEachSide = 2 # display how many pages around current page
-    onEnds = 2 # display how many pages on first/last edge
+    PAGE_SIZE = 12 # disply page size
+    PAGINATION_ON_EACH_SIDE = 2 # display how many pages around current page
+    PAGINATION_ON_ENDS = 2 # display how many pages on first/last edge
  
     try:
-        page_cnt = int(request.GET.get("page_cnt", 1))
+        page = int(request.GET.get("page", 1))
     except ValueError:
         logger.debug('couldnt catch the page cnt')
-        page_cnt = 1
+        page = 1
     
     # カテゴリ検索
     search_category_choice = request.GET.getlist('search_category_choice')
@@ -59,28 +59,30 @@ def list_view(request):
 
     # 並び替え処理
     sort_options = {
+        "likes_desc": "-likes",
+        "likes_asc": "likes",
+        "updated_desc": "-updated_at",
+        "updated_asc": "updated_at",
         "name_asc": "name",
         "name_desc": "-name",
-        "created_asc": "created_at",
         "created_desc": "-created_at",
-        "updated_asc": "updated_at",
-        "updated_desc": "-updated_at",
+        "created_asc": "created_at",
     }
-    sort_by = request.GET.get("sort_by", "name_asc")
+    sort_by = request.GET.get("sort_by", "likes_desc")
     logger.debug(f'Sort by: {sort_by}')
     sort_field = sort_options.get(sort_by, "-id")  # デフォルトは -id
     object_list = object_list.order_by(sort_field)
 
     if object_list.exists():
         logger.debug('object_list exists')
-        paginator = Paginator(object_list, page_size)
+        paginator = Paginator(object_list, PAGE_SIZE)
         try:
-            display_object_list = paginator.page(page_cnt)
-        except:
-            logger.warning('couldnt catch the display_object_list page_cnt=', page_cnt)
+            display_object_list = paginator.page(page)
+        except Exception as e:
+            logger.warning(f'couldnt catch the display_object_list page={page}, error={e}')
             display_object_list = paginator.page(1)        
         link_object_list = display_object_list.paginator.get_elided_page_range(
-            page_cnt, on_each_side=onEachSide, on_ends=onEnds
+            page, on_each_side=PAGINATION_ON_EACH_SIDE, on_ends=PAGINATION_ON_ENDS
         )
     else:
         logger.debug('object_list not exists')
@@ -105,12 +107,12 @@ def detail_view(request, pk):
     logger.info('start Group detail_view')
 
     logger.debug('get Group object(pk)')
-    object = get_object_or_404(Group, pk=pk)
+    group = get_object_or_404(Group, pk=pk)
 
     # 所属しているすべてのグループを取得
-    joined_profiles = object.get_profiles
+    joined_profiles = group.get_profiles
 
-    context = {'object': object, 'joined_profiles': joined_profiles}
+    context = {'object': group, 'joined_profiles': joined_profiles}
 
     context.update({'CATEGORY_CHOICES': Group.CATEGORY_CHOICES})
 
@@ -145,7 +147,7 @@ def create_view(request):
             pic_data = request.user.profile
 
             try:
-                object = Group.objects.create(
+                group = Group.objects.create(
                     name = name_data,
                     images = None, # 画像はまだ保存しない
                     themes = None, # 画像はまだ保存しない
@@ -165,14 +167,14 @@ def create_view(request):
 
             if images_data:
                 logger.debug('images_data exists')
-                object.images = create_images(object, images_data)
+                group.images = create_images(group, images_data)
 
             if themes_data:
                 logger.debug('themes_data exists')
-                object.themes = create_themes(object, themes_data)
+                group.themes = create_themes(group, themes_data)
 
             try:
-                object.save()
+                group.save()
             except Exception as e:
                 logger.error(f'couldnt save the images_data / themes_data in Group object: {e}')
 
@@ -180,7 +182,7 @@ def create_view(request):
             return redirect('group:list')
         else:
             logger.error('form is invalid.')
-            print(form.errors)  # エラー内容をログに出力
+            logger.error(form.errors)
     else:
         logger.info('GET method')
         form = GroupForm()
@@ -197,40 +199,50 @@ def update_view(request, pk):
     logger.info('start Group update_view')
 
     logger.debug('get Group object(pk)')
-    object = get_object_or_404(Group, pk=pk)
+    group = get_object_or_404(Group, pk=pk)
     
     if request.method == "POST":
         logger.info('POST method')
 
         form = GroupForm(request.POST, request.FILES)
-        context = {'object': object, 'form': form}
+        context = {'object': group, 'form': form}
 
         if form.is_valid():
             logger.debug('form.is_valid')
 
-            object.name = form.cleaned_data['name']
-            object.category_choice = form.cleaned_data['category_choice']
-            object.context = form.cleaned_data['context']
-            object.remarks = form.cleaned_data['remarks']
-            object.schedule_monthly = form.cleaned_data['schedule_monthly']
-            object.schedule_weekly = form.cleaned_data['schedule_weekly']
-            object.task_control = form.cleaned_data['task_control']
-            object.updated_pic = request.user.profile
+            group.name = form.cleaned_data['name']
+            group.category_choice = form.cleaned_data['category_choice']
+            group.context = form.cleaned_data['context']
+            group.remarks = form.cleaned_data['remarks']
+            group.schedule_monthly = form.cleaned_data['schedule_monthly']
+            group.schedule_weekly = form.cleaned_data['schedule_weekly']
+            group.task_control = form.cleaned_data['task_control']
+            group.updated_pic = request.user.profile
 
             images_data = request.FILES.get("images")
+            delete_images_flg = form.cleaned_data.get('delete_images_flg')
             themes_data = request.FILES.get('themes')
+            delete_themes_flg = form.cleaned_data.get('delete_themes_flg')
 
             if images_data: # File Selected
                 logger.debug('images_data exists')
-                object.images = update_images(object, images_data)
-
+                group.images = update_images(group, images_data)
+            elif delete_images_flg and group.images:
+                logger.debug('delete_images exists')
+                delete_images(group)
+                group.images = None
+            
             if themes_data: # File Selected
                 logger.debug(f'themes_data exists={themes_data}')
-                object.themes = update_themes(object, themes_data)
+                group.themes = update_themes(group, themes_data)
+            elif delete_themes_flg and group.themes:
+                logger.debug('delete_themes exists')
+                delete_themes(group)
+                group.themes = None
 
             try:
                 logger.debug('save updated Group object')
-                object.save()
+                group.save()
             except Exception as e:
                 logger.error(f'couldnt save the Group object: {e}')
 
@@ -238,11 +250,11 @@ def update_view(request, pk):
             return redirect('group:list')
         else:
             logger.error('form not is_valid.')
-            print(form.errors)  # エラー内容をログに出力
+            logger.error(form.errors)
     else:
         logger.info('GET method')
-        form = GroupForm(instance=object) # putback the form
-        context = {'object': object, 'form': form}
+        form = GroupForm(instance=group) # putback the form
+        context = {'object': group, 'form': form}
     
     context.update({'CATEGORY_CHOICES': Group.CATEGORY_CHOICES})
 
@@ -255,25 +267,25 @@ def delete_view(request, pk):
     logger.info('start Group delete_view')
 
     logger.debug('get Group object(pk)')
-    object = get_object_or_404(Group, pk=pk)
-    context = {'object': object}
+    group = get_object_or_404(Group, pk=pk)
+    context = {'object': group}
 
     if request.method == "POST":
         logger.info('POST method')
 
         # **古いファイルを削除**
-        if object.images:
+        if group.images:
             logger.debug('old images_data exists')
-            object = delete_images(object)
+            group = delete_images(group)
 
         # **古いファイルを削除**
-        if object.themes:
+        if group.themes:
             logger.debug('old themes_data exists')
-            object = delete_themes(object)
+            group = delete_themes(group)
 
         try:
             logger.debug('delete old Group object')
-            object.delete()
+            group.delete()
         except Exception as e:
             logger.error(f'couldnt delete Group object: {e}')
 
@@ -390,23 +402,16 @@ def leave_view(request, pk):
     logger.info('return render group/leave.html')
     return render(request, 'group/leave.html', context)
 
-@csrf_exempt  # 関数デコレータに変更
 @login_required
 def push_likes(request, pk):
     logger.info('start Group push_likes')
+    return safe_json_post(request, lambda: _push_likes_logic(request, pk))
 
-    if request.method == 'POST':
-        logger.info('POST method')
+def _push_likes_logic(request, pk):
+    group = get_object_or_404(Group, id=pk)
+    logger.debug(f'get Group object(pk)={group}')
 
-        group = get_object_or_404(Group, id=pk)
-        logger.debug(f'get Group object(pk)={group}')
+    group.push_likes(request)
 
-        # いいね処理を実行
-        group.push_likes(request)
-
-        # Ajaxにいいね数を返す
-        logger.info(f'return likes:({group.likes})')
-        return JsonResponse({'likes': f'({group.likes})'})
-
-    logger.info(f'return Invalid request:status=400')
-    return JsonResponse({'error': 'Invalid request'}, status=400)
+    logger.info(f'return likes:{group.likes}')
+    return JsonResponse({'likes': f'({group.likes})'})

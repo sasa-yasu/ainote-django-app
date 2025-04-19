@@ -115,11 +115,25 @@
                 <!--Input:images-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.images %}</div>
                 <!--Display[img]:images_display-->
-                <div class="mb-3">{% include 'includes/image.html' with target=object.images field_name='images' display_name='Images' app_name='user' %}</div>
+                <div class="mb-3">{% include 'includes/image.html' with target=object.images field_name='images' display_name='Images' app_name='user' %}
+                    {% if object.images %}
+                    <div class="form-check-group" style="padding:6px 12px;">
+                        <input type="checkbox" name="{{findme_form.delete_images_flg.name}}" id="id_{{findme_form.delete_images_flg.name}}" class="form-check-input">
+                        <span class="helptext" style="font-size:10pt">{{ findme_form.delete_images_flg.label|safe }}</span>
+                    </div>
+                    {% endif %}
+                </div>
                 <!--Input:themes-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.themes %}</div>
                 <!--Display[img]:themes_display-->
-                <div class="mb-3">{% include 'includes/image.html' with target=object.themes field_name='themes' display_name='Themes' app_name='user' %}</div>
+                <div class="mb-3">{% include 'includes/image.html' with target=object.themes field_name='themes' display_name='Themes' app_name='user' %}
+                    {% if object.themes %}
+                    <div class="form-check-group" style="padding:6px 12px;">
+                        <input type="checkbox" name="{{findme_form.delete_themes_flg.name}}" id="id_{{findme_form.delete_themes_flg.name}}" class="form-check-input">
+                        <span class="helptext" style="font-size:10pt">{{ findme_form.delete_themes_flg.label|safe }}</span>
+                    </div>
+                    {% endif %}
+                </div>
                 
                 <!--Input:birth_year-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=findme_form.birth_year %}</div>

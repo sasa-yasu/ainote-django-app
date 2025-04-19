@@ -54,7 +54,14 @@
                 <!--Input:images-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=form.images %}</div>
                 <!--Display[img]:images_display-->
-                <div class="mb-3">{% include 'includes/image.html' with target=object.images field_name='images' display_name='Images' app_name='chat' %}</div>
+                <div class="mb-3">{% include 'includes/image.html' with target=object.images field_name='images' display_name='Images' app_name='chat' %}
+                    {% if object.images %}
+                    <div class="form-check-group" style="padding:6px 12px;">
+                        <input type="checkbox" name="{{form.delete_images_flg.name}}" id="id_{{form.delete_images_flg.name}}" class="form-check-input">
+                        <span class="helptext" style="font-size:10pt">{{ form.delete_images_flg.label|safe }}</span>
+                    </div>
+                    {% endif %}
+                </div>
 
                 <!--Input:author-->
                 <div class="mb-3">

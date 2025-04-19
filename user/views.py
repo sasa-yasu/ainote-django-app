@@ -29,15 +29,15 @@ def get_mbti_name_choices(request):
 def list_view(request):
     logger.debug('start Profile list_view')
 
-    page_size = 48 # disply page size
-    onEachSide = 2 # display how many pages around current page
-    onEnds = 2 # display how many pages on first/last edge
+    PAGE_SIZE = 48 # disply page size
+    PAGINATION_ON_EACH_SIDE = 2 # display how many pages around current page
+    PAGINATION_ON_ENDS = 2 # display how many pages on first/last edge
  
     try:
-        page_cnt = int(request.GET.get("page_cnt", 1))
+        page = int(request.GET.get("page", 1))
     except ValueError:
         logger.debug('couldnt catch the page cnt')
-        page_cnt = 1
+        page = 1
     
     # フリーワード検索用
     search_str = request.GET.get("search_str", "")
@@ -51,28 +51,28 @@ def list_view(request):
 
     # 並び替え処理
     sort_options = {
+        "updated_desc": "-updated_at",
+        "updated_asc": "updated_at",
         "nick_name_asc": "nick_name",
         "nick_name_desc": "-nick_name",
-        "created_asc": "created_at",
         "created_desc": "-created_at",
-        "updated_asc": "updated_at",
-        "updated_desc": "-updated_at",
+        "created_asc": "created_at",
     }
-    sort_by = request.GET.get("sort_by", "nick_name_asc")
+    sort_by = request.GET.get("sort_by", "updated_desc")
     logger.debug(f'Sort by: {sort_by}')
     sort_field = sort_options.get(sort_by, "-id")  # デフォルトは -id
     object_list = object_list.order_by(sort_field)
 
     if object_list.exists():
         logger.debug('object_list exists')
-        paginator = Paginator(object_list, page_size)
+        paginator = Paginator(object_list, PAGE_SIZE)
         try:
-            display_object_list = paginator.page(page_cnt)
-        except:
-            logger.warning('couldnt catch the display_object_list page_cnt=', page_cnt)
-            display_object_list = paginator.page(1)        
+            display_object_list = paginator.page(page)
+        except Exception as e:
+            logger.warning(f'couldnt catch the display_object_list page={page}, error={e}')
+            display_object_list = paginator.page(1)
         link_object_list = display_object_list.paginator.get_elided_page_range(
-            page_cnt, on_each_side=onEachSide, on_ends=onEnds
+            page, on_each_side=PAGINATION_ON_EACH_SIDE, on_ends=PAGINATION_ON_ENDS
         )
     else:
         logger.debug('object_list not exists')
@@ -94,19 +94,19 @@ def detail_view(request, pk):
     logger.info('start detail_view')
 
     logger.debug('get Profile object(pk)')
-    object = get_object_or_404(Profile, pk=pk)
+    profile = get_object_or_404(Profile, pk=pk)
 
     # 最新の30件のチャットを取得
-    recent_chats = object.get_chats_by_count(30)
+    recent_chats = profile.get_chats_by_count(30)
 
     # 最新の30件のチェックイン情報を取得
-    recent_checkin_records = object.get_recent_checkins(30)
+    recent_checkin_records = profile.get_recent_checkins(30)
 
     # 直近1ヶ月間のチェックイン情報を取得
-    month_checkin_summary = object.get_checkin_summary_last_month()
+    month_checkin_summary = profile.get_checkin_summary_last_month()
 
     # 直近1ヶ月間のチェックインサマリを取得
-    month_checkins = object.get_checkins_last_month()
+    month_checkins = profile.get_checkins_last_month()
 
     checkin_data = [
         {
@@ -122,7 +122,7 @@ def detail_view(request, pk):
     logger.debug(f'checkin_data_json={checkin_data_json}')
 
     # 直近1ヶ月間の日別チェックイン時間を取得
-    daily_checkins = object.get_daily_checkin_summary_last_month()
+    daily_checkins = profile.get_daily_checkin_summary_last_month()
 
     # Chart用データ作成
     bar_data_labels = []
@@ -133,16 +133,16 @@ def detail_view(request, pk):
         bar_data_values.append(round(duration_msec / 3600000, 2))  # Y軸（滞在時間（h））
 
     # 最新の30件のログイン情報を取得
-    recent_login_records = object.get_login_records(30)
+    recent_login_records = profile.get_login_records(30)
 
     # 所属しているすべてのグループを取得
-    joined_groups = object.get_all_groups
+    joined_groups = profile.get_all_groups
 
     # すべてのFriendを取得
-    friends = object.get_friend_profiles
+    friends = profile.get_friend_profiles
 
     context = {
-                'object': object, 'recent_chats': recent_chats, 'recent_checkin_records': recent_checkin_records, 
+                'object': profile, 'recent_chats': recent_chats, 'recent_checkin_records': recent_checkin_records, 
                 'month_checkin_summary': month_checkin_summary, 'month_checkins': month_checkins, 
                 'checkin_data_json': checkin_data_json,
                 'bar_data_labels_json': json.dumps(bar_data_labels),
@@ -209,7 +209,7 @@ def create_view(request):
             themes_data = request.FILES.get("themes")
 
             try:
-                object = Profile.objects.create(
+                profile = Profile.objects.create(
                     user1 = user,
                     memberid = memberid_data,
                     nick_name = nick_name_data,
@@ -243,14 +243,14 @@ def create_view(request):
 
             if images_data:
                 logger.debug('images_data exists')
-                object.images = create_images(object, images_data)
+                profile.images = create_images(profile, images_data)
 
             if themes_data:
                 logger.debug('themes_data exists')
-                object.themes = create_themes(object, themes_data)
+                profile.themes = create_themes(profile, themes_data)
 
             try:
-                object.save()
+                profile.save()
             except Exception as e:
                 logger.error(f'couldnt save the images_data / themes_data in Profile object: {e}')
             
@@ -258,8 +258,8 @@ def create_view(request):
             return redirect('user:list')
         else:
             logger.error('user-form or profile_form is invalid.')
-            print(user_form.errors)  # エラー内容をログに出力
-            print(profile_form.errors)  # エラー内容をログに出力
+            logger.error(user_form.errors)
+            logger.error(profile_form.errors)
     else:
         logger.info('GET method')
         user_form = UserCreateForm()
@@ -275,11 +275,11 @@ def update_view(request, pk):
     logger.info('start Profile update_view')
 
     logger.debug('get Profile object(pk)')
-    object = get_object_or_404(Profile, pk=pk)
+    profile = get_object_or_404(Profile, pk=pk)
 
     user_form = UserCreateForm({
-        'id': object.user1.id,
-        'username': object.user1.username,
+        'id': profile.user1.id,
+        'username': profile.user1.username,
     })
     
     if request.method == "POST":
@@ -291,48 +291,58 @@ def update_view(request, pk):
         profile_form = ProfileForm(request.POST, request.FILES)
         profile_form.fields['mbti_name'].choices = Profile.MBTI_NAME_CHOICES.get(mbti_value, [("", "---------")])
         
-        context = {'object': object, 'user_form': user_form, 'profile_form': profile_form}
+        context = {'object': profile, 'user_form': user_form, 'profile_form': profile_form}
 
         if profile_form.is_valid():
             logger.debug('form.is_valid')
 
-            object.memberid = profile_form.cleaned_data["memberid"]
-            object.nick_name = profile_form.cleaned_data["nick_name"]
-            object.badges = profile_form.cleaned_data["badges"]
-            object.birth_year = profile_form.cleaned_data["birth_year"]
-            if object.birth_year == '': object.birth_year = None
-            object.birth_month_day = profile_form.cleaned_data["birth_month_day"]
-            object.mbti = profile_form.cleaned_data["mbti"]
-            object.mbti_name = profile_form.cleaned_data["mbti_name"]
-            object.hobby = profile_form.cleaned_data["hobby"]
-            object.sports = profile_form.cleaned_data["sports"]
-            object.movie = profile_form.cleaned_data["movie"]
-            object.music = profile_form.cleaned_data["music"]
-            object.book = profile_form.cleaned_data["book"]
-            object.event = profile_form.cleaned_data["event"]
-            object.remarks = profile_form.cleaned_data["remarks"]
-            object.contract_course = profile_form.cleaned_data["contract_course"]
-            object.caretaker01 = profile_form.cleaned_data["caretaker01"]
-            object.caretaker02 = profile_form.cleaned_data["caretaker02"]
-            object.caretaker03 = profile_form.cleaned_data["caretaker03"]
-            object.caretaker04 = profile_form.cleaned_data["caretaker04"]
-            object.caretaker05 = profile_form.cleaned_data["caretaker05"]
-            object.updated_pic = request.user.profile
+            profile.memberid = profile_form.cleaned_data["memberid"]
+            profile.nick_name = profile_form.cleaned_data["nick_name"]
+            profile.badges = profile_form.cleaned_data["badges"]
+            profile.birth_year = profile_form.cleaned_data["birth_year"]
+            if profile.birth_year == '': profile.birth_year = None
+            profile.birth_month_day = profile_form.cleaned_data["birth_month_day"]
+            profile.mbti = profile_form.cleaned_data["mbti"]
+            profile.mbti_name = profile_form.cleaned_data["mbti_name"]
+            profile.hobby = profile_form.cleaned_data["hobby"]
+            profile.sports = profile_form.cleaned_data["sports"]
+            profile.movie = profile_form.cleaned_data["movie"]
+            profile.music = profile_form.cleaned_data["music"]
+            profile.book = profile_form.cleaned_data["book"]
+            profile.event = profile_form.cleaned_data["event"]
+            profile.remarks = profile_form.cleaned_data["remarks"]
+            profile.contract_course = profile_form.cleaned_data["contract_course"]
+            profile.caretaker01 = profile_form.cleaned_data["caretaker01"]
+            profile.caretaker02 = profile_form.cleaned_data["caretaker02"]
+            profile.caretaker03 = profile_form.cleaned_data["caretaker03"]
+            profile.caretaker04 = profile_form.cleaned_data["caretaker04"]
+            profile.caretaker05 = profile_form.cleaned_data["caretaker05"]
+            profile.updated_pic = request.user.profile
 
             images_data = request.FILES.get("images")
+            delete_images_flg = profile_form.cleaned_data.get('delete_images_flg')
             themes_data = request.FILES.get("themes")
+            delete_themes_flg = profile_form.cleaned_data.get('delete_themes_flg')
 
             if images_data: # File Selected
                 logger.debug('images_data exists')
-                object.images = update_images(object, images_data)
+                profile.images = update_images(profile, images_data)
+            elif delete_images_flg and profile.images:
+                logger.debug('delete_images exists')
+                delete_images(profile)
+                profile.images = None
 
             if themes_data: # File Selected
                 logger.debug(f'themes_data exists={themes_data}')
-                object.themes = update_themes(object, themes_data)
+                profile.themes = update_themes(profile, themes_data)
+            elif delete_themes_flg and profile.themes:
+                logger.debug('delete_themes exists')
+                delete_themes(profile)
+                profile.themes = None
 
             try:
                 logger.debug('save updated Profile object')
-                object.save()
+                profile.save()
             except Exception as e:
                 logger.error(f'couldnt save the Profile object: {e}')
 
@@ -340,11 +350,11 @@ def update_view(request, pk):
             return redirect('user:list')
         else:
             logger.error('form not is_valid')
-            print(profile_form.errors)  # エラー内容をログに出力
+            logger.error(profile_form.errors)
     else:
         logger.info('GET method') 
-        profile_form = ProfileForm(instance=object) # putback the form
-        context = {'object': object, 'user_form': user_form, 'profile_form': profile_form}
+        profile_form = ProfileForm(instance=profile) # putback the form
+        context = {'object': profile, 'user_form': user_form, 'profile_form': profile_form}
 
     logger.info('return render user/update.html')
     return render(request, 'user/update.html', context)
@@ -355,26 +365,26 @@ def delete_view(request, pk):
     logger.info('start Profile delete_view')
     
     logger.debug('get Profile object(pk)')
-    object = get_object_or_404(Profile, pk=pk)
+    profile = get_object_or_404(Profile, pk=pk)
 
-    context = {'object': object}
+    context = {'object': profile}
 
     if request.method == "POST":
         logger.info('POST method')
 
         # **古いファイルを削除**
-        if object.images:
+        if profile.images:
             logger.debug('old images_data exists')
-            object = delete_images(object)
+            profile = delete_images(profile)
 
         # **古いファイルを削除**
-        if object.themes:
+        if profile.themes:
             logger.debug('old themes_data exists')
-            object = delete_themes(object)
+            profile = delete_themes(profile)
 
         try:
             logger.debug('delete old Profile object')
-            object.delete()
+            profile.delete()
         except Exception as e:
             logger.error(f'couldnt delete Profile object: {e}')
 

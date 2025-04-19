@@ -1,3 +1,4 @@
+from django.utils.safestring import mark_safe
 from django import forms
 from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm
@@ -11,132 +12,140 @@ error_logger = logging.getLogger('error')
 
 class UserCreateForm(UserCreationForm):
     username = forms.CharField(
-        label='User Name', max_length=100, widget=forms.TextInput(attrs={'class':'form-control'}),
+        label='User Name', max_length=100, widget=forms.TextInput(attrs={}),
         required=True, help_text='* User Name should be max 100 characters.'
         )
     
     password2 = forms.CharField(
-        label='Password', max_length=100, widget=forms.PasswordInput(attrs={'class':'form-control'}),
+        label='Password', max_length=100, widget=forms.PasswordInput(attrs={}),
         required=True, help_text='* Password should not be simple.'
         )
 
     password1 = forms.CharField(
-        label='Password(again)', max_length=100, widget=forms.PasswordInput(attrs={'class':'form-control'}),
+        label='Password(again)', max_length=100, widget=forms.PasswordInput(attrs={}),
         required=True, help_text='* This should be same as above Password.'
         )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
+            widget = field.widget
+            if isinstance(widget, (forms.TextInput, forms.Select, forms.Textarea)):
+                widget.attrs.setdefault('class', 'form-control')
+            if isinstance(widget, (forms.RadioSelect, forms.CheckboxSelectMultiple)):
+                widget.attrs.setdefault('class', 'form-check-input')
+
             if field.required:
-                field.label = f"{field.label} <span style='color: red; font-size:10pt;'>(*)</span>" # if required field, show "(*)"
+                field.label = mark_safe(f"{field.label} <span style='color: red; font-size:10pt;'>(*)</span>") # if required field, show "(*)"
 
 class ProfileForm(forms.ModelForm):
 
     memberid = forms.CharField(
-        label='Member ID', max_length=100, widget=forms.TextInput(attrs={'class':'form-control'}),
+        label='Member ID', max_length=100, widget=forms.TextInput(attrs={}),
         required=True, help_text='* MemberId should be max 100 characters.'
         )
 
     nick_name = forms.CharField(
-        label='Nick Name', max_length=10, widget=forms.TextInput(attrs={'class':'form-control'}),
+        label='Nick Name', max_length=10, widget=forms.TextInput(attrs={}),
         required=True, help_text='* Nick Name should be max 10 characters.'
         )
 
     badges = forms.ChoiceField(
-        label='Badges', choices=Profile.BADGES_CHOICES, widget=forms.RadioSelect(attrs={'class': 'form-check-input'}),
+        label='Badges', choices=Profile.BADGES_CHOICES, widget=forms.RadioSelect(attrs={}),
         required=True, initial='light', help_text='* Select your personal color.'
     )
     
     default_year = timezone.now().year  # 当年を基準にして選択肢を作成
     years_choice = [('', '----')] + [(year, str(year)) for year in range(default_year - 130, default_year + 1)]  # 過去130年分の年をリストとして作成
     birth_year = forms.ChoiceField(
-        label='Birthday(Y)', choices=years_choice, widget=forms.Select(attrs={'class': 'form-control'}),
+        label='Birthday(Y)', choices=years_choice, widget=forms.Select(attrs={}),
         required=False, help_text='* If you input this, you can get the genaration-gap points.'
     )
     
     birth_month_day = forms.DateField(
-        label='Birthday(M/D)', widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'min': f'2000-01-01', 'max': f'2000-12-31'}), input_formats=['%Y-%m-%d'],
+        label='Birthday(M/D)', widget=forms.DateInput(attrs={'type': 'date', 'min': f'2000-01-01', 'max': f'2000-12-31'}), input_formats=['%Y-%m-%d'],
         required=False, help_text='* If you input this, you can get more accurate genaration-gap points.<br/>* bellow shows year 2000 but system ignore the year info.'
     )
 
     mbti = forms.ChoiceField(
-        label='MBTI Type', choices=Profile.MBTI_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}),
+        label='MBTI Type', choices=Profile.MBTI_CHOICES, widget=forms.Select(attrs={}),
         required=False, initial='-', help_text='* Select your personal MBTI type.'
         )
 
     mbti_name = forms.ChoiceField(
-        label='MBTI Display Name', choices=[], widget=forms.Select(attrs={'class': 'form-control'}),
+        label='MBTI Display Name', choices=[], widget=forms.Select(attrs={}),
         required=False, help_text='* Choose a specific name.'
         )
     
     hobby = forms.CharField(
-        label='Hobby', widget=forms.Textarea(attrs={'class': 'form-control'}),
+        label='Hobby', widget=forms.Textarea(attrs={}),
         required=False, help_text='* Hobby is...'
         )
 
     sports = forms.CharField(
-        label='Sports', widget=forms.Textarea(attrs={'class': 'form-control'}),
+        label='Sports', widget=forms.Textarea(attrs={}),
         required=False, help_text='* Playing / Watching Sports is...'
         )
 
     movie = forms.CharField(
-        label='Movie', widget=forms.Textarea(attrs={'class': 'form-control'}),
+        label='Movie', widget=forms.Textarea(attrs={}),
         required=False, help_text='* Favorite Movie is...'
         )
 
     music = forms.CharField(
-        label='Music', widget=forms.Textarea(attrs={'class': 'form-control'}),
+        label='Music', widget=forms.Textarea(attrs={}),
         required=False, help_text='* Favorite Music is...'
         )
 
     book = forms.CharField(
-        label='Book', widget=forms.Textarea(attrs={'class': 'form-control'}),
+        label='Book', widget=forms.Textarea(attrs={}),
         required=False, help_text='* Favorite Book / Author is...'
         )
 
     event = forms.CharField(
-        label='Event', widget=forms.Textarea(attrs={'class': 'form-control'}),
+        label='Event', widget=forms.Textarea(attrs={}),
         required=False, help_text='* Joinning Event is...'
         )
 
     remarks = forms.CharField(
-        label='Remarks', widget=forms.Textarea(attrs={'class': 'form-control'}),
+        label='Remarks', widget=forms.Textarea(attrs={}),
         required=False, help_text='* Anything you want to share.'
         )
 
     images = forms.ImageField(
-        label='Images', widget=forms.FileInput(attrs={'class': 'form-control'}),
+        label='Images', widget=forms.FileInput(attrs={}),
         required=False, help_text='* Your personal icon.'
         )
+    delete_images_flg = forms.BooleanField(required=False, label='Delete Images')
 
     themes = forms.ImageField(
-        label='Themes', widget=forms.FileInput(attrs={'class': 'form-control'}),
+        label='Themes', widget=forms.FileInput(attrs={}),
         required=False, help_text='* Your personal theme in your profile page.'
         )
+    delete_themes_flg = forms.BooleanField(required=False, label='Delete Themes')
 
     contract_course = forms.ChoiceField(
-        label='Contract Course', choices=Profile.CONTRACT_COURSE_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}),
+        label='Contract Course', choices=Profile.CONTRACT_COURSE_CHOICES, widget=forms.Select(attrs={}),
         required=False, initial='-', help_text='* Select your contract course.'
         )
     caretaker01 = forms.CharField(
-        label='Caretaker01 email', max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}),
+        label='Caretaker01 email', max_length=255, widget=forms.TextInput(attrs={}),
         required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
         )
     caretaker02 = forms.CharField(
-        label='Caretaker02 email', max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}),
+        label='Caretaker02 email', max_length=255, widget=forms.TextInput(attrs={}),
         required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
         )
     caretaker03 = forms.CharField(
-        label='Caretaker03 email', max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}),
+        label='Caretaker03 email', max_length=255, widget=forms.TextInput(attrs={}),
         required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
         )
     caretaker04 = forms.CharField(
-        label='Caretaker04 email', max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}),
+        label='Caretaker04 email', max_length=255, widget=forms.TextInput(attrs={}),
         required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
         )
     caretaker05 = forms.CharField(
-        label='Caretaker05 email', max_length=255, widget=forms.TextInput(attrs={'class':'form-control'}),
+        label='Caretaker05 email', max_length=255, widget=forms.TextInput(attrs={}),
         required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
         )
 
@@ -150,23 +159,29 @@ class ProfileForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         for field_name, field in self.fields.items():
+            widget = field.widget
+            if isinstance(widget, (forms.TextInput, forms.Select, forms.Textarea, forms.DateInput)):
+                widget.attrs.setdefault('class', 'form-control')
+            if isinstance(widget, (forms.RadioSelect, forms.CheckboxSelectMultiple)):
+                widget.attrs.setdefault('class', 'form-check-input')
+
             if field.required:
                 field.label = f"{field.label} <span style='color: red; font-size:10pt;'>(*)</span>" # if required field, show "(*)"
         
-#        if self.instance:  # インスタンスが存在する場合（つまり、更新時）
-#            # birth_year に既存のデータ（インスタンスのフィールド値）を設定
-#            self.fields['birth_year'].initial = str(self.instance.birth_year)
+        if self.instance:  # インスタンスが存在する場合（つまり、更新時）
+            # birth_year に既存のデータ（インスタンスのフィールド値）を設定
+            self.fields['birth_year'].initial = str(self.instance.birth_year)
             
-#        # birth_month_day を年を除いた月日（MM-DD）のみとして表示する
-#        if self.instance.birth_month_day:
-#            self.fields['birth_month_day'].initial = f"{self.instance.birth_month_day}"
+        # birth_month_day を年を除いた月日（MM-DD）のみとして表示する
+        if self.instance.birth_month_day:
+            self.fields['birth_month_day'].initial = self.instance.birth_month_day.strftime('%Y-%m-%d')
 
         # `POST` データがあれば取得（なければ `instance.mbti` を使用）
+        mbti_value = None
         if 'data' in kwargs:
-            mbti_value = kwargs['data'].get('mbti', self.instance.mbti if self.instance else None)
-        else:
-            mbti_value = self.instance.mbti if self.instance else None
-
+            mbti_value = kwargs['data'].get('mbti')
+        if not mbti_value and self.instance:
+            mbti_value = self.instance.mbti
         logger.debug(f'mbti_value={mbti_value}')
 
         # `mbti_name` の選択肢を取得

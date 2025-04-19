@@ -2,6 +2,7 @@ import random  # ← ランダム数生成用
 from django.db import models
 from AinoteProject.utils import crop_square_image
 from django.utils import timezone
+from django.db.models import F
 from user.models import Profile
 
 # Create your models here.
@@ -10,8 +11,8 @@ class Chat(models.Model):
     context = models.TextField(null=True, blank=True)
     images = models.ImageField(upload_to='chat', null=True, blank=True)
     author = models.CharField(max_length=100, null=True, blank=True)
-    likes = models.IntegerField(null=True, blank=True)
-    likes_record =  models.TextField(null=True, blank=True, default = '|')
+    likes = models.IntegerField(null=True, blank=True, default=0)
+    likes_record =  models.TextField(null=True, blank=True, default='|')
     order_by_at = models.DateTimeField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     created_pic = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='chat_created_pics')  # 紐づくProfileが削除されたらNULL設定
@@ -20,9 +21,6 @@ class Chat(models.Model):
 
     """ Profile紐づけ """
     profile = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='chats')  # 紐づくProfileが削除されてもChatは残る
-
-    class Meta:
-        pass
 
     def __str__(self):
         return f"{self.title} <by { self.author if self.author else 'Unknown' }>"
@@ -37,13 +35,15 @@ class Chat(models.Model):
             self.likes = random.randint(1, 5)
 
         # 画像処理
-        if self.images and self.images != self.__class__.objects.get(pk=self.pk).images: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
-            self.images = crop_square_image(self.images, 300) # Update the images size
+        if self.pk:
+            orig = self.__class__.objects.filter(pk=self.pk).first()
+            if self.images and orig and self.images != orig.images: # djangoのバグ対処　自動保存時でupload_to保存が再帰的に実行される
+                self.images = crop_square_image(self.images, 300) # Update the images size
 
         super().save(*args, **kwargs)
 
     def push_likes(self, request):
-        if request.user:
+        if request.user and request.user.is_authenticated:
             now = timezone.now()
             formatted_date = now.strftime("%y%m%d") # formatting: "YYMMDD" "250304"）
             CheckKey = f'{formatted_date}-{str(request.user.id)}|'
@@ -55,9 +55,8 @@ class Chat(models.Model):
                 #self.likes += 1
 
             # 一旦、常にlikesをインクリメント
-            self.likes += 1
-
-            self.save()
+            Chat.objects.filter(pk=self.pk).update(likes=F('likes') + 1)
+            self.refresh_from_db()
 
             # given_likesをインクリメント
             profile = Profile.objects.get(user1=request.user)
@@ -66,7 +65,7 @@ class Chat(models.Model):
         return self.likes
 
     def age_order_by_at(self, request):
-        if request.user:
+        if request.user and request.user.is_authenticated:
             # order_by_atに現在日時を設定してリストの一番上に上げる
             self.order_by_at = timezone.now()
             self.save()

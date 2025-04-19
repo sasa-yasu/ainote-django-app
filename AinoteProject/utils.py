@@ -1,11 +1,11 @@
 import os
 from django.utils.timezone import now
+from django.http import HttpResponse, JsonResponse
 from PIL import Image
 from io import BytesIO
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
-from django.http import HttpResponse
 
 import logging
 
@@ -532,4 +532,14 @@ def format_millis_to_hhmm(millis):
     total_minutes = int(millis) // 60000
     hours = total_minutes // 60
     minutes = total_minutes % 60
-    return f"{hours:02}:{minutes:02}"
+    return f'{hours:02}\'{minutes:02}"'
+
+# Ajax系
+def safe_json_post(request, handler):
+    if request.method != 'POST':
+        return JsonResponse({'error': 'Invalid request'}, status=400)
+    try:
+        return handler()
+    except Exception as e:
+        logger.error(f'Ajax処理失敗: {e}')
+        return JsonResponse({'error': 'Internal Server Error'}, status=500)

@@ -10,31 +10,31 @@ from .forms  import NoticeForm
 logger = logging.getLogger('app')
 error_logger = logging.getLogger('error')
 
-def list_view(request, page_cnt=1):
+def list_view(request, page=1):
     logger.debug('start Notice list_view')
 
-    page_size = 12 # disply page size
-    onEachSide = 2 # display how many pages around current page
-    onEnds = 2 # display how many pages on first/last edge
+    PAGE_SIZE = 12 # disply page size
+    PAGINATION_ON_EACH_SIDE = 2 # display how many pages around current page
+    PAGINATION_ON_ENDS = 2 # display how many pages on first/last edge
  
     try:
-        page_cnt = int(request.GET.get("page_cnt", 1))
+        page = int(request.GET.get("page", 1))
     except ValueError:
         logger.debug('couldnt catch the page cnt')
-        page_cnt = 1
+        page = 1
     
-    object_list = Notice.objects.order_by('published_at').all() 
+    object_list = Notice.objects.order_by('published_at') 
 
     if object_list.exists():
         logger.debug('object_list exists')
-        paginator = Paginator(object_list, page_size)
+        paginator = Paginator(object_list, PAGE_SIZE)
         try:
-            display_object_list = paginator.page(page_cnt)
-        except:
-            logger.warning('couldnt catch the display_object_list page_cnt=', page_cnt)
+            display_object_list = paginator.page(page)
+        except Exception as e:
+            logger.warning(f'couldnt catch the display_object_list page={page}, error={e}')
             display_object_list = paginator.page(1)        
         link_object_list = display_object_list.paginator.get_elided_page_range(
-            page_cnt, on_each_side=onEachSide, on_ends=onEnds
+            page, on_each_side=PAGINATION_ON_EACH_SIDE, on_ends=PAGINATION_ON_ENDS
         )
     else:
         logger.debug('object_list not exists')
@@ -51,9 +51,9 @@ def detail_view(request, pk):
     logger.info('start Notice detail_view')
 
     logger.debug('get Notice object(pk)')
-    object = get_object_or_404(Notice, pk=pk)
+    notice = get_object_or_404(Notice, pk=pk)
 
-    context = {'object': object}
+    context = {'object': notice}
 
     logger.debug('return render notice/detail.html')
     return render(request, 'notice/detail.html', context)
@@ -83,7 +83,7 @@ def create_view(request):
             pic_data = request.user.profile
 
             try:
-                object = Notice.objects.create(
+                notice = Notice.objects.create(
                     images = None, # 画像はまだ保存しない
                     title = title_data,
                     period = period_data,
@@ -101,10 +101,10 @@ def create_view(request):
 
             if images_data:
                 logger.debug('images_data exists')
-                object.images = create_images(object, images_data)
+                notice.images = create_images(notice, images_data)
 
                 try:
-                    object.save()
+                    notice.save()
                 except:
                     logger.error(f'couldnt save the images_data in Notice object: {e}')
 
@@ -112,7 +112,7 @@ def create_view(request):
             return redirect('notice:list')
         else:
             logger.error('form is invalid.')
-            print(form.errors)  # エラー内容をログに出力
+            logger.error(form.errors)
     else:
         logger.info('GET method')
         form = NoticeForm()
@@ -127,34 +127,34 @@ def update_view(request, pk):
     logger.info('start Notice update_view')
 
     logger.debug('get Notice object(pk)')
-    object = get_object_or_404(Notice, pk=pk)
+    notice = get_object_or_404(Notice, pk=pk)
     
     if request.method == "POST":
         logger.info('POST method')
 
         form = NoticeForm(request.POST, request.FILES)
-        context = {'object': object, 'form': form}
+        context = {'object': notice, 'form': form}
 
         if form.is_valid():
             logger.debug('form.is_valid')
 
-            object.title = form.cleaned_data['title']
-            object.period = form.cleaned_data['period']
-            object.overview = form.cleaned_data['overview']
-            object.context = form.cleaned_data['context']
-            object.published_at = form.cleaned_data['published_at']
-            object.remarks = form.cleaned_data['remarks']
-            object.updated_pic = request.user.profile
+            notice.title = form.cleaned_data['title']
+            notice.period = form.cleaned_data['period']
+            notice.overview = form.cleaned_data['overview']
+            notice.context = form.cleaned_data['context']
+            notice.published_at = form.cleaned_data['published_at']
+            notice.remarks = form.cleaned_data['remarks']
+            notice.updated_pic = request.user.profile
 
             images_data = request.FILES.get("images")
 
             if images_data: # File Selected
                 logger.debug('images_data exists')                
-                object.images = update_images(object, images_data)
+                notice.images = update_images(notice, images_data)
 
             try:
                 logger.debug('save updated Notice object')
-                object.save()
+                notice.save()
             except Exception as e:
                 logger.error(f'couldnt save the Notice object: {e}')
 
@@ -162,11 +162,11 @@ def update_view(request, pk):
             return redirect('notice:list')
         else:
             logger.error('form not is_valid.')
-            print(form.errors)  # エラー内容をログに出力
+            logger.error(form.errors)
     else:
         logger.info('GET method')
-        form = NoticeForm(instance=object) # putback the form
-        context = {'object': object, 'form': form}
+        form = NoticeForm(instance=notice) # putback the form
+        context = {'object': notice, 'form': form}
     
     logger.info('return render notice/update.html')
     return render(request, 'notice/update.html', context)
@@ -177,19 +177,19 @@ def delete_view(request, pk):
     logger.info('start Notice delete_view')
 
     logger.debug('get Notice object(pk)')
-    object = get_object_or_404(Notice, pk=pk)
-    context = {'object': object}
+    notice = get_object_or_404(Notice, pk=pk)
+    context = {'object': notice}
 
     if request.method == "POST":
         logger.info('POST method')
 
         # **古いファイルを削除**
-        if object.images:
-            delete_images(object)
+        if notice.images:
+            delete_images(notice)
 
         try:
             logger.debug('delete old Notice object')
-            object.delete()
+            notice.delete()
         except Exception as e:
             logger.error(f'couldnt delete Notice object: {e}')
 
