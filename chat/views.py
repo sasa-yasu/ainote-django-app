@@ -149,11 +149,16 @@ def update_view(request, pk):
             object.updated_pic = request.user.profile
 
             images_data = form.cleaned_data.get('images')
+            delete_images_flg = form.cleaned_data.get('delete_images_flg')
 
             if images_data: # File Selected
                 logger.debug('images_data exists')
                 object.images = update_images(object, images_data)
-
+            elif delete_images_flg and object.images:
+                logger.debug('delete_images exists')
+                delete_images(object)
+                object.images = None
+                
             try:
                 logger.debug('save updated Chat object')
                 object.save()

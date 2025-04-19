@@ -81,8 +81,8 @@
                 <!--Input[checkbox]:category_choice-->
                 <div class="mb-2">{% include 'includes/input_checkbox.html' with target=form.category_choice choices=CATEGORY_CHOICES %}</div>                
                 <!--Input:files-->
-                <div class="mb-3">{% include 'includes/input_field.html' with target=form.files %}</div>
-                <div><a href="{{ object.files.url }}" download><img src="{% static 'img/sharedfile.png' %}" alt="Default Images" style="width:50px;height:50px;"/>{{ object.files.url }}</a></div>
+                <div class="mb-3">{% include 'includes/input_field.html' with target=form.files %}
+                <a href="{{ object.files.url }}" download><img src="{% static 'img/sharedfile.png' %}" alt="Default Images" style="width:50px;height:50px;"/>{{ object.files.url }}</a></div>
                 <!--Input:overview-->
                 <div class="mb-3">{% include 'includes/input_field.html' with target=form.overview %}</div>
                 <!--Input:context-->

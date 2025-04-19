@@ -15,6 +15,7 @@ class ChatForm(forms.ModelForm):
         label='Images', widget=forms.FileInput(attrs={'class':'form-control'}),
         required=False, help_text='* Image file size will be adjusted to 300px X 300px.'
     )
+    delete_images_flg = forms.BooleanField(required=False, label='Delete Images')
     author = forms.CharField(
         label='Author', max_length=100, widget=forms.TextInput(attrs={'class':'form-control'}),
         required=True, help_text='* Can input anything for superuser.'
@@ -22,7 +23,7 @@ class ChatForm(forms.ModelForm):
 
     class Meta:
         model = Chat
-        fields = ("title", "context", "images", "author")
+        fields = ("title", "context", "images", "delete_images_flg", "author")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

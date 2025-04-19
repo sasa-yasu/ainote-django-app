@@ -5,7 +5,7 @@ from AinoteProject.utils import crop_square_image, crop_16_9_image
 from user.models import Profile
 
 class Device(models.Model):
-    """Device"""
+    """Device entity representing a registered product."""
     name = models.CharField('Name', max_length=100, null=True, blank=True)
     images = models.ImageField('Images', upload_to='device', null=True, blank=True)
     themes = models.ImageField('Themes', upload_to='device', null=True, blank=True)

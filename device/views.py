@@ -191,15 +191,25 @@ def update_view(request, pk):
             object.updated_pic = request.user.profile
             
             images_data = request.FILES.get("images")
+            delete_images_flg = form.cleaned_data.get('delete_images_flg')
             themes_data = request.FILES.get('themes')
+            delete_themes_flg = form.cleaned_data.get('delete_themes_flg')
 
             if images_data: # File Selected
                 logger.debug('images_data exists')
                 object.images = update_images(object, images_data)
+            elif delete_images_flg and object.images:
+                logger.debug('delete_images exists')
+                delete_images(object)
+                object.images = None
 
             if themes_data: # File Selected
                 logger.debug(f'themes_data exists={themes_data}')
                 object.themes = update_themes(object, themes_data)
+            elif delete_themes_flg and object.themes:
+                logger.debug('delete_themes exists')
+                delete_themes(object)
+                object.themes = None
 
             try:
                 logger.debug('save updated Device object')

@@ -11,10 +11,12 @@ class DeviceForm(forms.ModelForm):
         label='Images', widget=forms.FileInput(attrs={'class':'form-control'}),
         required=False, help_text='* Image file size will be adjusted to 300px X 300px.'
     )
+    delete_images_flg = forms.BooleanField(required=False, label='Delete Images')
     themes = forms.ImageField(
         label='Themes', widget=forms.FileInput(attrs={'class':'form-control'}),
         required=False, help_text='* Image file size will be adjusted to 3000px X 3000px.'
     )
+    delete_themes_flg = forms.BooleanField(required=False, label='Delete Themes')
     maker = forms.CharField(
         label='Maker', max_length=100, widget=forms.TextInput(attrs={'class':'form-control'}),
         required=False, help_text='* Maker should be max 100 characters.'
@@ -40,9 +42,10 @@ class DeviceForm(forms.ModelForm):
         required=False, help_text='* Past the google schedule weekly URL (start with "iframe" tag).<br/>* Should change width-setting to width="100%".'
     )
     
+    
     class Meta:
         model = Device
-        fields = ("name", "images", "themes", "maker", "productno", "context", "remarks", "schedule_monthly", "schedule_weekly")
+        fields = ("name", "images", "delete_images_flg", "themes", "delete_themes_flg", "maker", "productno", "context", "remarks", "schedule_monthly", "schedule_weekly")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
