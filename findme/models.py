@@ -9,6 +9,7 @@ from AinoteProject.utils import crop_square_image, crop_16_9_image, get_mbti_com
 from .choices import GenderChoice, PrefectureChoice, HobbyChoice, FoodChoice, MusicChoice, MovieChoice, BookChoice
 from .choices import PersonalityTypeChoice, FavoriteDateChoice, SenseOfValuesChoice, FuturePlanChoice, RequestForPartnerChoice
 from .choices import WeekendActivityChoice, OngoingProjectChoice, SocialActivityChoice, FreeDayChoice, ProudestAchievementChoice, MostImportantValuesChoice
+from .choices import ImageCategoryChoice
 
 # ロガー取得
 logger = logging.getLogger('app')
@@ -222,19 +223,7 @@ class FindMe(models.Model):
 class FindMeImage(models.Model):
     """FindMe に紐づく画像（複数可）"""
     findme = models.ForeignKey('FindMe', on_delete=models.CASCADE, related_name='findme_images')
-    IMAGE_CATEGORY_CHOICES = [
-        ('smile', '😊笑顔😄'),
-        ('fashion', '👗オシャレ🕶️'),
-        ('hobby_action', '🎨趣味🎸'),
-        ('pet_love', '🐶ペット🐱'),
-        ('outdoor', '🌄自然・お出かけ🚴'),
-        ('sports_pose', '🏋️‍♂️スポーツ・健康美💪'),
-        ('foodie', '🍳手料理・グルメ🍰'),
-        ('culture', '📚知的・文化的🧠'),
-        ('mystery', '🎭ミステリアス🌙'),
-        ('funny', '😂ユーモア🤪'),
-    ]
-    image_category_choice = models.CharField('Image Category', max_length=100, choices=IMAGE_CATEGORY_CHOICES, null=True, blank=True)
+    image_category_choice = models.CharField('Image Category', max_length=100, choices=ImageCategoryChoice.choices(), null=True, blank=True)
     image = models.ImageField(upload_to='findme/images')
     caption = models.CharField(max_length=255, blank=True, null=True)  # 任意のキャプション
 

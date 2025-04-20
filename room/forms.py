@@ -30,11 +30,11 @@ class RoomForm(forms.ModelForm):
         label='Remarks', widget=forms.Textarea(attrs={}),
         required=False, help_text='* Anything you want to share.'
     )
-    schedule_monthly = forms.URLField(
+    schedule_monthly = forms.CharField(
         label='Schedule Monthly', max_length=1028, widget=forms.TextInput(attrs={}),
         required=False, help_text=mark_safe('* Past the google schedule monthly URL (start with "iframe" tag).<br/>* Should change width-setting to width="100%".')
     )
-    schedule_weekly = forms.URLField(
+    schedule_weekly = forms.CharField(
         label='Schedule Weekly', max_length=1028, widget=forms.TextInput(attrs={}),
         required=False, help_text=mark_safe('* Past the google schedule weekly URL (start with "iframe" tag).<br/>* Should change width-setting to width="100%".')
     )
@@ -48,7 +48,7 @@ class RoomForm(forms.ModelForm):
 
         for field_name, field in self.fields.items():
             widget = field.widget
-            if isinstance(widget, (forms.TextInput, forms.Select, forms.Textarea, forms.DateInput)):
+            if isinstance(widget, (forms.TextInput, forms.PasswordInput, forms.Select, forms.Textarea, forms.DateInput, forms.FileInput, forms.EmailField)):
                 widget.attrs.setdefault('class', 'form-control')
             if isinstance(widget, (forms.RadioSelect, forms.CheckboxSelectMultiple)):
                 widget.attrs.setdefault('class', 'form-check-input')

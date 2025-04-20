@@ -29,15 +29,15 @@ class GroupForm(forms.ModelForm):
         label='Remarks', widget=forms.Textarea(attrs={}),
         required=False, help_text='* Anything you want to share.'
     )
-    schedule_monthly = forms.URLField(
+    schedule_monthly = forms.CharField(
         label='Schedule Monthly', max_length=1028, widget=forms.TextInput(attrs={}),
         required=False, help_text=mark_safe('* Past the google schedule monthly URL (start with "&lt;iframe&gt;" tag).<br/>* Should change width-setting to width="100%".')
     )
-    schedule_weekly = forms.URLField(
+    schedule_weekly = forms.CharField(
         label='Schedule Weekly', max_length=1028, widget=forms.TextInput(attrs={}),
         required=False, help_text=mark_safe('* Past the google schedule weekly URL (start with "&lt;iframe&gt;" tag).<br/>* Should change width-setting to width="100%".')
     )
-    task_control = forms.URLField(
+    task_control = forms.CharField(
         label='Task Control', max_length=1028, widget=forms.TextInput(attrs={}),
         required=False, help_text=mark_safe('* Past the notion task-boad URL (start with "&lt;iframe&gt;" tag and should be end with "&lt;&#47;iframe&gt;" tag).<br/>* Should change height-setting to height="1000px".')
     )
@@ -51,7 +51,7 @@ class GroupForm(forms.ModelForm):
 
         for field_name, field in self.fields.items():
             widget = field.widget
-            if isinstance(widget, (forms.TextInput, forms.Select, forms.Textarea, forms.DateInput)):
+            if isinstance(widget, (forms.TextInput, forms.PasswordInput, forms.Select, forms.Textarea, forms.DateInput, forms.FileInput, forms.EmailField)):
                 widget.attrs.setdefault('class', 'form-control')
             if isinstance(widget, (forms.RadioSelect, forms.CheckboxSelectMultiple)):
                 widget.attrs.setdefault('class', 'form-check-input')

@@ -286,7 +286,7 @@ def update_view(request, pk):
         logger.info('POST method')
 
         # POSTデータから `mbti` を取得
-        mbti_value = request.POST.get('mbti', object.mbti)
+        mbti_value = request.POST.get('mbti', profile.mbti)
         
         profile_form = ProfileForm(request.POST, request.FILES)
         profile_form.fields['mbti_name'].choices = Profile.MBTI_NAME_CHOICES.get(mbti_value, [("", "---------")])

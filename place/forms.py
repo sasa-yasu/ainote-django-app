@@ -62,7 +62,7 @@ class PlaceForm(forms.ModelForm):
         label='Longitude', widget=forms.TextInput(attrs={}),
         required=True, help_text='* GPS Geolocation : Longitude.'
         )
-    googlemap_url = forms.URLField(
+    googlemap_url = forms.CharField(
         label='Google Map URL', max_length=3000, widget=forms.TextInput(attrs={}),
         required=False, help_text=mark_safe('* Past the Google Maps Share URL. Include iframe tag.')
         )
@@ -77,7 +77,7 @@ class PlaceForm(forms.ModelForm):
 
         for field_name, field in self.fields.items():
             widget = field.widget
-            if isinstance(widget, (forms.TextInput, forms.Select, forms.Textarea, forms.DateInput)):
+            if isinstance(widget, (forms.TextInput, forms.PasswordInput, forms.Select, forms.Textarea, forms.DateInput, forms.FileInput, forms.EmailField)):
                 widget.attrs.setdefault('class', 'form-control')
             if isinstance(widget, (forms.RadioSelect, forms.CheckboxSelectMultiple)):
                 widget.attrs.setdefault('class', 'form-check-input')

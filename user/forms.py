@@ -30,7 +30,7 @@ class UserCreateForm(UserCreationForm):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             widget = field.widget
-            if isinstance(widget, (forms.TextInput, forms.Select, forms.Textarea)):
+            if isinstance(widget, (forms.TextInput, forms.PasswordInput, forms.Select, forms.Textarea, forms.DateInput)):
                 widget.attrs.setdefault('class', 'form-control')
             if isinstance(widget, (forms.RadioSelect, forms.CheckboxSelectMultiple)):
                 widget.attrs.setdefault('class', 'form-check-input')
@@ -128,23 +128,23 @@ class ProfileForm(forms.ModelForm):
         label='Contract Course', choices=Profile.CONTRACT_COURSE_CHOICES, widget=forms.Select(attrs={}),
         required=False, initial='-', help_text='* Select your contract course.'
         )
-    caretaker01 = forms.CharField(
+    caretaker01 = forms.EmailField (
         label='Caretaker01 email', max_length=255, widget=forms.TextInput(attrs={}),
         required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
         )
-    caretaker02 = forms.CharField(
+    caretaker02 = forms.EmailField (
         label='Caretaker02 email', max_length=255, widget=forms.TextInput(attrs={}),
         required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
         )
-    caretaker03 = forms.CharField(
+    caretaker03 = forms.EmailField (
         label='Caretaker03 email', max_length=255, widget=forms.TextInput(attrs={}),
         required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
         )
-    caretaker04 = forms.CharField(
+    caretaker04 = forms.EmailField (
         label='Caretaker04 email', max_length=255, widget=forms.TextInput(attrs={}),
         required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
         )
-    caretaker05 = forms.CharField(
+    caretaker05 = forms.EmailField (
         label='Caretaker05 email', max_length=255, widget=forms.TextInput(attrs={}),
         required=False, help_text='* If input the email-address, can receive the check-in / check-out email.'
         )
@@ -160,7 +160,7 @@ class ProfileForm(forms.ModelForm):
 
         for field_name, field in self.fields.items():
             widget = field.widget
-            if isinstance(widget, (forms.TextInput, forms.Select, forms.Textarea, forms.DateInput)):
+            if isinstance(widget, (forms.TextInput, forms.PasswordInput, forms.Select, forms.Textarea, forms.DateInput, forms.FileInput, forms.EmailField)):
                 widget.attrs.setdefault('class', 'form-control')
             if isinstance(widget, (forms.RadioSelect, forms.CheckboxSelectMultiple)):
                 widget.attrs.setdefault('class', 'form-check-input')

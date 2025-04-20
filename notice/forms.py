@@ -42,7 +42,7 @@ class NoticeForm(forms.ModelForm):
 
         for field_name, field in self.fields.items():
             widget = field.widget
-            if isinstance(widget, (forms.TextInput, forms.Select, forms.Textarea, forms.DateInput)):
+            if isinstance(widget, (forms.TextInput, forms.PasswordInput, forms.Select, forms.Textarea, forms.DateInput, forms.FileInput, forms.EmailField)):
                 widget.attrs.setdefault('class', 'form-control')
             if isinstance(widget, (forms.RadioSelect, forms.CheckboxSelectMultiple)):
                 widget.attrs.setdefault('class', 'form-check-input')

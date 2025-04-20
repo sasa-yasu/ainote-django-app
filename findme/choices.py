@@ -385,3 +385,15 @@ class MostImportantValuesChoice(ChoiceMixin):
     LOVE = "love", "❤️愛（愛情を持ち続けること、関係性の深さ）💑"
     ENVIRONMENT = "environment", "🌿環境（自然保護や持続可能な生活）🌍"
     OTHER = "other", "❓その他の大切にしていること❕"
+
+class ImageCategoryChoice(ChoiceMixin):
+    SMILE = ('smile', '😊笑顔😄')
+    FASHION = ('fashion', '👗オシャレ🕶️')
+    HOBBY_ACTION = ('hobby_action', '🎨趣味🎸')
+    PET_LOVE = ('pet_love', '🐶ペット🐱')
+    OUTDOOR = ('outdoor', '🌄自然・お出かけ🚴')
+    SPORTS_POSE = ('sports_pose', '🏋️‍♂️スポーツ・健康美💪')
+    FOODIE = ('foodie', '🍳手料理・グルメ🍰')
+    CULTURE = ('culture', '📚知的・文化的🧠')
+    MYSTERY = ('mystery', '🎭ミステリアス🌙')
+    FUNNY = ('funny', '😂ユーモア🤪')
